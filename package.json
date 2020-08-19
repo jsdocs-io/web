@@ -1,15 +1,44 @@
 {
-  "name": "web",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "9.5.2",
-    "react": "16.13.1",
-    "react-dom": "16.13.1"
-  }
+    "private": true,
+    "name": "@jsdocs-io/web",
+    "description": "jsDocs.io website",
+    "author": "velut",
+    "version": "0.1.0",
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "tsdx lint src",
+        "lint:fix": "tsdx lint src --fix",
+        "pre-push": "yarn && yarn lint && yarn build"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+            "pre-commit": "yarn lint",
+            "pre-push": "yarn pre-push"
+        }
+    },
+    "prettier": {
+        "printWidth": 80,
+        "tabWidth": 4,
+        "semi": true,
+        "singleQuote": true,
+        "trailingComma": "es5",
+        "arrowParens": "always"
+    },
+    "dependencies": {
+        "next": "9.5.2",
+        "react": "16.13.1",
+        "react-dom": "16.13.1"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "9.1.1",
+        "@commitlint/config-conventional": "9.1.1",
+        "@types/node": "14.6.0",
+        "@types/react": "16.9.46",
+        "husky": "4.2.5",
+        "tsdx": "0.13.2",
+        "typescript": "3.9.7"
+    }
 }
