@@ -2,10 +2,20 @@ module.exports = {
     future: {
         removeDeprecatedGapUtilities: true,
     },
-    purge: ['src/**/*.tsx'],
+    purge: {
+        content: ['src/**/*.tsx'],
+        options: { whitelist: ['mode-dark'] },
+    },
     theme: {
         extend: {},
     },
-    variants: {},
-    plugins: [require('@tailwindcss/typography')],
+    variants: {
+        backgroundColor: ['dark', 'dark-hover', 'hover'],
+        borderColor: ['dark'],
+        textColor: ['dark', 'dark-hover', 'hover'],
+    },
+    plugins: [
+        require('tailwindcss-dark-mode')(),
+        require('@tailwindcss/typography'),
+    ],
 };

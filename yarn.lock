@@ -8973,10 +8973,44 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
+tailwindcss-dark-mode@1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/tailwindcss-dark-mode/-/tailwindcss-dark-mode-1.1.6.tgz#b9a7980e7a3a5f10050857232f3f6c6c6c605724"
+  integrity sha512-3+pd3DqMr0ukOfhz5FTtvrZXCph1QreTMV64HDAjSOuJC1jgnpx+JosoQK6cYACFgwNcSpaSJY0tuQRiiF8Ffg==
+  dependencies:
+    tailwindcss "^1.6.2"
+
 tailwindcss@1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.7.2.tgz#f07669e71d4f9d951016d5a03c6a82788ab2b61b"
   integrity sha512-O1RQtVpE0KbyZDZDBjCKpph6WOROijC2qc0iPsPpft9R43lhvGDL7vJXGuhb2NVXQew9FVPW+6G61f8naJnyCg==
+  dependencies:
+    "@fullhuman/postcss-purgecss" "^2.1.2"
+    autoprefixer "^9.4.5"
+    browserslist "^4.12.0"
+    bytes "^3.0.0"
+    chalk "^3.0.0 || ^4.0.0"
+    color "^3.1.2"
+    detective "^5.2.0"
+    fs-extra "^8.0.0"
+    lodash "^4.17.15"
+    node-emoji "^1.8.1"
+    normalize.css "^8.0.1"
+    object-hash "^2.0.3"
+    postcss "^7.0.11"
+    postcss-functions "^3.0.0"
+    postcss-js "^2.0.0"
+    postcss-nested "^4.1.1"
+    postcss-selector-parser "^6.0.0"
+    postcss-value-parser "^4.1.0"
+    pretty-hrtime "^1.0.3"
+    reduce-css-calc "^2.1.6"
+    resolve "^1.14.2"
+
+tailwindcss@^1.6.2:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.7.3.tgz#4aa53a482c8060e12a4a477caad562a4af0bfb16"
+  integrity sha512-e6o/qhn80hcJ+cB1jIK3C1xlDPkFHU98c2m4ONMfeIOf8jvKQ+bowD39QKsWN+JMOvfATtMjgScpjSaqO1hffQ==
   dependencies:
     "@fullhuman/postcss-purgecss" "^2.1.2"
     autoprefixer "^9.4.5"

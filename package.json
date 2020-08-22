@@ -43,6 +43,7 @@
         "prettier": "2.0.5",
         "stylelint-config-recommended": "3.0.0",
         "tailwindcss": "1.7.2",
+        "tailwindcss-dark-mode": "1.1.6",
         "tsdx": "0.13.2",
         "typescript": "3.9.7"
     }
