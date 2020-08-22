@@ -1,28 +1,26 @@
+import Link from 'next/link';
 import React from 'react';
 
 export function NavbarLinks() {
     return (
         <nav className="flex items-center mt-2 sm:mt-0 sm:ml-6">
-            <a
-                className="block p-2 text-lg font-bold text-gray-900 rounded hover:bg-gray-200 dark:text-gray-100 dark-hover:bg-gray-800"
-                href="/"
-            >
-                Home
-            </a>
+            <Link href="/">
+                <a className="block p-2 text-lg font-bold text-gray-900 rounded hover:bg-gray-200 dark:text-gray-100 dark-hover:bg-gray-800">
+                    Home
+                </a>
+            </Link>
 
-            <a
-                className="block p-2 ml-2 text-lg font-bold text-gray-900 rounded hover:bg-gray-200 dark:text-gray-100 dark-hover:bg-gray-800"
-                href="/guide"
-            >
-                Guide
-            </a>
+            <Link href="/guide">
+                <a className="block p-2 ml-2 text-lg font-bold text-gray-900 rounded hover:bg-gray-200 dark:text-gray-100 dark-hover:bg-gray-800">
+                    Guide
+                </a>
+            </Link>
 
-            <a
-                className="block p-2 ml-2 text-lg font-bold text-gray-900 rounded hover:bg-gray-200 dark:text-gray-100 dark-hover:bg-gray-800"
-                href="/about"
-            >
-                About
-            </a>
+            <Link href="/about">
+                <a className="block p-2 ml-2 text-lg font-bold text-gray-900 rounded hover:bg-gray-200 dark:text-gray-100 dark-hover:bg-gray-800">
+                    About
+                </a>
+            </Link>
         </nav>
     );
 }
