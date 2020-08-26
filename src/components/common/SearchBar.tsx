@@ -53,7 +53,7 @@ export function SearchBar() {
             >
                 <svg
                     viewBox="0 0 20 20"
-                    className="w-6 h-6 text-gray-500 fill-current"
+                    className="w-6 h-6 text-gray-600 fill-current hover:text-gray-800 dark:text-gray-500 dark-hover:text-gray-300"
                 >
                     <path
                         fillRule="evenodd"
