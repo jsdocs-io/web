@@ -20,7 +20,7 @@ export function Layout(props: any) {
                 />
             </Head>
 
-            <div className="flex flex-col h-screen">
+            <div className="flex flex-col h-screen text-gray-900 dark:text-gray-100">
                 <PageTopAnchor />
 
                 <Navbar

@@ -35,7 +35,7 @@ export function SearchBar() {
     return (
         <div className="relative w-full">
             <input
-                className="w-full py-3 pl-4 pr-16 text-gray-900 border border-gray-300 rounded dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                className="w-full py-3 pl-4 pr-16 border border-gray-300 rounded dark:border-gray-700 dark:bg-gray-900"
                 id="search-bar"
                 type="search"
                 name="q"
