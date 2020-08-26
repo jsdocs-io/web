@@ -15,7 +15,7 @@ export default function IndexPage() {
             </Head>
 
             <Layout>
-                <div className="flex flex-col items-center sm:mt-8">
+                <div className="flex flex-col items-center">
                     <img
                         className="h-32"
                         src="/logo.png"
