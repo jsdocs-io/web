@@ -14,13 +14,13 @@ const ThemeButton = dynamic(
 
 export function Navbar({ isDarkMode, toggleDarkMode }: DarkModeHook) {
     return (
-        <header className="flex items-center justify-between px-4 py-3 bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
-            <div className="sm:flex sm:items-center">
+        <header className="flex items-center justify-between py-3 bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
+            <div className="pl-4 sm:flex sm:items-center">
                 <NavbarLogo />
                 <NavbarLinks />
             </div>
 
-            <div>
+            <div className="pr-2">
                 <ThemeButton
                     isDarkMode={isDarkMode}
                     toggleDarkMode={toggleDarkMode}

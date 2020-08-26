@@ -4,7 +4,7 @@ import { DarkModeHook } from '../../hooks/useDarkMode';
 export function ThemeButton({ isDarkMode, toggleDarkMode }: DarkModeHook) {
     return (
         <button
-            className="block text-gray-600 hover:text-gray-800 dark:text-gray-500 dark-hover:text-gray-300"
+            className="block p-2 text-gray-600 hover:text-gray-800 dark:text-gray-500 dark-hover:text-gray-300"
             onClick={toggleDarkMode}
             title="Toggle dark mode"
         >
