@@ -1,19 +1,27 @@
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React from 'react';
+import { useSearch } from '../../hooks/useSearch';
 
-export function SearchBar() {
-    const [query, setQuery] = useState('');
+export function SearchBar({ initialQuery = '' }: { initialQuery?: string }) {
     const router = useRouter();
 
-    const performSearch = () => {
-        if (!query.trim().length) {
-            return;
-        }
+    const {
+        rawQuery,
+        cleanQuery,
+        prevQuery,
+        setQuery,
+        setSearched,
+    } = useSearch(initialQuery);
 
-        router.push({
-            pathname: '/search',
-            query: { query },
-        });
+    const performSearch = () => {
+        if (cleanQuery && cleanQuery !== prevQuery) {
+            setSearched();
+
+            router.push({
+                pathname: '/search',
+                query: { query: cleanQuery },
+            });
+        }
     };
 
     const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +48,7 @@ export function SearchBar() {
                 type="search"
                 name="q"
                 placeholder="Search packages"
-                value={query}
+                value={rawQuery}
                 onChange={onInputChange}
                 onKeyPress={onEnterKeyPress}
             />
