@@ -29,8 +29,10 @@
     },
     "dependencies": {
         "next": "9.5.2",
+        "query-registry": "^1.0.0",
         "react": "16.13.1",
-        "react-dom": "16.13.1"
+        "react-dom": "16.13.1",
+        "short-time-ago": "^1.1.1"
     },
     "devDependencies": {
         "@commitlint/cli": "9.1.1",
