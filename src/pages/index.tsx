@@ -10,7 +10,7 @@ export default function IndexPage() {
                 <title>jsDocs.io</title>
                 <meta
                     name="description"
-                    content="jsDocs.io is a documentation host for npm packages"
+                    content="jsDocs.io is a documentation host for Javascript and Typescript packages"
                 />
             </Head>
 
