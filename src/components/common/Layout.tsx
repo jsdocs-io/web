@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
+import { useAnchorLinks } from '../../hooks/useAnchorLinks';
 import { useDarkMode } from '../../hooks/useDarkMode';
 import { Footer } from './Footer';
 import { Main } from './Main';
@@ -8,6 +9,7 @@ import { PageTopAnchor } from './PageTopAnchor';
 
 export function Layout(props: any) {
     const { isDarkMode, toggleDarkMode } = useDarkMode();
+    useAnchorLinks();
 
     return (
         <>
