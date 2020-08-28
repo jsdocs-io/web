@@ -18,25 +18,27 @@ export default function SearchPage({ query, searchResults }: SearchPageProps) {
     }
 
     return (
-        <Layout>
+        <>
             <Head>
                 <title>{query} - jsDocs.io</title>
                 <meta
                     name="description"
-                    content={`Search results for ${query} on jsDocs.io`}
+                    content={`Search results for '${query}' on jsDocs.io`}
                 />
             </Head>
 
-            <div className="flex justify-center">
-                <div className="w-full lg:w-2/3">
-                    <SearchBar initialQuery={query} />
+            <Layout>
+                <div className="flex justify-center">
+                    <div className="w-full lg:w-2/3">
+                        <SearchBar initialQuery={query} />
 
-                    <div className="mt-12">
-                        <SearchResults searchResults={searchResults} />
+                        <div className="mt-12">
+                            <SearchResults searchResults={searchResults} />
+                        </div>
                     </div>
                 </div>
-            </div>
-        </Layout>
+            </Layout>
+        </>
     );
 }
 
