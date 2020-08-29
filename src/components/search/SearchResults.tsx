@@ -26,6 +26,7 @@ export default function SearchResults({
                             as={`/package/${name}/v/${version}`}
                             prefetch={false}
                         >
+                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                             <a
                                 className="text-xl font-bold text-blue-700 dark:text-blue-300 hover:underline"
                                 title={`${name}@${version}`}

@@ -11,7 +11,7 @@ export function TimeAgo({ date: dateString }: { date: string }) {
         }, 60000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [date]);
 
     return <span title={date.toUTCString()}>{description}</span>;
 }

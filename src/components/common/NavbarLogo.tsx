@@ -4,6 +4,7 @@ import React from 'react';
 export function NavbarLogo() {
     return (
         <Link href="/">
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a className="flex items-center pl-2 sm:pl-0" title="jsDocs.io">
                 <img className="h-12" src="/logo.png" alt="jsDocs.io logo" />
 

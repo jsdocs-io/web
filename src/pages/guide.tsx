@@ -257,7 +257,14 @@ export const name = 'foo';`.trim()}
                 </li>
             </ol>
 
-            <a id="include-source-files" className="hidden" />
+            {/* // TODO: maybe heading or another section  */}
+            <a
+                id="include-source-files"
+                href="#include-source-files"
+                className="hidden"
+            >
+                Include source files anchor
+            </a>
             <P>
                 To include source files in your package when publishing to npm,
                 you need to specify the appropriate file patterns inside{' '}

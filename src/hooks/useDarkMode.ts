@@ -6,17 +6,12 @@ export interface DarkModeHook {
 }
 
 export function useDarkMode(): DarkModeHook {
-    if (typeof window === 'undefined') {
-        return {
-            isDarkMode: false,
-            toggleDarkMode: () => {},
-        };
-    }
+    const isBrowser = typeof window !== 'undefined';
 
     const themeKey = 'theme';
     const themeLight = 'light';
     const themeDark = 'dark';
-    const themeLocal = localStorage.getItem(themeKey);
+    const themeLocal = isBrowser ? localStorage.getItem(themeKey) : undefined;
 
     const [isDarkMode, setDarkMode] = useState(themeLocal === themeDark);
     const toggleDarkMode = () => {
