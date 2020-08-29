@@ -36,8 +36,8 @@
         "short-time-ago": "^1.1.1"
     },
     "devDependencies": {
-        "@commitlint/cli": "9.1.1",
-        "@commitlint/config-conventional": "9.1.1",
+        "@commitlint/cli": "9.1.2",
+        "@commitlint/config-conventional": "9.1.2",
         "@tailwindcss/typography": "0.2.0",
         "@types/anchor-js": "4.2.0",
         "@types/node": "14.6.0",
