@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import { A } from '../components/common/A';
+import { H1 } from '../components/common/H1';
 import { H2 } from '../components/common/H2';
 import { InlineCode } from '../components/common/InlineCode';
 import { InternalLink } from '../components/common/InternalLink';
@@ -35,7 +36,7 @@ export default function AboutPage() {
 function IntroSection() {
     return (
         <section>
-            <h1 className="mb-4 text-4xl font-bold">About</h1>
+            <H1>About</H1>
 
             <P>
                 jsDocs.io is a documentation host for Javascript and Typescript
