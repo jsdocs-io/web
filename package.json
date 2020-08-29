@@ -42,6 +42,7 @@
         "@types/anchor-js": "4.2.0",
         "@types/node": "14.6.2",
         "@types/react": "16.9.48",
+        "eslint-plugin-prettier": "3.1.4",
         "husky": "4.2.5",
         "postcss-preset-env": "6.7.0",
         "prettier": "2.1.1",
