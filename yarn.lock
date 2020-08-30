@@ -6208,7 +6208,7 @@ make-dir@^3.0.2:
   dependencies:
     semver "^6.0.0"
 
-make-error@1.x:
+make-error@1.x, make-error@^1.3.6:
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/make-error/-/make-error-1.3.6.tgz#2eb2e37ea9b67c4891f684a1394799af484cf7a2"
   integrity sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==
@@ -7852,10 +7852,10 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-query-registry@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/query-registry/-/query-registry-1.0.0.tgz#36d92a760c3005cd99d2e1b7b898b9d0c24d8f31"
-  integrity sha512-Cx3NdWHqvFaTuvvNDJGEZ6rT9lVjsMhJyMVkDmdcL0ztp8Xi1KUIsQAJQXQWsmTS2QfWTVg0waxj6wSBEdmkrQ==
+query-registry@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/query-registry/-/query-registry-1.1.0.tgz#c4ac6f0e928b0cef640997442cd60b9b6947dac6"
+  integrity sha512-ZJ+6vKSNhoM2T/TrJbgfcJhvz9rTfdXcRM63uQThtTrxI34DR5AEhP5IlPY+DUzl1aw6Xd1UcW76QrJKuFyeoQ==
   dependencies:
     "@types/cacheable-request" "^6.0.1"
     cacheable-request "^7.0.1"
@@ -7863,6 +7863,7 @@ query-registry@^1.0.0:
     git-url-parse "^11.1.2"
     got "^11.4.0"
     hosted-git-info "^3.0.4"
+    make-error "^1.3.6"
     proper-url-join "^2.1.1"
     validate-npm-package-name "^3.0.0"
 
