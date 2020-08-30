@@ -30,7 +30,7 @@
     "dependencies": {
         "anchor-js": "^4.2.2",
         "next": "9.5.2",
-        "query-registry": "^1.1.0",
+        "query-registry": "^1.2.0",
         "react": "16.13.1",
         "react-dom": "16.13.1",
         "short-time-ago": "^1.1.1"
