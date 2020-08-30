@@ -4679,7 +4679,7 @@ git-up@^4.0.0:
     is-ssh "^1.3.0"
     parse-url "^5.0.0"
 
-git-url-parse@^11.1.2:
+git-url-parse@^11.1.3:
   version "11.1.3"
   resolved "https://registry.yarnpkg.com/git-url-parse/-/git-url-parse-11.1.3.tgz#03625b6fc09905e9ad1da7bb2b84be1bf9123143"
   integrity sha512-GPsfwticcu52WQ+eHp0IYkAyaOASgYdtsQDIt4rUp6GbiNt1P9ddrh3O0kQB0eD4UJZszVqNT3+9Zwcg40fywA==
@@ -4752,7 +4752,7 @@ globrex@^0.1.1:
   resolved "https://registry.yarnpkg.com/globrex/-/globrex-0.1.2.tgz#dd5d9ec826232730cd6793a5e33a9302985e6098"
   integrity sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==
 
-got@^11.4.0:
+got@^11.5.2:
   version "11.5.2"
   resolved "https://registry.yarnpkg.com/got/-/got-11.5.2.tgz#772e3f3a06d9c7589c7c94dc3c83cdb31ddbf742"
   integrity sha512-yUhpEDLeuGiGJjRSzEq3kvt4zJtAcjKmhIiwNp/eUs75tRlXfWcHo5tcBaMQtnjHWC7nQYT5HkY/l0QOQTkVww==
@@ -4893,7 +4893,7 @@ hosted-git-info@^2.1.4:
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.8.tgz#7539bd4bc1e0e0a895815a2e0262420b12858488"
   integrity sha512-f/wzC2QaWBs7t9IYqB4T3sR1xviIViXJRJTWBlx2Gf3g0Xi5vI7Yy4koXQ1c9OYDGHN9sBy1DQ2AB8fqZBWhUg==
 
-hosted-git-info@^3.0.4:
+hosted-git-info@^3.0.5:
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-3.0.5.tgz#bea87905ef7317442e8df3087faa3c842397df03"
   integrity sha512-i4dpK6xj9BIpVOTboXIlKG9+8HMKggcrMX7WA24xZtKwX0TPelq/rbaS5rCKeNX8sJXZJGdSxpnEGtta+wismQ==
@@ -7852,17 +7852,17 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-query-registry@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/query-registry/-/query-registry-1.1.0.tgz#c4ac6f0e928b0cef640997442cd60b9b6947dac6"
-  integrity sha512-ZJ+6vKSNhoM2T/TrJbgfcJhvz9rTfdXcRM63uQThtTrxI34DR5AEhP5IlPY+DUzl1aw6Xd1UcW76QrJKuFyeoQ==
+query-registry@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/query-registry/-/query-registry-1.2.0.tgz#84227b11ecd7def139a72013db56bd5f24bd11e9"
+  integrity sha512-QH9ELwpDObmTpGy5kJntQ1r1nqF4kTgibBuHZe9YwjJyQJR5cMQyUtfsZOG/CnrpkLU9nErVQRx32g7Lk51KLw==
   dependencies:
     "@types/cacheable-request" "^6.0.1"
     cacheable-request "^7.0.1"
     debug "^4.1.1"
-    git-url-parse "^11.1.2"
-    got "^11.4.0"
-    hosted-git-info "^3.0.4"
+    git-url-parse "^11.1.3"
+    got "^11.5.2"
+    hosted-git-info "^3.0.5"
     make-error "^1.3.6"
     proper-url-join "^2.1.1"
     validate-npm-package-name "^3.0.0"
