@@ -75,7 +75,7 @@ function AddingAPackageSection() {
 
                 <li>
                     Directly visit the package's documentation page at{' '}
-                    <InlineCode code="https://www.jsdocs.io/package/<name>" />
+                    <InlineCode code="jsdocs.io/package/<name>" />
                 </li>
             </ul>
 
