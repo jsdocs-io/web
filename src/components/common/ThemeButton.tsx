@@ -8,11 +8,7 @@ export function ThemeButton({ isDarkMode, toggleDarkMode }: DarkModeHook) {
             onClick={toggleDarkMode}
             title="Toggle dark mode"
         >
-            <svg
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-6 h-6 fill-current"
-            >
+            <svg viewBox="0 0 20 20" className="w-6 h-6 fill-current">
                 {isDarkMode ? (
                     <path
                         fillRule="evenodd"
