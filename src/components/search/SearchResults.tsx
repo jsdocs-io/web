@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { SearchResult } from 'query-registry';
 import React from 'react';
 import { TimeAgo } from '../../components/common/TimeAgo';
+import { A } from '../common/A';
+import { InlineCode } from '../common/InlineCode';
+import { P } from '../common/P';
 
 export default function SearchResults({
     searchResults,
@@ -20,7 +23,7 @@ export default function SearchResults({
                     date,
                     publisher: { username },
                 }) => (
-                    <div key={name} className="mt-6">
+                    <div key={name} className="mt-8">
                         <Link
                             href="/package/[...slug]"
                             as={`/package/${name}/v/${version}`}
@@ -35,25 +38,24 @@ export default function SearchResults({
                             </a>
                         </Link>
 
-                        {description && <p>{description}</p>}
+                        {description && <P>{description}</P>}
 
-                        <p>
-                            Version <span className="font-mono">{version}</span>{' '}
-                            published <TimeAgo date={date} />
+                        <P>
+                            Version <InlineCode code={version} /> published{' '}
+                            <TimeAgo date={date} />
                             {username && (
-                                <span>
+                                <>
                                     {' '}
                                     by{' '}
-                                    <a
-                                        className="text-blue-700 dark:text-blue-300 hover:underline"
+                                    <A
                                         href={`https://www.npmjs.com/~${username}`}
                                         title={`${username}'s npm profile page`}
                                     >
                                         {username}
-                                    </a>
-                                </span>
+                                    </A>
+                                </>
                             )}
-                        </p>
+                        </P>
                     </div>
                 )
             )}
