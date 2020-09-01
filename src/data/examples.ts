@@ -22,14 +22,17 @@ export const exampleOverview = `
  * {@link SomeClass.someMethod | someMethod from SomeClass}
  *
  * Links to declarations in other packages:
- * {@link short-time-ago#timeAgo}
+ * {@link short-time-ago#timeAgo | timeAgo function from package \`short-time-ago\`}
  *
  * @example
- * \`Inline Code\`
+ * Inline code:
+ * \`ENV_VAR=true\`
  *
  * @example
+ * Code blocks:
  * \`\`\`typescript
- * // Code blocks
+ * // someFile.ts
+ *
  * const foo = 42;
  * \`\`\`
  *
@@ -41,6 +44,7 @@ export const exampleOverview = `
 
 export const exampleOverviewFile = `
 // index.ts
+
 ${exampleOverview}`.trim();
 
 export const exampleDeclarationDoc = `
@@ -63,6 +67,7 @@ export const exampleDeclarationDoc = `
 
 export const exampleDeclarationFile = `
 // index.ts
+
 ${exampleDeclarationDoc}
 export function sum(a: number, b: number): number {
     return a + b;
@@ -71,7 +76,7 @@ export function sum(a: number, b: number): number {
 export const exampleDeclarationSignature =
     'sum: (a: number, b: number) => number;';
 
-export const examplePackageJSON = `
+export const examplePackageJSONRepository = `
 // package.json
 
 {
@@ -82,3 +87,24 @@ export const examplePackageJSON = `
     },
     ...
 }`.trim();
+
+export const examplePackageJSONFiles = `
+// package.json
+
+{
+    ...,
+    "files": [
+        "src",
+        "dist"
+    ],
+    ...
+}`.trim();
+
+export const exampleIndexFile = `
+// index.ts
+
+// Re-export from another module
+export * from './other-file';
+
+// Direct export
+export const name = 'foo';`.trim();

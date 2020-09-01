@@ -1,13 +1,26 @@
 import Head from 'next/head';
 import React from 'react';
 import { A } from '../components/common/A';
+import { CodeBlock } from '../components/common/CodeBlock';
+import { DocComment } from '../components/common/DocComment';
 import { H1 } from '../components/common/H1';
 import { H2 } from '../components/common/H2';
+import { H3 } from '../components/common/H3';
 import { InlineCode } from '../components/common/InlineCode';
 import { InternalLink } from '../components/common/InternalLink';
 import { Layout } from '../components/common/Layout';
 import { P } from '../components/common/P';
 import { Section } from '../components/common/Section';
+import {
+    exampleDeclarationDoc,
+    exampleDeclarationFile,
+    exampleDeclarationSignature,
+    exampleIndexFile,
+    exampleOverview,
+    exampleOverviewFile,
+    examplePackageJSONFiles,
+    examplePackageJSONRepository,
+} from '../data/examples';
 
 export default function GuidePage() {
     return (
@@ -201,18 +214,7 @@ function IndexFileSection() {
                 direct export and a module re-export:
             </P>
 
-            {/* // TODO:  */}
-            {/* <CodeBlock
-                code={`
-// index.ts
-
-// Re-export from another module
-export * from './other-file';
-
-// Direct export
-export const name = 'foo';`.trim()}
-                language="typescript"
-            /> */}
+            <CodeBlock code={exampleIndexFile} language="typescript" />
 
             <P>
                 Your package's index file must match one of the following
@@ -278,21 +280,7 @@ export const name = 'foo';`.trim()}
                 <InlineCode code="package.json" /> should look like this:
             </P>
 
-            {/* // TODO:  */}
-            {/* <CodeBlock
-                code={`
-// package.json
-
-{
-    ...,
-    "files": [
-        "src",
-        "dist"
-    ],
-    ...
-}`.trim()}
-                language="json"
-            /> */}
+            <CodeBlock code={examplePackageJSONFiles} language="json" />
         </Section>
     );
 }
@@ -317,8 +305,7 @@ function PackageOverviewSection() {
                 package's index file like in the following example:
             </P>
 
-            {/* // TODO:  */}
-            {/* <CodeBlock code={exampleOverviewFile} language="typescript" /> */}
+            <CodeBlock code={exampleOverviewFile} language="typescript" />
 
             <P>
                 The documentation comment above is rendered according to the{' '}
@@ -326,10 +313,9 @@ function PackageOverviewSection() {
                 as follows:
             </P>
 
-            {/* // TODO:  */}
-            {/* <div className="p-4 my-3 border rounded">
+            <div className="p-4 my-4 border border-gray-300 rounded dark:border-gray-700">
                 <DocComment doc={exampleOverview} />
-            </div> */}
+            </div>
 
             <P>
                 For more information and examples about TSDoc, see the{' '}
@@ -369,17 +355,15 @@ function PackageDeclarationsSection() {
                 documentation comments like in the following example:
             </P>
 
-            {/* // TODO:  */}
-            {/* <CodeBlock code={exampleDeclarationFile} language="typescript" /> */}
+            <CodeBlock code={exampleDeclarationFile} language="typescript" />
 
             <P>
                 The documentation for the <InlineCode code="sum" /> function
                 above is rendered as follows:
             </P>
 
-            {/* // TODO:  */}
-            {/* <div className="p-4 my-3 border rounded">
-                <h3>function sum</h3>
+            <div className="p-4 my-4 border border-gray-300 rounded dark:border-gray-700">
+                <H3>function sum</H3>
 
                 <CodeBlock
                     code={exampleDeclarationSignature}
@@ -387,7 +371,7 @@ function PackageDeclarationsSection() {
                 />
 
                 <DocComment doc={exampleDeclarationDoc} />
-            </div> */}
+            </div>
 
             <P>
                 To prevent an exported declaration from being documented, use
@@ -426,8 +410,7 @@ function LinkingToSourceSection() {
                 example:
             </P>
 
-            {/* // TODO:  */}
-            {/* <CodeBlock code={examplePackageJSON} language="json" /> */}
+            <CodeBlock code={examplePackageJSONRepository} language="json" />
 
             <P>
                 The commit corresponding to the published version of your
