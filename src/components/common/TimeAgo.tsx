@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { timeAgo } from 'short-time-ago';
 
-export function TimeAgo({ date: dateString }: { date: string }) {
-    const date = new Date(dateString);
+export function TimeAgo({ date: rawDate }: { date: string }) {
+    const date = new Date(rawDate);
     const [description, setDescription] = useState(timeAgo(date));
 
     useEffect(() => {
@@ -13,5 +13,9 @@ export function TimeAgo({ date: dateString }: { date: string }) {
         return () => clearInterval(interval);
     }, [date]);
 
-    return <span title={date.toUTCString()}>{description}</span>;
+    return (
+        <time title={date.toUTCString()} dateTime={date.toISOString()}>
+            {description}
+        </time>
+    );
 }
