@@ -28,6 +28,8 @@
         "arrowParens": "always"
     },
     "dependencies": {
+        "@braintree/sanitize-url": "^4.1.1",
+        "@microsoft/tsdoc": "^0.12.20",
         "anchor-js": "^4.2.2",
         "next": "9.5.2",
         "prism-react-renderer": "^1.1.1",

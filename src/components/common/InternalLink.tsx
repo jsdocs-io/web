@@ -1,8 +1,10 @@
+import { sanitizeUrl } from '@braintree/sanitize-url';
 import Link from 'next/link';
 import React from 'react';
+import { A } from './A';
 
 export function InternalLink({
-    href,
+    href: rawHref,
     title,
     children,
 }: {
@@ -10,7 +12,15 @@ export function InternalLink({
     title?: string;
     children: React.ReactNode;
 }) {
-    return (
+    const href = sanitizeUrl(rawHref);
+    const samePage = href.startsWith('#');
+
+    return samePage ? (
+        // A simple <a> tag prevents re-render
+        <A href={href} title={title}>
+            {children}
+        </A>
+    ) : (
         <Link href={href}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a

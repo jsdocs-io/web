@@ -1195,6 +1195,11 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@braintree/sanitize-url@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-4.1.1.tgz#671b3cfdbcc40d1449036ce586e882ab6150828e"
+  integrity sha512-epVksusKVEpwBs2vRg3SWssxn9KXs9CxEYNOcgeSRLRjq070ABj5bLPxkmtQpVeSPCHj8kfAE9J6z2WsLr4wZg==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -1499,6 +1504,11 @@
     "@types/istanbul-lib-coverage" "^2.0.0"
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
+
+"@microsoft/tsdoc@^0.12.20":
+  version "0.12.20"
+  resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.12.20.tgz#4261285f666ee0c0378f810585dd4ec5bbfa8852"
+  integrity sha512-/b13m37QZYPV6nCOiqkFyvlQjlTNvAcQpgFZ6ZKIqtStJxNdqVo/frULubxMUMWi6p9Uo5f4BRlguv5ViFcL0A==
 
 "@next/react-dev-overlay@9.5.2":
   version "9.5.2"
