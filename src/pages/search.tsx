@@ -2,10 +2,10 @@ import { GetServerSideProps } from 'next';
 import Head from 'next/head';
 import { SearchResult } from 'query-registry';
 import React from 'react';
-import { registry } from '../common/registry';
 import { Layout } from '../components/common/Layout';
 import { SearchBar } from '../components/common/SearchBar';
 import SearchResults from '../components/search/SearchResults';
+import { registry } from '../lib/registry';
 
 export interface SearchPageProps {
     readonly query?: string;
