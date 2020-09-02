@@ -31,7 +31,7 @@
         "@braintree/sanitize-url": "^4.1.1",
         "@microsoft/tsdoc": "^0.12.20",
         "anchor-js": "^4.2.2",
-        "next": "9.5.2",
+        "next": "9.5.3",
         "prism-react-renderer": "^1.1.1",
         "prismjs": "^1.21.0",
         "query-registry": "^1.2.0",
