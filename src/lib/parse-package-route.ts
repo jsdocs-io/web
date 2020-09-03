@@ -1,20 +1,45 @@
 import { match } from 'path-to-regexp';
 import validateNpmPackageName from 'validate-npm-package-name';
 
-const matchLatestDocRoute = match('/:scope(@[^/]+)?/:name([^@/]+)');
-const matchVersionDocRoute = match('/:scope(@[^/]+)?/:name([^@/]+)/v/:version');
-const matchVersionsRoute = match('/:scope(@[^/]+)?/:name([^@/]+)/versions');
-
-export interface ParsedPackageRoute {
-    readonly kind: PackageRouteKind;
-    readonly name: string;
-    readonly version?: string;
-}
+const matchRouteDocLatestVersion = match('/:scope(@[^/]+)?/:name([^@/]+)');
+const matchRouteDocFixedVersion = match(
+    '/:scope(@[^/]+)?/:name([^@/]+)/v/:version'
+);
+const matchRouteAvailableVersions = match(
+    '/:scope(@[^/]+)?/:name([^@/]+)/versions'
+);
 
 export enum PackageRouteKind {
-    LatestDocRoute,
-    VersionDocRoute,
-    VersionsRoute,
+    DocLatestVersion = 'DocLatestVersion',
+    DocFixedVersion = 'DocFixedVersion',
+    AvailableVersions = 'AvailableVersions',
+    Error = 'Error',
+}
+
+export type PackageRoute =
+    | PackageRouteDocLatestVersion
+    | PackageRouteDocFixedVersion
+    | PackageRouteAvailableVersions
+    | PackageRouteError;
+
+export interface PackageRouteDocLatestVersion {
+    readonly kind: PackageRouteKind.DocLatestVersion;
+    readonly name: string;
+}
+
+export interface PackageRouteDocFixedVersion {
+    readonly kind: PackageRouteKind.DocFixedVersion;
+    readonly name: string;
+    readonly version: string;
+}
+
+export interface PackageRouteAvailableVersions {
+    readonly kind: PackageRouteKind.AvailableVersions;
+    readonly name: string;
+}
+
+export interface PackageRouteError {
+    readonly kind: PackageRouteKind.Error;
 }
 
 interface PackageNameAndVersionParams extends PackageNameParams {
@@ -26,24 +51,25 @@ interface PackageNameParams {
     readonly name: string;
 }
 
-export function parsePackageRoute({
-    route,
-}: {
-    route: string;
-}): ParsedPackageRoute | undefined {
+export function parsePackageRoute({ route }: { route: string }): PackageRoute {
+    const errorRoute: PackageRouteError = {
+        kind: PackageRouteKind.Error,
+    };
+
     return (
-        parseLatestDocRoute({ route }) ??
-        parseVersionDocRoute({ route }) ??
-        parseVersionsRoute({ route })
+        parseRouteDocLatestVersion({ route }) ??
+        parseRouteDocFixedVersion({ route }) ??
+        parseRouteAvailableVersions({ route }) ??
+        errorRoute
     );
 }
 
-function parseLatestDocRoute({
+function parseRouteDocLatestVersion({
     route,
 }: {
     route: string;
-}): ParsedPackageRoute | undefined {
-    const matched = matchLatestDocRoute(route);
+}): PackageRouteDocLatestVersion | undefined {
+    const matched = matchRouteDocLatestVersion(route);
     if (!matched) {
         return undefined;
     }
@@ -55,17 +81,17 @@ function parseLatestDocRoute({
     }
 
     return {
-        kind: PackageRouteKind.LatestDocRoute,
+        kind: PackageRouteKind.DocLatestVersion,
         name,
     };
 }
 
-function parseVersionDocRoute({
+function parseRouteDocFixedVersion({
     route,
 }: {
     route: string;
-}): ParsedPackageRoute | undefined {
-    const matched = matchVersionDocRoute(route);
+}): PackageRouteDocFixedVersion | undefined {
+    const matched = matchRouteDocFixedVersion(route);
     if (!matched) {
         return undefined;
     }
@@ -79,18 +105,18 @@ function parseVersionDocRoute({
     const { version } = params;
 
     return {
-        kind: PackageRouteKind.VersionDocRoute,
+        kind: PackageRouteKind.DocFixedVersion,
         name,
         version,
     };
 }
 
-function parseVersionsRoute({
+function parseRouteAvailableVersions({
     route,
 }: {
     route: string;
-}): ParsedPackageRoute | undefined {
-    const matched = matchVersionsRoute(route);
+}): PackageRouteAvailableVersions | undefined {
+    const matched = matchRouteAvailableVersions(route);
     if (!matched) {
         return undefined;
     }
@@ -102,7 +128,7 @@ function parseVersionsRoute({
     }
 
     return {
-        kind: PackageRouteKind.VersionsRoute,
+        kind: PackageRouteKind.AvailableVersions,
         name,
     };
 }
