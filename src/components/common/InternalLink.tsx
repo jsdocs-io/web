@@ -5,10 +5,12 @@ import { A } from './A';
 
 export function InternalLink({
     href: rawHref,
+    as,
     title,
     children,
 }: {
     href: string;
+    as?: string;
     title?: string;
     children: React.ReactNode;
 }) {
@@ -21,7 +23,7 @@ export function InternalLink({
             {children}
         </A>
     ) : (
-        <Link href={href} prefetch={false}>
+        <Link href={href} as={as} prefetch={false}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a
                 className="text-blue-700 dark:text-blue-300 hover:underline"

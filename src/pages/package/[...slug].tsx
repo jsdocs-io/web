@@ -1,37 +1,32 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { TimeAgo } from '../../components/common/TimeAgo';
+import { PackagePageAvailableVersions } from '../../components/package/PackagePageAvailableVersions';
+import { PackagePageLoading } from '../../components/package/PackagePageLoading';
 import {
-    PackageRouteKind,
-    parsePackageRoute,
-} from '../../lib/parse-package-route';
+    getPackagePageStaticProps,
+    PackagePageProps,
+} from '../../lib/get-package-page-static-props';
+import { PackageRouteKind } from '../../lib/parse-package-route';
+import My404 from '../404';
 
-const second = 1;
-const minute = 60 * second;
-const hour = 60 * minute;
-const day = 24 * hour;
-const hourly = 1 * hour;
-const daily = 1 * day;
-
-export default function PackagePage({
-    name,
-    date,
-}: {
-    name: string;
-    date: string;
-}) {
+export default function PackagePage(props: PackagePageProps) {
     const router = useRouter();
 
     if (router.isFallback) {
-        return <h1>Loading...</h1>;
+        return <PackagePageLoading />;
     }
 
-    return (
-        <h1>
-            Package {name} - <TimeAgo date={date} />
-        </h1>
-    );
+    switch (props.kind) {
+        case PackageRouteKind.DocLatestVersion:
+            return <>TODO:</>;
+        case PackageRouteKind.DocFixedVersion:
+            return <>TODO:</>;
+        case PackageRouteKind.AvailableVersions:
+            return <PackagePageAvailableVersions {...props} />;
+        case PackageRouteKind.Error:
+            return <My404 />;
+    }
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -43,36 +38,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
     const slug = params!.slug as string[];
-    const slugRoute = slug.slice(0, 4).join('/');
+    const slugRoute = slug.join('/');
     const route = `/${slugRoute}`;
-    const parsedRoute = parsePackageRoute({ route });
-    if (!parsedRoute) {
-        return { props: {} };
-    }
-
-    const date = new Date().toISOString();
-    switch (parsedRoute.kind) {
-        case PackageRouteKind.LatestDocRoute:
-            return {
-                props: { name: parsedRoute.name, date },
-                revalidate: hourly,
-            };
-        case PackageRouteKind.VersionDocRoute:
-            return {
-                props: {
-                    name: parsedRoute.name,
-                    version: parsedRoute.version as string,
-                    date,
-                },
-                revalidate: daily,
-            };
-        case PackageRouteKind.VersionsRoute:
-            return {
-                props: {
-                    name: parsedRoute.name,
-                    date,
-                },
-                revalidate: hourly,
-            };
-    }
+    return getPackagePageStaticProps({ route });
 };
