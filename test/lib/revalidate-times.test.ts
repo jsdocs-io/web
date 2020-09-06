@@ -1,4 +1,10 @@
-import { day, hour, minute, second, week } from '../../src/lib/revalidate-time';
+import {
+    day,
+    hour,
+    minute,
+    second,
+    week,
+} from '../../src/lib/revalidate-times';
 
 describe('Revalidation times', () => {
     it('should be correctly defined', () => {

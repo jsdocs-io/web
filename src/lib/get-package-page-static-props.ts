@@ -16,7 +16,7 @@ import {
     parsePackageRoute,
 } from './parse-package-route';
 import { registry } from './registry';
-import { hour, week } from './revalidate-time';
+import { hour, week } from './revalidate-times';
 
 export async function getPackagePageStaticProps({
     route,
