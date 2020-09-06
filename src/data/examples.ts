@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 export const exampleOverview = `
 /**
  * This is the package overview, denoted by the \`@packageDocumentation\` tag below.
