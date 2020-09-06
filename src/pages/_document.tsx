@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import Document, {
     DocumentContext,
     Head,
