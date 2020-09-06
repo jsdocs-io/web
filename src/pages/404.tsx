@@ -2,7 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import { Layout } from '../components/common/Layout';
 
-export default function My404() {
+export default function Page404() {
     return (
         <>
             <Head>
