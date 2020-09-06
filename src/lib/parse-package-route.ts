@@ -9,13 +9,6 @@ const matchRouteAvailableVersions = match(
     '/:scope(@[^/]+)?/:name([^@/]+)/versions'
 );
 
-export enum PackageRouteKind {
-    DocLatestVersion = 'DocLatestVersion',
-    DocFixedVersion = 'DocFixedVersion',
-    AvailableVersions = 'AvailableVersions',
-    Error = 'Error',
-}
-
 export type PackageRoute =
     | PackageRouteDocLatestVersion
     | PackageRouteDocFixedVersion
@@ -40,6 +33,13 @@ export interface PackageRouteAvailableVersions {
 
 export interface PackageRouteError {
     readonly kind: PackageRouteKind.Error;
+}
+
+export enum PackageRouteKind {
+    DocLatestVersion = 'DocLatestVersion',
+    DocFixedVersion = 'DocFixedVersion',
+    AvailableVersions = 'AvailableVersions',
+    Error = 'Error',
 }
 
 interface PackageNameAndVersionParams extends PackageNameParams {
