@@ -2,13 +2,14 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { PackagePageAvailableVersions } from '../../components/package/PackagePageAvailableVersions';
+import { PackagePageDocs } from '../../components/package/PackagePageDocs';
 import { PackagePageLoading } from '../../components/package/PackagePageLoading';
+import { getPackagePageStaticProps } from '../../lib/get-package-page-static-props';
 import {
-    getPackagePageStaticProps,
+    PackagePageKind,
     PackagePageProps,
-} from '../../lib/get-package-page-static-props';
-import { PackageRouteKind } from '../../lib/parse-package-route';
-import My404 from '../404';
+} from '../../lib/package-page-props';
+import Page404 from '../404';
 
 export default function PackagePage(props: PackagePageProps) {
     const router = useRouter();
@@ -18,14 +19,12 @@ export default function PackagePage(props: PackagePageProps) {
     }
 
     switch (props.kind) {
-        case PackageRouteKind.DocLatestVersion:
-            return <>TODO:</>;
-        case PackageRouteKind.DocFixedVersion:
-            return <>TODO:</>;
-        case PackageRouteKind.AvailableVersions:
+        case PackagePageKind.Docs:
+            return <PackagePageDocs {...props} />;
+        case PackagePageKind.AvailableVersions:
             return <PackagePageAvailableVersions {...props} />;
-        case PackageRouteKind.Error:
-            return <My404 />;
+        case PackagePageKind.Error:
+            return <Page404 message={props.message} />;
     }
 }
 
