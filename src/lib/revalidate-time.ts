@@ -1,4 +1,5 @@
-// Time durations for the `revalidate` option in `getStaticProps`
+// Time durations for the `revalidate` option used in `getStaticProps`.
+// See https://nextjs.org/docs/basic-features/data-fetching#incremental-static-regeneration
 
 export const second = 1;
 export const minute = 60 * second;
