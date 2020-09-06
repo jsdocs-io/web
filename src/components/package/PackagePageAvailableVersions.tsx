@@ -1,5 +1,5 @@
 import React from 'react';
-import { PackagePagePropsAvailableVersions } from '../../lib/get-package-page-static-props';
+import { PackagePagePropsAvailableVersions } from '../../lib/package-page-props';
 import { Layout } from '../common/Layout';
 import { PackageDistTags } from './PackageDistTags';
 import { PackagePageFooter } from './PackagePageFooter';

@@ -1,6 +1,13 @@
 import { GetStaticPropsResult } from 'next';
-import { Packument } from 'query-registry';
 import { cleanObject } from './clean-object';
+import { packageAnalyzer } from './package-analyzer';
+import {
+    PackagePageKind,
+    PackagePageProps,
+    PackagePagePropsAvailableVersions,
+    PackagePagePropsDocs,
+    PackagePagePropsError,
+} from './package-page-props';
 import {
     PackageRouteAvailableVersions,
     PackageRouteDocFixedVersion,
@@ -10,30 +17,6 @@ import {
 } from './parse-package-route';
 import { registry } from './registry';
 import { hour, week } from './revalidate-time';
-
-export type PackagePageProps =
-    | PackagePagePropsDocLatestVersion
-    | PackagePagePropsDocFixedVersion
-    | PackagePagePropsAvailableVersions
-    | PackagePagePropsError;
-
-export interface PackagePagePropsDocLatestVersion {
-    readonly kind: PackageRouteKind.DocLatestVersion;
-}
-
-export interface PackagePagePropsDocFixedVersion {
-    readonly kind: PackageRouteKind.DocFixedVersion;
-}
-
-export interface PackagePagePropsAvailableVersions {
-    readonly kind: PackageRouteKind.AvailableVersions;
-    readonly packument: Packument;
-    readonly createdAt: string;
-}
-
-export interface PackagePagePropsError {
-    readonly kind: PackageRouteKind.Error;
-}
 
 export async function getPackagePageStaticProps({
     route,
@@ -56,52 +39,92 @@ export async function getPackagePageStaticProps({
 
 async function getDocLatestVersionProps(
     parsedRoute: PackageRouteDocLatestVersion
-): Promise<GetStaticPropsResult<PackagePagePropsDocLatestVersion>> {
-    console.table(parsedRoute);
+): Promise<GetStaticPropsResult<PackagePagePropsDocs | PackagePagePropsError>> {
+    try {
+        const { name } = parsedRoute;
+        const info = await packageAnalyzer.analyzeRegistryPackage(name);
 
-    return {
-        props: {
-            kind: PackageRouteKind.DocLatestVersion,
-        },
-        revalidate: week,
-    };
+        return {
+            props: {
+                kind: PackagePageKind.Docs,
+                info: cleanObject(info),
+                createdAt: now(),
+            },
+            revalidate: hour,
+        };
+    } catch {
+        return getErrorProps({
+            message: 'Package not found',
+            revalidate: hour,
+        });
+    }
 }
 
 async function getDocFixedVersionProps(
     parsedRoute: PackageRouteDocFixedVersion
-): Promise<GetStaticPropsResult<PackagePagePropsDocFixedVersion>> {
-    console.table(parsedRoute);
+): Promise<GetStaticPropsResult<PackagePagePropsDocs | PackagePagePropsError>> {
+    try {
+        const { name, version } = parsedRoute;
+        const info = await packageAnalyzer.analyzeRegistryPackage(
+            name,
+            version
+        );
 
-    return {
-        props: {
-            kind: PackageRouteKind.DocFixedVersion,
-        },
-        revalidate: week,
-    };
+        return {
+            props: {
+                kind: PackagePageKind.Docs,
+                info: cleanObject(info),
+                createdAt: now(),
+            },
+            revalidate: week,
+        };
+    } catch {
+        return getErrorProps({
+            message: 'Package version not found',
+            revalidate: hour,
+        });
+    }
 }
 
 async function getAvailableVersionsProps({
     name,
 }: PackageRouteAvailableVersions): Promise<
-    GetStaticPropsResult<PackagePagePropsAvailableVersions>
+    GetStaticPropsResult<
+        PackagePagePropsAvailableVersions | PackagePagePropsError
+    >
 > {
-    const packument = await registry.getPackument(name);
+    try {
+        const packument = await registry.getPackument(name);
 
-    return {
-        props: {
-            kind: PackageRouteKind.AvailableVersions,
-            packument: cleanObject(packument),
-            createdAt: now(),
-        },
-        revalidate: hour,
-    };
+        return {
+            props: {
+                kind: PackagePageKind.AvailableVersions,
+                packument: cleanObject(packument),
+                createdAt: now(),
+            },
+            revalidate: hour,
+        };
+    } catch {
+        return getErrorProps({
+            message: 'Package not found',
+            revalidate: hour,
+        });
+    }
 }
 
-function getErrorProps(): GetStaticPropsResult<PackagePagePropsError> {
+function getErrorProps({
+    message = 'Page not found',
+    revalidate,
+}: {
+    message?: string;
+    revalidate?: number | boolean;
+} = {}): GetStaticPropsResult<PackagePagePropsError> {
     return {
         props: {
-            kind: PackageRouteKind.Error,
+            kind: PackagePageKind.Error,
+            message,
         },
+        revalidate,
     };
 }
 

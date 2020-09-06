@@ -33,6 +33,7 @@
     },
     "dependencies": {
         "@braintree/sanitize-url": "^4.1.1",
+        "@jsdocs-io/package-analyzer": "https://github.com/velut/node-package-analyzer",
         "@microsoft/tsdoc": "^0.12.20",
         "anchor-js": "^4.2.2",
         "clean-deep": "^3.4.0",
