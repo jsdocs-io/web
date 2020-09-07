@@ -19,6 +19,8 @@ export function Layout(props: any) {
                     name="viewport"
                     content="width=device-width, initial-scale=1, shrink-to-fit=no"
                 />
+
+                <script src="/no-dark-mode-flash.min.js" />
             </Head>
 
             <div className="flex flex-col h-screen text-gray-900 dark:text-gray-100">
