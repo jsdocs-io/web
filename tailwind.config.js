@@ -1,7 +1,5 @@
 module.exports = {
-    future: {
-        removeDeprecatedGapUtilities: true,
-    },
+    future: 'all',
     purge: {
         content: ['src/**/*.tsx'],
         options: { whitelist: ['mode-dark'] },
