@@ -1643,7 +1643,8 @@
 
 "@jsdocs-io/package-analyzer@git+https://2e4f1aa063e97ad20e072e8f34199842c0120846:x-oauth-basic@github.com/velut/node-package-analyzer":
   version "0.1.0"
-  resolved "git+https://2e4f1aa063e97ad20e072e8f34199842c0120846:x-oauth-basic@github.com/velut/node-package-analyzer#f8ae8d5191ca2c9a0b660c9d8c62e4b405ede384"
+  uid "5ce161e81646d33296fa14957841a2d27a247884"
+  resolved "git+https://2e4f1aa063e97ad20e072e8f34199842c0120846:x-oauth-basic@github.com/velut/node-package-analyzer#5ce161e81646d33296fa14957841a2d27a247884"
   dependencies:
     "@microsoft/tsdoc" "^0.12.21"
     concat-stream "^2.0.0"
