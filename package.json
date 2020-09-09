@@ -13,7 +13,7 @@
         "test": "jest --runInBand",
         "test:cov": "jest --runInBand --coverage",
         "test:watch": "jest --runInBand --watchAll --coverage",
-        "test:ci": "jest --ci --runInBand --coverage",
+        "test:ci": "jest --ci --maxWorkers=2 --coverage",
         "pre-push": "yarn && yarn lint && yarn build && yarn test:cov"
     },
     "husky": {
