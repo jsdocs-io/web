@@ -1642,9 +1642,9 @@
     chalk "^4.0.0"
 
 "@jsdocs-io/package-analyzer@git+https://2e4f1aa063e97ad20e072e8f34199842c0120846:x-oauth-basic@github.com/velut/node-package-analyzer":
-  version "0.1.0"
-  uid "5ce161e81646d33296fa14957841a2d27a247884"
-  resolved "git+https://2e4f1aa063e97ad20e072e8f34199842c0120846:x-oauth-basic@github.com/velut/node-package-analyzer#5ce161e81646d33296fa14957841a2d27a247884"
+  version "1.0.0"
+  uid c47783c4e258b9d03b143daf39a2ea7deee0cc6a
+  resolved "git+https://2e4f1aa063e97ad20e072e8f34199842c0120846:x-oauth-basic@github.com/velut/node-package-analyzer#c47783c4e258b9d03b143daf39a2ea7deee0cc6a"
   dependencies:
     "@microsoft/tsdoc" "^0.12.21"
     concat-stream "^2.0.0"
