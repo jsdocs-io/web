@@ -7,8 +7,6 @@ jobs:
         steps:
             - name: Begin CI...
               uses: actions/checkout@v2
-              with:
-                  persist-credentials: false
 
             - name: Use Node 12
               uses: actions/setup-node@v2.1.1
@@ -27,18 +25,22 @@ jobs:
               run: yarn install --frozen-lockfile
               env:
                   CI: true
+                  GH_PACKAGE_REGISTRY_TOKEN: ${{ secrets.GH_PACKAGE_REGISTRY_TOKEN }}
 
             - name: Lint
               run: yarn lint
               env:
                   CI: true
+                  GH_PACKAGE_REGISTRY_TOKEN: ${{ secrets.GH_PACKAGE_REGISTRY_TOKEN }}
 
             - name: Test
               run: yarn test:ci
               env:
                   CI: true
+                  GH_PACKAGE_REGISTRY_TOKEN: ${{ secrets.GH_PACKAGE_REGISTRY_TOKEN }}
 
             - name: Build
               run: yarn build
               env:
                   CI: true
+                  GH_PACKAGE_REGISTRY_TOKEN: ${{ secrets.GH_PACKAGE_REGISTRY_TOKEN }}
