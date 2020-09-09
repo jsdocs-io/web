@@ -1641,10 +1641,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@jsdocs-io/package-analyzer@git+https://2e4f1aa063e97ad20e072e8f34199842c0120846:x-oauth-basic@github.com/velut/node-package-analyzer":
-  version "0.1.0"
-  uid "5ce161e81646d33296fa14957841a2d27a247884"
-  resolved "git+https://2e4f1aa063e97ad20e072e8f34199842c0120846:x-oauth-basic@github.com/velut/node-package-analyzer#5ce161e81646d33296fa14957841a2d27a247884"
+"@jsdocs-io/package-analyzer@^1.0.0":
+  version "1.0.0"
+  resolved "https://npm.pkg.github.com/download/@jsdocs-io/package-analyzer/1.0.0/f149a3a22844d7cda91384ea6407c052752f6564e6b710b4cd07cf2e0dd968ff#ecda3468661bd9c1634f46d8270d183ebdab85eb"
+  integrity sha512-cFLaAGGdW8KQXUGW35UQwvy8fov2Z7WwE17c+JcOGnGSo8S4SdT+f47jOqlEPrZOpaxGdoq0rAyt1p53XLjYpQ==
   dependencies:
     "@microsoft/tsdoc" "^0.12.21"
     concat-stream "^2.0.0"
@@ -5391,9 +5391,9 @@ got@^11.5.2:
     responselike "^2.0.0"
 
 got@^11.6.0:
-  version "11.6.0"
-  resolved "https://registry.yarnpkg.com/got/-/got-11.6.0.tgz#4978c78f3cbc3a45ee95381f8bb6efd1db1f4638"
-  integrity sha512-ErhWb4IUjQzJ3vGs3+RR12NWlBDDkRciFpAkQ1LPUxi6OnwhGj07gQxjPsyIk69s7qMihwKrKquV6VQq7JNYLA==
+  version "11.6.1"
+  resolved "https://registry.yarnpkg.com/got/-/got-11.6.1.tgz#a307122fc136c446f676f7b939d89dbc6ed6b909"
+  integrity sha512-6izGvOsrd/4CsIdQMgweFOTCtS4sAwJTuCzIuVoTbCDzt3+wa3eGIHhSIMgEF6gfCDenslGlMUmAdPap5DkirQ==
   dependencies:
     "@sindresorhus/is" "^3.1.1"
     "@szmarczak/http-timer" "^4.0.5"
