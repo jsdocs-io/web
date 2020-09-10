@@ -1,21 +1,25 @@
 import React from 'react';
 import { PackagePagePropsDocs } from '../../lib/package-page-props';
-import { CodeBlock } from '../common/CodeBlock';
-import { H1 } from '../common/H1';
 import { Layout } from '../common/Layout';
+import { PackageNav } from './PackageNav';
 import { PackagePageFooter } from './PackagePageFooter';
 
 export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
+    const { manifest, api, elapsed } = info;
+    const { name, definitelyTypedName, untypedName, repository } = manifest;
+    const hasDocs = !!api?.files.length;
+
     return (
         <Layout>
-            <H1>{info.id}</H1>
-
-            <CodeBlock
-                code={JSON.stringify(info.api, undefined, 2)}
-                language="json"
+            <PackageNav
+                name={name}
+                definitelyTypedName={definitelyTypedName}
+                untypedName={untypedName}
+                repositoryURL={repository?.url}
+                hasDocs={hasDocs}
             />
 
-            <PackagePageFooter createdAt={createdAt} />
+            <PackagePageFooter createdAt={createdAt} analysisTime={elapsed} />
         </Layout>
     );
 }
