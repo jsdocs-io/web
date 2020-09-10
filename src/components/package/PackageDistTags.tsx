@@ -20,7 +20,7 @@ export function PackageDistTags({
             <ul className="max-w-xl">
                 {Object.entries(distTags).map(([tag, version]) => (
                     <li
-                        key={version}
+                        key={tag}
                         className="flex flex-wrap justify-between pb-1 mt-4 border-b border-gray-300 dark:border-gray-700"
                     >
                         <InternalLink
