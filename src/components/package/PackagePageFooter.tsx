@@ -2,7 +2,13 @@ import React from 'react';
 import { Section } from '../common/Section';
 import { TimeAgo } from '../common/TimeAgo';
 
-export function PackagePageFooter({ createdAt }: { createdAt: string }) {
+export function PackagePageFooter({
+    createdAt,
+    analysisTime,
+}: {
+    createdAt: string;
+    analysisTime?: number;
+}) {
     const scrollToTop = () => {
         window.scrollTo(0, 0);
     };
@@ -15,6 +21,10 @@ export function PackagePageFooter({ createdAt }: { createdAt: string }) {
                 <li>
                     Updated <TimeAgo date={createdAt} />.
                 </li>
+
+                {analysisTime && (
+                    <li>Package analyzed in {analysisTime} ms.</li>
+                )}
 
                 <li>
                     <button
