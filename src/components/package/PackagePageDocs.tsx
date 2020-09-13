@@ -2,6 +2,7 @@ import React from 'react';
 import { PackagePagePropsDocs } from '../../lib/package-page-props';
 import { Layout } from '../common/Layout';
 import { PackageFooter } from './PackageFooter';
+import { PackageInstallSection } from './PackageInstallSection';
 import { PackageNav } from './PackageNav';
 import { PackageTitleSection } from './PackageTitleSection';
 
@@ -38,6 +39,8 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
                 license={license}
                 unpackedSize={unpackedSize}
             />
+
+            <PackageInstallSection name={name} />
 
             <PackageFooter createdAt={createdAt} analysisTime={elapsed} />
         </Layout>
