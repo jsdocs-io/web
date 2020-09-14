@@ -10,12 +10,14 @@ export function PackageTitleSection({
     publishedAt,
     license,
     unpackedSize,
+    dependencies,
 }: {
     name: string;
     version?: string;
     publishedAt?: string;
     license?: string;
     unpackedSize?: number;
+    dependencies?: Record<string, string>;
 }) {
     return (
         <Section>
@@ -26,6 +28,7 @@ export function PackageTitleSection({
                 publishedAt={publishedAt}
                 license={license}
                 unpackedSize={unpackedSize}
+                dependencies={dependencies}
             />
         </Section>
     );
@@ -36,12 +39,16 @@ function PackageInfo({
     publishedAt,
     license,
     unpackedSize,
+    dependencies = {},
 }: {
     version?: string;
     publishedAt?: string;
     license?: string;
     unpackedSize?: number;
+    dependencies?: Record<string, string>;
 }) {
+    const numDependencies = Object.keys(dependencies).length;
+
     return (
         <div className="flex flex-wrap -mx-1">
             <div className="px-1">
@@ -62,7 +69,7 @@ function PackageInfo({
                 <>
                     <DotSeparator />
 
-                    <div className="px-1">{license}</div>
+                    <div className="px-1">{license} license</div>
                 </>
             )}
 
@@ -73,6 +80,14 @@ function PackageInfo({
                     <div className="px-1">{prettyBytes(unpackedSize)}</div>
                 </>
             )}
+
+            <DotSeparator />
+
+            <div className="px-1">
+                {numDependencies === 0
+                    ? 'No dependencies'
+                    : `${numDependencies} dependencies`}
+            </div>
         </div>
     );
 }

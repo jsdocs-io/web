@@ -18,6 +18,7 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
         createdAt: publishedAt,
         license,
         dist: { unpackedSize },
+        dependencies,
     } = manifest;
 
     const hasDocs = !!api?.files.length;
@@ -38,6 +39,7 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
                 publishedAt={publishedAt}
                 license={license}
                 unpackedSize={unpackedSize}
+                dependencies={dependencies}
             />
 
             <PackageInstallSection name={name} />
