@@ -34,7 +34,7 @@ describe('getPackagePageStaticProps', () => {
                 kind: PackagePageKind.Docs,
                 info: wantedInfo,
             },
-            revalidate: hour,
+            revalidate: 12 * hour,
         });
 
         expect(props).toHaveProperty('props.createdAt');

@@ -50,7 +50,7 @@ async function getDocLatestVersionProps(
                 info: cleanObject(info),
                 createdAt: now(),
             },
-            revalidate: hour,
+            revalidate: 12 * hour,
         };
     } catch {
         return getErrorProps({
