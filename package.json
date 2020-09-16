@@ -71,7 +71,7 @@
         "identity-obj-proxy": "3.0.0",
         "jest": "26.4.2",
         "postcss-preset-env": "6.7.0",
-        "prettier": "2.1.1",
+        "prettier": "2.1.2",
         "react-test-renderer": "16.13.1",
         "stylelint-config-recommended": "3.0.0",
         "tailwindcss": "1.8.10",
