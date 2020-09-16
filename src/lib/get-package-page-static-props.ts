@@ -114,7 +114,7 @@ async function getAvailableVersionsProps({
 
 function getErrorProps({
     message = 'Page not found',
-    revalidate,
+    revalidate = week,
 }: {
     message?: string;
     revalidate?: number | boolean;

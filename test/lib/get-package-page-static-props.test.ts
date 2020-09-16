@@ -159,14 +159,17 @@ describe('getPackagePageStaticProps', () => {
     });
 
     it('returns error props for an invalid package route', async () => {
-        expect.assertions(1);
+        expect.assertions(2);
 
-        expect(await getPackagePageStaticProps({ route: '/!' })).toStrictEqual({
+        const props = await getPackagePageStaticProps({ route: '/!' });
+
+        expect(props).toMatchObject({
             props: {
                 kind: PackagePageKind.Error,
                 message: 'Page not found',
             },
-            revalidate: undefined,
         });
+
+        expect(props).toHaveProperty('revalidate');
     });
 });
