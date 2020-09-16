@@ -16,7 +16,7 @@ import {
     parsePackageRoute,
 } from './parse-package-route';
 import { registry } from './registry';
-import { hour, week } from './revalidate-times';
+import { hour, minute, week } from './revalidate-times';
 
 export async function getPackagePageStaticProps({
     route,
@@ -55,7 +55,7 @@ async function getDocLatestVersionProps(
     } catch {
         return getErrorProps({
             message: 'Package not found',
-            revalidate: hour,
+            revalidate: 10 * minute,
         });
     }
 }
@@ -81,7 +81,7 @@ async function getDocFixedVersionProps(
     } catch {
         return getErrorProps({
             message: 'Package version not found',
-            revalidate: hour,
+            revalidate: 10 * minute,
         });
     }
 }
@@ -107,7 +107,7 @@ async function getAvailableVersionsProps({
     } catch {
         return getErrorProps({
             message: 'Package not found',
-            revalidate: hour,
+            revalidate: 10 * minute,
         });
     }
 }

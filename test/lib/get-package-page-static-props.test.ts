@@ -3,7 +3,7 @@ import { getPackagePageStaticProps } from '../../src/lib/get-package-page-static
 import { packageAnalyzer } from '../../src/lib/package-analyzer';
 import { PackagePageKind } from '../../src/lib/package-page-props';
 import { registry } from '../../src/lib/registry';
-import { hour, week } from '../../src/lib/revalidate-times';
+import { hour, minute, week } from '../../src/lib/revalidate-times';
 
 jest.mock('../../src/lib/registry');
 jest.mock('../../src/lib/package-analyzer');
@@ -58,7 +58,7 @@ describe('getPackagePageStaticProps', () => {
                 kind: PackagePageKind.Error,
                 message: 'Package not found',
             },
-            revalidate: hour,
+            revalidate: 10 * minute,
         });
     });
 
@@ -108,7 +108,7 @@ describe('getPackagePageStaticProps', () => {
                 kind: PackagePageKind.Error,
                 message: 'Package version not found',
             },
-            revalidate: hour,
+            revalidate: 10 * minute,
         });
     });
 
@@ -154,7 +154,7 @@ describe('getPackagePageStaticProps', () => {
                 kind: PackagePageKind.Error,
                 message: 'Package not found',
             },
-            revalidate: hour,
+            revalidate: 10 * minute,
         });
     });
 
