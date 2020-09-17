@@ -39,7 +39,7 @@
         "@microsoft/tsdoc": "^0.12.21",
         "anchor-js": "^4.2.2",
         "clean-deep": "^3.4.0",
-        "keyv": "^4.0.1",
+        "keyv": "^4.0.2",
         "next": "9.5.3",
         "nprogress": "^0.2.0",
         "path-to-regexp": "^6.1.0",
