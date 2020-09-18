@@ -1,6 +1,7 @@
 import React from 'react';
 import { PackagePagePropsDocs } from '../../lib/package-page-props';
 import { Layout } from '../common/Layout';
+import { PackageBadgeSection } from './PackageBadgeSection';
 import { PackageFooter } from './PackageFooter';
 import { PackageInstallSection } from './PackageInstallSection';
 import { PackageNav } from './PackageNav';
@@ -50,6 +51,8 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
                 overview={api?.overview}
                 description={description}
             />
+
+            <PackageBadgeSection name={name} />
 
             <PackageFooter createdAt={createdAt} analysisTime={elapsed} />
         </Layout>
