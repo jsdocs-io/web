@@ -4,6 +4,7 @@ import { Layout } from '../common/Layout';
 import { PackageFooter } from './PackageFooter';
 import { PackageInstallSection } from './PackageInstallSection';
 import { PackageNav } from './PackageNav';
+import { PackageOverviewSection } from './PackageOverviewSection';
 import { PackageTitleSection } from './PackageTitleSection';
 
 export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
@@ -12,6 +13,7 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
     const {
         name,
         version,
+        description,
         definitelyTypedName,
         untypedName,
         repository,
@@ -43,6 +45,11 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
             />
 
             <PackageInstallSection name={name} />
+
+            <PackageOverviewSection
+                overview={api?.overview}
+                description={description}
+            />
 
             <PackageFooter createdAt={createdAt} analysisTime={elapsed} />
         </Layout>
