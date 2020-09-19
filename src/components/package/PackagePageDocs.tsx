@@ -2,6 +2,7 @@ import React from 'react';
 import { PackagePagePropsDocs } from '../../lib/package-page-props';
 import { Layout } from '../common/Layout';
 import { PackageBadgeSection } from './PackageBadgeSection';
+import { PackageDependenciesSections } from './PackageDependenciesSections';
 import { PackageFooter } from './PackageFooter';
 import { PackageInstallSection } from './PackageInstallSection';
 import { PackageNav } from './PackageNav';
@@ -22,6 +23,8 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
         license,
         dist: { unpackedSize },
         dependencies,
+        devDependencies,
+        peerDependencies,
     } = manifest;
 
     const hasDocs = !!api?.files.length;
@@ -50,6 +53,12 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
             <PackageOverviewSection
                 overview={api?.overview}
                 description={description}
+            />
+
+            <PackageDependenciesSections
+                dependencies={dependencies}
+                devDependencies={devDependencies}
+                peerDependencies={peerDependencies}
             />
 
             <PackageBadgeSection name={name} />
