@@ -1,6 +1,5 @@
 import React from 'react';
 import { minSemverVersion } from '../../lib/min-semver-version';
-import { DotSeparator } from '../common/DotSeparator';
 import { InternalLink } from '../common/InternalLink';
 
 export function PackageDependenciesList({
@@ -17,26 +16,22 @@ export function PackageDependenciesList({
         }));
 
     return (
-        <div className="flex flex-wrap -mx-1">
-            {dependencies.map(({ name, semver, version }, i) => (
-                <React.Fragment key={name}>
-                    <div className="px-1">
-                        <InternalLink
-                            href="/package/[...slug]"
-                            as={
-                                version
-                                    ? `/package/${name}/v/${version}`
-                                    : `/package/${name}`
-                            }
-                            title={`${name}@${semver}`}
-                        >
-                            {name}
-                        </InternalLink>
-                    </div>
-
-                    {i !== dependencies.length - 1 && <DotSeparator />}
-                </React.Fragment>
+        <ul className="list-inline">
+            {dependencies.map(({ name, semver, version }) => (
+                <li key={name}>
+                    <InternalLink
+                        href="/package/[...slug]"
+                        as={
+                            version
+                                ? `/package/${name}/v/${version}`
+                                : `/package/${name}`
+                        }
+                        title={`${name}@${semver}`}
+                    >
+                        {name}
+                    </InternalLink>
+                </li>
             ))}
-        </div>
+        </ul>
     );
 }

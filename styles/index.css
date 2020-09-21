@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .list-inline {
+        @apply flex;
+        @apply flex-wrap;
+    }
+
+    .list-inline li + li::before {
+        @apply px-1;
+        @apply text-gray-600;
+        content: '·';
+    }
+}
