@@ -3,7 +3,7 @@ import { InternalLink } from '../common/InternalLink';
 import { Section } from '../common/Section';
 import { TimeAgo } from '../common/TimeAgo';
 
-export function PackageVersions({
+export function PackageVersionsSection({
     name,
     versionsTimestamps,
 }: {

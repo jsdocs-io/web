@@ -1,10 +1,10 @@
 import React from 'react';
 import { PackagePagePropsAvailableVersions } from '../../lib/package-page-props';
 import { Layout } from '../common/Layout';
-import { PackageDistTags } from './PackageDistTags';
+import { PackageDistTagsSection } from './PackageDistTagsSection';
 import { PackageFooter } from './PackageFooter';
 import { PackageNav } from './PackageNav';
-import { PackageVersions } from './PackageVersions';
+import { PackageVersionsSection } from './PackageVersionsSection';
 
 export function PackagePageAvailableVersions({
     packument,
@@ -20,9 +20,9 @@ export function PackagePageAvailableVersions({
                 hideInternalNav={true}
             />
 
-            <PackageDistTags name={name} distTags={distTags} />
+            <PackageDistTagsSection name={name} distTags={distTags} />
 
-            <PackageVersions
+            <PackageVersionsSection
                 name={name}
                 versionsTimestamps={versionsTimestamps}
             />

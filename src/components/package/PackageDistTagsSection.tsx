@@ -3,7 +3,7 @@ import React from 'react';
 import { InternalLink } from '../common/InternalLink';
 import { Section } from '../common/Section';
 
-export function PackageDistTags({
+export function PackageDistTagsSection({
     name,
     distTags,
 }: {
