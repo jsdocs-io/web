@@ -19,7 +19,7 @@ export function PackageTitleSection({
 }) {
     return (
         <Section>
-            <h1 className="text-3xl font-bold break-words">{name}</h1>
+            <h1 className="break-words">{name}</h1>
 
             <PackageTitleInfoList
                 version={version}

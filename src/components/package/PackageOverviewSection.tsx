@@ -1,7 +1,5 @@
 import React from 'react';
 import { DocComment } from '../common/DocComment';
-import { H2 } from '../common/H2';
-import { P } from '../common/P';
 import { Section } from '../common/Section';
 
 export function PackageOverviewSection({
@@ -14,7 +12,7 @@ export function PackageOverviewSection({
     if (overview) {
         return (
             <Section>
-                <H2 id="package-overview">Overview</H2>
+                <h2 id="package-overview">Overview</h2>
 
                 <DocComment doc={overview} />
             </Section>
@@ -24,9 +22,9 @@ export function PackageOverviewSection({
     if (description) {
         return (
             <Section>
-                <H2 id="package-overview">Overview</H2>
+                <h2 id="package-overview">Overview</h2>
 
-                <P>{description}</P>
+                <p>{description}</p>
             </Section>
         );
     }

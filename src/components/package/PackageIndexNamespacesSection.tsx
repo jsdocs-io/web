@@ -1,6 +1,5 @@
 import { NamespaceDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { H3 } from '../common/H3';
 import { InternalLink } from '../common/InternalLink';
 
 export function PackageIndexNamespacesSection({
@@ -14,7 +13,7 @@ export function PackageIndexNamespacesSection({
 
     return (
         <>
-            <H3 id="package-index-namespaces">Namespaces</H3>
+            <h3 id="package-index-namespaces">Namespaces</h3>
 
             <ul>
                 {namespaces.map(({ id, name }) => (

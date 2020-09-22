@@ -1,6 +1,5 @@
 import { VariableDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { H3 } from '../common/H3';
 import { InternalLink } from '../common/InternalLink';
 
 export function PackageIndexVariablesSection({
@@ -14,7 +13,7 @@ export function PackageIndexVariablesSection({
 
     return (
         <>
-            <H3 id="package-index-variables">Variables</H3>
+            <h3 id="package-index-variables">Variables</h3>
 
             <ul>
                 {variables.map(({ id, name }) => (

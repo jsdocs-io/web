@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply font-bold;
+    }
+
+    h1 {
+        @apply text-3xl;
+    }
+
+    h2 {
+        @apply text-2xl;
+    }
+
+    h3 {
+        @apply text-xl;
+    }
+
+    h4 {
+        @apply text-lg;
+    }
+
+    p {
+        @apply mt-1;
+    }
+}
+
 @layer components {
     .list-inline {
         @apply flex;

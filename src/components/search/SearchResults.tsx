@@ -4,7 +4,6 @@ import React from 'react';
 import { TimeAgo } from '../../components/common/TimeAgo';
 import { A } from '../common/A';
 import { InlineCode } from '../common/InlineCode';
-import { P } from '../common/P';
 
 export default function SearchResults({
     searchResults,
@@ -38,9 +37,9 @@ export default function SearchResults({
                             </a>
                         </Link>
 
-                        {description && <P>{description}</P>}
+                        {description && <p>{description}</p>}
 
-                        <P>
+                        <p>
                             Version <InlineCode code={version} /> published{' '}
                             <TimeAgo date={date} />
                             {username && (
@@ -55,7 +54,7 @@ export default function SearchResults({
                                     </A>
                                 </>
                             )}
-                        </P>
+                        </p>
                     </div>
                 )
             )}

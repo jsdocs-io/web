@@ -1,6 +1,5 @@
 import { InterfaceDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { H3 } from '../common/H3';
 import { InternalLink } from '../common/InternalLink';
 
 export function PackageIndexInterfacesSection({
@@ -14,7 +13,7 @@ export function PackageIndexInterfacesSection({
 
     return (
         <>
-            <H3 id="package-index-interfaces">Interfaces</H3>
+            <h3 id="package-index-interfaces">Interfaces</h3>
 
             <ul>
                 {interfaces.map(({ id, name }) => (

@@ -1,7 +1,5 @@
 import React from 'react';
 import { CodeBlock } from '../common/CodeBlock';
-import { H2 } from '../common/H2';
-import { P } from '../common/P';
 import { Section } from '../common/Section';
 
 export function PackageBadgeSection({ name }: { name: string }) {
@@ -13,12 +11,12 @@ export function PackageBadgeSection({ name }: { name: string }) {
 
     return (
         <Section>
-            <H2 id="package-badge">Badge</H2>
+            <h2 id="package-badge">Badge</h2>
 
-            <P>
+            <p>
                 To link to the latest version of this page from your project,
                 you can use the following badge codes.
-            </P>
+            </p>
 
             <ul className="mt-4">
                 <li>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { H2 } from '../common/H2';
 import { InternalLink } from '../common/InternalLink';
 import { Section } from '../common/Section';
 import { TimeAgo } from '../common/TimeAgo';
@@ -15,7 +14,7 @@ export function PackageVersions({
 
     return (
         <Section>
-            <H2 id="package-versions">Versions ({numVersions})</H2>
+            <h2 id="package-versions">Versions ({numVersions})</h2>
 
             <ul className="max-w-xl">
                 {Object.entries(versionsTimestamps)

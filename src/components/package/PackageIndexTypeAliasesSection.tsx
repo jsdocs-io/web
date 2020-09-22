@@ -1,6 +1,5 @@
 import { TypeAliasDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { H3 } from '../common/H3';
 import { InternalLink } from '../common/InternalLink';
 
 export function PackageIndexTypeAliasesSection({
@@ -14,7 +13,7 @@ export function PackageIndexTypeAliasesSection({
 
     return (
         <>
-            <H3 id="package-index-type-aliases">Type aliases</H3>
+            <h3 id="package-index-type-aliases">Type aliases</h3>
 
             <ul>
                 {typeAliases.map(({ id, name }) => (

@@ -2,10 +2,8 @@ import * as tsdoc from '@microsoft/tsdoc';
 import React from 'react';
 import { A } from './A';
 import { CodeBlock } from './CodeBlock';
-import { H4 } from './H4';
 import { InlineCode } from './InlineCode';
 import { InternalLink } from './InternalLink';
-import { P } from './P';
 
 interface DocNodeProps {
     readonly node: tsdoc.DocNode;
@@ -118,10 +116,10 @@ function DocInheritDocSection({
     });
 
     return (
-        <P>
+        <p>
             See documentation for{' '}
             <InternalLink href={url}>{declarationID}</InternalLink>.
-        </P>
+        </p>
     );
 }
 
@@ -142,7 +140,7 @@ function DocParamsSection({
         <>
             {paramBlocks.map(({ parameterName, content }) => (
                 <React.Fragment key={parameterName}>
-                    <H4>Paramter {parameterName}</H4>
+                    <h4>Paramter {parameterName}</h4>
                     <DocContainer container={content} />
                 </React.Fragment>
             ))}
@@ -157,7 +155,7 @@ function DocReturnsSection({
 }) {
     return (
         <>
-            <H4>Returns</H4>
+            <h4>Returns</h4>
             <DocContainer container={returnsSection} />
         </>
     );
@@ -172,7 +170,7 @@ function DocThrowsSection({
         <>
             {throwsBlocks.map(({ content }, index) => (
                 <React.Fragment key={index}>
-                    <H4>Throws</H4>
+                    <h4>Throws</h4>
                     <DocContainer container={content} />
                 </React.Fragment>
             ))}
@@ -187,7 +185,7 @@ function DocRemarksSection({
 }) {
     return (
         <>
-            <H4>Remarks</H4>
+            <h4>Remarks</h4>
             <DocContainer container={remarksSection} />
         </>
     );
@@ -202,7 +200,7 @@ function DocExamplesSection({
         <>
             {exampleBlocks.map(({ content }, index) => (
                 <React.Fragment key={index}>
-                    <H4>Example</H4>
+                    <h4>Example</h4>
                     <DocContainer container={content} />
                 </React.Fragment>
             ))}
@@ -217,7 +215,7 @@ function DocSeeSection({
 }) {
     return (
         <>
-            <H4>See also</H4>
+            <h4>See also</h4>
             <ul>
                 {seeBlocks.map(({ content }, index) => (
                     <li key={index}>
@@ -236,7 +234,7 @@ function DocModifiersSection({
 }) {
     return (
         <>
-            <H4>Modifiers</H4>
+            <h4>Modifiers</h4>
             <ul className="flex flex-wrap space-x-4">
                 {modifierTags.map(({ tagName }) => (
                     <li key={tagName}>
@@ -255,7 +253,7 @@ function DocDeprecatedSection({
 }) {
     return (
         <>
-            <H4 className="text-red-700 dark:text-red-500">Deprecated</H4>
+            <h4 className="text-red-700 dark:text-red-500">Deprecated</h4>
             <DocContainer container={deprecatedSection} />
         </>
     );
@@ -359,9 +357,9 @@ function DocParagraph({ node }: DocNodeProps) {
     const contents = tsdoc.DocNodeTransforms.trimSpacesInParagraph(paragraph);
 
     return (
-        <P>
+        <p>
             <DocContainer container={contents} />
-        </P>
+        </p>
     );
 }
 

@@ -3,13 +3,9 @@ import React from 'react';
 import { A } from '../components/common/A';
 import { CodeBlock } from '../components/common/CodeBlock';
 import { DocComment } from '../components/common/DocComment';
-import { H1 } from '../components/common/H1';
-import { H2 } from '../components/common/H2';
-import { H3 } from '../components/common/H3';
 import { InlineCode } from '../components/common/InlineCode';
 import { InternalLink } from '../components/common/InternalLink';
 import { Layout } from '../components/common/Layout';
-import { P } from '../components/common/P';
 import { Section } from '../components/common/Section';
 import {
     exampleDeclarationDoc,
@@ -53,12 +49,12 @@ export default function GuidePage() {
 function IntroSection() {
     return (
         <section>
-            <H1>Package documentation guide</H1>
+            <h1>Package documentation guide</h1>
 
-            <P>
+            <p>
                 This guide explains how to improve the documentation of your
                 packages as displayed on jsDocs.io.
-            </P>
+            </p>
         </section>
     );
 }
@@ -66,13 +62,13 @@ function IntroSection() {
 function PackageAnalysisProcessSection() {
     return (
         <Section>
-            <H2>Package analysis process</H2>
+            <h2>Package analysis process</h2>
 
-            <P>
+            <p>
                 When a user visits a package documentation page (for example,{' '}
                 <InlineCode code="/package/foo" />
                 ), the following package analysis process is executed:
-            </P>
+            </p>
 
             <ol className="my-2 ml-8 list-decimal">
                 <li>
@@ -124,10 +120,10 @@ function PackageAnalysisProcessSection() {
                 <li>Render the documentation page</li>
             </ol>
 
-            <P>
+            <p>
                 In the following sections, you will learn how to optimize the
                 metadata extracted from your package through this process.
-            </P>
+            </p>
         </Section>
     );
 }
@@ -135,16 +131,16 @@ function PackageAnalysisProcessSection() {
 function SupportedPackagesSection() {
     return (
         <Section>
-            <H2>Supported packages</H2>
+            <h2>Supported packages</h2>
 
-            <P>
+            <p>
                 Due to the diversity of the Javascript ecosystem and current
                 technical limitations, some packages are not currently well
                 supported.
                 <br />
                 In particular, the public API can only be extracted from
                 packages that meet the following conditions:
-            </P>
+            </p>
 
             <ul className="my-2 ml-8 list-disc">
                 <li>
@@ -190,10 +186,10 @@ function SupportedPackagesSection() {
                 </li>
             </ul>
 
-            <P>
+            <p>
                 In practice, most open-source Typescript and Javascript packages
                 shipping their own type definitions should be well supported.
-            </P>
+            </p>
         </Section>
     );
 }
@@ -201,9 +197,9 @@ function SupportedPackagesSection() {
 function IndexFileSection() {
     return (
         <Section>
-            <H2>Index file</H2>
+            <h2>Index file</h2>
 
-            <P>
+            <p>
                 The index file is the single entry point of your package from
                 which all public functionalities should be exported (or
                 re-exported) using{' '}
@@ -212,14 +208,14 @@ function IndexFileSection() {
                 </A>
                 . The following example shows a simple index file with one
                 direct export and a module re-export:
-            </P>
+            </p>
 
             <CodeBlock code={exampleIndexFile} language="typescript" />
 
-            <P>
+            <p>
                 Your package's index file must match one of the following
                 filenames, listed in order of preference:
-            </P>
+            </p>
 
             <ol className="my-2 ml-8 list-decimal">
                 <li>
@@ -267,7 +263,7 @@ function IndexFileSection() {
             >
                 Include source files anchor
             </a>
-            <P>
+            <p>
                 To include source files in your package when publishing to npm,
                 you need to specify the appropriate file patterns inside{' '}
                 <InlineCode code="package.json" /> using the{' '}
@@ -278,7 +274,7 @@ function IndexFileSection() {
                 <InlineCode code="src" /> directory and your built files in the{' '}
                 <InlineCode code="dist" /> directory, your{' '}
                 <InlineCode code="package.json" /> should look like this:
-            </P>
+            </p>
 
             <CodeBlock code={examplePackageJSONFiles} language="json" />
         </Section>
@@ -288,36 +284,36 @@ function IndexFileSection() {
 function PackageOverviewSection() {
     return (
         <Section>
-            <H2>Package overview</H2>
+            <h2>Package overview</h2>
 
-            <P>
+            <p>
                 The package overview is the first section displayed in your
                 package's documentation page. In the overview, you can introduce
                 your package, describe its functionalities, show examples and
                 provide any other relevant information. If the overview is not
                 found, the package's description from{' '}
                 <InlineCode code="package.json" /> is used instead.
-            </P>
+            </p>
 
-            <P>
+            <p>
                 To write your package's overview, add a documentation comment
                 with the <InlineCode code="@packageDocumentation" /> tag to your
                 package's index file like in the following example:
-            </P>
+            </p>
 
             <CodeBlock code={exampleOverviewFile} language="typescript" />
 
-            <P>
+            <p>
                 The documentation comment above is rendered according to the{' '}
                 <A href="https://github.com/microsoft/tsdoc">TSDoc standard</A>{' '}
                 as follows:
-            </P>
+            </p>
 
             <div className="p-4 my-4 border border-gray-300 rounded dark:border-gray-700">
                 <DocComment doc={exampleOverview} />
             </div>
 
-            <P>
+            <p>
                 For more information and examples about TSDoc, see the{' '}
                 <A href="https://github.com/microsoft/tsdoc">
                     TSDoc repository
@@ -325,7 +321,7 @@ function PackageOverviewSection() {
                 and the{' '}
                 <A href="https://microsoft.github.io/tsdoc">TSDoc playground</A>
                 .
-            </P>
+            </p>
         </Section>
     );
 }
@@ -333,11 +329,11 @@ function PackageOverviewSection() {
 function PackageDeclarationsSection() {
     return (
         <Section>
-            <H2>Package declarations</H2>
+            <h2>Package declarations</h2>
 
-            <P>
+            <p>
                 Your package can export any of the following declaration kinds:
-            </P>
+            </p>
 
             <ul className="my-2 ml-8 list-disc">
                 <li>Variables</li>
@@ -349,21 +345,21 @@ function PackageDeclarationsSection() {
                 <li>Namespaces</li>
             </ul>
 
-            <P>
+            <p>
                 Exported declarations should be documented using{' '}
                 <A href="https://github.com/microsoft/tsdoc">TSDoc</A>{' '}
                 documentation comments like in the following example:
-            </P>
+            </p>
 
             <CodeBlock code={exampleDeclarationFile} language="typescript" />
 
-            <P>
+            <p>
                 The documentation for the <InlineCode code="sum" /> function
                 above is rendered as follows:
-            </P>
+            </p>
 
             <div className="p-4 my-4 border border-gray-300 rounded dark:border-gray-700">
-                <H3>function sum</H3>
+                <h3>function sum</h3>
 
                 <CodeBlock
                     code={exampleDeclarationSignature}
@@ -373,22 +369,22 @@ function PackageDeclarationsSection() {
                 <DocComment doc={exampleDeclarationDoc} />
             </div>
 
-            <P>
+            <p>
                 To prevent an exported declaration from being documented, use
                 the <InlineCode code="@internal" /> tag in its documentation
                 comment. Note that private declarations (for example, the
                 private methods of a class) and declarations with names starting
                 with an underscore (for example, <InlineCode code="_foo" />) are
                 never documented.
-            </P>
+            </p>
 
-            <P>
+            <p>
                 For more information about tags, see{' '}
                 <A href="https://github.com/microsoft/tsdoc/blob/master/tsdoc/src/details/StandardTags.ts">
                     TsDoc standard tags
                 </A>
                 .
-            </P>
+            </p>
         </Section>
     );
 }
@@ -396,9 +392,9 @@ function PackageDeclarationsSection() {
 function LinkingToSourceSection() {
     return (
         <Section>
-            <H2>Linking to source</H2>
+            <h2>Linking to source</h2>
 
-            <P>
+            <p>
                 If your published package contains{' '}
                 <A href="#include-source-files">source files</A>, you can enable
                 links to definitions by specifying a GitHub, GitLab or Bitbucket
@@ -408,14 +404,14 @@ function LinkingToSourceSection() {
                 </A>{' '}
                 inside <InlineCode code="package.json" /> like in the following
                 example:
-            </P>
+            </p>
 
             <CodeBlock code={examplePackageJSONRepository} language="json" />
 
-            <P>
+            <p>
                 The commit corresponding to the published version of your
                 package is determined in order of preference by:
-            </P>
+            </p>
 
             <ol className="my-2 ml-8 list-decimal">
                 <li>
@@ -437,9 +433,9 @@ function LinkingToSourceSection() {
 function ExternalDocumentationSection() {
     return (
         <Section>
-            <H2>External documentation</H2>
+            <h2>External documentation</h2>
 
-            <P>
+            <p>
                 If your package does not include type definitions (for example,
                 a Javascript-only package) but some are available thanks to the{' '}
                 <A href="https://github.com/DefinitelyTyped/DefinitelyTyped/">
@@ -447,7 +443,7 @@ function ExternalDocumentationSection() {
                 </A>
                 , your package's documentation page will contain a link to the
                 corresponding <InlineCode code="@types" /> package.
-            </P>
+            </p>
         </Section>
     );
 }
@@ -455,12 +451,12 @@ function ExternalDocumentationSection() {
 function ExamplePackagesSection() {
     return (
         <Section>
-            <H2>Example packages</H2>
+            <h2>Example packages</h2>
 
-            <P>
+            <p>
                 You can use the following packages as a reference when
                 documenting your package:
-            </P>
+            </p>
 
             <ul className="my-2 ml-8 list-disc">
                 <li>

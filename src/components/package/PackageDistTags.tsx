@@ -1,6 +1,5 @@
 import { DistTags } from 'query-registry';
 import React from 'react';
-import { H2 } from '../common/H2';
 import { InternalLink } from '../common/InternalLink';
 import { Section } from '../common/Section';
 
@@ -15,7 +14,7 @@ export function PackageDistTags({
 
     return (
         <Section>
-            <H2 id="dist-tags">Tags ({numTags})</H2>
+            <h2 id="dist-tags">Tags ({numTags})</h2>
 
             <ul className="max-w-xl">
                 {Object.entries(distTags).map(([tag, version]) => (

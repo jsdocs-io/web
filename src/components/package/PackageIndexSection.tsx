@@ -1,6 +1,5 @@
 import { ModuleDeclarations } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { H2 } from '../common/H2';
 import { Section } from '../common/Section';
 import { PackageIndexClassesSection } from './PackageIndexClassesSection';
 import { PackageIndexEnumsSection } from './PackageIndexEnumsSection';
@@ -27,7 +26,7 @@ export function PackageIndexSection({
 
     return (
         <Section>
-            <H2 id="package-index">Index</H2>
+            <h2 id="package-index">Index</h2>
 
             <PackageIndexVariablesSection variables={variables} />
             <PackageIndexFunctionsSection functions={functions} />

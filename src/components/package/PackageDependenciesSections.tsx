@@ -1,6 +1,4 @@
 import React from 'react';
-import { H2 } from '../common/H2';
-import { P } from '../common/P';
 import { Section } from '../common/Section';
 import { PackageDependenciesList } from './PackageDependenciesList';
 
@@ -20,38 +18,38 @@ export function PackageDependenciesSections({
     return (
         <>
             <Section>
-                <H2 id="package-dependencies">
+                <h2 id="package-dependencies">
                     Dependencies ({numDependencies})
-                </H2>
+                </h2>
 
                 {numDependencies > 0 ? (
                     <PackageDependenciesList dependencies={dependencies} />
                 ) : (
-                    <P>No dependencies.</P>
+                    <p>No dependencies.</p>
                 )}
             </Section>
 
             <Section>
-                <H2 id="package-dev-dependencies">
+                <h2 id="package-dev-dependencies">
                     Dev dependencies ({numDevDependencies})
-                </H2>
+                </h2>
 
                 {numDevDependencies > 0 ? (
                     <PackageDependenciesList dependencies={devDependencies} />
                 ) : (
-                    <P>No dependencies.</P>
+                    <p>No dependencies.</p>
                 )}
             </Section>
 
             <Section>
-                <H2 id="package-peer-dependencies">
+                <h2 id="package-peer-dependencies">
                     Peer dependencies ({numPeerDependencies})
-                </H2>
+                </h2>
 
                 {numPeerDependencies > 0 ? (
                     <PackageDependenciesList dependencies={peerDependencies} />
                 ) : (
-                    <P>No dependencies.</P>
+                    <p>No dependencies.</p>
                 )}
             </Section>
         </>

@@ -1,6 +1,5 @@
 import { ClassDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { H3 } from '../common/H3';
 import { InternalLink } from '../common/InternalLink';
 
 export function PackageIndexClassesSection({
@@ -14,7 +13,7 @@ export function PackageIndexClassesSection({
 
     return (
         <>
-            <H3 id="package-index-classes">Classes</H3>
+            <h3 id="package-index-classes">Classes</h3>
 
             <ul>
                 {classes.map(({ id, name }) => (
