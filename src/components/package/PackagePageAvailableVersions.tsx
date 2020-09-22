@@ -2,7 +2,7 @@ import React from 'react';
 import { PackagePagePropsAvailableVersions } from '../../lib/package-page-props';
 import { Layout } from '../common/Layout';
 import { PackageDistTagsSection } from './PackageDistTagsSection';
-import { PackageFooter } from './PackageFooter';
+import { PackageFooterSection } from './PackageFooterSection';
 import { PackageNav } from './PackageNav';
 import { PackageVersionsSection } from './PackageVersionsSection';
 
@@ -27,7 +27,7 @@ export function PackagePageAvailableVersions({
                 versionsTimestamps={versionsTimestamps}
             />
 
-            <PackageFooter createdAt={createdAt} />
+            <PackageFooterSection createdAt={createdAt} />
         </Layout>
     );
 }

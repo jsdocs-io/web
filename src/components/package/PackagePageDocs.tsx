@@ -3,7 +3,7 @@ import { PackagePagePropsDocs } from '../../lib/package-page-props';
 import { Layout } from '../common/Layout';
 import { PackageBadgeSection } from './PackageBadgeSection';
 import { PackageDependenciesSections } from './PackageDependenciesSections';
-import { PackageFooter } from './PackageFooter';
+import { PackageFooterSection } from './PackageFooterSection';
 import { PackageInstallSection } from './PackageInstallSection';
 import { PackageNav } from './PackageNav';
 import { PackageOverviewSection } from './PackageOverviewSection';
@@ -63,7 +63,10 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
 
             <PackageBadgeSection name={name} />
 
-            <PackageFooter createdAt={createdAt} analysisTime={elapsed} />
+            <PackageFooterSection
+                createdAt={createdAt}
+                analysisTime={elapsed}
+            />
         </Layout>
     );
 }

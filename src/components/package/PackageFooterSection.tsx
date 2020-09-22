@@ -2,7 +2,7 @@ import React from 'react';
 import { Section } from '../common/Section';
 import { TimeAgo } from '../common/TimeAgo';
 
-export function PackageFooter({
+export function PackageFooterSection({
     createdAt,
     analysisTime,
 }: {
