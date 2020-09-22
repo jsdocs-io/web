@@ -69,7 +69,7 @@ export function DocComment({ doc }: { doc: string }) {
             <DocSummarySection summarySection={summarySection} />
 
             {paramBlocks.length !== 0 && (
-                <DocParamsSection paramBlocks={paramBlocks} />
+                <DocParamsSections paramBlocks={paramBlocks} />
             )}
 
             {returnsSection && (
@@ -77,7 +77,7 @@ export function DocComment({ doc }: { doc: string }) {
             )}
 
             {throwsBlocks.length !== 0 && (
-                <DocThrowsSection throwsBlocks={throwsBlocks} />
+                <DocThrowsSections throwsBlocks={throwsBlocks} />
             )}
 
             {remarksSection && (
@@ -85,7 +85,7 @@ export function DocComment({ doc }: { doc: string }) {
             )}
 
             {exampleBlocks.length !== 0 && (
-                <DocExamplesSection exampleBlocks={exampleBlocks} />
+                <DocExamplesSections exampleBlocks={exampleBlocks} />
             )}
 
             {seeBlocks.length !== 0 && <DocSeeSection seeBlocks={seeBlocks} />}
@@ -131,7 +131,7 @@ function DocSummarySection({
     return <DocContainer container={summarySection} />;
 }
 
-function DocParamsSection({
+function DocParamsSections({
     paramBlocks,
 }: {
     paramBlocks: ReadonlyArray<tsdoc.DocParamBlock>;
@@ -139,10 +139,11 @@ function DocParamsSection({
     return (
         <>
             {paramBlocks.map(({ parameterName, content }) => (
-                <React.Fragment key={parameterName}>
+                <section key={parameterName} className="mt-2">
                     <h4>Paramter {parameterName}</h4>
+
                     <DocContainer container={content} />
-                </React.Fragment>
+                </section>
             ))}
         </>
     );
@@ -154,14 +155,15 @@ function DocReturnsSection({
     returnsSection: tsdoc.DocSection;
 }) {
     return (
-        <>
+        <section className="mt-2">
             <h4>Returns</h4>
+
             <DocContainer container={returnsSection} />
-        </>
+        </section>
     );
 }
 
-function DocThrowsSection({
+function DocThrowsSections({
     throwsBlocks,
 }: {
     throwsBlocks: tsdoc.DocBlock[];
@@ -169,10 +171,11 @@ function DocThrowsSection({
     return (
         <>
             {throwsBlocks.map(({ content }, index) => (
-                <React.Fragment key={index}>
+                <section key={index} className="mt-2">
                     <h4>Throws</h4>
+
                     <DocContainer container={content} />
-                </React.Fragment>
+                </section>
             ))}
         </>
     );
@@ -184,14 +187,15 @@ function DocRemarksSection({
     remarksSection: tsdoc.DocSection;
 }) {
     return (
-        <>
+        <section className="mt-2">
             <h4>Remarks</h4>
+
             <DocContainer container={remarksSection} />
-        </>
+        </section>
     );
 }
 
-function DocExamplesSection({
+function DocExamplesSections({
     exampleBlocks,
 }: {
     exampleBlocks: tsdoc.DocBlock[];
@@ -199,10 +203,11 @@ function DocExamplesSection({
     return (
         <>
             {exampleBlocks.map(({ content }, index) => (
-                <React.Fragment key={index}>
+                <section key={index} className="mt-2">
                     <h4>Example</h4>
+
                     <DocContainer container={content} />
-                </React.Fragment>
+                </section>
             ))}
         </>
     );
@@ -214,8 +219,9 @@ function DocSeeSection({
     seeBlocks: ReadonlyArray<tsdoc.DocBlock>;
 }) {
     return (
-        <>
+        <section className="mt-2">
             <h4>See also</h4>
+
             <ul>
                 {seeBlocks.map(({ content }, index) => (
                     <li key={index}>
@@ -223,7 +229,7 @@ function DocSeeSection({
                     </li>
                 ))}
             </ul>
-        </>
+        </section>
     );
 }
 
@@ -233,8 +239,9 @@ function DocModifiersSection({
     modifierTags: tsdoc.DocBlockTag[];
 }) {
     return (
-        <>
+        <section className="mt-2">
             <h4>Modifiers</h4>
+
             <ul className="flex flex-wrap space-x-4">
                 {modifierTags.map(({ tagName }) => (
                     <li key={tagName}>
@@ -242,7 +249,7 @@ function DocModifiersSection({
                     </li>
                 ))}
             </ul>
-        </>
+        </section>
     );
 }
 
@@ -252,10 +259,11 @@ function DocDeprecatedSection({
     deprecatedSection: tsdoc.DocSection;
 }) {
     return (
-        <>
+        <section className="mt-2">
             <h4 className="text-red-700 dark:text-red-500">Deprecated</h4>
+
             <DocContainer container={deprecatedSection} />
-        </>
+        </section>
     );
 }
 
