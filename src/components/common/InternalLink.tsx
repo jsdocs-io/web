@@ -17,12 +17,16 @@ export function InternalLink({
     const href = sanitizeUrl(rawHref);
     const samePage = href.startsWith('#');
 
-    return samePage ? (
-        // A simple <a> tag prevents re-render
-        <A href={href} title={title}>
-            {children}
-        </A>
-    ) : (
+    if (samePage) {
+        // A simple <a> tag prevents re-rendering when jumping to anchors
+        return (
+            <A href={href} title={title}>
+                {children}
+            </A>
+        );
+    }
+
+    return (
         <Link href={href} as={as} prefetch={false}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a
