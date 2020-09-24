@@ -1,6 +1,6 @@
 import { NamespaceDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { InternalLink } from '../common/InternalLink';
+import { PackageIndexNamespacesList } from './PackageIndexNamespacesList';
 
 export function PackageIndexNamespacesSection({
     namespaces,
@@ -12,21 +12,10 @@ export function PackageIndexNamespacesSection({
     }
 
     return (
-        <>
+        <section>
             <h3 id="package-index-namespaces">Namespaces</h3>
 
-            <ul>
-                {namespaces.map(({ id, name }) => (
-                    <li key={id}>
-                        <InternalLink
-                            href={`#${id}`}
-                            title={`Namespace ${name}`}
-                        >
-                            {name}
-                        </InternalLink>
-                    </li>
-                ))}
-            </ul>
-        </>
+            <PackageIndexNamespacesList namespaces={namespaces} />
+        </section>
     );
 }

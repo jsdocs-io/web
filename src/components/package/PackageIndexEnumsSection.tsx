@@ -1,6 +1,6 @@
 import { EnumDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { InternalLink } from '../common/InternalLink';
+import { PackageIndexEnumsList } from './PackageIndexEnumsList';
 
 export function PackageIndexEnumsSection({
     enums,
@@ -12,18 +12,10 @@ export function PackageIndexEnumsSection({
     }
 
     return (
-        <>
+        <section>
             <h3 id="package-index-enums">Enums</h3>
 
-            <ul>
-                {enums.map(({ id, name }) => (
-                    <li key={id}>
-                        <InternalLink href={`#${id}`} title={`Enum ${name}`}>
-                            {name}
-                        </InternalLink>
-                    </li>
-                ))}
-            </ul>
-        </>
+            <PackageIndexEnumsList enums={enums} />
+        </section>
     );
 }

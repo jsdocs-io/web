@@ -28,13 +28,15 @@ export function PackageIndexSection({
         <Section>
             <h2 id="package-index">Index</h2>
 
-            <PackageIndexVariablesSection variables={variables} />
-            <PackageIndexFunctionsSection functions={functions} />
-            <PackageIndexClassesSection classes={classes} />
-            <PackageIndexInterfacesSection interfaces={interfaces} />
-            <PackageIndexEnumsSection enums={enums} />
-            <PackageIndexTypeAliasesSection typeAliases={typeAliases} />
-            <PackageIndexNamespacesSection namespaces={namespaces} />
+            <div className="space-y-2">
+                <PackageIndexVariablesSection variables={variables} />
+                <PackageIndexFunctionsSection functions={functions} />
+                <PackageIndexClassesSection classes={classes} />
+                <PackageIndexInterfacesSection interfaces={interfaces} />
+                <PackageIndexEnumsSection enums={enums} />
+                <PackageIndexTypeAliasesSection typeAliases={typeAliases} />
+                <PackageIndexNamespacesSection namespaces={namespaces} />
+            </div>
         </Section>
     );
 }

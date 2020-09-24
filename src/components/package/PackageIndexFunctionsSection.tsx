@@ -1,6 +1,6 @@
 import { FunctionDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { InternalLink } from '../common/InternalLink';
+import { PackageIndexFunctionsList } from './PackageIndexFunctionsList';
 
 export function PackageIndexFunctionsSection({
     functions,
@@ -12,19 +12,10 @@ export function PackageIndexFunctionsSection({
     }
 
     return (
-        <>
+        <section>
             <h3 id="package-index-functions">Functions</h3>
 
-            <ul>
-                {functions.map(({ id, name }) => (
-                    <li key={id}>
-                        <InternalLink
-                            href={`#${id}`}
-                            title={`Function ${name}`}
-                        >{`${name}()`}</InternalLink>
-                    </li>
-                ))}
-            </ul>
-        </>
+            <PackageIndexFunctionsList functions={functions} />
+        </section>
     );
 }

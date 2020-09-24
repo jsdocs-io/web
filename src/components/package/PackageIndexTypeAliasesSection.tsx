@@ -1,6 +1,6 @@
 import { TypeAliasDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { InternalLink } from '../common/InternalLink';
+import { PackageIndexTypeAliasesList } from './PackageIndexTypeAliasesList';
 
 export function PackageIndexTypeAliasesSection({
     typeAliases,
@@ -12,21 +12,10 @@ export function PackageIndexTypeAliasesSection({
     }
 
     return (
-        <>
+        <section>
             <h3 id="package-index-type-aliases">Type aliases</h3>
 
-            <ul>
-                {typeAliases.map(({ id, name }) => (
-                    <li key={id}>
-                        <InternalLink
-                            href={`#${id}`}
-                            title={`Type alias ${name}`}
-                        >
-                            {name}
-                        </InternalLink>
-                    </li>
-                ))}
-            </ul>
-        </>
+            <PackageIndexTypeAliasesList typeAliases={typeAliases} />
+        </section>
     );
 }

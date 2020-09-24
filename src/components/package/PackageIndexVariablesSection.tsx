@@ -1,6 +1,6 @@
 import { VariableDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { InternalLink } from '../common/InternalLink';
+import { PackageIndexVariablesList } from './PackageIndexVariablesList';
 
 export function PackageIndexVariablesSection({
     variables,
@@ -12,21 +12,10 @@ export function PackageIndexVariablesSection({
     }
 
     return (
-        <>
+        <section className="mt-2">
             <h3 id="package-index-variables">Variables</h3>
 
-            <ul>
-                {variables.map(({ id, name }) => (
-                    <li key={id}>
-                        <InternalLink
-                            href={`#${id}`}
-                            title={`Variable ${name}`}
-                        >
-                            {name}
-                        </InternalLink>
-                    </li>
-                ))}
-            </ul>
-        </>
+            <PackageIndexVariablesList variables={variables} />
+        </section>
     );
 }

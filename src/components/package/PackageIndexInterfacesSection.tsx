@@ -1,6 +1,6 @@
 import { InterfaceDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { InternalLink } from '../common/InternalLink';
+import { PackageIndexInterfacesList } from './PackageIndexInterfacesList';
 
 export function PackageIndexInterfacesSection({
     interfaces,
@@ -12,21 +12,10 @@ export function PackageIndexInterfacesSection({
     }
 
     return (
-        <>
+        <section>
             <h3 id="package-index-interfaces">Interfaces</h3>
 
-            <ul>
-                {interfaces.map(({ id, name }) => (
-                    <li key={id}>
-                        <InternalLink
-                            href={`#${id}`}
-                            title={`Interface ${name}`}
-                        >
-                            {name}
-                        </InternalLink>
-                    </li>
-                ))}
-            </ul>
-        </>
+            <PackageIndexInterfacesList interfaces={interfaces} />
+        </section>
     );
 }
