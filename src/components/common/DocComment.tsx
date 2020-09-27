@@ -16,7 +16,11 @@ interface DocLinkTagProps {
 /**
  * DocComment renders a JSDoc/TSDoc comment (like this one).
  */
-export function DocComment({ doc }: { doc: string }) {
+export function DocComment({ doc }: { doc?: string }) {
+    if (!doc) {
+        return null;
+    }
+
     const {
         summarySection,
         params: { blocks: paramBlocks },
@@ -242,7 +246,7 @@ function DocModifiersSection({
         <section className="mt-2">
             <h4>Modifiers</h4>
 
-            <ul className="flex flex-wrap space-x-4">
+            <ul className="list-inline">
                 {modifierTags.map(({ tagName }) => (
                     <li key={tagName}>
                         <InlineCode code={tagName} />
