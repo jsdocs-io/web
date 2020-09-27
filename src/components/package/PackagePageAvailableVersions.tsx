@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 import { PackagePagePropsAvailableVersions } from '../../lib/package-page-props';
 import { Layout } from '../common/Layout';
@@ -13,21 +14,31 @@ export function PackagePageAvailableVersions({
     const { name, repository, distTags, versionsTimestamps } = packument;
 
     return (
-        <Layout>
-            <PackageNav
-                name={name}
-                repositoryURL={repository?.url}
-                hideInternalNav={true}
-            />
+        <>
+            <Head>
+                <title>{name} versions - jsDocs.io</title>
+                <meta
+                    name="description"
+                    content={`Available versions for package ${name} - jsDocs.io`}
+                />
+            </Head>
 
-            <PackageDistTagsSection name={name} distTags={distTags} />
+            <Layout>
+                <PackageNav
+                    name={name}
+                    repositoryURL={repository?.url}
+                    hideInternalNav={true}
+                />
 
-            <PackageVersionsSection
-                name={name}
-                versionsTimestamps={versionsTimestamps}
-            />
+                <PackageDistTagsSection name={name} distTags={distTags} />
 
-            <PackageFooterSection createdAt={createdAt} />
-        </Layout>
+                <PackageVersionsSection
+                    name={name}
+                    versionsTimestamps={versionsTimestamps}
+                />
+
+                <PackageFooterSection createdAt={createdAt} />
+            </Layout>
+        </>
     );
 }

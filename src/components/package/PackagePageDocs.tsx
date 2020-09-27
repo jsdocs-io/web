@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 import { PackagePagePropsDocs } from '../../lib/package-page-props';
 import { Layout } from '../common/Layout';
@@ -13,6 +14,7 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
     const { manifest, api, elapsed } = info;
 
     const {
+        id,
         name,
         version,
         description,
@@ -30,43 +32,53 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
     const hasDocs = !!api?.files.length;
 
     return (
-        <Layout>
-            <PackageNav
-                name={name}
-                definitelyTypedName={definitelyTypedName}
-                untypedName={untypedName}
-                repositoryURL={repository?.url}
-                hasDocs={hasDocs}
-            />
+        <>
+            <Head>
+                <title>{id} - jsDocs.io</title>
+                <meta
+                    name="description"
+                    content={`Documentation for package ${id} - jsDocs.io`}
+                />
+            </Head>
 
-            <PackageTitleSection
-                name={name}
-                version={version}
-                publishedAt={publishedAt}
-                license={license}
-                unpackedSize={unpackedSize}
-                dependencies={dependencies}
-            />
+            <Layout>
+                <PackageNav
+                    name={name}
+                    definitelyTypedName={definitelyTypedName}
+                    untypedName={untypedName}
+                    repositoryURL={repository?.url}
+                    hasDocs={hasDocs}
+                />
 
-            <PackageInstallSection name={name} />
+                <PackageTitleSection
+                    name={name}
+                    version={version}
+                    publishedAt={publishedAt}
+                    license={license}
+                    unpackedSize={unpackedSize}
+                    dependencies={dependencies}
+                />
 
-            <PackageOverviewSection
-                overview={api?.overview}
-                description={description}
-            />
+                <PackageInstallSection name={name} />
 
-            <PackageDependenciesSections
-                dependencies={dependencies}
-                devDependencies={devDependencies}
-                peerDependencies={peerDependencies}
-            />
+                <PackageOverviewSection
+                    overview={api?.overview}
+                    description={description}
+                />
 
-            <PackageBadgeSection name={name} />
+                <PackageDependenciesSections
+                    dependencies={dependencies}
+                    devDependencies={devDependencies}
+                    peerDependencies={peerDependencies}
+                />
 
-            <PackageFooterSection
-                createdAt={createdAt}
-                analysisTime={elapsed}
-            />
-        </Layout>
+                <PackageBadgeSection name={name} />
+
+                <PackageFooterSection
+                    createdAt={createdAt}
+                    analysisTime={elapsed}
+                />
+            </Layout>
+        </>
     );
 }
