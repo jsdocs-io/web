@@ -3,7 +3,6 @@ import { SearchResult } from 'query-registry';
 import React from 'react';
 import { TimeAgo } from '../../components/common/TimeAgo';
 import { A } from '../common/A';
-import { InlineCode } from '../common/InlineCode';
 
 export default function SearchResults({
     searchResults,
@@ -40,8 +39,8 @@ export default function SearchResults({
                         {description && <p>{description}</p>}
 
                         <p>
-                            Version <InlineCode code={version} /> published{' '}
-                            <TimeAgo date={date} />
+                            Version <span className="font-bold">{version}</span>{' '}
+                            published <TimeAgo date={date} />
                             {username && (
                                 <>
                                     {' '}
