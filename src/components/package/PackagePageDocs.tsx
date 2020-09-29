@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import { PackagePagePropsDocs } from '../../lib/package-page-props';
 import { Layout } from '../common/Layout';
+import { PackageAPISections } from './PackageAPISections';
 import { PackageBadgeSection } from './PackageBadgeSection';
 import { PackageDependenciesSections } from './PackageDependenciesSections';
 import { PackageFooterSection } from './PackageFooterSection';
@@ -65,6 +66,8 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
                     overview={api?.overview}
                     description={description}
                 />
+
+                <PackageAPISections api={api} />
 
                 <PackageDependenciesSections
                     dependencies={dependencies}
