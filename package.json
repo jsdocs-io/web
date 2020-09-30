@@ -33,7 +33,7 @@
         "arrowParens": "always"
     },
     "dependencies": {
-        "@braintree/sanitize-url": "^4.1.1",
+        "@braintree/sanitize-url": "^5.0.0",
         "@jsdocs-io/package-analyzer": "^1.0.1",
         "@keyv/redis": "^2.1.2",
         "@microsoft/tsdoc": "^0.12.21",
