@@ -42,7 +42,7 @@
         "keyv": "^4.0.3",
         "next": "9.5.3",
         "nprogress": "^0.2.0",
-        "path-to-regexp": "^6.1.0",
+        "path-to-regexp": "^6.2.0",
         "pretty-bytes": "^5.4.1",
         "prism-react-renderer": "^1.1.1",
         "prismjs": "^1.21.0",
