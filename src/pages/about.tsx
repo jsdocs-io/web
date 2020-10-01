@@ -4,7 +4,8 @@ import { A } from '../components/common/A';
 import { InlineCode } from '../components/common/InlineCode';
 import { InternalLink } from '../components/common/InternalLink';
 import { Layout } from '../components/common/Layout';
-import { Section } from '../components/common/Section';
+import { Section1 } from '../components/common/Section1';
+import { Section2 } from '../components/common/Section2';
 import { newTabBookmarklet, redirectBookmarklet } from '../data/bookmarklets';
 
 export default function AboutPage() {
@@ -32,7 +33,7 @@ export default function AboutPage() {
 
 function IntroSection() {
     return (
-        <section>
+        <Section1>
             <h1>About</h1>
 
             <p>
@@ -47,18 +48,18 @@ function IntroSection() {
                 <A href="https://pkg.go.dev/">GoDoc</A> and{' '}
                 <A href="https://docs.rs">Docs.rs</A>.
             </p>
-        </section>
+        </Section1>
     );
 }
 
 function AddingAPackageSection() {
     return (
-        <Section>
+        <Section2>
             <h2>Adding a package</h2>
 
             <p>To add a package to jsDocs.io, you can:</p>
 
-            <ul className="my-2 ml-8 list-disc">
+            <ul className="my-2 ml-8 space-y-1 list-disc">
                 <li>
                     <InternalLink href="/">Search</InternalLink> the package by
                     name
@@ -80,13 +81,13 @@ function AddingAPackageSection() {
                 If the package wasn't already indexed, it will be downloaded
                 from npm, analyzed and its documentation will be displayed.
             </p>
-        </Section>
+        </Section2>
     );
 }
 
 function DocumentingAPackageSection() {
     return (
-        <Section>
+        <Section2>
             <h2>Documenting a package</h2>
 
             <p>
@@ -97,13 +98,13 @@ function DocumentingAPackageSection() {
                 </InternalLink>
                 .
             </p>
-        </Section>
+        </Section2>
     );
 }
 
 function RemovingAPackageSection() {
     return (
-        <Section>
+        <Section2>
             <h2>Removing a package</h2>
 
             <p>
@@ -111,13 +112,13 @@ function RemovingAPackageSection() {
                 on jsDocs.io, please contact us at the email found in the{' '}
                 <A href="#feedback">feedback section</A> below.
             </p>
-        </Section>
+        </Section2>
     );
 }
 
 function BadgeSection() {
     return (
-        <Section>
+        <Section2>
             <h2>Badge</h2>
 
             <img src="/badge.svg" alt="jsDocs.io badge" className="my-4" />
@@ -126,13 +127,13 @@ function BadgeSection() {
                 You can find the code for a badge like the one pictured above at
                 the bottom of your package's documentation page.
             </p>
-        </Section>
+        </Section2>
     );
 }
 
 function BookmarkletsSection() {
     return (
-        <Section>
+        <Section2>
             <h2>Bookmarklets</h2>
 
             <p>
@@ -156,13 +157,13 @@ function BookmarkletsSection() {
                     }}
                 ></li>
             </ul>
-        </Section>
+        </Section2>
     );
 }
 
 function FeedbackSection() {
     return (
-        <Section>
+        <Section2>
             <h2>Feedback</h2>
 
             <p>
@@ -174,6 +175,6 @@ function FeedbackSection() {
                 <A href="https://twitter.com/jsDocs">@jsDocs</A> or by email at{' '}
                 <InlineCode code="info@<our-domain>" />.
             </p>
-        </Section>
+        </Section2>
     );
 }

@@ -1,6 +1,6 @@
 import { FunctionDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { Section } from '../common/Section';
+import { Section2 } from '../common/Section2';
 import { PackageDeclarationSection } from './PackageDeclarationSection';
 
 export function PackageFunctionsSection({
@@ -13,7 +13,7 @@ export function PackageFunctionsSection({
     }
 
     return (
-        <Section>
+        <Section2>
             <h2 id="package-functions">Functions</h2>
 
             {functions.map((declaration) => (
@@ -22,6 +22,6 @@ export function PackageFunctionsSection({
                     declaration={declaration}
                 />
             ))}
-        </Section>
+        </Section2>
     );
 }

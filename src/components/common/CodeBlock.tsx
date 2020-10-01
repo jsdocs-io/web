@@ -13,7 +13,7 @@ export function CodeBlock({
     };
 
     return (
-        <div className="relative my-4">
+        <div className="relative my-6">
             <button
                 className="absolute right-0 p-2 text-gray-100 opacity-25 hover:opacity-100 active:text-green-500"
                 title="Copy to clipboard"

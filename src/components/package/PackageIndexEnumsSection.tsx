@@ -1,5 +1,6 @@
 import { EnumDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
+import { Section3 } from '../common/Section3';
 import { PackageIndexEnumsList } from './PackageIndexEnumsList';
 
 export function PackageIndexEnumsSection({
@@ -12,10 +13,10 @@ export function PackageIndexEnumsSection({
     }
 
     return (
-        <section>
+        <Section3>
             <h3 id="package-index-enums">Enums</h3>
 
             <PackageIndexEnumsList enums={enums} />
-        </section>
+        </Section3>
     );
 }

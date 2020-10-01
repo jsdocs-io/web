@@ -6,7 +6,8 @@ import { DocComment } from '../components/common/DocComment';
 import { InlineCode } from '../components/common/InlineCode';
 import { InternalLink } from '../components/common/InternalLink';
 import { Layout } from '../components/common/Layout';
-import { Section } from '../components/common/Section';
+import { Section1 } from '../components/common/Section1';
+import { Section2 } from '../components/common/Section2';
 import {
     exampleDeclarationDoc,
     exampleDeclarationFile,
@@ -48,20 +49,20 @@ export default function GuidePage() {
 
 function IntroSection() {
     return (
-        <section>
+        <Section1>
             <h1>Package documentation guide</h1>
 
             <p>
                 This guide explains how to improve the documentation of your
                 packages as displayed on jsDocs.io.
             </p>
-        </section>
+        </Section1>
     );
 }
 
 function PackageAnalysisProcessSection() {
     return (
-        <Section>
+        <Section2>
             <h2>Package analysis process</h2>
 
             <p>
@@ -70,7 +71,7 @@ function PackageAnalysisProcessSection() {
                 ), the following package analysis process is executed:
             </p>
 
-            <ol className="my-2 ml-8 list-decimal">
+            <ol className="my-2 ml-8 space-y-1 list-decimal">
                 <li>
                     Query the npm registry for the latest version of package{' '}
                     <InlineCode code="foo" /> (for example,{' '}
@@ -95,7 +96,7 @@ function PackageAnalysisProcessSection() {
 
                 <li>
                     Extract the package's public API from the downloaded files:
-                    <ol className="my-2 ml-4 list-decimal">
+                    <ol className="my-2 ml-4 space-y-1 list-decimal">
                         <li>
                             Find the package's index file (for example,{' '}
                             <InlineCode code="index.ts" />)
@@ -124,25 +125,27 @@ function PackageAnalysisProcessSection() {
                 In the following sections, you will learn how to optimize the
                 metadata extracted from your package through this process.
             </p>
-        </Section>
+        </Section2>
     );
 }
 
 function SupportedPackagesSection() {
     return (
-        <Section>
+        <Section2>
             <h2>Supported packages</h2>
 
             <p>
                 Due to the diversity of the Javascript ecosystem and current
                 technical limitations, some packages are not currently well
                 supported.
-                <br />
+            </p>
+
+            <p>
                 In particular, the public API can only be extracted from
                 packages that meet the following conditions:
             </p>
 
-            <ul className="my-2 ml-8 list-disc">
+            <ul className="my-2 ml-8 space-y-1 list-disc">
                 <li>
                     Provide exports through a single entry point (for example,{' '}
                     <InlineCode code="index.ts" />) using{' '}
@@ -171,7 +174,7 @@ function SupportedPackagesSection() {
                         license field
                     </A>{' '}
                     inside <InlineCode code="package.json" /> that:
-                    <ul className="my-2 ml-4 list-disc">
+                    <ul className="my-2 ml-4 space-y-1 list-disc">
                         <li>Is not empty</li>
 
                         <li>
@@ -190,13 +193,13 @@ function SupportedPackagesSection() {
                 In practice, most open-source Typescript and Javascript packages
                 shipping their own type definitions should be well supported.
             </p>
-        </Section>
+        </Section2>
     );
 }
 
 function IndexFileSection() {
     return (
-        <Section>
+        <Section2>
             <h2>Index file</h2>
 
             <p>
@@ -217,7 +220,7 @@ function IndexFileSection() {
                 filenames, listed in order of preference:
             </p>
 
-            <ol className="my-2 ml-8 list-decimal">
+            <ol className="my-2 ml-8 space-y-1 list-decimal">
                 <li>
                     <InlineCode code="public-package-api.ts" />
                 </li>
@@ -277,13 +280,13 @@ function IndexFileSection() {
             </p>
 
             <CodeBlock code={examplePackageJSONFiles} language="json" />
-        </Section>
+        </Section2>
     );
 }
 
 function PackageOverviewSection() {
     return (
-        <Section>
+        <Section2>
             <h2>Package overview</h2>
 
             <p>
@@ -309,7 +312,7 @@ function PackageOverviewSection() {
                 as follows:
             </p>
 
-            <div className="p-4 my-4 border border-gray-300 rounded dark:border-gray-700">
+            <div className="p-4 my-6 border border-gray-300 rounded dark:border-gray-700">
                 <DocComment doc={exampleOverview} />
             </div>
 
@@ -322,20 +325,20 @@ function PackageOverviewSection() {
                 <A href="https://microsoft.github.io/tsdoc">TSDoc playground</A>
                 .
             </p>
-        </Section>
+        </Section2>
     );
 }
 
 function PackageDeclarationsSection() {
     return (
-        <Section>
+        <Section2>
             <h2>Package declarations</h2>
 
             <p>
                 Your package can export any of the following declaration kinds:
             </p>
 
-            <ul className="my-2 ml-8 list-disc">
+            <ul className="my-2 ml-8 space-y-1 list-disc">
                 <li>Variables</li>
                 <li>Functions</li>
                 <li>Classes</li>
@@ -358,7 +361,7 @@ function PackageDeclarationsSection() {
                 above is rendered as follows:
             </p>
 
-            <div className="p-4 my-4 border border-gray-300 rounded dark:border-gray-700">
+            <div className="p-4 my-6 border border-gray-300 rounded dark:border-gray-700">
                 <h3>function sum</h3>
 
                 <CodeBlock
@@ -385,13 +388,13 @@ function PackageDeclarationsSection() {
                 </A>
                 .
             </p>
-        </Section>
+        </Section2>
     );
 }
 
 function LinkingToSourceSection() {
     return (
-        <Section>
+        <Section2>
             <h2>Linking to source</h2>
 
             <p>
@@ -413,7 +416,7 @@ function LinkingToSourceSection() {
                 package is determined in order of preference by:
             </p>
 
-            <ol className="my-2 ml-8 list-decimal">
+            <ol className="my-2 ml-8 space-y-1 list-decimal">
                 <li>
                     The <InlineCode code="gitHead" /> field that npm should
                     automatically create inside your package's manifest when
@@ -426,13 +429,13 @@ function LinkingToSourceSection() {
                     <InlineCode code="foo@1.0.0" />)
                 </li>
             </ol>
-        </Section>
+        </Section2>
     );
 }
 
 function ExternalDocumentationSection() {
     return (
-        <Section>
+        <Section2>
             <h2>External documentation</h2>
 
             <p>
@@ -444,13 +447,13 @@ function ExternalDocumentationSection() {
                 , your package's documentation page will contain a link to the
                 corresponding <InlineCode code="@types" /> package.
             </p>
-        </Section>
+        </Section2>
     );
 }
 
 function ExamplePackagesSection() {
     return (
-        <Section>
+        <Section2>
             <h2>Example packages</h2>
 
             <p>
@@ -458,7 +461,7 @@ function ExamplePackagesSection() {
                 documenting your package:
             </p>
 
-            <ul className="my-2 ml-8 list-disc">
+            <ul className="my-2 ml-8 space-y-1 list-disc">
                 <li>
                     <InlineCode code="short-time-ago" /> (
                     <InternalLink href="/package/short-time-ago">
@@ -487,6 +490,6 @@ function ExamplePackagesSection() {
                     declarations of different kinds
                 </li>
             </ul>
-        </Section>
+        </Section2>
     );
 }

@@ -9,7 +9,7 @@ export function PackageIndexNamespacesList({
     namespaces: NamespaceDeclaration[];
 }) {
     return (
-        <ul>
+        <ul className="my-2">
             {namespaces.map(({ id, name, declarations }) => (
                 <li key={id}>
                     <details>

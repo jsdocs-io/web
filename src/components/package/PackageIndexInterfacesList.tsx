@@ -9,7 +9,7 @@ export function PackageIndexInterfacesList({
     interfaces: InterfaceDeclaration[];
 }) {
     return (
-        <ul>
+        <ul className="my-2">
             {interfaces.map(({ id, name, members }) => (
                 <li key={id}>
                     <details>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CodeBlock } from '../common/CodeBlock';
-import { Section } from '../common/Section';
+import { Section2 } from '../common/Section2';
 
 export function PackageBadgeSection({ name }: { name: string }) {
     const badgeURL = 'https://img.shields.io/badge/jsDocs.io-reference-blue';
@@ -10,7 +10,7 @@ export function PackageBadgeSection({ name }: { name: string }) {
     const htmlBadge = `<a href="${packageURL}"><img src="${badgeURL}" alt="${altText}"></a>`;
 
     return (
-        <Section>
+        <Section2>
             <h2 id="package-badge">Badge</h2>
 
             <p>
@@ -29,6 +29,6 @@ export function PackageBadgeSection({ name }: { name: string }) {
                     <CodeBlock code={htmlBadge} language="html" />
                 </li>
             </ul>
-        </Section>
+        </Section2>
     );
 }

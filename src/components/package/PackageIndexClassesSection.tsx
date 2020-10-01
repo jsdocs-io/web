@@ -1,5 +1,6 @@
 import { ClassDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
+import { Section3 } from '../common/Section3';
 import { PackageIndexClassesList } from './PackageIndexClassesList';
 
 export function PackageIndexClassesSection({
@@ -12,10 +13,10 @@ export function PackageIndexClassesSection({
     }
 
     return (
-        <section>
+        <Section3>
             <h3 id="package-index-classes">Classes</h3>
 
             <PackageIndexClassesList classes={classes} />
-        </section>
+        </Section3>
     );
 }

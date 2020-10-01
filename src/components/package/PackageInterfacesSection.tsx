@@ -1,6 +1,6 @@
 import { InterfaceDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { Section } from '../common/Section';
+import { Section2 } from '../common/Section2';
 import { PackageInterfaceDeclarationSections } from './PackageInterfaceDeclarationSections';
 
 export function PackageInterfacesSection({
@@ -13,7 +13,7 @@ export function PackageInterfacesSection({
     }
 
     return (
-        <Section>
+        <Section2>
             <h2 id="package-interfaces">Interfaces</h2>
 
             {interfaces.map((declaration) => (
@@ -23,6 +23,6 @@ export function PackageInterfacesSection({
                     />
                 </React.Fragment>
             ))}
-        </Section>
+        </Section2>
     );
 }

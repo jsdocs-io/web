@@ -1,6 +1,6 @@
 import { ClassDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { Section } from '../common/Section';
+import { Section2 } from '../common/Section2';
 import { PackageClassDeclarationSections } from './PackageClassDeclarationSections';
 
 export function PackageClassesSection({
@@ -13,7 +13,7 @@ export function PackageClassesSection({
     }
 
     return (
-        <Section>
+        <Section2>
             <h2 id="package-classes">Classes</h2>
 
             {classes.map((declaration) => (
@@ -23,6 +23,6 @@ export function PackageClassesSection({
                     />
                 </React.Fragment>
             ))}
-        </Section>
+        </Section2>
     );
 }

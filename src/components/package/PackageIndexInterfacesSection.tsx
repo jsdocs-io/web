@@ -1,5 +1,6 @@
 import { InterfaceDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
+import { Section3 } from '../common/Section3';
 import { PackageIndexInterfacesList } from './PackageIndexInterfacesList';
 
 export function PackageIndexInterfacesSection({
@@ -12,10 +13,10 @@ export function PackageIndexInterfacesSection({
     }
 
     return (
-        <section>
+        <Section3>
             <h3 id="package-index-interfaces">Interfaces</h3>
 
             <PackageIndexInterfacesList interfaces={interfaces} />
-        </section>
+        </Section3>
     );
 }

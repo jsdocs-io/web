@@ -1,6 +1,6 @@
 import { TypeAliasDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { Section } from '../common/Section';
+import { Section2 } from '../common/Section2';
 import { PackageDeclarationSection } from './PackageDeclarationSection';
 
 export function PackageTypeAliasesSection({
@@ -13,7 +13,7 @@ export function PackageTypeAliasesSection({
     }
 
     return (
-        <Section>
+        <Section2>
             <h2 id="package-type-aliases">Type aliases</h2>
 
             {typeAliases.map((declaration) => (
@@ -22,6 +22,6 @@ export function PackageTypeAliasesSection({
                     declaration={declaration}
                 />
             ))}
-        </Section>
+        </Section2>
     );
 }

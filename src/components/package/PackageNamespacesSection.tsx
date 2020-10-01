@@ -1,6 +1,6 @@
 import { NamespaceDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { Section } from '../common/Section';
+import { Section2 } from '../common/Section2';
 import { PackageNamespaceDeclarationSections } from './PackageNamespaceDeclarationSections';
 
 export function PackageNamespacesSection({
@@ -13,7 +13,7 @@ export function PackageNamespacesSection({
     }
 
     return (
-        <Section>
+        <Section2>
             <h2 id="package-namespaces">Namespaces</h2>
 
             {namespaces.map((declaration) => (
@@ -23,6 +23,6 @@ export function PackageNamespacesSection({
                     />
                 </React.Fragment>
             ))}
-        </Section>
+        </Section2>
     );
 }

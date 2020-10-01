@@ -1,6 +1,6 @@
 import { VariableDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { Section } from '../common/Section';
+import { Section2 } from '../common/Section2';
 import { PackageDeclarationSection } from './PackageDeclarationSection';
 
 export function PackageVariablesSection({
@@ -13,7 +13,7 @@ export function PackageVariablesSection({
     }
 
     return (
-        <Section>
+        <Section2>
             <h2 id="package-variables">Variables</h2>
 
             {variables.map((declaration) => (
@@ -22,6 +22,6 @@ export function PackageVariablesSection({
                     declaration={declaration}
                 />
             ))}
-        </Section>
+        </Section2>
     );
 }

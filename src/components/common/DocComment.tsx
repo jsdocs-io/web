@@ -4,6 +4,7 @@ import { A } from './A';
 import { CodeBlock } from './CodeBlock';
 import { InlineCode } from './InlineCode';
 import { InternalLink } from './InternalLink';
+import { Section4 } from './Section4';
 
 interface DocNodeProps {
     readonly node: tsdoc.DocNode;
@@ -143,11 +144,11 @@ function DocParamsSections({
     return (
         <>
             {paramBlocks.map(({ parameterName, content }) => (
-                <section key={parameterName} className="mt-2">
+                <Section4 key={parameterName}>
                     <h4>Paramter {parameterName}</h4>
 
                     <DocContainer container={content} />
-                </section>
+                </Section4>
             ))}
         </>
     );
@@ -159,11 +160,11 @@ function DocReturnsSection({
     returnsSection: tsdoc.DocSection;
 }) {
     return (
-        <section className="mt-2">
+        <Section4>
             <h4>Returns</h4>
 
             <DocContainer container={returnsSection} />
-        </section>
+        </Section4>
     );
 }
 
@@ -175,11 +176,11 @@ function DocThrowsSections({
     return (
         <>
             {throwsBlocks.map(({ content }, index) => (
-                <section key={index} className="mt-2">
+                <Section4 key={index}>
                     <h4>Throws</h4>
 
                     <DocContainer container={content} />
-                </section>
+                </Section4>
             ))}
         </>
     );
@@ -191,11 +192,11 @@ function DocRemarksSection({
     remarksSection: tsdoc.DocSection;
 }) {
     return (
-        <section className="mt-2">
+        <Section4>
             <h4>Remarks</h4>
 
             <DocContainer container={remarksSection} />
-        </section>
+        </Section4>
     );
 }
 
@@ -207,11 +208,11 @@ function DocExamplesSections({
     return (
         <>
             {exampleBlocks.map(({ content }, index) => (
-                <section key={index} className="mt-2">
+                <Section4 key={index}>
                     <h4>Example</h4>
 
                     <DocContainer container={content} />
-                </section>
+                </Section4>
             ))}
         </>
     );
@@ -223,7 +224,7 @@ function DocSeeSection({
     seeBlocks: ReadonlyArray<tsdoc.DocBlock>;
 }) {
     return (
-        <section className="mt-2">
+        <Section4>
             <h4>See also</h4>
 
             <ul>
@@ -233,7 +234,7 @@ function DocSeeSection({
                     </li>
                 ))}
             </ul>
-        </section>
+        </Section4>
     );
 }
 
@@ -243,7 +244,7 @@ function DocModifiersSection({
     modifierTags: tsdoc.DocBlockTag[];
 }) {
     return (
-        <section className="mt-2">
+        <Section4>
             <h4>Modifiers</h4>
 
             <ul className="list-inline">
@@ -253,7 +254,7 @@ function DocModifiersSection({
                     </li>
                 ))}
             </ul>
-        </section>
+        </Section4>
     );
 }
 
@@ -263,11 +264,11 @@ function DocDeprecatedSection({
     deprecatedSection: tsdoc.DocSection;
 }) {
     return (
-        <section className="mt-2">
+        <Section4>
             <h4 className="text-red-700 dark:text-red-500">Deprecated</h4>
 
             <DocContainer container={deprecatedSection} />
-        </section>
+        </Section4>
     );
 }
 

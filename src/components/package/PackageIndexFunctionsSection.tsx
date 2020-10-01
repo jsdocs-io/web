@@ -1,5 +1,6 @@
 import { FunctionDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
+import { Section3 } from '../common/Section3';
 import { PackageIndexFunctionsList } from './PackageIndexFunctionsList';
 
 export function PackageIndexFunctionsSection({
@@ -12,10 +13,10 @@ export function PackageIndexFunctionsSection({
     }
 
     return (
-        <section>
+        <Section3>
             <h3 id="package-index-functions">Functions</h3>
 
             <PackageIndexFunctionsList functions={functions} />
-        </section>
+        </Section3>
     );
 }

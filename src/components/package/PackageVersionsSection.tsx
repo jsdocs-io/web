@@ -1,6 +1,6 @@
 import React from 'react';
 import { InternalLink } from '../common/InternalLink';
-import { Section } from '../common/Section';
+import { Section2 } from '../common/Section2';
 import { TimeAgo } from '../common/TimeAgo';
 
 export function PackageVersionsSection({
@@ -13,7 +13,7 @@ export function PackageVersionsSection({
     const numVersions = Object.keys(versionsTimestamps).length;
 
     return (
-        <Section>
+        <Section2>
             <h2 id="package-versions">Versions ({numVersions})</h2>
 
             <ul className="max-w-xl">
@@ -36,6 +36,6 @@ export function PackageVersionsSection({
                         </li>
                     ))}
             </ul>
-        </Section>
+        </Section2>
     );
 }

@@ -1,7 +1,7 @@
 import { DistTags } from 'query-registry';
 import React from 'react';
 import { InternalLink } from '../common/InternalLink';
-import { Section } from '../common/Section';
+import { Section2 } from '../common/Section2';
 
 export function PackageDistTagsSection({
     name,
@@ -13,7 +13,7 @@ export function PackageDistTagsSection({
     const numTags = Object.keys(distTags).length;
 
     return (
-        <Section>
+        <Section2>
             <h2 id="dist-tags">Tags ({numTags})</h2>
 
             <ul className="max-w-xl">
@@ -34,6 +34,6 @@ export function PackageDistTagsSection({
                     </li>
                 ))}
             </ul>
-        </Section>
+        </Section2>
     );
 }
