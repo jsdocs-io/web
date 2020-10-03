@@ -19,11 +19,13 @@ export function PackageFooterSection({
             <ul className="mt-4 space-y-2">
                 <li>
                     Updated <TimeAgo date={createdAt} />.
+                    {analysisTime && (
+                        <>
+                            <br />
+                            Package analyzed in {analysisTime} ms.
+                        </>
+                    )}
                 </li>
-
-                {analysisTime && (
-                    <li>Package analyzed in {analysisTime} ms.</li>
-                )}
 
                 <li>
                     <button
