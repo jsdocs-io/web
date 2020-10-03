@@ -2,6 +2,7 @@ import Head from 'next/head';
 import React from 'react';
 import { A } from '../components/common/A';
 import { CodeBlock } from '../components/common/CodeBlock';
+import { DeclarationSignature } from '../components/common/DeclarationSignature';
 import { DocComment } from '../components/common/DocComment';
 import { InlineCode } from '../components/common/InlineCode';
 import { InternalLink } from '../components/common/InternalLink';
@@ -312,7 +313,7 @@ function PackageOverviewSection() {
                 as follows:
             </p>
 
-            <div className="p-4 my-6 border border-gray-300 rounded dark:border-gray-700">
+            <div className="p-4 my-4 border border-gray-300 rounded dark:border-gray-700">
                 <DocComment doc={exampleOverview} />
             </div>
 
@@ -361,13 +362,10 @@ function PackageDeclarationsSection() {
                 above is rendered as follows:
             </p>
 
-            <div className="p-4 my-6 border border-gray-300 rounded dark:border-gray-700">
+            <div className="p-4 my-4 border border-gray-300 rounded dark:border-gray-700">
                 <h3>function sum</h3>
 
-                <CodeBlock
-                    code={exampleDeclarationSignature}
-                    language="typescript"
-                />
+                <DeclarationSignature signature={exampleDeclarationSignature} />
 
                 <DocComment doc={exampleDeclarationDoc} />
             </div>
