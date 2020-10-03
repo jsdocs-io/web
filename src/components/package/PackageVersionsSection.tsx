@@ -1,6 +1,5 @@
 import React from 'react';
 import { InternalLink } from '../common/InternalLink';
-import { Section2 } from '../common/Section2';
 import { TimeAgo } from '../common/TimeAgo';
 
 export function PackageVersionsSection({
@@ -13,16 +12,16 @@ export function PackageVersionsSection({
     const numVersions = Object.keys(versionsTimestamps).length;
 
     return (
-        <Section2>
+        <section>
             <h2 id="package-versions">Versions ({numVersions})</h2>
 
-            <ul className="max-w-xl">
+            <ul className="max-w-3xl mt-6 space-y-6">
                 {Object.entries(versionsTimestamps)
                     .reverse()
                     .map(([version, publishedAt]) => (
                         <li
                             key={version}
-                            className="flex flex-wrap justify-between pb-1 mt-4 border-b border-gray-300 dark:border-gray-700"
+                            className="flex flex-wrap justify-between pb-1 border-b border-gray-300 dark:border-gray-700"
                         >
                             <InternalLink
                                 href="/package/[...slug]"
@@ -36,6 +35,6 @@ export function PackageVersionsSection({
                         </li>
                     ))}
             </ul>
-        </Section2>
+        </section>
     );
 }

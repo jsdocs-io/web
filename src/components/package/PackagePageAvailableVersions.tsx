@@ -24,20 +24,22 @@ export function PackagePageAvailableVersions({
             </Head>
 
             <Layout>
-                <PackageNav
-                    name={name}
-                    repositoryURL={repository?.url}
-                    hideInternalNav={true}
-                />
+                <div className="space-y-12">
+                    <PackageNav
+                        name={name}
+                        repositoryURL={repository?.url}
+                        hideInternalNav={true}
+                    />
 
-                <PackageDistTagsSection name={name} distTags={distTags} />
+                    <PackageDistTagsSection name={name} distTags={distTags} />
 
-                <PackageVersionsSection
-                    name={name}
-                    versionsTimestamps={versionsTimestamps}
-                />
+                    <PackageVersionsSection
+                        name={name}
+                        versionsTimestamps={versionsTimestamps}
+                    />
 
-                <PackageFooterSection createdAt={createdAt} />
+                    <PackageFooterSection createdAt={createdAt} />
+                </div>
             </Layout>
         </>
     );
