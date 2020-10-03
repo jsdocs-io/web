@@ -1,5 +1,4 @@
 import React from 'react';
-import { Section } from '../common/Section';
 import { PackageTitleInfoList } from './PackageTitleInfoList';
 
 export function PackageTitleSection({
@@ -9,6 +8,7 @@ export function PackageTitleSection({
     license,
     unpackedSize,
     dependencies,
+    hideInfoList = false,
 }: {
     name: string;
     version?: string;
@@ -16,18 +16,23 @@ export function PackageTitleSection({
     license?: string;
     unpackedSize?: number;
     dependencies?: Record<string, string>;
+    hideInfoList?: boolean;
 }) {
+    const showInfoList = !hideInfoList;
+
     return (
-        <Section>
+        <section>
             <h1 className="break-words">{name}</h1>
 
-            <PackageTitleInfoList
-                version={version}
-                publishedAt={publishedAt}
-                license={license}
-                unpackedSize={unpackedSize}
-                dependencies={dependencies}
-            />
-        </Section>
+            {showInfoList && (
+                <PackageTitleInfoList
+                    version={version}
+                    publishedAt={publishedAt}
+                    license={license}
+                    unpackedSize={unpackedSize}
+                    dependencies={dependencies}
+                />
+            )}
+        </section>
     );
 }

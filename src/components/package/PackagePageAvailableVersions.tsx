@@ -5,6 +5,7 @@ import { Layout } from '../common/Layout';
 import { PackageDistTagsSection } from './PackageDistTagsSection';
 import { PackageFooterSection } from './PackageFooterSection';
 import { PackageNav } from './PackageNav';
+import { PackageTitleSection } from './PackageTitleSection';
 import { PackageVersionsSection } from './PackageVersionsSection';
 
 export function PackagePageAvailableVersions({
@@ -30,6 +31,8 @@ export function PackagePageAvailableVersions({
                         repositoryURL={repository?.url}
                         hideInternalNav={true}
                     />
+
+                    <PackageTitleSection name={name} hideInfoList={true} />
 
                     <PackageDistTagsSection name={name} distTags={distTags} />
 

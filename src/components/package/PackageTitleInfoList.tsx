@@ -29,9 +29,11 @@ export function PackageTitleInfoList({
 
     return (
         <ul className="list-inline">
-            <li>
-                Version <span className="font-bold">{version}</span>
-            </li>
+            {version && (
+                <li>
+                    Version <span className="font-bold">{version}</span>
+                </li>
+            )}
 
             {publishedAt && (
                 <li>
