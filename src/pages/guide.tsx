@@ -7,8 +7,6 @@ import { DocComment } from '../components/common/DocComment';
 import { InlineCode } from '../components/common/InlineCode';
 import { InternalLink } from '../components/common/InternalLink';
 import { Layout } from '../components/common/Layout';
-import { Section1 } from '../components/common/Section1';
-import { Section2 } from '../components/common/Section2';
 import {
     exampleDeclarationDoc,
     exampleDeclarationFile,
@@ -32,7 +30,7 @@ export default function GuidePage() {
             </Head>
 
             <Layout>
-                <article>
+                <article className="space-y-12">
                     <IntroSection />
                     <PackageAnalysisProcessSection />
                     <SupportedPackagesSection />
@@ -50,20 +48,20 @@ export default function GuidePage() {
 
 function IntroSection() {
     return (
-        <Section1>
+        <section>
             <h1>Package documentation guide</h1>
 
             <p>
                 This guide explains how to improve the documentation of your
                 packages as displayed on jsDocs.io.
             </p>
-        </Section1>
+        </section>
     );
 }
 
 function PackageAnalysisProcessSection() {
     return (
-        <Section2>
+        <section>
             <h2>Package analysis process</h2>
 
             <p>
@@ -126,13 +124,13 @@ function PackageAnalysisProcessSection() {
                 In the following sections, you will learn how to optimize the
                 metadata extracted from your package through this process.
             </p>
-        </Section2>
+        </section>
     );
 }
 
 function SupportedPackagesSection() {
     return (
-        <Section2>
+        <section>
             <h2>Supported packages</h2>
 
             <p>
@@ -194,13 +192,13 @@ function SupportedPackagesSection() {
                 In practice, most open-source Typescript and Javascript packages
                 shipping their own type definitions should be well supported.
             </p>
-        </Section2>
+        </section>
     );
 }
 
 function IndexFileSection() {
     return (
-        <Section2>
+        <section>
             <h2>Index file</h2>
 
             <p>
@@ -281,13 +279,13 @@ function IndexFileSection() {
             </p>
 
             <CodeBlock code={examplePackageJSONFiles} language="json" />
-        </Section2>
+        </section>
     );
 }
 
 function PackageOverviewSection() {
     return (
-        <Section2>
+        <section>
             <h2>Package overview</h2>
 
             <p>
@@ -326,13 +324,13 @@ function PackageOverviewSection() {
                 <A href="https://microsoft.github.io/tsdoc">TSDoc playground</A>
                 .
             </p>
-        </Section2>
+        </section>
     );
 }
 
 function PackageDeclarationsSection() {
     return (
-        <Section2>
+        <section>
             <h2>Package declarations</h2>
 
             <p>
@@ -386,13 +384,13 @@ function PackageDeclarationsSection() {
                 </A>
                 .
             </p>
-        </Section2>
+        </section>
     );
 }
 
 function LinkingToSourceSection() {
     return (
-        <Section2>
+        <section>
             <h2>Linking to source</h2>
 
             <p>
@@ -427,13 +425,13 @@ function LinkingToSourceSection() {
                     <InlineCode code="foo@1.0.0" />)
                 </li>
             </ol>
-        </Section2>
+        </section>
     );
 }
 
 function ExternalDocumentationSection() {
     return (
-        <Section2>
+        <section>
             <h2>External documentation</h2>
 
             <p>
@@ -445,13 +443,13 @@ function ExternalDocumentationSection() {
                 , your package's documentation page will contain a link to the
                 corresponding <InlineCode code="@types" /> package.
             </p>
-        </Section2>
+        </section>
     );
 }
 
 function ExamplePackagesSection() {
     return (
-        <Section2>
+        <section>
             <h2>Example packages</h2>
 
             <p>
@@ -488,6 +486,6 @@ function ExamplePackagesSection() {
                     declarations of different kinds
                 </li>
             </ul>
-        </Section2>
+        </section>
     );
 }
