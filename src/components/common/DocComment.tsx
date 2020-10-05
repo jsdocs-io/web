@@ -4,6 +4,7 @@ import { A } from './A';
 import { CodeBlock } from './CodeBlock';
 import { InlineCode } from './InlineCode';
 import { InternalLink } from './InternalLink';
+import { PackageLink } from './PackageLink';
 
 interface DocNodeProps {
     readonly node: tsdoc.DocNode;
@@ -115,7 +116,7 @@ function DocInheritDocSection({
         return null;
     }
 
-    const { declarationID, url } = resolveDeclarationReference({
+    const { packageName, declarationID, url } = resolveDeclarationReference({
         declarationReference,
     });
 
@@ -123,7 +124,17 @@ function DocInheritDocSection({
         <section>
             <p>
                 See documentation for{' '}
-                <InternalLink href={url}>{declarationID}</InternalLink>.
+                {packageName ? (
+                    <PackageLink
+                        name={packageName}
+                        declarationID={declarationID}
+                    >
+                        {declarationID}
+                    </PackageLink>
+                ) : (
+                    <InternalLink href={url}>{declarationID}</InternalLink>
+                )}
+                .
             </p>
         </section>
     );
@@ -362,12 +373,18 @@ function DocLinkTagExternal({ linkTag }: DocLinkTagProps) {
  * which may be different from the one containing the link.
  */
 function DocLinkTagInternal({ linkTag }: DocLinkTagProps) {
-    const { declarationID, url } = resolveDeclarationReference({
+    const { packageName, declarationID, url } = resolveDeclarationReference({
         declarationReference: linkTag.codeDestination!,
     });
     const text = linkTag.linkText ?? declarationID;
 
-    return <InternalLink href={url}>{text}</InternalLink>;
+    return packageName ? (
+        <PackageLink name={packageName} declarationID={declarationID}>
+            {text}
+        </PackageLink>
+    ) : (
+        <InternalLink href={url}>{text}</InternalLink>
+    );
 }
 
 function DocParagraph({ node }: DocNodeProps) {
