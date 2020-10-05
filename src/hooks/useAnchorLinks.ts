@@ -4,6 +4,6 @@ import { useEffect } from 'react';
 export function useAnchorLinks(): void {
     useEffect(() => {
         const anchors = new AnchorJS();
-        anchors.add();
+        anchors.add('h2, h3');
     }, []);
 }
