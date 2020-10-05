@@ -1,8 +1,8 @@
-import Link from 'next/link';
 import { SearchResult } from 'query-registry';
 import React from 'react';
 import { TimeAgo } from '../../components/common/TimeAgo';
 import { A } from '../common/A';
+import { PackageLink } from '../common/PackageLink';
 
 export default function SearchResults({
     searchResults,
@@ -22,19 +22,15 @@ export default function SearchResults({
                     publisher: { username },
                 }) => (
                     <div key={name} className="mt-8">
-                        <Link
-                            href="/package/[...slug]"
-                            as={`/package/${name}/v/${version}`}
-                            prefetch={false}
+                        <PackageLink
+                            name={name}
+                            version={version}
+                            title={`${name}@${version}`}
                         >
-                            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                            <a
-                                className="text-xl font-bold text-blue-700 dark:text-blue-300 hover:underline"
-                                title={`${name}@${version}`}
-                            >
+                            <span className="text-xl font-bold hover:underline">
                                 {name}
-                            </a>
-                        </Link>
+                            </span>
+                        </PackageLink>
 
                         {description && <p>{description}</p>}
 

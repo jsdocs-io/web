@@ -1,6 +1,6 @@
 import React from 'react';
 import { minSemverVersion } from '../../lib/min-semver-version';
-import { InternalLink } from '../common/InternalLink';
+import { PackageLink } from '../common/PackageLink';
 
 export function PackageDependenciesList({
     dependencies: rawDependencies,
@@ -19,17 +19,13 @@ export function PackageDependenciesList({
         <ul className="list-inline">
             {dependencies.map(({ name, semver, version }) => (
                 <li key={name}>
-                    <InternalLink
-                        href="/package/[...slug]"
-                        as={
-                            version
-                                ? `/package/${name}/v/${version}`
-                                : `/package/${name}`
-                        }
+                    <PackageLink
+                        name={name}
+                        version={version}
                         title={`${name}@${semver}`}
                     >
                         {name}
-                    </InternalLink>
+                    </PackageLink>
                 </li>
             ))}
         </ul>

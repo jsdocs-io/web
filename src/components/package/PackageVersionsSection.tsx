@@ -1,5 +1,5 @@
 import React from 'react';
-import { InternalLink } from '../common/InternalLink';
+import { PackageLink } from '../common/PackageLink';
 import { TimeAgo } from '../common/TimeAgo';
 
 export function PackageVersionsSection({
@@ -23,13 +23,13 @@ export function PackageVersionsSection({
                             key={version}
                             className="flex flex-wrap justify-between pb-1 border-b border-gray-300 dark:border-gray-700"
                         >
-                            <InternalLink
-                                href="/package/[...slug]"
-                                as={`/package/${name}/v/${version}`}
+                            <PackageLink
+                                name={name}
+                                version={version}
                                 title={`${name}@${version}`}
                             >
                                 {version}
-                            </InternalLink>
+                            </PackageLink>
 
                             <TimeAgo date={publishedAt} />
                         </li>

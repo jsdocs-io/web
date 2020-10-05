@@ -1,5 +1,5 @@
 import React from 'react';
-import { InternalLink } from '../common/InternalLink';
+import { PackageLink } from '../common/PackageLink';
 
 export function PackageNavPackagesList({
     name,
@@ -13,36 +13,33 @@ export function PackageNavPackagesList({
     return (
         <ul className="list-inline">
             <li>
-                <InternalLink
-                    href="/package/[...slug]"
-                    as={`/package/${name}`}
+                <PackageLink
+                    name={name}
                     title={`View the latest version of package ${name}`}
                 >
                     <span className="font-bold">{name}</span>
-                </InternalLink>
+                </PackageLink>
             </li>
 
             {definitelyTypedName && (
                 <li>
-                    <InternalLink
-                        href="/package/[...slug]"
-                        as={`/package/${definitelyTypedName}`}
+                    <PackageLink
+                        name={definitelyTypedName}
                         title={`View type definitions for package ${name}`}
                     >
                         <span className="font-bold">{definitelyTypedName}</span>
-                    </InternalLink>
+                    </PackageLink>
                 </li>
             )}
 
             {untypedName && (
                 <li>
-                    <InternalLink
-                        href="/package/[...slug]"
-                        as={`/package/${untypedName}`}
+                    <PackageLink
+                        name={untypedName}
                         title={`View the latest version of package ${untypedName}`}
                     >
                         <span className="font-bold">{untypedName}</span>
-                    </InternalLink>
+                    </PackageLink>
                 </li>
             )}
         </ul>

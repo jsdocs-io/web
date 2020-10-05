@@ -5,8 +5,8 @@ import { CodeBlock } from '../components/common/CodeBlock';
 import { DeclarationSignature } from '../components/common/DeclarationSignature';
 import { DocComment } from '../components/common/DocComment';
 import { InlineCode } from '../components/common/InlineCode';
-import { InternalLink } from '../components/common/InternalLink';
 import { Layout } from '../components/common/Layout';
+import { PackageLink } from '../components/common/PackageLink';
 import {
     exampleDeclarationDoc,
     exampleDeclarationFile,
@@ -460,10 +460,7 @@ function ExamplePackagesSection() {
             <ul className="my-2 ml-8 space-y-1 list-disc">
                 <li>
                     <InlineCode code="short-time-ago" /> (
-                    <InternalLink href="/package/short-time-ago">
-                        docs
-                    </InternalLink>
-                    ,{' '}
+                    <PackageLink name="short-time-ago">docs</PackageLink>,{' '}
                     <A href="https://github.com/velut/node-short-time-ago">
                         source
                     </A>
@@ -474,10 +471,7 @@ function ExamplePackagesSection() {
 
                 <li>
                     <InlineCode code="query-registry" /> (
-                    <InternalLink href="/package/query-registry">
-                        docs
-                    </InternalLink>
-                    ,{' '}
+                    <PackageLink name="query-registry">docs</PackageLink>,{' '}
                     <A href="https://github.com/velut/node-query-registry">
                         source
                     </A>

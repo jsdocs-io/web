@@ -1,5 +1,6 @@
 import React from 'react';
 import { InternalLink } from '../common/InternalLink';
+import { PackageVersionsLink } from '../common/PackageVersionsLink';
 
 export function PackageNavAnchorsList({
     name,
@@ -68,13 +69,12 @@ export function PackageNavAnchorsList({
             </li>
 
             <li>
-                <InternalLink
-                    href="/package/[...slug]"
-                    as={`/package/${name}/versions`}
+                <PackageVersionsLink
+                    name={name}
                     title={`View available versions for package ${name}`}
                 >
                     Versions
-                </InternalLink>
+                </PackageVersionsLink>
             </li>
         </ul>
     );
