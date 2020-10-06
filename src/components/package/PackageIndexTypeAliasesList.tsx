@@ -8,7 +8,7 @@ export function PackageIndexTypeAliasesList({
     typeAliases: TypeAliasDeclaration[];
 }) {
     return (
-        <ul className="my-2">
+        <ul className="mt-2 space-y-1">
             {typeAliases.map(({ id, name }) => (
                 <li key={id}>
                     <InternalLink href={`#${id}`} title={`Type alias ${name}`}>

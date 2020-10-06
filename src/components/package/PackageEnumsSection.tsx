@@ -1,6 +1,5 @@
 import { EnumDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { Section2 } from '../common/Section2';
 import { PackageEnumDeclarationSections } from './PackageEnumDeclarationSections';
 
 export function PackageEnumsSection({ enums }: { enums: EnumDeclaration[] }) {
@@ -9,14 +8,18 @@ export function PackageEnumsSection({ enums }: { enums: EnumDeclaration[] }) {
     }
 
     return (
-        <Section2>
+        <section>
             <h2 id="package-enums">Enums</h2>
 
-            {enums.map((declaration) => (
-                <React.Fragment key={declaration.id}>
-                    <PackageEnumDeclarationSections declaration={declaration} />
-                </React.Fragment>
-            ))}
-        </Section2>
+            <div className="mt-4 space-y-8">
+                {enums.map((declaration) => (
+                    <div key={declaration.id}>
+                        <PackageEnumDeclarationSections
+                            declaration={declaration}
+                        />
+                    </div>
+                ))}
+            </div>
+        </section>
     );
 }

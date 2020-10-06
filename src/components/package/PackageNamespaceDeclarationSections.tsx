@@ -14,7 +14,7 @@ export function PackageNamespaceDeclarationSections({
         <>
             <PackageDeclarationSection declaration={declaration} />
 
-            <div className="pl-6 mt-4 border-l border-gray-300 dark:border-gray-700">
+            <div className="pl-6 mt-6 space-y-8 border-l border-gray-300 dark:border-gray-700">
                 {declaration.declarations.variables.map((decl) => (
                     <PackageDeclarationSection
                         key={decl.id}
@@ -30,31 +30,31 @@ export function PackageNamespaceDeclarationSections({
                 ))}
 
                 {declaration.declarations.classes.map((decl) => (
-                    <React.Fragment key={decl.id}>
+                    <div key={decl.id}>
                         <PackageClassDeclarationSections declaration={decl} />
-                    </React.Fragment>
+                    </div>
                 ))}
 
                 {declaration.declarations.interfaces.map((decl) => (
-                    <React.Fragment key={decl.id}>
+                    <div key={decl.id}>
                         <PackageInterfaceDeclarationSections
                             declaration={decl}
                         />
-                    </React.Fragment>
+                    </div>
                 ))}
 
                 {declaration.declarations.enums.map((decl) => (
-                    <React.Fragment key={decl.id}>
+                    <div key={decl.id}>
                         <PackageEnumDeclarationSections declaration={decl} />
-                    </React.Fragment>
+                    </div>
                 ))}
 
                 {declaration.declarations.namespaces.map((decl) => (
-                    <React.Fragment key={decl.id}>
+                    <div key={decl.id}>
                         <PackageNamespaceDeclarationSections
                             declaration={decl}
                         />
-                    </React.Fragment>
+                    </div>
                 ))}
             </div>
         </>

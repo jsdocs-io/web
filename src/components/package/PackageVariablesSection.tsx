@@ -1,6 +1,5 @@
 import { VariableDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { Section2 } from '../common/Section2';
 import { PackageDeclarationSection } from './PackageDeclarationSection';
 
 export function PackageVariablesSection({
@@ -13,15 +12,17 @@ export function PackageVariablesSection({
     }
 
     return (
-        <Section2>
+        <section>
             <h2 id="package-variables">Variables</h2>
 
-            {variables.map((declaration) => (
-                <PackageDeclarationSection
-                    key={declaration.id}
-                    declaration={declaration}
-                />
-            ))}
-        </Section2>
+            <div className="mt-4 space-y-8">
+                {variables.map((declaration) => (
+                    <PackageDeclarationSection
+                        key={declaration.id}
+                        declaration={declaration}
+                    />
+                ))}
+            </div>
+        </section>
     );
 }

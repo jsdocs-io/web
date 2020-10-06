@@ -14,7 +14,7 @@ export function PackageIndexNamespaceMembersList({
     const members = sortByID(allDeclarations);
 
     return (
-        <ul className="pl-4 mb-1 ml-5 border-l border-gray-300 dark:border-gray-700">
+        <ul className="pl-4 mt-1 ml-5 border-l border-gray-300 dark:border-gray-700">
             {members.map(({ id, name, kind }) => (
                 <li key={id}>
                     <InternalLink

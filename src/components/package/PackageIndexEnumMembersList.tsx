@@ -12,7 +12,7 @@ export function PackageIndexEnumMembersList({
     }
 
     return (
-        <ul className="pl-4 mb-1 ml-5 border-l border-gray-300 dark:border-gray-700">
+        <ul className="pl-4 mt-1 ml-5 border-l border-gray-300 dark:border-gray-700">
             {members.map(({ id, name }) => (
                 <li key={id}>
                     <InternalLink href={`#${id}`} title={`Enum member ${name}`}>

@@ -1,6 +1,5 @@
 import { TypeAliasDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { Section3 } from '../common/Section3';
 import { PackageIndexTypeAliasesList } from './PackageIndexTypeAliasesList';
 
 export function PackageIndexTypeAliasesSection({
@@ -13,10 +12,10 @@ export function PackageIndexTypeAliasesSection({
     }
 
     return (
-        <Section3>
+        <section>
             <h3 id="package-index-type-aliases">Type aliases</h3>
 
             <PackageIndexTypeAliasesList typeAliases={typeAliases} />
-        </Section3>
+        </section>
     );
 }

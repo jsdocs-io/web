@@ -121,7 +121,7 @@ function DocInheritDocSection({
     });
 
     return (
-        <section>
+        <section className="mt-4">
             <p>
                 See documentation for{' '}
                 {packageName ? (

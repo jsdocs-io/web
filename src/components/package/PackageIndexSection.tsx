@@ -1,6 +1,5 @@
 import { ModuleDeclarations } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { Section2 } from '../common/Section2';
 import { PackageIndexClassesSection } from './PackageIndexClassesSection';
 import { PackageIndexEnumsSection } from './PackageIndexEnumsSection';
 import { PackageIndexFunctionsSection } from './PackageIndexFunctionsSection';
@@ -25,16 +24,18 @@ export function PackageIndexSection({
     } = declarations;
 
     return (
-        <Section2>
+        <section>
             <h2 id="package-index">Index</h2>
 
-            <PackageIndexVariablesSection variables={variables} />
-            <PackageIndexFunctionsSection functions={functions} />
-            <PackageIndexClassesSection classes={classes} />
-            <PackageIndexInterfacesSection interfaces={interfaces} />
-            <PackageIndexEnumsSection enums={enums} />
-            <PackageIndexTypeAliasesSection typeAliases={typeAliases} />
-            <PackageIndexNamespacesSection namespaces={namespaces} />
-        </Section2>
+            <div className="mt-4 space-y-4">
+                <PackageIndexVariablesSection variables={variables} />
+                <PackageIndexFunctionsSection functions={functions} />
+                <PackageIndexClassesSection classes={classes} />
+                <PackageIndexInterfacesSection interfaces={interfaces} />
+                <PackageIndexEnumsSection enums={enums} />
+                <PackageIndexTypeAliasesSection typeAliases={typeAliases} />
+                <PackageIndexNamespacesSection namespaces={namespaces} />
+            </div>
+        </section>
     );
 }

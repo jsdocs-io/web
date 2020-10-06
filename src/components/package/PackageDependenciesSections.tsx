@@ -1,5 +1,4 @@
 import React from 'react';
-import { Section2 } from '../common/Section2';
 import { PackageDependenciesList } from './PackageDependenciesList';
 
 export function PackageDependenciesSections({
@@ -17,7 +16,7 @@ export function PackageDependenciesSections({
 
     return (
         <>
-            <Section2>
+            <section>
                 <h2 id="package-dependencies">
                     Dependencies ({numDependencies})
                 </h2>
@@ -27,9 +26,9 @@ export function PackageDependenciesSections({
                 ) : (
                     <p>No dependencies.</p>
                 )}
-            </Section2>
+            </section>
 
-            <Section2>
+            <section>
                 <h2 id="package-dev-dependencies">
                     Dev dependencies ({numDevDependencies})
                 </h2>
@@ -39,9 +38,9 @@ export function PackageDependenciesSections({
                 ) : (
                     <p>No dependencies.</p>
                 )}
-            </Section2>
+            </section>
 
-            <Section2>
+            <section>
                 <h2 id="package-peer-dependencies">
                     Peer dependencies ({numPeerDependencies})
                 </h2>
@@ -51,7 +50,7 @@ export function PackageDependenciesSections({
                 ) : (
                     <p>No dependencies.</p>
                 )}
-            </Section2>
+            </section>
         </>
     );
 }

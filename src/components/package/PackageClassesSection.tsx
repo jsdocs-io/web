@@ -1,6 +1,5 @@
 import { ClassDeclaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { Section2 } from '../common/Section2';
 import { PackageClassDeclarationSections } from './PackageClassDeclarationSections';
 
 export function PackageClassesSection({
@@ -13,16 +12,18 @@ export function PackageClassesSection({
     }
 
     return (
-        <Section2>
+        <section>
             <h2 id="package-classes">Classes</h2>
 
-            {classes.map((declaration) => (
-                <React.Fragment key={declaration.id}>
-                    <PackageClassDeclarationSections
-                        declaration={declaration}
-                    />
-                </React.Fragment>
-            ))}
-        </Section2>
+            <div className="mt-4 space-y-8">
+                {classes.map((declaration) => (
+                    <div key={declaration.id}>
+                        <PackageClassDeclarationSections
+                            declaration={declaration}
+                        />
+                    </div>
+                ))}
+            </div>
+        </section>
     );
 }

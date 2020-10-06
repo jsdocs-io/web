@@ -2,7 +2,6 @@ import { Declaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
 import { DeclarationSignature } from '../common/DeclarationSignature';
 import { DocComment } from '../common/DocComment';
-import { Section3 } from '../common/Section3';
 import { PackageDeclarationTitle } from './PackageDeclarationTitle';
 
 export function PackageDeclarationSection({
@@ -20,7 +19,7 @@ export function PackageDeclarationSection({
     } = declaration;
 
     return (
-        <Section3>
+        <section>
             <PackageDeclarationTitle
                 id={id}
                 name={name}
@@ -32,6 +31,6 @@ export function PackageDeclarationSection({
             <DeclarationSignature signature={signature} />
 
             <DocComment doc={doc} />
-        </Section3>
+        </section>
     );
 }

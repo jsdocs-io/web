@@ -43,44 +43,46 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
             </Head>
 
             <Layout>
-                <PackageNav
-                    name={name}
-                    definitelyTypedName={definitelyTypedName}
-                    untypedName={untypedName}
-                    repositoryURL={repository?.url}
-                    hasDocs={hasDocs}
-                />
+                <div className="space-y-12">
+                    <PackageNav
+                        name={name}
+                        definitelyTypedName={definitelyTypedName}
+                        untypedName={untypedName}
+                        repositoryURL={repository?.url}
+                        hasDocs={hasDocs}
+                    />
 
-                <PackageTitleSection
-                    name={name}
-                    version={version}
-                    publishedAt={publishedAt}
-                    license={license}
-                    unpackedSize={unpackedSize}
-                    dependencies={dependencies}
-                />
+                    <PackageTitleSection
+                        name={name}
+                        version={version}
+                        publishedAt={publishedAt}
+                        license={license}
+                        unpackedSize={unpackedSize}
+                        dependencies={dependencies}
+                    />
 
-                <PackageInstallSection name={name} />
+                    <PackageInstallSection name={name} />
 
-                <PackageOverviewSection
-                    overview={api?.overview}
-                    description={description}
-                />
+                    <PackageOverviewSection
+                        overview={api?.overview}
+                        description={description}
+                    />
 
-                <PackageAPISections api={api} />
+                    <PackageAPISections api={api} />
 
-                <PackageDependenciesSections
-                    dependencies={dependencies}
-                    devDependencies={devDependencies}
-                    peerDependencies={peerDependencies}
-                />
+                    <PackageDependenciesSections
+                        dependencies={dependencies}
+                        devDependencies={devDependencies}
+                        peerDependencies={peerDependencies}
+                    />
 
-                <PackageBadgeSection name={name} />
+                    <PackageBadgeSection name={name} />
 
-                <PackageFooterSection
-                    createdAt={createdAt}
-                    analysisTime={elapsed}
-                />
+                    <PackageFooterSection
+                        createdAt={createdAt}
+                        analysisTime={elapsed}
+                    />
+                </div>
             </Layout>
         </>
     );

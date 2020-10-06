@@ -1,6 +1,5 @@
 import React from 'react';
 import { DocComment } from '../common/DocComment';
-import { Section2 } from '../common/Section2';
 
 export function PackageOverviewSection({
     overview,
@@ -11,21 +10,21 @@ export function PackageOverviewSection({
 }) {
     if (overview) {
         return (
-            <Section2>
+            <section>
                 <h2 id="package-overview">Overview</h2>
 
                 <DocComment doc={overview} />
-            </Section2>
+            </section>
         );
     }
 
     if (description) {
         return (
-            <Section2>
+            <section>
                 <h2 id="package-overview">Overview</h2>
 
                 <p>{description}</p>
-            </Section2>
+            </section>
         );
     }
 

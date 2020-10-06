@@ -11,7 +11,7 @@ export function PackageClassDeclarationSections({
         <>
             <PackageDeclarationSection declaration={declaration} />
 
-            <div className="pl-6 mt-4 border-l border-gray-300 dark:border-gray-700">
+            <div className="pl-6 mt-6 space-y-8 border-l border-gray-300 dark:border-gray-700">
                 {declaration.constructors.map((decl) => (
                     <PackageDeclarationSection
                         key={decl.id}

@@ -5,7 +5,7 @@ import { A } from '../common/A';
 
 export function PackageFilesList({ files }: { files: PackageFile[] }) {
     return (
-        <ul className="list-inline">
+        <ul className="mt-2 list-inline">
             {files.map(({ filename, url }) => (
                 <li key={filename}>
                     {url && isRepositoryFile({ filename }) ? (

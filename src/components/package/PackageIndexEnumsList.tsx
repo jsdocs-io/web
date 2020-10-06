@@ -5,7 +5,7 @@ import { PackageIndexEnumMembersList } from './PackageIndexEnumMembersList';
 
 export function PackageIndexEnumsList({ enums }: { enums: EnumDeclaration[] }) {
     return (
-        <ul className="my-2">
+        <ul className="mt-2 space-y-1">
             {enums.map(({ id, name, members }) => (
                 <li key={id}>
                     <details>
