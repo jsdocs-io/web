@@ -225,7 +225,7 @@ function DocExamplesSections({
         <>
             {exampleBlocks.map(({ content }, index) => (
                 <section key={index}>
-                    <h4>Example {index}</h4>
+                    <h4>Example {index + 1}</h4>
 
                     <DocContainer container={content} />
                 </section>
