@@ -34,10 +34,11 @@ export default function GuidePage() {
                     <IntroSection />
                     <PackageAnalysisProcessSection />
                     <SupportedPackagesSection />
+                    <IncludingSourceFilesSection />
+                    <LinkingToSourceSection />
                     <IndexFileSection />
                     <PackageOverviewSection />
                     <PackageDeclarationsSection />
-                    <LinkingToSourceSection />
                     <ExternalDocumentationSection />
                     <ExamplePackagesSection />
                 </article>
@@ -52,8 +53,9 @@ function IntroSection() {
             <h1>Package documentation guide</h1>
 
             <p>
-                This guide explains how to improve the documentation of your
-                packages as displayed on jsDocs.io.
+                This guide explains how the public API extraction process works
+                and how you can improve the documentation of your packages as
+                displayed on jsDocs.io.
             </p>
         </section>
     );
@@ -66,7 +68,7 @@ function PackageAnalysisProcessSection() {
 
             <p>
                 When a user visits a package documentation page (for example,{' '}
-                <InlineCode code="/package/foo" />
+                <InlineCode code="jsdocs.io/package/foo" />
                 ), the following package analysis process is executed:
             </p>
 
@@ -75,11 +77,6 @@ function PackageAnalysisProcessSection() {
                     Query the npm registry for the latest version of package{' '}
                     <InlineCode code="foo" /> (for example,{' '}
                     <InlineCode code="1.0.0" />)
-                </li>
-
-                <li>
-                    Redirect the user to the versioned package documentation
-                    page <InlineCode code="/package/foo/v/1.0.0" />
                 </li>
 
                 <li>
@@ -169,6 +166,15 @@ function SupportedPackagesSection() {
 
                 <li>
                     Specify a{' '}
+                    <A href="https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#including-declarations-in-your-npm-package">
+                        types field
+                    </A>{' '}
+                    inside <InlineCode code="package.json" /> to signal that the
+                    package is typed.
+                </li>
+
+                <li>
+                    Specify a{' '}
                     <A href="https://docs.npmjs.com/files/package.json#license">
                         license field
                     </A>{' '}
@@ -192,6 +198,77 @@ function SupportedPackagesSection() {
                 In practice, most open-source Typescript and Javascript packages
                 shipping their own type definitions should be well supported.
             </p>
+        </section>
+    );
+}
+
+function IncludingSourceFilesSection() {
+    return (
+        <section>
+            <h2>Including source files</h2>
+
+            <p>
+                To include source files when publishing your package to npm, you
+                need to specify the appropriate file patterns in the{' '}
+                <A href="https://docs.npmjs.com/files/package.json#files">
+                    files field
+                </A>{' '}
+                inside <InlineCode code="package.json" />.
+            </p>
+
+            <p>
+                For example, if your Typescript source files (
+                <InlineCode code=".ts" />) reside in the{' '}
+                <InlineCode code="src" /> directory and your built files in the{' '}
+                <InlineCode code="dist" /> directory, the{' '}
+                <InlineCode code="files" /> field inside your{' '}
+                <InlineCode code="package.json" /> should look like this:
+            </p>
+
+            <CodeBlock code={examplePackageJSONFiles} language="json" />
+        </section>
+    );
+}
+
+function LinkingToSourceSection() {
+    return (
+        <section>
+            <h2>Linking to source</h2>
+
+            <p>
+                If your published package contains{' '}
+                <A href="#including-source-files">source files</A>, you can
+                enable linking to source from documentation pages by specifying
+                a GitHub, GitLab or Bitbucket repository in the{' '}
+                <A href="https://docs.npmjs.com/files/package.json#repository">
+                    repository field
+                </A>{' '}
+                inside <InlineCode code="package.json" /> like in the following
+                example:
+            </p>
+
+            <CodeBlock code={examplePackageJSONRepository} language="json" />
+
+            <p>
+                The repository commit corresponding to the published version of
+                your package is determined in order of preference by:
+            </p>
+
+            <ol className="my-2 ml-8 space-y-1 list-decimal">
+                <li>
+                    The <InlineCode code="gitHead" /> field that npm should
+                    automatically create inside your package's manifest when
+                    publishing
+                </li>
+
+                <li>
+                    The package's version prefixed with <InlineCode code="v" />{' '}
+                    (for example, <InlineCode code="v1.0.0" /> for{' '}
+                    <InlineCode code="foo@1.0.0" />)
+                </li>
+
+                <li>The default branch for Definitely Typed packages</li>
+            </ol>
         </section>
     );
 }
@@ -256,29 +333,6 @@ function IndexFileSection() {
                     <InlineCode code="main.d.ts" />
                 </li>
             </ol>
-
-            {/* // TODO: maybe heading or another section  */}
-            <a
-                id="include-source-files"
-                href="#include-source-files"
-                className="hidden"
-            >
-                Include source files anchor
-            </a>
-            <p>
-                To include source files in your package when publishing to npm,
-                you need to specify the appropriate file patterns inside{' '}
-                <InlineCode code="package.json" /> using the{' '}
-                <A href="https://docs.npmjs.com/files/package.json#files">
-                    files field
-                </A>
-                . For example, if your source files reside in the{' '}
-                <InlineCode code="src" /> directory and your built files in the{' '}
-                <InlineCode code="dist" /> directory, your{' '}
-                <InlineCode code="package.json" /> should look like this:
-            </p>
-
-            <CodeBlock code={examplePackageJSONFiles} language="json" />
         </section>
     );
 }
@@ -384,47 +438,6 @@ function PackageDeclarationsSection() {
                 </A>
                 .
             </p>
-        </section>
-    );
-}
-
-function LinkingToSourceSection() {
-    return (
-        <section>
-            <h2>Linking to source</h2>
-
-            <p>
-                If your published package contains{' '}
-                <A href="#include-source-files">source files</A>, you can enable
-                links to definitions by specifying a GitHub, GitLab or Bitbucket
-                repository in the{' '}
-                <A href="https://docs.npmjs.com/files/package.json#repository">
-                    repository field
-                </A>{' '}
-                inside <InlineCode code="package.json" /> like in the following
-                example:
-            </p>
-
-            <CodeBlock code={examplePackageJSONRepository} language="json" />
-
-            <p>
-                The commit corresponding to the published version of your
-                package is determined in order of preference by:
-            </p>
-
-            <ol className="my-2 ml-8 space-y-1 list-decimal">
-                <li>
-                    The <InlineCode code="gitHead" /> field that npm should
-                    automatically create inside your package's manifest when
-                    publishing
-                </li>
-
-                <li>
-                    The package's version prefixed with <InlineCode code="v" />{' '}
-                    (for example, <InlineCode code="v1.0.0" /> for{' '}
-                    <InlineCode code="foo@1.0.0" />)
-                </li>
-            </ol>
         </section>
     );
 }
