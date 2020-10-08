@@ -89,7 +89,7 @@ function DocumentingAPackageSection() {
             <h2>Documenting a package</h2>
 
             <p>
-                If you are the author of a package and want to improve its
+                If you are a package author and want to improve your package's
                 documentation as displayed on jsDocs.io, please follow the{' '}
                 <InternalLink href="/guide">
                     package documentation guide
@@ -137,7 +137,9 @@ function BookmarkletsSection() {
             <p>
                 The bookmarklets below redirect you from a package's page on npm
                 to the corresponding page on jsDocs.io when clicked.
-                <br />
+            </p>
+
+            <p>
                 To install a bookmarklet, simply drag and drop it to your
                 bookmarks bar.
             </p>
