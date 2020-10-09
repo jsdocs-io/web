@@ -90,6 +90,28 @@ export const examplePackageJSONRepository = `
     ...
 }`.trim();
 
+export const examplePackageJSONRepositoryWithDirectory = `
+// package.json
+
+{
+    ...,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/username/repository.git",
+        "directory": "path/to/dir/containing/package/foo"
+    },
+    ...
+}`.trim();
+
+export const exampleProjectStructure = `
+├── src
+│   └── index.ts
+├── dist
+│   ├── index.js
+│   └── index.d.ts
+└── package.json
+`.trim();
+
 export const examplePackageJSONFiles = `
 // package.json
 

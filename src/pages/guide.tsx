@@ -16,6 +16,8 @@ import {
     exampleOverviewFile,
     examplePackageJSONFiles,
     examplePackageJSONRepository,
+    examplePackageJSONRepositoryWithDirectory,
+    exampleProjectStructure,
 } from '../data/examples';
 
 export default function GuidePage() {
@@ -39,7 +41,6 @@ export default function GuidePage() {
                     <IndexFileSection />
                     <PackageOverviewSection />
                     <PackageDeclarationsSection />
-                    <ExternalDocumentationSection />
                     <ExamplePackagesSection />
                 </article>
             </Layout>
@@ -53,9 +54,8 @@ function IntroSection() {
             <h1>Package documentation guide</h1>
 
             <p>
-                This guide explains how the public API extraction process works
-                and how you can improve the documentation of your packages as
-                displayed on jsDocs.io.
+                This guide explains how you can improve the documentation of
+                your packages as displayed on jsDocs.io.
             </p>
         </section>
     );
@@ -67,22 +67,16 @@ function PackageAnalysisProcessSection() {
             <h2>Package analysis process</h2>
 
             <p>
-                When a user visits a package documentation page (for example,{' '}
-                <InlineCode code="jsdocs.io/package/foo" />
-                ), the following package analysis process is executed:
+                Visiting a package documentation page (for example,{' '}
+                <InlineCode code="jsdocs.io/package/foo" />) starts the
+                following analysis process:
             </p>
 
             <ol className="my-2 ml-8 space-y-1 list-decimal">
                 <li>
-                    Query the npm registry for the latest version of package{' '}
-                    <InlineCode code="foo" /> (for example,{' '}
-                    <InlineCode code="1.0.0" />)
-                </li>
-
-                <li>
-                    Query the npm registry for the package manifest describing
-                    package <InlineCode code="foo" /> at version{' '}
-                    <InlineCode code="1.0.0" />
+                    Query the npm registry for the manifest describing package{' '}
+                    <InlineCode code="foo" /> at its latest version (for
+                    example, <InlineCode code="1.0.0" />)
                 </li>
 
                 <li>
@@ -138,25 +132,24 @@ function SupportedPackagesSection() {
 
             <p>
                 In particular, the public API can only be extracted from
-                packages that meet the following conditions:
+                packages that:
             </p>
 
             <ul className="my-2 ml-8 space-y-1 list-disc">
                 <li>
-                    Provide exports through a single entry point (for example,{' '}
-                    <InlineCode code="index.ts" />) using{' '}
+                    Provide exports through a single entry point file (for
+                    example, <InlineCode code="index.ts" />) using{' '}
                     <A href="https://www.typescriptlang.org/docs/handbook/modules.html#export">
                         module export forms
                     </A>
                     .
                     <br />
                     In other words, a user would import functionalities from the
-                    package like this:{' '}
-                    <InlineCode code="import ... from 'foo'" />.
+                    package as <InlineCode code="import ... from 'foo'" />.
                 </li>
 
                 <li>
-                    Ship Typescript definition files (
+                    Include Typescript definition files (
                     <InlineCode code=".d.ts" />) and/or Typescript source files
                     (<InlineCode code=".ts" />
                     ).
@@ -196,7 +189,18 @@ function SupportedPackagesSection() {
 
             <p>
                 In practice, most open-source Typescript and Javascript packages
-                shipping their own type definitions should be well supported.
+                that include their own type definitions should be well
+                supported.
+            </p>
+
+            <p>
+                If your package does not include type definitions (for example,
+                a Javascript-only package) but some are available thanks to the{' '}
+                <A href="https://github.com/DefinitelyTyped/DefinitelyTyped/">
+                    Definitely Typed project
+                </A>
+                , your package's documentation page will contain a link to the
+                corresponding <InlineCode code="@types" /> package.
             </p>
         </section>
     );
@@ -217,13 +221,17 @@ function IncludingSourceFilesSection() {
             </p>
 
             <p>
-                For example, if your Typescript source files (
-                <InlineCode code=".ts" />) reside in the{' '}
-                <InlineCode code="src" /> directory and your built files in the{' '}
-                <InlineCode code="dist" /> directory, the{' '}
-                <InlineCode code="files" /> field inside your{' '}
-                <InlineCode code="package.json" /> should look like this:
+                For example, for the following project structure you would need
+                to add the <InlineCode code="src" /> directory to the{' '}
+                <InlineCode code="files" /> field inside{' '}
+                <InlineCode code="package.json" />, as seen below, to publish
+                the Typescript source files (<InlineCode code=".ts" />) in
+                addition to the built files (<InlineCode code=".d.ts" />,{' '}
+                <InlineCode code=".js" />
+                ).
             </p>
+
+            <CodeBlock code={exampleProjectStructure} language="bash" />
 
             <CodeBlock code={examplePackageJSONFiles} language="json" />
         </section>
@@ -250,15 +258,24 @@ function LinkingToSourceSection() {
             <CodeBlock code={examplePackageJSONRepository} language="json" />
 
             <p>
+                If your package is part of a monorepo, you should also specify
+                its directory as follows:
+            </p>
+
+            <CodeBlock
+                code={examplePackageJSONRepositoryWithDirectory}
+                language="json"
+            />
+
+            <p>
                 The repository commit corresponding to the published version of
                 your package is determined in order of preference by:
             </p>
 
             <ol className="my-2 ml-8 space-y-1 list-decimal">
                 <li>
-                    The <InlineCode code="gitHead" /> field that npm should
-                    automatically create inside your package's manifest when
-                    publishing
+                    The commit hash present in the <InlineCode code="gitHead" />{' '}
+                    field that npm automatically creates when publishing
                 </li>
 
                 <li>
@@ -267,7 +284,7 @@ function LinkingToSourceSection() {
                     <InlineCode code="foo@1.0.0" />)
                 </li>
 
-                <li>The default branch for Definitely Typed packages</li>
+                <li>The latest commit (default branch)</li>
             </ol>
         </section>
     );
@@ -285,8 +302,12 @@ function IndexFileSection() {
                 <A href="https://www.typescriptlang.org/docs/handbook/modules.html#export">
                     module export forms
                 </A>
-                . The following example shows a simple index file with one
-                direct export and a module re-export:
+                .
+            </p>
+
+            <p>
+                The following example shows a simple index file with one direct
+                export and a module re-export:
             </p>
 
             <CodeBlock code={exampleIndexFile} language="typescript" />
@@ -347,7 +368,7 @@ function PackageOverviewSection() {
                 package's documentation page. In the overview, you can introduce
                 your package, describe its functionalities, show examples and
                 provide any other relevant information. If the overview is not
-                found, the package's description from{' '}
+                found, the package's <InlineCode code="description" /> from{' '}
                 <InlineCode code="package.json" /> is used instead.
             </p>
 
@@ -442,24 +463,6 @@ function PackageDeclarationsSection() {
     );
 }
 
-function ExternalDocumentationSection() {
-    return (
-        <section>
-            <h2>External documentation</h2>
-
-            <p>
-                If your package does not include type definitions (for example,
-                a Javascript-only package) but some are available thanks to the{' '}
-                <A href="https://github.com/DefinitelyTyped/DefinitelyTyped/">
-                    Definitely Typed project
-                </A>
-                , your package's documentation page will contain a link to the
-                corresponding <InlineCode code="@types" /> package.
-            </p>
-        </section>
-    );
-}
-
 function ExamplePackagesSection() {
     return (
         <section>
@@ -491,6 +494,15 @@ function ExamplePackagesSection() {
                     )
                     <br />A more complex package with multiple exported
                     declarations of different kinds
+                </li>
+
+                <li>
+                    <InlineCode code="faastjs" /> (
+                    <PackageLink name="faastjs">docs</PackageLink>,{' '}
+                    <A href="https://github.com/faastjs/faast.js">source</A>
+                    )
+                    <br />A third-party package that shows what is possible to
+                    achieve with a rich documentation
                 </li>
             </ul>
         </section>
