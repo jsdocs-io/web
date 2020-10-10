@@ -5,14 +5,20 @@ import { Layout } from '../common/Layout';
 import { PackageDistTagsSection } from './PackageDistTagsSection';
 import { PackageFooterSection } from './PackageFooterSection';
 import { PackageNav } from './PackageNav';
-import { PackageTitleSection } from './PackageTitleSection';
+import { PackageTitleVersionsSection } from './PackageTitleVersionsSection';
 import { PackageVersionsSection } from './PackageVersionsSection';
 
 export function PackagePageAvailableVersions({
     packument,
     createdAt,
 }: PackagePagePropsAvailableVersions) {
-    const { name, repository, distTags, versionsTimestamps } = packument;
+    const {
+        name,
+        repository,
+        distTags,
+        versionsTimestamps,
+        license,
+    } = packument;
 
     return (
         <>
@@ -32,7 +38,12 @@ export function PackagePageAvailableVersions({
                         hideInternalNav={true}
                     />
 
-                    <PackageTitleSection name={name} hideInfoList={true} />
+                    <PackageTitleVersionsSection
+                        name={name}
+                        distTags={distTags}
+                        versionsTimestamps={versionsTimestamps}
+                        license={license}
+                    />
 
                     <PackageDistTagsSection name={name} distTags={distTags} />
 
