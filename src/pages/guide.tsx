@@ -189,7 +189,7 @@ function SupportedPackagesSection() {
 
             <p>
                 In practice, most open-source Typescript and Javascript packages
-                that include their own type definitions should be well
+                that provide their own type definitions should be well
                 supported.
             </p>
 
@@ -259,7 +259,7 @@ function LinkingToSourceSection() {
 
             <p>
                 If your package is part of a monorepo, you should also specify
-                its directory as follows:
+                its containing directory as follows:
             </p>
 
             <CodeBlock
@@ -296,7 +296,7 @@ function IndexFileSection() {
             <h2>Index file</h2>
 
             <p>
-                The index file is the single entry point of your package from
+                The index file is the single entry point to your package from
                 which all public functionalities should be exported (or
                 re-exported) using{' '}
                 <A href="https://www.typescriptlang.org/docs/handbook/modules.html#export">
@@ -313,8 +313,8 @@ function IndexFileSection() {
             <CodeBlock code={exampleIndexFile} language="typescript" />
 
             <p>
-                Your package's index file must match one of the following
-                filenames, listed in order of preference:
+                The name of your package's index file must match one of the
+                following filenames, listed in order of preference:
             </p>
 
             <ol className="my-2 ml-8 space-y-1 list-decimal">
@@ -446,10 +446,11 @@ function PackageDeclarationsSection() {
             <p>
                 To prevent an exported declaration from being documented, use
                 the <InlineCode code="@internal" /> tag in its documentation
-                comment. Note that private declarations (for example, the
-                private methods of a class) and declarations with names starting
-                with an underscore (for example, <InlineCode code="_foo" />) are
-                never documented.
+                comment. <br />
+                Note that private declarations (for example, the private methods
+                of a class) and declarations with names starting with an
+                underscore (for example, <InlineCode code="_foo" />) are never
+                documented.
             </p>
 
             <p>

@@ -98,7 +98,7 @@ export const examplePackageJSONRepositoryWithDirectory = `
     "repository": {
         "type": "git",
         "url": "https://github.com/username/repository.git",
-        "directory": "path/to/dir/containing/package/foo"
+        "directory": "path/to/dir/containing/your/package"
     },
     ...
 }`.trim();
@@ -127,8 +127,8 @@ export const examplePackageJSONFiles = `
 export const exampleIndexFile = `
 // index.ts
 
-// Re-export from another module
-export * from './other-file';
+// Re-export declarations from another module
+export * from './other-module';
 
 // Direct export
 export const name = 'foo';`.trim();
