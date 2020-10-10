@@ -9,7 +9,7 @@ import { PackageFooterSection } from './PackageFooterSection';
 import { PackageInstallSection } from './PackageInstallSection';
 import { PackageNav } from './PackageNav';
 import { PackageOverviewSection } from './PackageOverviewSection';
-import { PackageTitleSection } from './PackageTitleSection';
+import { PackageTitleDocsSection } from './PackageTitleDocsSection';
 
 export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
     const { manifest, api, elapsed } = info;
@@ -52,7 +52,7 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
                         hasDocs={hasDocs}
                     />
 
-                    <PackageTitleSection
+                    <PackageTitleDocsSection
                         name={name}
                         version={version}
                         publishedAt={publishedAt}

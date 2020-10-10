@@ -2,15 +2,15 @@ import prettyBytes from 'pretty-bytes';
 import React from 'react';
 import { TimeAgo } from '../common/TimeAgo';
 
-export function PackageTitleInfoList({
+export function PackageTitleDocsInfoList({
     version,
     publishedAt,
     license,
     unpackedSize,
     dependencies = {},
 }: {
-    version?: string;
-    publishedAt?: string;
+    version: string;
+    publishedAt: string;
     license?: string;
     unpackedSize?: number;
     dependencies?: Record<string, string>;
@@ -29,17 +29,13 @@ export function PackageTitleInfoList({
 
     return (
         <ul className="list-inline">
-            {version && (
-                <li>
-                    Version <span className="font-bold">{version}</span>
-                </li>
-            )}
+            <li>
+                Version <span className="font-bold">{version}</span>
+            </li>
 
-            {publishedAt && (
-                <li>
-                    Published <TimeAgo date={publishedAt} />
-                </li>
-            )}
+            <li>
+                Published <TimeAgo date={publishedAt} />
+            </li>
 
             {license && <li>{license} license</li>}
 
