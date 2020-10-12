@@ -45,7 +45,7 @@
         "path-to-regexp": "^6.2.0",
         "pretty-bytes": "^5.4.1",
         "prism-react-renderer": "^1.1.1",
-        "prismjs": "^1.21.0",
+        "prismjs": "^1.22.0",
         "query-registry": "^1.2.0",
         "react": "16.13.1",
         "react-dom": "16.13.1",
