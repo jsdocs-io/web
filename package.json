@@ -79,7 +79,7 @@
         "tailwindcss": "1.8.13",
         "tailwindcss-dark-mode": "1.1.6",
         "ts-jest": "26.4.1",
-        "tsdx": "0.14.0",
+        "tsdx": "0.14.1",
         "typescript": "4.0.3"
     }
 }
