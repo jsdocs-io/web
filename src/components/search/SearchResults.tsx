@@ -11,8 +11,12 @@ export default function SearchResults({
 }) {
     const packages = searchResults.map(({ package: pkg }) => pkg);
 
+    if (packages.length === 0) {
+        return <h1 className="text-center">No search results</h1>;
+    }
+
     return (
-        <>
+        <div className="space-y-12">
             {packages.map(
                 ({
                     name,
@@ -21,18 +25,20 @@ export default function SearchResults({
                     date,
                     publisher: { username },
                 }) => (
-                    <div key={name} className="mt-8">
+                    <div key={name}>
                         <PackageLink
                             name={name}
                             version={version}
                             title={`${name}@${version}`}
                         >
-                            <span className="text-xl font-bold hover:underline">
+                            <span className="text-xl font-bold break-words hover:underline">
                                 {name}
                             </span>
                         </PackageLink>
 
-                        {description && <p>{description}</p>}
+                        {description && (
+                            <p className="break-words">{description}</p>
+                        )}
 
                         <p>
                             Version <span className="font-bold">{version}</span>{' '}
@@ -53,6 +59,6 @@ export default function SearchResults({
                     </div>
                 )
             )}
-        </>
+        </div>
     );
 }
