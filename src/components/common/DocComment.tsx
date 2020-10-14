@@ -129,7 +129,7 @@ function DocInheritDocSection({
                         name={packageName}
                         declarationID={declarationID}
                     >
-                        {declarationID}
+                        {declarationID} from package {packageName}
                     </PackageLink>
                 ) : (
                     <InternalLink href={url}>{declarationID}</InternalLink>
@@ -376,14 +376,14 @@ function DocLinkTagInternal({ linkTag }: DocLinkTagProps) {
     const { packageName, declarationID, url } = resolveDeclarationReference({
         declarationReference: linkTag.codeDestination!,
     });
-    const text = linkTag.linkText ?? declarationID;
+    const text = linkTag.linkText;
 
     return packageName ? (
         <PackageLink name={packageName} declarationID={declarationID}>
-            {text}
+            {text ? text : `${packageName}#${declarationID}`}
         </PackageLink>
     ) : (
-        <InternalLink href={url}>{text}</InternalLink>
+        <InternalLink href={url}>{text ?? declarationID}</InternalLink>
     );
 }
 
