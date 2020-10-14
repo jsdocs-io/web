@@ -3,6 +3,7 @@ import React from 'react';
 import { DarkModeHook } from '../../hooks/useDarkMode';
 import { NavbarLinks } from './NavbarLinks';
 import { NavbarLogo } from './NavbarLogo';
+import { SearchBar } from './SearchBar';
 
 // Import as dynamic component, otherwise client props may differ
 // from server rendered ones due to the dark mode state.
@@ -14,17 +15,28 @@ const ThemeButton = dynamic(
 
 export function Navbar({ isDarkMode, toggleDarkMode }: DarkModeHook) {
     return (
-        <header className="flex items-center justify-between py-3 bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
-            <div className="pl-4 sm:flex sm:items-center">
-                <NavbarLogo />
-                <NavbarLinks />
+        <header className="px-4 py-3 bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
+            <div className="flex items-center justify-between">
+                <div className="flex items-center flex-shrink-0 space-x-8">
+                    <NavbarLogo />
+
+                    <div className="hidden lg:block">
+                        <NavbarLinks />
+                    </div>
+                </div>
+
+                <div className="flex items-center ml-4 -mr-2 space-x-2">
+                    <SearchBar />
+
+                    <ThemeButton
+                        isDarkMode={isDarkMode}
+                        toggleDarkMode={toggleDarkMode}
+                    />
+                </div>
             </div>
 
-            <div className="pr-2">
-                <ThemeButton
-                    isDarkMode={isDarkMode}
-                    toggleDarkMode={toggleDarkMode}
-                />
+            <div className="mt-3 -ml-2 lg:hidden">
+                <NavbarLinks />
             </div>
         </header>
     );

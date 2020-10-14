@@ -1,29 +1,22 @@
-import Link from 'next/link';
 import React from 'react';
+import { NavbarLink } from './NavbarLink';
 
 export function NavbarLinks() {
     return (
-        <nav className="flex items-center mt-2 sm:mt-0 sm:ml-6">
-            <Link href="/">
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a className="block p-2 text-lg font-bold rounded hover:bg-gray-200 dark-hover:bg-gray-800">
-                    Home
-                </a>
-            </Link>
+        <nav>
+            <ul className="flex items-center space-x-2 overflow-x-auto navbar-links">
+                <li>
+                    <NavbarLink href="/">Home</NavbarLink>
+                </li>
 
-            <Link href="/guide">
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a className="block p-2 ml-2 text-lg font-bold rounded hover:bg-gray-200 dark-hover:bg-gray-800">
-                    Guide
-                </a>
-            </Link>
+                <li>
+                    <NavbarLink href="/guide">Guide</NavbarLink>
+                </li>
 
-            <Link href="/about">
-                {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                <a className="block p-2 ml-2 text-lg font-bold rounded hover:bg-gray-200 dark-hover:bg-gray-800">
-                    About
-                </a>
-            </Link>
+                <li>
+                    <NavbarLink href="/about">About</NavbarLink>
+                </li>
+            </ul>
         </nav>
     );
 }

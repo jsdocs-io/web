@@ -42,4 +42,13 @@
         @apply text-gray-600;
         content: '·';
     }
+
+    .navbar-links {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .navbar-links::-webkit-scrollbar {
+        display: none;
+    }
 }
