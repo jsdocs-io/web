@@ -14,7 +14,7 @@ export function A({
 
     return (
         <a
-            className="text-blue-700 dark:text-blue-300 hover:underline"
+            className="text-blue-700 break-all dark:text-blue-300 hover:underline"
             href={href}
             title={title}
         >

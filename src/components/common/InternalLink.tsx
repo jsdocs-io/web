@@ -30,7 +30,7 @@ export function InternalLink({
         <Link href={href} as={as} prefetch={false}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a
-                className="text-blue-700 dark:text-blue-300 hover:underline"
+                className="text-blue-700 break-all dark:text-blue-300 hover:underline"
                 title={title}
             >
                 {children}

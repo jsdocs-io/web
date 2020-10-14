@@ -328,13 +328,13 @@ function DocNode({ node }: DocNodeProps) {
 function DocErrorText({ node }: DocNodeProps) {
     const errorText = (node as tsdoc.DocErrorText).text;
 
-    return <>{errorText}</>;
+    return <span className="break-all">{errorText}</span>;
 }
 
 function DocEscapedText({ node }: DocNodeProps) {
     const escapedText = (node as tsdoc.DocEscapedText).decodedText;
 
-    return <>{escapedText}</>;
+    return <span className="break-all">{escapedText}</span>;
 }
 
 function DocCodeSpan({ node }: DocNodeProps) {
@@ -392,7 +392,7 @@ function DocParagraph({ node }: DocNodeProps) {
     const contents = tsdoc.DocNodeTransforms.trimSpacesInParagraph(paragraph);
 
     return (
-        <p>
+        <p className="break-words">
             <DocContainer container={contents} />
         </p>
     );
@@ -407,13 +407,13 @@ function DocPlainText({ node }: DocNodeProps) {
 function DocHtmlStartTag({ node }: DocNodeProps) {
     const htmlStartTag = node as tsdoc.DocHtmlStartTag;
 
-    return <>{htmlStartTag.emitAsHtml()}</>;
+    return <span className="break-all">{htmlStartTag.emitAsHtml()}</span>;
 }
 
 function DocHtmlEndTag({ node }: DocNodeProps) {
     const htmlEndTag = node as tsdoc.DocHtmlEndTag;
 
-    return <>{htmlEndTag.emitAsHtml()}</>;
+    return <span className="break-all">{htmlEndTag.emitAsHtml()}</span>;
 }
 
 /** DocSoftBreak renders a single space */
