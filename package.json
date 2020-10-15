@@ -74,7 +74,7 @@
         "jest": "26.5.3",
         "postcss-preset-env": "6.7.0",
         "prettier": "2.1.2",
-        "react-test-renderer": "16.13.1",
+        "react-test-renderer": "16.14.0",
         "stylelint-config-recommended": "3.0.0",
         "tailwindcss": "1.9.2",
         "tailwindcss-dark-mode": "1.1.6",
