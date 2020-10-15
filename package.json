@@ -47,7 +47,7 @@
         "prism-react-renderer": "^1.1.1",
         "prismjs": "^1.22.0",
         "query-registry": "^1.2.0",
-        "react": "16.13.1",
+        "react": "16.14.0",
         "react-dom": "16.14.0",
         "semver": "^7.3.2",
         "short-time-ago": "^1.1.1",
