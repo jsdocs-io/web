@@ -50,7 +50,7 @@ export function SearchBar({ initialQuery = '' }: { initialQuery?: string }) {
                 placeholder="Search packages"
                 value={rawQuery}
                 onChange={onInputChange}
-                onKeyPress={onEnterKeyPress}
+                onKeyDown={onEnterKeyPress}
             />
 
             <button
