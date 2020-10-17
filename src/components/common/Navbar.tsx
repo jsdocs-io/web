@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { DarkModeHook } from '../../hooks/useDarkMode';
 import { NavbarLinks } from './NavbarLinks';
@@ -14,11 +15,14 @@ const ThemeButton = dynamic(
 ) as any;
 
 export function Navbar({ isDarkMode, toggleDarkMode }: DarkModeHook) {
+    const router = useRouter();
+    const showSearchBar = !['/', '/search'].includes(router.pathname);
+
     return (
         <header className="px-4 py-3 bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
             <div className="flex items-center justify-between">
                 <div className="flex items-center flex-shrink-0 space-x-8">
-                    <NavbarLogo />
+                    <NavbarLogo showLogoText={!showSearchBar} />
 
                     <div className="hidden lg:block">
                         <NavbarLinks />
@@ -26,7 +30,7 @@ export function Navbar({ isDarkMode, toggleDarkMode }: DarkModeHook) {
                 </div>
 
                 <div className="flex items-center ml-4 -mr-2 space-x-2">
-                    <SearchBar />
+                    {showSearchBar && <SearchBar />}
 
                     <ThemeButton
                         isDarkMode={isDarkMode}
