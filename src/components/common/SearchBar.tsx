@@ -52,7 +52,7 @@ export function SearchBar({ initialQuery = '' }: { initialQuery?: string }) {
     return (
         <div className="relative w-full">
             <input
-                className="w-full py-3 pl-4 pr-16 border border-gray-300 rounded dark:border-gray-700 dark:bg-gray-900"
+                className="w-full py-3 pl-4 pr-16 border border-gray-400 rounded dark:border-gray-700 dark:bg-gray-900"
                 id="search-bar"
                 type="search"
                 name="q"
@@ -64,7 +64,7 @@ export function SearchBar({ initialQuery = '' }: { initialQuery?: string }) {
             />
 
             <button
-                className="absolute inset-y-0 right-0 px-4 text-gray-600 border-l border-gray-300 dark:border-gray-700 hover:text-gray-800 dark:text-gray-500 dark-hover:text-gray-300"
+                className="absolute inset-y-0 right-0 px-4 text-gray-600 border-l border-gray-400 dark:border-gray-700 hover:text-gray-800 dark:text-gray-500 dark-hover:text-gray-300"
                 title="Search"
                 type="button"
                 onClick={onButtonClick}
