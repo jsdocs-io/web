@@ -49,6 +49,7 @@
         "query-registry": "^1.2.0",
         "react": "16.14.0",
         "react-dom": "16.14.0",
+        "react-hotkeys-hook": "^2.3.1",
         "semver": "^7.3.2",
         "short-time-ago": "^1.1.1",
         "validate-npm-package-name": "^3.0.0"

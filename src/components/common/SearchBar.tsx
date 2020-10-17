@@ -1,8 +1,17 @@
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useRef } from 'react';
+import { useHotkeys } from 'react-hotkeys-hook';
 import { useSearch } from '../../hooks/useSearch';
 
 export function SearchBar({ initialQuery = '' }: { initialQuery?: string }) {
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    useHotkeys('s', (event) => {
+        window.scrollTo(0, 0);
+        inputRef.current?.focus();
+        event.preventDefault();
+    });
+
     const router = useRouter();
 
     const {
@@ -51,6 +60,7 @@ export function SearchBar({ initialQuery = '' }: { initialQuery?: string }) {
                 value={rawQuery}
                 onChange={onInputChange}
                 onKeyDown={onEnterKeyPress}
+                ref={inputRef}
             />
 
             <button
