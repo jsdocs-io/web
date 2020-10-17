@@ -29,13 +29,15 @@ export function Navbar({ isDarkMode, toggleDarkMode }: DarkModeHook) {
                     </div>
                 </div>
 
-                <div className="flex items-center ml-4 -mr-2 space-x-2">
+                <div className="flex items-center flex-grow ml-4 -mr-2 space-x-2 sm:ml-8 md:flex-grow-0 md:w-1/2 xl:w-1/3">
                     {showSearchBar && <SearchBar />}
 
-                    <ThemeButton
-                        isDarkMode={isDarkMode}
-                        toggleDarkMode={toggleDarkMode}
-                    />
+                    <div className="ml-auto">
+                        <ThemeButton
+                            isDarkMode={isDarkMode}
+                            toggleDarkMode={toggleDarkMode}
+                        />
+                    </div>
                 </div>
             </div>
 
