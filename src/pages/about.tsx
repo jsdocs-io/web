@@ -168,12 +168,13 @@ function FeedbackSection() {
 
             <p>
                 To report bugs, leave suggestions, or ask questions, please{' '}
-                <A href="#TODO:">open an issue</A>
+                <A href="https://github.com/jsdocs-io/jsdocs-io/issues">
+                    open an issue
+                </A>
                 .
                 <br />
-                You can also reach us on Twitter at{' '}
-                <A href="https://twitter.com/jsDocs">@jsDocs</A> or by email at{' '}
-                <InlineCode code="info@<our-domain>" />.
+                You can also reach us by email at{' '}
+                <A href="mailto:info@jsdocs.io">info@jsdocs.io</A>.
             </p>
         </section>
     );
