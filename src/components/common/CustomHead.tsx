@@ -11,6 +11,15 @@ export function CustomHead() {
                 content="width=device-width, initial-scale=1, shrink-to-fit=no"
             />
 
+            {/* Global Open Graph tags */}
+            <meta property="og:type" content="website" />
+            <meta
+                property="og:image"
+                content="https://www.jsdocs.io/logo.png"
+            />
+            <meta property="og:image:alt" content="jsDocs.io logo" />
+            <meta property="og:site_name" content="jsDocs.io" />
+
             {/* Prevent flash of unstyled content */}
             <script src="/no-dark-mode-flash.min.js" />
 

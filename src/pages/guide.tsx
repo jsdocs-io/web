@@ -21,14 +21,19 @@ import {
 } from '../data/examples';
 
 export default function GuidePage() {
+    const pageTitle = 'Package documentation guide - jsDocs.io';
+    const pageDescription =
+        'Documentation guide for packages displayed on jsDocs.io';
+
     return (
         <>
             <Head>
-                <title>Package documentation guide - jsDocs.io</title>
-                <meta
-                    name="description"
-                    content="Documentation guide for packages displayed on jsDocs.io"
-                />
+                <title>{pageTitle}</title>
+                <meta name="description" content={pageDescription} />
+
+                <meta property="og:title" content={pageTitle} />
+                <meta property="og:description" content={pageDescription} />
+                <meta property="og:url" content="https://www.jsdocs.io/guide" />
             </Head>
 
             <Layout>

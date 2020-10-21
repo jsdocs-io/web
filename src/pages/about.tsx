@@ -7,11 +7,18 @@ import { Layout } from '../components/common/Layout';
 import { newTabBookmarklet, redirectBookmarklet } from '../data/bookmarklets';
 
 export default function AboutPage() {
+    const pageTitle = 'About - jsDocs.io';
+    const pageDescription = 'About jsDocs.io';
+
     return (
         <>
             <Head>
-                <title>About - jsDocs.io</title>
-                <meta name="description" content="About jsDocs.io" />
+                <title>{pageTitle}</title>
+                <meta name="description" content={pageDescription} />
+
+                <meta property="og:title" content={pageTitle} />
+                <meta property="og:description" content={pageDescription} />
+                <meta property="og:url" content="https://www.jsdocs.io/about" />
             </Head>
 
             <Layout>

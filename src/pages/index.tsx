@@ -4,14 +4,19 @@ import { Layout } from '../components/common/Layout';
 import { SearchBar } from '../components/common/SearchBar';
 
 export default function IndexPage() {
+    const pageTitle = 'jsDocs.io';
+    const pageDescription =
+        'jsDocs.io is a documentation host for Javascript and Typescript packages published on npm';
+
     return (
         <>
             <Head>
-                <title>jsDocs.io</title>
-                <meta
-                    name="description"
-                    content="jsDocs.io is a documentation host for Javascript and Typescript packages"
-                />
+                <title>{pageTitle}</title>
+                <meta name="description" content={pageDescription} />
+
+                <meta property="og:title" content={pageTitle} />
+                <meta property="og:description" content={pageDescription} />
+                <meta property="og:url" content="https://www.jsdocs.io" />
             </Head>
 
             <Layout>

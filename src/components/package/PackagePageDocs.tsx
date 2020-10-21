@@ -32,14 +32,19 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
 
     const hasDocs = !!api?.files.length;
 
+    const pageTitle = `${id} - jsDocs.io`;
+    const pageDescription = `Documentation for npm package ${id} - jsDocs.io`;
+    const pageURL = `https://www.jsdocs.io/package/${name}/v/${version}`;
+
     return (
         <>
             <Head>
-                <title>{id} - jsDocs.io</title>
-                <meta
-                    name="description"
-                    content={`Documentation for package ${id} - jsDocs.io`}
-                />
+                <title>{pageTitle}</title>
+                <meta name="description" content={pageDescription} />
+
+                <meta property="og:title" content={pageTitle} />
+                <meta property="og:description" content={pageDescription} />
+                <meta property="og:url" content={pageURL} />
             </Head>
 
             <Layout>

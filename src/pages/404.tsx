@@ -7,11 +7,18 @@ export default function Page404({
 }: {
     message?: string;
 }) {
+    const pageTitle = 'Page not found - jsDocs.io';
+    const pageDescription = pageTitle;
+
     return (
         <>
             <Head>
-                <title>Page not found - jsDocs.io</title>
-                <meta name="description" content="Page not found - jsDocs.io" />
+                <title>{pageTitle}</title>
+                <meta name="description" content={pageDescription} />
+
+                <meta property="og:title" content={pageTitle} />
+                <meta property="og:description" content={pageDescription} />
+                <meta property="og:url" content="https://www.jsdocs.io/404" />
             </Head>
 
             <Layout>

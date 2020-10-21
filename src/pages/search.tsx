@@ -17,13 +17,20 @@ export default function SearchPage({ query, searchResults }: SearchPageProps) {
         return null;
     }
 
+    const pageTitle = `${query} - jsDocs.io`;
+    const pageDescription = `Search results for '${query}' on jsDocs.io`;
+
     return (
         <>
             <Head>
-                <title>{query} - jsDocs.io</title>
+                <title>{pageTitle}</title>
+                <meta name="description" content={pageDescription} />
+
+                <meta property="og:title" content={pageTitle} />
+                <meta property="og:description" content={pageDescription} />
                 <meta
-                    name="description"
-                    content={`Search results for '${query}' on jsDocs.io`}
+                    property="og:url"
+                    content="https://www.jsdocs.io/search"
                 />
             </Head>
 

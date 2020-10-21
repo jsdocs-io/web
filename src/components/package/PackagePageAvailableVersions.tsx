@@ -20,14 +20,19 @@ export function PackagePageAvailableVersions({
         license,
     } = packument;
 
+    const pageTitle = `${name} versions - jsDocs.io`;
+    const pageDescription = `Available versions for npm package ${name} - jsDocs.io`;
+    const pageURL = `https://www.jsdocs.io/package/${name}/versions`;
+
     return (
         <>
             <Head>
-                <title>{name} versions - jsDocs.io</title>
-                <meta
-                    name="description"
-                    content={`Available versions for package ${name} - jsDocs.io`}
-                />
+                <title>{pageTitle}</title>
+                <meta name="description" content={pageDescription} />
+
+                <meta property="og:title" content={pageTitle} />
+                <meta property="og:description" content={pageDescription} />
+                <meta property="og:url" content={pageURL} />
             </Head>
 
             <Layout>
