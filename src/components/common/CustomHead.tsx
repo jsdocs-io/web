@@ -20,6 +20,15 @@ export function CustomHead() {
             <meta property="og:image:alt" content="jsDocs.io logo" />
             <meta property="og:site_name" content="jsDocs.io" />
 
+            {/* Global Twitter card tags */}
+            <meta property="twitter:card" content="summary" />
+            <meta property="twitter:site" content="@jsDocs" />
+            <meta
+                property="twitter:image"
+                content="https://www.jsdocs.io/logo.png"
+            />
+            <meta property="twitter:image:alt" content="jsDocs.io logo" />
+
             {/* Prevent flash of unstyled content */}
             <script src="/no-dark-mode-flash.min.js" />
 

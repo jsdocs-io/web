@@ -19,6 +19,12 @@ export default function AboutPage() {
                 <meta property="og:title" content={pageTitle} />
                 <meta property="og:description" content={pageDescription} />
                 <meta property="og:url" content="https://www.jsdocs.io/about" />
+
+                <meta property="twitter:title" content={pageTitle} />
+                <meta
+                    property="twitter:description"
+                    content={pageDescription}
+                />
             </Head>
 
             <Layout>

@@ -32,6 +32,12 @@ export default function SearchPage({ query, searchResults }: SearchPageProps) {
                     property="og:url"
                     content="https://www.jsdocs.io/search"
                 />
+
+                <meta property="twitter:title" content={pageTitle} />
+                <meta
+                    property="twitter:description"
+                    content={pageDescription}
+                />
             </Head>
 
             <Layout>
