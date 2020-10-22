@@ -2453,10 +2453,10 @@ ally.js@1.4.1:
     css.escape "^1.5.0"
     platform "1.3.3"
 
-anchor-js@^4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/anchor-js/-/anchor-js-4.2.2.tgz#e4edd682752cb2afaecdbc03df5c7b31e3c02922"
-  integrity sha512-Rg1tGaG4K3avYqDh7rOYCE/odWxpUiHStnlKL/bGOt9cl6NjR06zhPGVQcCAjE5PT48oQeHVgqNmLzxh0Kuk4A==
+anchor-js@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/anchor-js/-/anchor-js-4.3.0.tgz#812a1467178c0b227b2cec23dbb5b336e588ee6c"
+  integrity sha512-ROYrnfZIA0zLJbWCFO7IJH9VPetyN0gXb9iSWNXUGh4wLHX7Mw+foIizbbxAhOgfNFJfQDrAWbuU49ChF8bQ0A==
 
 anser@1.4.9:
   version "1.4.9"
