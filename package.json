@@ -37,7 +37,7 @@
         "@jsdocs-io/package-analyzer": "^1.0.1",
         "@keyv/redis": "^2.1.2",
         "@microsoft/tsdoc": "^0.12.21",
-        "anchor-js": "^4.2.2",
+        "anchor-js": "^4.3.0",
         "clean-deep": "^3.4.0",
         "keyv": "^4.0.3",
         "next": "9.5.5",
