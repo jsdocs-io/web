@@ -51,6 +51,10 @@ export function SearchBar({ initialQuery = '' }: { initialQuery?: string }) {
 
     return (
         <div className="relative w-full">
+            <label className="sr-only" htmlFor="search-bar">
+                Search packages (Press 's' to focus search bar)
+            </label>
+
             <input
                 className="w-full py-3 pl-4 pr-16 border border-gray-400 rounded dark:border-gray-700 dark:bg-gray-900"
                 id="search-bar"
