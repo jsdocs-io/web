@@ -15,7 +15,8 @@
         "test:cov": "jest --runInBand --coverage",
         "test:watch": "jest --runInBand --watchAll --coverage",
         "test:ci": "jest --ci --maxWorkers=2 --coverage",
-        "pre-push": "yarn && yarn lint && yarn build && yarn test:cov"
+        "pre-push": "yarn && yarn lint && yarn build && yarn test:cov",
+        "generate:favicon": "yarn real-favicon generate faviconDescription.json faviconData.json public"
     },
     "husky": {
         "hooks": {
@@ -68,6 +69,7 @@
         "@types/semver": "7.3.4",
         "@types/validate-npm-package-name": "3.0.0",
         "babel-jest": "26.6.0",
+        "cli-real-favicon": "0.0.8",
         "cross-env": "7.0.2",
         "eslint-plugin-prettier": "3.1.4",
         "husky": "4.3.0",
