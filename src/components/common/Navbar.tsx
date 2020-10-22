@@ -21,7 +21,7 @@ export function Navbar({ isDarkMode, toggleDarkMode }: DarkModeHook) {
     return (
         <header className="px-4 py-3 bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
             <div className="flex items-center justify-between">
-                <div className="flex items-center flex-shrink-0 space-x-8">
+                <div className="flex items-center flex-shrink-0 p-1 space-x-8">
                     <NavbarLogo showLogoText={!showSearchBar} />
 
                     <div className="hidden lg:block">
