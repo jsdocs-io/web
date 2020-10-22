@@ -41,7 +41,7 @@ export function Navbar({ isDarkMode, toggleDarkMode }: DarkModeHook) {
                 </div>
             </div>
 
-            <div className="mt-3 -ml-2 lg:hidden">
+            <div className="mt-3 -ml-2 lg:hidden lg:m-0">
                 <NavbarLinks />
             </div>
         </header>
