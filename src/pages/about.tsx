@@ -36,6 +36,7 @@ export default function AboutPage() {
                     <BadgeSection />
                     <BookmarkletsSection />
                     <FeedbackSection />
+                    <PrivacyPolicySection />
                 </article>
             </Layout>
         </>
@@ -188,6 +189,21 @@ function FeedbackSection() {
                 <br />
                 You can also reach us by email at{' '}
                 <A href="mailto:info@jsdocs.io">info@jsdocs.io</A>.
+            </p>
+        </section>
+    );
+}
+
+function PrivacyPolicySection() {
+    return (
+        <section>
+            <h2>Privacy policy</h2>
+
+            <p>
+                To learn more about the data collected by jsDocs.io, you can
+                visit our{' '}
+                <InternalLink href="/privacy">privacy policy</InternalLink>{' '}
+                page.
             </p>
         </section>
     );
