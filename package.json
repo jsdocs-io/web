@@ -81,7 +81,7 @@
         "stylelint-config-recommended": "3.0.0",
         "tailwindcss": "1.9.6",
         "tailwindcss-dark-mode": "1.1.7",
-        "ts-jest": "26.4.2",
+        "ts-jest": "26.4.3",
         "tsdx": "0.14.1",
         "typescript": "4.0.3"
     }
