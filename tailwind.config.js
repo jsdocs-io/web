@@ -12,8 +12,5 @@ module.exports = {
         borderColor: ['dark'],
         textColor: ['dark', 'dark-hover', 'hover', 'active'],
     },
-    plugins: [
-        require('tailwindcss-dark-mode')(),
-        require('@tailwindcss/typography'),
-    ],
+    plugins: [require('tailwindcss-dark-mode')()],
 };
