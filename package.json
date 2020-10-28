@@ -41,7 +41,7 @@
         "anchor-js": "^4.3.0",
         "clean-deep": "^3.4.0",
         "keyv": "^4.0.3",
-        "next": "9.5.5",
+        "next": "10.0.0",
         "nprogress": "^0.2.0",
         "path-to-regexp": "^6.2.0",
         "pretty-bytes": "^5.4.1",
