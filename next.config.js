@@ -1,5 +1,6 @@
 const { StatsWriterPlugin } = require('webpack-stats-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
+const LicensePlugin = require('webpack-license-plugin');
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: process.env.ANALYZE === 'true',
@@ -22,6 +23,8 @@ module.exports = withBundleAnalyzer({
         );
 
         config.plugins.push(new Visualizer());
+
+        config.plugins.push(new LicensePlugin());
 
         return config;
     },
