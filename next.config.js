@@ -8,6 +8,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 module.exports = withBundleAnalyzer({
     webpack: (config, {}) => {
+        // Webpack stats
         config.plugins.push(
             new StatsWriterPlugin({
                 filename: 'stats.json',
@@ -22,8 +23,10 @@ module.exports = withBundleAnalyzer({
             })
         );
 
+        // Webpack stats visualizer
         config.plugins.push(new Visualizer());
 
+        // OSS packages in webpack bundles
         config.plugins.push(new LicensePlugin());
 
         return config;
