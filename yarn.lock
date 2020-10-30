@@ -12339,10 +12339,10 @@ webpack-sources@1.4.3, webpack-sources@^1.3.0, webpack-sources@^1.4.0, webpack-s
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack-stats-plugin@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/webpack-stats-plugin/-/webpack-stats-plugin-1.0.1.tgz#924558eb219bb6f3a1399b52ff768e25e5cf9c54"
-  integrity sha512-PUoHMYmL7HW1uSBc5ZemIixaStU5NNseETPI0h9RWLs2glXKyH+0oyiYy8f/EVlFhklPYRVNdfVRDu8rCVFLgQ==
+webpack-stats-plugin@1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/webpack-stats-plugin/-/webpack-stats-plugin-1.0.2.tgz#bddca3c64bb1e1bd9de96dcb8e21739423fe2180"
+  integrity sha512-7G8gSRMtXhld6VBJ3OXoBxPeopyLM4T/QpUUudEuH9N+hhb1AGHmARYQsPMgeJBPsrBGUuQWKRh1FECfUhYkQw==
 
 webpack-visualizer-plugin@0.1.11:
   version "0.1.11"
