@@ -59,7 +59,7 @@ function OpenSourceSoftwareSection({
 }) {
     return (
         <section>
-            <h1>OSS licenses</h1>
+            <h2>OSS licenses</h2>
 
             <p>This website uses the following open source software:</p>
 
