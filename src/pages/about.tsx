@@ -30,6 +30,7 @@ export default function AboutPage() {
             <Layout>
                 <article className="space-y-12">
                     <IntroSection />
+                    <TechnologySection />
                     <AddingAPackageSection />
                     <DocumentingAPackageSection />
                     <RemovingAPackageSection />
@@ -60,6 +61,41 @@ function IntroSection() {
                 <A href="https://pkg.go.dev/">GoDoc</A> and{' '}
                 <A href="https://docs.rs">Docs.rs</A>.
             </p>
+        </section>
+    );
+}
+
+function TechnologySection() {
+    return (
+        <section>
+            <h2>Technology</h2>
+
+            <p>
+                jsDocs.io is written in{' '}
+                <A href="https://www.typescriptlang.org/">Typescript</A> and
+                consists of three main parts:
+            </p>
+
+            <ul className="my-2 ml-8 space-y-1 list-disc">
+                <li>
+                    An adapter for the npm registry, available as the{' '}
+                    <A href="https://www.npmjs.com/package/query-registry">
+                        query-registry
+                    </A>{' '}
+                    package
+                </li>
+
+                <li>
+                    A custom API extractor, based on the{' '}
+                    <A href="https://github.com/dsherret/ts-morph">ts-morph</A>{' '}
+                    library by David Sherret
+                </li>
+
+                <li>
+                    This website, powered by{' '}
+                    <A href="https://nextjs.org/">Next.js</A>
+                </li>
+            </ul>
         </section>
     );
 }
