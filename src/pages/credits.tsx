@@ -4,6 +4,7 @@ import React from 'react';
 import { A } from '../components/common/A';
 import { CodeBlock } from '../components/common/CodeBlock';
 import { Layout } from '../components/common/Layout';
+import { heroIconsLicense } from '../data/heroicons-license';
 import { getOSSLibraries, OSSLibrary } from '../lib/get-oss-libraries';
 
 interface CreditsPageProps {
@@ -38,6 +39,7 @@ export default function CreditsPage({ ossLibraries }: CreditsPageProps) {
                 <article className="space-y-12">
                     <IntroSection />
                     <OpenSourceSoftwareSection ossLibraries={ossLibraries} />
+                    <IconsSection />
                 </article>
             </Layout>
         </>
@@ -96,6 +98,28 @@ function OpenSourceSoftwareSection({
                     )
                 )}
             </ul>
+        </section>
+    );
+}
+
+function IconsSection() {
+    return (
+        <section>
+            <h2>Icons</h2>
+
+            <p>
+                The icons used in this website come from the{' '}
+                <A href="https://github.com/tailwindlabs/heroicons">
+                    Heroicons set
+                </A>
+                .
+            </p>
+
+            <details className="mt-1">
+                <summary>License: MIT</summary>
+
+                <CodeBlock code={heroIconsLicense} language="plain" />
+            </details>
         </section>
     );
 }
