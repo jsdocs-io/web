@@ -47,6 +47,10 @@ export function Footer() {
                     <li>
                         <A href="https://github.com/jsdocs-io">GitHub</A>
                     </li>
+
+                    <li>
+                        <A href="https://twitter.com/jsDocs">Twitter</A>
+                    </li>
                 </ul>
             </div>
         </footer>

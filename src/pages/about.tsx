@@ -223,7 +223,8 @@ function FeedbackSection() {
                 </A>
                 .
                 <br />
-                You can also reach us by email at{' '}
+                You can also reach us on Twitter at{' '}
+                <A href="https://twitter.com/jsDocs">@jsDocs</A> or by email at{' '}
                 <A href="mailto:info@jsdocs.io">info@jsdocs.io</A>.
             </p>
         </section>
