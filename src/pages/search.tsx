@@ -1,20 +1,16 @@
-import { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import { SearchResult } from 'query-registry';
 import React from 'react';
 import { Layout } from '../components/common/Layout';
 import { SearchBar } from '../components/common/SearchBar';
 import SearchResults from '../components/search/SearchResults';
-import { registry } from '../lib/registry';
+import { useSearchPackages } from '../hooks/useSearchPackages';
+import Page404 from './404';
 
-export interface SearchPageProps {
-    readonly query?: string;
-    readonly searchResults: SearchResult[];
-}
+export default function SearchPage() {
+    const { query, searchResults, error } = useSearchPackages();
 
-export default function SearchPage({ query, searchResults }: SearchPageProps) {
-    if (!query) {
-        return null;
+    if (error || !query) {
+        return <Page404 />;
     }
 
     const pageTitle = `${query} - jsDocs.io`;
@@ -46,7 +42,13 @@ export default function SearchPage({ query, searchResults }: SearchPageProps) {
                         <SearchBar initialQuery={query} />
 
                         <div className="mt-12">
-                            <SearchResults searchResults={searchResults} />
+                            {searchResults ? (
+                                <SearchResults searchResults={searchResults} />
+                            ) : (
+                                <h1 className="text-center animate-pulse">
+                                    Loading...
+                                </h1>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -54,21 +56,3 @@ export default function SearchPage({ query, searchResults }: SearchPageProps) {
         </>
     );
 }
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-    const rawQuery = context.query.query as string | undefined;
-    const query = rawQuery?.trim();
-
-    if (!query) {
-        context.res.writeHead(302, { Location: '/' });
-        context.res.end();
-        return { props: {} };
-    }
-
-    const { objects: searchResults } = await registry.searchPackages({
-        text: query,
-    });
-
-    const props: SearchPageProps = { query, searchResults };
-    return { props };
-};

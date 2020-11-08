@@ -55,6 +55,7 @@
         "react-hotkeys-hook": "^2.4.0",
         "semver": "^7.3.2",
         "short-time-ago": "^1.1.1",
+        "swr": "^0.3.8",
         "validate-npm-package-name": "^3.0.0"
     },
     "devDependencies": {
