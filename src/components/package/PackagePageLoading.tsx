@@ -1,12 +1,23 @@
+import Head from 'next/head';
 import React from 'react';
 import { Layout } from '../common/Layout';
 
 export function PackagePageLoading() {
+    const pageTitle = 'Loading... - jsDocs.io';
+    const pageDescription = 'Loading page - jsDocs.io';
+
     return (
-        <Layout>
-            <div className="flex flex-col items-center justify-center h-full">
-                <h1 className="animate-pulse">Loading...</h1>
-            </div>
-        </Layout>
+        <>
+            <Head>
+                <title>{pageTitle}</title>
+                <meta name="description" content={pageDescription} />
+            </Head>
+
+            <Layout>
+                <div className="flex flex-col items-center justify-center h-full">
+                    <h1 className="animate-pulse">Loading...</h1>
+                </div>
+            </Layout>
+        </>
     );
 }
