@@ -24,7 +24,7 @@ export interface PackagePagePropsError {
 }
 
 export enum PackagePageKind {
-    /** Package documentation page (latest or specific version) */
+    /** Documentation page for a specific package version */
     Docs = 'Docs',
 
     /** Package versions and dist tags */

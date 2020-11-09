@@ -27,7 +27,7 @@ export async function getPackagePageStaticProps({
 
     switch (parsedRoute.kind) {
         case PackageRouteKind.DocLatestVersion:
-            return getDocLatestVersionProps(parsedRoute);
+            return getDocLatestVersionRedirect(parsedRoute);
         case PackageRouteKind.DocFixedVersion:
             return getDocFixedVersionProps(parsedRoute);
         case PackageRouteKind.AvailableVersions:
@@ -37,20 +37,19 @@ export async function getPackagePageStaticProps({
     }
 }
 
-async function getDocLatestVersionProps(
+async function getDocLatestVersionRedirect(
     parsedRoute: PackageRouteDocLatestVersion
-): Promise<GetStaticPropsResult<PackagePagePropsDocs | PackagePagePropsError>> {
+): Promise<GetStaticPropsResult<PackagePagePropsError>> {
     try {
         const { name } = parsedRoute;
-        const info = await packageAnalyzer.analyzeRegistryPackage(name);
+        const { version } = await registry.getPackageManifest(name);
 
         return {
-            props: {
-                kind: PackagePageKind.Docs,
-                info: cleanObject(info),
-                createdAt: now(),
+            redirect: {
+                destination: `/package/${name}/v/${version}`,
+                permanent: false,
             },
-            revalidate: 12 * hour,
+            revalidate: hour,
         };
     } catch {
         return getErrorProps({
