@@ -3,7 +3,7 @@ import { getPackagePageStaticProps } from '../../src/lib/get-package-page-static
 import { packageAnalyzer } from '../../src/lib/package-analyzer';
 import { PackagePageKind } from '../../src/lib/package-page-props';
 import { registry } from '../../src/lib/registry';
-import { hour, minute, week } from '../../src/lib/revalidate-times';
+import { hour, minute } from '../../src/lib/revalidate-times';
 
 jest.mock('../../src/lib/registry');
 jest.mock('../../src/lib/package-analyzer');
@@ -12,42 +12,37 @@ const mockedRegistry = mocked(registry, true);
 const mockedPackageAnalyzer = mocked(packageAnalyzer, true);
 
 describe('getPackagePageStaticProps', () => {
-    it('returns the docs props (latest version)', async () => {
-        expect.assertions(2);
+    it('returns the redirect URL (latest version)', async () => {
+        expect.assertions(1);
 
-        const wantedInfo = {
-            id: 'foo',
+        const wantedManifest = {
+            name: 'foo',
+            version: '1.0.0',
         };
 
-        mockedPackageAnalyzer.analyzeRegistryPackage.mockImplementation(
-            async () => {
-                return wantedInfo as any;
-            }
-        );
+        mockedRegistry.getPackageManifest.mockImplementation(async () => {
+            return wantedManifest as any;
+        });
 
         const props = await getPackagePageStaticProps({
             route: '/foo',
         });
 
         expect(props).toMatchObject({
-            props: {
-                kind: PackagePageKind.Docs,
-                info: wantedInfo,
+            redirect: {
+                destination: '/package/foo/v/1.0.0',
+                permanent: false,
             },
-            revalidate: 12 * hour,
+            revalidate: hour,
         });
-
-        expect(props).toHaveProperty('props.createdAt');
     });
 
-    it('returns the error props if the docs props package is not found (latest version)', async () => {
+    it('returns the error props if the redirect URL is not found (latest version)', async () => {
         expect.assertions(1);
 
-        mockedPackageAnalyzer.analyzeRegistryPackage.mockImplementation(
-            async () => {
-                throw new Error();
-            }
-        );
+        mockedRegistry.getPackageManifest.mockImplementation(async () => {
+            throw new Error();
+        });
 
         const props = await getPackagePageStaticProps({
             route: '/foo',
@@ -84,7 +79,6 @@ describe('getPackagePageStaticProps', () => {
                 kind: PackagePageKind.Docs,
                 info: wantedInfo,
             },
-            revalidate: week,
         });
 
         expect(props).toHaveProperty('props.createdAt');
