@@ -75,7 +75,6 @@ async function getDocFixedVersionProps(
                 info: cleanObject(info),
                 createdAt: now(),
             },
-            revalidate: week,
         };
     } catch {
         return getErrorProps({
