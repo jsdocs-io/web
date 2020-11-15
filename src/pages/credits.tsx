@@ -165,7 +165,9 @@ function IconsSection() {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const ossLibraries = await getOSSLibraries();
+    // During the webpack build we are in the root directory
+    const licensesFile = '.next/oss-licenses.json';
+    const ossLibraries = await getOSSLibraries({ licensesFile });
 
     return {
         props: { ossLibraries },
