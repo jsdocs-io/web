@@ -1,5 +1,7 @@
+import { PackageAnalyzer } from '@jsdocs-io/package-analyzer';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
+import { Registry } from 'query-registry';
 import React from 'react';
 import { PackagePageAvailableVersions } from '../../components/package/PackagePageAvailableVersions';
 import { PackagePageDocs } from '../../components/package/PackagePageDocs';
@@ -10,6 +12,9 @@ import {
     PackagePageProps,
 } from '../../lib/package-page-props';
 import Page404 from '../404';
+
+const registry = new Registry();
+const packageAnalyzer = new PackageAnalyzer({ registry });
 
 export default function PackagePage(props: PackagePageProps) {
     const router = useRouter();
@@ -39,5 +44,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const slug = params!.slug as string[];
     const slugRoute = slug.join('/');
     const route = `/${slugRoute}`;
-    return getPackagePageStaticProps({ route });
+
+    return getPackagePageStaticProps({ route, registry, packageAnalyzer });
 };
