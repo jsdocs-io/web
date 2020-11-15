@@ -1,5 +1,5 @@
 module.exports = {
-    collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx}'],
+    collectCoverageFrom: ['src/**/*.{ts,tsx,js,jsx}', '!src/data/**'],
     setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
     testMatch: ['<rootDir>/**/*.test.{ts,tsx,js,jsx}'],
     testPathIgnorePatterns: ['/node_modules/', '/.next/'],
