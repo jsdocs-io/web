@@ -1,4 +1,7 @@
-import { PackageAnalyzer } from '@jsdocs-io/package-analyzer';
+import {
+    PackageAnalyzer,
+    version as currentPackageAnalyzerVersion,
+} from '@jsdocs-io/package-analyzer';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { Registry } from 'query-registry';
@@ -11,10 +14,12 @@ import {
     PackagePageKind,
     PackagePageProps,
 } from '../../lib/package-page-props';
+import { Storage } from '../../lib/storage';
 import Page404 from '../404';
 
 const registry = new Registry();
 const packageAnalyzer = new PackageAnalyzer({ registry });
+const storage = new Storage();
 
 export default function PackagePage(props: PackagePageProps) {
     const router = useRouter();
@@ -41,9 +46,16 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+    // Matched params are always an array for a catch all route.
+    // See https://nextjs.org/docs/routing/dynamic-routes#catch-all-routes
     const slug = params!.slug as string[];
-    const slugRoute = slug.join('/');
-    const route = `/${slugRoute}`;
+    const route = `/${slug.join('/')}`;
 
-    return getPackagePageStaticProps({ route, registry, packageAnalyzer });
+    return getPackagePageStaticProps({
+        route,
+        registry,
+        packageAnalyzer,
+        storage,
+        currentPackageAnalyzerVersion,
+    });
 };

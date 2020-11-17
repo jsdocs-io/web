@@ -21,6 +21,7 @@ describe('getPackagePageStaticProps', () => {
             route: '/foo',
             registry: mockRegistry as any,
             packageAnalyzer: {} as any,
+            storage: {} as any,
         });
 
         expect(props).toMatchObject({
@@ -45,6 +46,7 @@ describe('getPackagePageStaticProps', () => {
             route: '/foo',
             registry: mockRegistry as any,
             packageAnalyzer: {} as any,
+            storage: {} as any,
         });
 
         expect(props).toMatchObject({
@@ -69,10 +71,51 @@ describe('getPackagePageStaticProps', () => {
             },
         };
 
+        const mockStorage = {
+            getObject() {
+                return undefined;
+            },
+            putObject() {},
+        };
+
         const props = await getPackagePageStaticProps({
             route: '/foo/v/1.0.0',
             registry: {} as any,
             packageAnalyzer: mockPackageAnalyzer as any,
+            storage: mockStorage as any,
+        });
+
+        expect(props).toMatchObject({
+            props: {
+                kind: PackagePageKind.Docs,
+                info: wantedInfo,
+            },
+        });
+
+        expect(props).toHaveProperty('props.createdAt');
+    });
+
+    it('returns the stored docs props (fixed version)', async () => {
+        expect.assertions(2);
+
+        const wantedInfo = {
+            id: 'foo',
+            packageAnalyzerVersion: '1.0.0',
+        };
+
+        const mockStorage = {
+            getObject() {
+                return wantedInfo;
+            },
+            putObject() {},
+        };
+
+        const props = await getPackagePageStaticProps({
+            route: '/foo/v/1.0.0',
+            registry: {} as any,
+            packageAnalyzer: {} as any,
+            storage: mockStorage as any,
+            currentPackageAnalyzerVersion: '1.0.0',
         });
 
         expect(props).toMatchObject({
@@ -98,6 +141,7 @@ describe('getPackagePageStaticProps', () => {
             route: '/foo/v/1.0.0',
             registry: {} as any,
             packageAnalyzer: mockPackageAnalyzer as any,
+            storage: {} as any,
         });
 
         expect(props).toMatchObject({
@@ -126,6 +170,7 @@ describe('getPackagePageStaticProps', () => {
             route: '/foo/versions',
             registry: mockRegistry as any,
             packageAnalyzer: {} as any,
+            storage: {} as any,
         });
 
         expect(props).toMatchObject({
@@ -152,6 +197,7 @@ describe('getPackagePageStaticProps', () => {
             route: '/foo/versions',
             registry: mockRegistry as any,
             packageAnalyzer: {} as any,
+            storage: {} as any,
         });
 
         expect(props).toMatchObject({
@@ -170,6 +216,7 @@ describe('getPackagePageStaticProps', () => {
             route: '/!',
             registry: {} as any,
             packageAnalyzer: {} as any,
+            storage: {} as any,
         });
 
         expect(props).toMatchObject({

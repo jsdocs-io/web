@@ -1,5 +1,5 @@
 {
-    "include": ["next-env.d.ts", "src"],
+    "include": ["next-env.d.ts", "src", "config.ts"],
     "compilerOptions": {
         "target": "es5",
         "module": "esnext",
