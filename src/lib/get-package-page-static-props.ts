@@ -96,7 +96,7 @@ async function getDocFixedVersionProps({
     try {
         const { name, version } = parsedRoute;
 
-        const objectName = `${name}/${version}.json`;
+        const objectName = `registry-package-info/${name}/${version}.json`;
         const storedInfo = await storage.getObject<RegistryPackageInfo>({
             name: objectName,
         });
