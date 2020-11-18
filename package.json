@@ -54,7 +54,7 @@
         "semver": "^7.3.2",
         "short-time-ago": "^1.1.1",
         "stream-json": "^1.7.1",
-        "swr": "^0.3.8",
+        "swr": "^0.3.9",
         "validate-npm-package-name": "^3.0.0"
     },
     "devDependencies": {
