@@ -4,6 +4,7 @@ import React from 'react';
 import { A } from '../components/common/A';
 import { CodeBlock } from '../components/common/CodeBlock';
 import { Layout } from '../components/common/Layout';
+import { anchorJSLicense } from '../data/anchorjs-license';
 import { heroIconsLicense } from '../data/heroicons-license';
 import { normalizeCSSLicense } from '../data/normalize-css-license';
 import { tailwindCSSLicense } from '../data/tailwind-css-license';
@@ -91,6 +92,15 @@ function OpenSourceSoftwareSection({
                                         <li>
                                             <CodeBlock
                                                 code={licenseText}
+                                                language="plain"
+                                            />
+                                        </li>
+                                    )}
+
+                                    {name === 'anchor-js' && (
+                                        <li>
+                                            <CodeBlock
+                                                code={anchorJSLicense}
                                                 language="plain"
                                             />
                                         </li>
