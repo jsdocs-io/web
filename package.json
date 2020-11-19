@@ -62,7 +62,7 @@
         "@commitlint/config-conventional": "11.0.0",
         "@next/bundle-analyzer": "10.0.2",
         "@testing-library/jest-dom": "5.11.6",
-        "@testing-library/react": "11.1.2",
+        "@testing-library/react": "11.2.0",
         "@types/anchor-js": "4.2.0",
         "@types/fs-extra": "9.0.4",
         "@types/minio": "7.0.6",
