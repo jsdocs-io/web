@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
+import { darkModeScriptMinified } from '../../data/dark-mode-script';
 
 export function CustomHead() {
     return (
@@ -60,8 +61,10 @@ export function CustomHead() {
             />
             <meta property="twitter:image:alt" content="jsDocs.io logo" />
 
-            {/* Prevent flash of unstyled content */}
-            <script src="/no-dark-mode-flash.min.js" />
+            {/* Prevent flash of unstyled content (FOUC) for dark mode */}
+            <script
+                dangerouslySetInnerHTML={{ __html: darkModeScriptMinified }}
+            />
 
             {/* Plausible.io analytics */}
             {/* See https://github.com/vercel/next.js/issues/9070#issuecomment-552981178 */}

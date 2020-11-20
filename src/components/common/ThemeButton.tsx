@@ -1,10 +1,19 @@
 import React from 'react';
-import { DarkModeHook } from '../../hooks/useDarkMode';
+import useDarkMode from 'use-dark-mode';
 
-export function ThemeButton({ isDarkMode, toggleDarkMode }: DarkModeHook) {
+export function ThemeButton() {
+    const { value: isDarkMode, toggle: toggleDarkMode } = useDarkMode(
+        localStorage.darkMode === 'true',
+        {
+            element: document.documentElement,
+            classNameDark: 'dark',
+            classNameLight: 'light',
+        }
+    );
+
     return (
         <button
-            className="block p-2 text-gray-600 hover:text-gray-800 dark:text-gray-500 dark-hover:text-gray-300"
+            className="block p-2 text-gray-600 hover:text-gray-800 dark:text-gray-500 dark:hover:text-gray-300"
             onClick={toggleDarkMode}
             title="Toggle dark mode"
         >

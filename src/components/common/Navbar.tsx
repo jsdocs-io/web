@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { DarkModeHook } from '../../hooks/useDarkMode';
 import { NavbarLinks } from './NavbarLinks';
 import { NavbarLogo } from './NavbarLogo';
 import { SearchBar } from './SearchBar';
@@ -14,7 +13,7 @@ const ThemeButton = dynamic(
     { ssr: false }
 ) as any;
 
-export function Navbar({ isDarkMode, toggleDarkMode }: DarkModeHook) {
+export function Navbar() {
     const router = useRouter();
     const showSearchBar = !['/', '/search'].includes(router.pathname);
 
@@ -33,10 +32,7 @@ export function Navbar({ isDarkMode, toggleDarkMode }: DarkModeHook) {
                     {showSearchBar && <SearchBar />}
 
                     <div className="ml-auto">
-                        <ThemeButton
-                            isDarkMode={isDarkMode}
-                            toggleDarkMode={toggleDarkMode}
-                        />
+                        <ThemeButton />
                     </div>
                 </div>
             </div>
