@@ -38,7 +38,7 @@ export function PackageNavAnchorsList({
                     Dependencies
                 </InternalLink>
 
-                <span className="text-gray-600">{' ('}</span>
+                <span className="text-gray-500">{' ('}</span>
 
                 <InternalLink
                     href="#package-dev-dependencies"
@@ -47,7 +47,7 @@ export function PackageNavAnchorsList({
                     Dev
                 </InternalLink>
 
-                <span className="text-gray-600">{', '}</span>
+                <span className="text-gray-500">{', '}</span>
 
                 <InternalLink
                     href="#package-peer-dependencies"
@@ -56,7 +56,7 @@ export function PackageNavAnchorsList({
                     Peer
                 </InternalLink>
 
-                <span className="text-gray-600">{')'}</span>
+                <span className="text-gray-500">{')'}</span>
             </li>
 
             <li>

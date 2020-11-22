@@ -39,7 +39,7 @@
 
     .list-inline li + li::before {
         @apply px-1;
-        @apply text-gray-600;
+        @apply text-gray-500;
         content: '·';
     }
 
