@@ -9488,6 +9488,16 @@ postcss@7.0.32, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.2, postcss@^7.0.2
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
+postcss@8.1.10, postcss@^8.1.6:
+  version "8.1.10"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.10.tgz#129834f94c720554d2cfdaeb27d5542ac4a026ea"
+  integrity sha512-iBXEV5VTTYaRRdxiFYzTtuv2lGMQBExqkZKSzkJe+Fl6rvQrA/49UVGKqB+LG54hpW/TtDBMGds8j33GFNW7pg==
+  dependencies:
+    colorette "^1.2.1"
+    nanoid "^3.1.18"
+    source-map "^0.6.1"
+    vfile-location "^3.2.0"
+
 postcss@8.1.7:
   version "8.1.7"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.7.tgz#ff6a82691bd861f3354fd9b17b2332f88171233f"
@@ -9497,16 +9507,6 @@ postcss@8.1.7:
     line-column "^1.0.2"
     nanoid "^3.1.16"
     source-map "^0.6.1"
-
-postcss@8.1.9, postcss@^8.1.6:
-  version "8.1.9"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.9.tgz#20ff4b598a6f5015c5f7fe524b8ed5313d7ecade"
-  integrity sha512-oWuBpEl1meaMKkQXn0ic78TUrgsMvrAZLE/6ZY0H3LTteq2O3L8PGWwMbPLctpksTJIHjQeossMUMNQW7qRIHQ==
-  dependencies:
-    colorette "^1.2.1"
-    nanoid "^3.1.18"
-    source-map "^0.6.1"
-    vfile-location "^3.2.0"
 
 postcss@^6.0.9:
   version "6.0.23"
