@@ -14,6 +14,10 @@ export function NavbarLinks() {
                 </li>
 
                 <li>
+                    <NavbarLink href="/sponsor">Sponsor</NavbarLink>
+                </li>
+
+                <li>
                     <NavbarLink href="/about">About</NavbarLink>
                 </li>
             </ul>

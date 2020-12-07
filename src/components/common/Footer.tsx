@@ -33,6 +33,10 @@ export function Footer() {
                     </li>
 
                     <li>
+                        <InternalLink href="/sponsor">Sponsor</InternalLink>
+                    </li>
+
+                    <li>
                         <InternalLink href="/privacy">
                             Privacy Policy
                         </InternalLink>
