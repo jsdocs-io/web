@@ -179,7 +179,7 @@ function SupportedPackagesSection() {
 
                 <li>
                     Specify a{' '}
-                    <A href="https://docs.npmjs.com/files/package.json#license">
+                    <A href="https://docs.npmjs.com/cli/v6/configuring-npm/package-json#license">
                         license field
                     </A>{' '}
                     inside <InlineCode code="package.json" /> that:
@@ -225,7 +225,7 @@ function IncludingSourceFilesSection() {
             <p>
                 To include source files when publishing your package to npm, you
                 need to specify the appropriate file patterns in the{' '}
-                <A href="https://docs.npmjs.com/files/package.json#files">
+                <A href="https://docs.npmjs.com/cli/v6/configuring-npm/package-json#files">
                     files field
                 </A>{' '}
                 inside <InlineCode code="package.json" />.
@@ -259,7 +259,7 @@ function LinkingToSourceSection() {
                 <A href="#including-source-files">source files</A>, you can
                 enable linking to source from documentation pages by specifying
                 a GitHub, GitLab or Bitbucket repository in the{' '}
-                <A href="https://docs.npmjs.com/files/package.json#repository">
+                <A href="https://docs.npmjs.com/cli/v6/configuring-npm/package-json#repository">
                     repository field
                 </A>{' '}
                 inside <InlineCode code="package.json" /> like in the following
@@ -286,7 +286,7 @@ function LinkingToSourceSection() {
             <ol className="my-2 ml-8 space-y-1 list-decimal">
                 <li>
                     The commit hash present in the <InlineCode code="gitHead" />{' '}
-                    field that npm automatically creates when publishing
+                    field that the npm CLI automatically creates when publishing
                 </li>
 
                 <li>
