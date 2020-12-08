@@ -56,8 +56,8 @@ function GoldSponsorsSection() {
             <h2>Gold sponsors</h2>
 
             <ul className="flex flex-wrap items-center justify-center mt-4 rounded dark:bg-gray-200">
-                {goldSponsors.map(({ name, url, logo }) => (
-                    <li>
+                {goldSponsors.map(({ name, url, logo }, i) => (
+                    <li key={i}>
                         <a
                             className="flex items-center justify-center p-2 sm:p-4"
                             href={url}
@@ -82,8 +82,8 @@ function SilverSponsorsSection() {
             <h2>Silver sponsors</h2>
 
             <ul className="flex flex-wrap items-center justify-center mt-4 rounded dark:bg-gray-200">
-                {silverSponsors.map(({ name, url, logo }) => (
-                    <li>
+                {silverSponsors.map(({ name, url, logo }, i) => (
+                    <li key={i}>
                         <a
                             className="flex items-center justify-center p-2 sm:p-4"
                             href={url}
@@ -108,8 +108,8 @@ function BronzeSponsorsSection() {
             <h2>Bronze sponsors</h2>
 
             <ul className="flex flex-wrap items-center justify-center mt-4 rounded dark:bg-gray-200">
-                {bronzeSponsors.map(({ name, url, logo }) => (
-                    <li>
+                {bronzeSponsors.map(({ name, url, logo }, i) => (
+                    <li key={i}>
                         <a
                             className="flex items-center justify-center p-2 sm:p-4"
                             href={url}
