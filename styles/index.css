@@ -35,6 +35,11 @@
     .list-inline {
         @apply flex;
         @apply flex-wrap;
+        @apply -mx-1;
+    }
+
+    .list-inline li:first-child {
+        @apply pl-1;
     }
 
     .list-inline li + li::before {
