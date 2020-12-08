@@ -6,7 +6,7 @@ export interface Sponsor {
 
 export interface Backer {
     readonly name: string;
-    readonly url: string;
+    readonly url?: string;
 }
 
 export const goldSponsors: Sponsor[] = [
@@ -63,4 +63,8 @@ export const bronzeSponsors: Sponsor[] = [
     },
 ];
 
-export const backers: Backer[] = [];
+export const backers: Backer[] = [
+    { name: 'Your name here' },
+    { name: 'Your name here' },
+    { name: 'Your name here' },
+].sort((a, b) => a.name.localeCompare(b.name));

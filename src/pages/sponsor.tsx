@@ -1,7 +1,13 @@
 import Head from 'next/head';
 import React from 'react';
+import { A } from '../components/common/A';
 import { Layout } from '../components/common/Layout';
-import { bronzeSponsors, goldSponsors, silverSponsors } from '../data/sponsors';
+import {
+    backers,
+    bronzeSponsors,
+    goldSponsors,
+    silverSponsors,
+} from '../data/sponsors';
 
 export default function SponsorPage() {
     const pageTitle = 'Sponsor - jsDocs.io';
@@ -132,6 +138,14 @@ function BackersSection() {
     return (
         <section>
             <h2>Backers</h2>
+
+            <ul className="mt-4 list-inline">
+                {backers.map(({ name, url }, i) => (
+                    <li key={i}>
+                        {url ? <A href={url}>{name}</A> : <>{name}</>}
+                    </li>
+                ))}
+            </ul>
         </section>
     );
 }
