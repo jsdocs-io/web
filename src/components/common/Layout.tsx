@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAnchorLinks } from '../../hooks/useAnchorLinks';
+import { useLocationHashRefresh } from '../../hooks/useLocationHashRefresh';
 import { CustomHead } from './CustomHead';
 import { Footer } from './Footer';
 import { Main } from './Main';
@@ -7,6 +8,7 @@ import { Navbar } from './Navbar';
 
 export function Layout(props: any) {
     useAnchorLinks();
+    useLocationHashRefresh();
 
     return (
         <>
