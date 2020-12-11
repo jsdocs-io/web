@@ -65,7 +65,7 @@
         "@testing-library/jest-dom": "5.11.6",
         "@testing-library/react": "11.2.2",
         "@types/anchor-js": "4.2.0",
-        "@types/fs-extra": "9.0.4",
+        "@types/fs-extra": "9.0.5",
         "@types/minio": "7.0.6",
         "@types/node": "14.14.11",
         "@types/nprogress": "0.2.0",
