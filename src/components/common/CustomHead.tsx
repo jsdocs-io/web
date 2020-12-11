@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import { darkModeScriptMinified } from '../../data/dark-mode-script';
+import { windowScript } from '../../data/window-script';
 
 export function CustomHead() {
     return (
@@ -60,6 +61,9 @@ export function CustomHead() {
                 content="https://www.jsdocs.io/logo.png"
             />
             <meta property="twitter:image:alt" content="jsDocs.io logo" />
+
+            {/* Add custom namespace to window */}
+            <script dangerouslySetInnerHTML={{ __html: windowScript }} />
 
             {/* Prevent flash of unstyled content (FOUC) for dark mode */}
             <script

@@ -11,11 +11,7 @@ export function PackageVersionsLink({
     children: React.ReactNode;
 }) {
     return (
-        <InternalLink
-            href="/package/[...slug]"
-            as={`/package/${name}/versions`}
-            title={title}
-        >
+        <InternalLink href={`/package/${name}/versions`} title={title}>
             {children}
         </InternalLink>
     );

@@ -5,17 +5,16 @@ import { A } from './A';
 
 export function InternalLink({
     href: rawHref,
-    as,
     title,
     children,
 }: {
     href: string;
-    as?: string;
     title?: string;
     children: React.ReactNode;
 }) {
     const href = sanitizeUrl(rawHref);
     const samePage = href.startsWith('#');
+    const hash = href.match(/(#.+)$/)?.[0];
 
     if (samePage) {
         // A simple <a> tag prevents re-rendering when jumping to anchors
@@ -27,11 +26,14 @@ export function InternalLink({
     }
 
     return (
-        <Link href={href} as={as} prefetch={false}>
+        <Link href={href} prefetch={false}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a
                 className="text-blue-700 break-all dark:text-blue-300 hover:underline"
                 title={title}
+                onClick={() => {
+                    window.jsdocsio.prevHash = hash;
+                }}
             >
                 {children}
             </a>

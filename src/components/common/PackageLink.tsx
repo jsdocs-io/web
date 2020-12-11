@@ -23,7 +23,7 @@ export function PackageLink({
         : packageBaseRoute;
 
     return (
-        <InternalLink href="/package/[...slug]" as={packageRoute} title={title}>
+        <InternalLink href={packageRoute} title={title}>
             {children}
         </InternalLink>
     );
