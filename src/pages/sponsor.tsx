@@ -51,7 +51,27 @@ function IntroSection() {
         <section>
             <h1>Sponsor</h1>
 
-            <p>Thank you for your interest in supporting jsDocs.io!</p>
+            <p>
+                Thank you for your interest in supporting jsDocs.io, your
+                contribution will help fund the ongoing development and
+                maintenance of this project!
+            </p>
+
+            <p>
+                You can{' '}
+                <A href="https://www.patreon.com/jsdocs_io">
+                    <span className="font-bold">
+                        become a backer or sponsor on Patreon
+                    </span>
+                </A>{' '}
+                with a monthly contribution and have your name or company logo
+                listed below.
+            </p>
+
+            <p>
+                After our initial funding goal is reached, jsDocs.io will be
+                released as open-source software.
+            </p>
         </section>
     );
 }
