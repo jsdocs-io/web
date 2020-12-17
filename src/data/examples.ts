@@ -63,6 +63,8 @@ export const exampleDeclarationDoc = `
  * @param a - the first number
  * @param b - the second number
  * @returns the sum of a and b
+ *
+ * @see {@link https://en.wikipedia.org/wiki/Addition | Addition on Wikipedia}
  */`;
 
 export const exampleDeclarationFile = `
