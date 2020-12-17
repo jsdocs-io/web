@@ -65,6 +65,7 @@ export function SearchBar({ initialQuery = '' }: { initialQuery?: string }) {
                 onChange={onInputChange}
                 onKeyDown={onEnterKeyPress}
                 ref={inputRef}
+                autoFocus={router.pathname === '/'}
             />
 
             <button
