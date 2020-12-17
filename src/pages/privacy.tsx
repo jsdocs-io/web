@@ -59,7 +59,7 @@ function FirstPartySection() {
             <h2>First Party</h2>
 
             <p>
-                jsDocs.io does not directly collect personal data from its
+                On jsDocs.io we do not directly collect personal data from our
                 visitors.
             </p>
         </section>
@@ -72,9 +72,14 @@ function AnalyticsSection() {
             <h2>Analytics</h2>
 
             <p>
-                jsDocs.io uses <A href="https://plausible.io/">Plausible</A>, a
-                privacy-friendly web analytics tool, to measure website usage
-                statistics such as the number of page views.
+                To measure traffic and usage statistics for jsDocs.io, we use{' '}
+                <A href="https://plausible.io/">Plausible</A>, a
+                privacy-friendly web analytics tool.
+            </p>
+
+            <p>
+                Plausible doesn't use cookies and doesn't collect or store
+                personal data.
             </p>
 
             <p>
@@ -133,7 +138,7 @@ function ContactInformationSection() {
             <h2>Contact Information</h2>
 
             <p>
-                You can reach us by email at:{' '}
+                You can reach us by email at{' '}
                 <A href="mailto:info@jsdocs.io">info@jsdocs.io</A>.
             </p>
         </section>
