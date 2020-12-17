@@ -35,7 +35,7 @@ export async function getOSSLibraries({
                 id: `${name}@${version}`,
                 name,
                 version,
-                npm: `https://npmjs.com/${name}`,
+                npm: `https://www.npmjs.com/package/${name}`,
                 license,
                 licenseText: licenseText ?? undefined,
             };
