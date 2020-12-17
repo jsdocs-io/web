@@ -62,7 +62,7 @@ export default function GuidePage() {
 function IntroSection() {
     return (
         <section>
-            <h1>Package documentation guide</h1>
+            <h1>Package Documentation Guide</h1>
 
             <p>
                 This guide explains how you can improve the documentation of
@@ -75,7 +75,7 @@ function IntroSection() {
 function PackageAnalysisProcessSection() {
     return (
         <section>
-            <h2>Package analysis process</h2>
+            <h2>Package Analysis Process</h2>
 
             <p>
                 Visiting a package documentation page (for example,{' '}
@@ -133,7 +133,7 @@ function PackageAnalysisProcessSection() {
 function SupportedPackagesSection() {
     return (
         <section>
-            <h2>Supported packages</h2>
+            <h2>Supported Packages</h2>
 
             <p>
                 Due to the diversity of the Javascript ecosystem and current
@@ -220,7 +220,7 @@ function SupportedPackagesSection() {
 function IncludingSourceFilesSection() {
     return (
         <section>
-            <h2>Including source files</h2>
+            <h2>Including Source Files</h2>
 
             <p>
                 To include source files when publishing your package to npm, you
@@ -252,7 +252,7 @@ function IncludingSourceFilesSection() {
 function LinkingToSourceSection() {
     return (
         <section>
-            <h2>Linking to source</h2>
+            <h2>Linking to Source</h2>
 
             <p>
                 If your published package contains{' '}
@@ -304,7 +304,7 @@ function LinkingToSourceSection() {
 function IndexFileSection() {
     return (
         <section>
-            <h2>Index file</h2>
+            <h2>Index File</h2>
 
             <p>
                 The index file is the single entry point to your package from
@@ -372,7 +372,7 @@ function IndexFileSection() {
 function PackageOverviewSection() {
     return (
         <section>
-            <h2>Package overview</h2>
+            <h2>Package Overview</h2>
 
             <p>
                 The package overview is the first section displayed in your
@@ -417,7 +417,7 @@ function PackageOverviewSection() {
 function PackageDeclarationsSection() {
     return (
         <section>
-            <h2>Package declarations</h2>
+            <h2>Package Declarations</h2>
 
             <p>
                 Your package can export any of the following declaration kinds:
@@ -478,7 +478,7 @@ function PackageDeclarationsSection() {
 function ExamplePackagesSection() {
     return (
         <section>
-            <h2>Example packages</h2>
+            <h2>Example Packages</h2>
 
             <p>
                 You can use the following packages as a reference when

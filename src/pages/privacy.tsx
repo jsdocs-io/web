@@ -44,7 +44,7 @@ export default function PrivacyPolicyPage() {
 function IntroSection() {
     return (
         <section>
-            <h1>Privacy policy</h1>
+            <h1>Privacy Policy</h1>
 
             <p>This page contains the privacy policy for jsDocs.io.</p>
 
@@ -56,7 +56,7 @@ function IntroSection() {
 function FirstPartySection() {
     return (
         <section>
-            <h2>First party</h2>
+            <h2>First Party</h2>
 
             <p>
                 jsDocs.io does not directly collect personal data from its
@@ -112,7 +112,7 @@ function HostingSection() {
 function LinksToExternalWebsitesSection() {
     return (
         <section>
-            <h2>Links to external websites</h2>
+            <h2>Links to External Websites</h2>
 
             <p>
                 jsDocs.io may contain links to external websites not operated by
@@ -130,7 +130,7 @@ function LinksToExternalWebsitesSection() {
 function ContactInformationSection() {
     return (
         <section>
-            <h2>Contact information</h2>
+            <h2>Contact Information</h2>
 
             <p>
                 You can reach us by email at:{' '}

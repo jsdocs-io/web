@@ -30,7 +30,7 @@ export function PackageDependenciesSections({
 
             <section>
                 <h2 id="package-dev-dependencies">
-                    Dev dependencies ({numDevDependencies})
+                    Dev Dependencies ({numDevDependencies})
                 </h2>
 
                 {numDevDependencies > 0 ? (
@@ -42,7 +42,7 @@ export function PackageDependenciesSections({
 
             <section>
                 <h2 id="package-peer-dependencies">
-                    Peer dependencies ({numPeerDependencies})
+                    Peer Dependencies ({numPeerDependencies})
                 </h2>
 
                 {numPeerDependencies > 0 ? (

@@ -103,7 +103,7 @@ function TechnologySection() {
 function AddingAPackageSection() {
     return (
         <section>
-            <h2>Adding a package</h2>
+            <h2>Adding a Package</h2>
 
             <p>To add a package to jsDocs.io, you can:</p>
 
@@ -136,7 +136,7 @@ function AddingAPackageSection() {
 function DocumentingAPackageSection() {
     return (
         <section>
-            <h2>Documenting a package</h2>
+            <h2>Documenting a Package</h2>
 
             <p>
                 If you are a package author and want to improve your package's
@@ -153,7 +153,7 @@ function DocumentingAPackageSection() {
 function RemovingAPackageSection() {
     return (
         <section>
-            <h2>Removing a package</h2>
+            <h2>Removing a Package</h2>
 
             <p>
                 If you do not want your package's documentation to be displayed
@@ -234,7 +234,7 @@ function FeedbackSection() {
 function PrivacyPolicySection() {
     return (
         <section>
-            <h2>Privacy policy</h2>
+            <h2>Privacy Policy</h2>
 
             <p>
                 To learn more about the data collected by jsDocs.io, you can

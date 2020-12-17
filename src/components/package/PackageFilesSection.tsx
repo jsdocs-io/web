@@ -7,7 +7,7 @@ export function PackageFilesSection({ files }: { files: PackageFile[] }) {
 
     return (
         <section>
-            <h2 id="package-files">Package files ({numFiles})</h2>
+            <h2 id="package-files">Package Files ({numFiles})</h2>
 
             <PackageFilesList files={files} />
         </section>

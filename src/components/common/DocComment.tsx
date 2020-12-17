@@ -241,7 +241,7 @@ function DocSeeSection({
 }) {
     return (
         <section>
-            <h4>See also</h4>
+            <h4>See Also</h4>
 
             <ul className="mt-2">
                 {seeBlocks.map(({ content }, index) => (

@@ -13,7 +13,7 @@ export function PackageTypeAliasesSection({
 
     return (
         <section>
-            <h2 id="package-type-aliases">Type aliases</h2>
+            <h2 id="package-type-aliases">Type Aliases</h2>
 
             <div className="mt-4 space-y-8">
                 {typeAliases.map((declaration) => (

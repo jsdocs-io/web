@@ -59,7 +59,7 @@ function IntroSection() {
 function GoldSponsorsSection() {
     return (
         <section>
-            <h2>Gold sponsors</h2>
+            <h2>Gold Sponsors</h2>
 
             <ul className="flex flex-wrap items-center justify-center mt-4 rounded dark:bg-gray-200">
                 {goldSponsors.map(({ name, url, logo }, i) => (
@@ -85,7 +85,7 @@ function GoldSponsorsSection() {
 function SilverSponsorsSection() {
     return (
         <section>
-            <h2>Silver sponsors</h2>
+            <h2>Silver Sponsors</h2>
 
             <ul className="flex flex-wrap items-center justify-center mt-4 rounded dark:bg-gray-200">
                 {silverSponsors.map(({ name, url, logo }, i) => (
@@ -111,7 +111,7 @@ function SilverSponsorsSection() {
 function BronzeSponsorsSection() {
     return (
         <section>
-            <h2>Bronze sponsors</h2>
+            <h2>Bronze Sponsors</h2>
 
             <ul className="flex flex-wrap items-center justify-center mt-4 rounded dark:bg-gray-200">
                 {bronzeSponsors.map(({ name, url, logo }, i) => (

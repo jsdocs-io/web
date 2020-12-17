@@ -13,7 +13,7 @@ export function PackageIndexTypeAliasesSection({
 
     return (
         <section>
-            <h3 id="package-index-type-aliases">Type aliases</h3>
+            <h3 id="package-index-type-aliases">Type Aliases</h3>
 
             <PackageIndexTypeAliasesList typeAliases={typeAliases} />
         </section>
