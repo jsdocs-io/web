@@ -48,7 +48,7 @@ function IntroSection() {
 
             <p>This page contains the privacy policy for jsDocs.io.</p>
 
-            <p>The privacy policy was last updated on October 27, 2020.</p>
+            <p>The privacy policy was last updated on December 17, 2020.</p>
         </section>
     );
 }
@@ -93,7 +93,7 @@ function HostingSection() {
             <h2>Hosting</h2>
 
             <p>
-                jsDocs.io is hosted by <A href="https://vercel.com/">Vercel</A>,
+                jsDocs.io is hosted on <A href="https://vercel.com/">Vercel</A>,
                 which may collect some data to provide its hosting services.
             </p>
 
