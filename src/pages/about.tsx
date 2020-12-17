@@ -157,8 +157,8 @@ function RemovingAPackageSection() {
 
             <p>
                 If you do not want your package's documentation to be displayed
-                on jsDocs.io, please contact us at the email found in the{' '}
-                <A href="#feedback">feedback section</A> below.
+                on jsDocs.io, please contact us at{' '}
+                <A href="mailto:info@jsdocs.io">info@jsdocs.io</A>.
             </p>
         </section>
     );
