@@ -1,6 +1,6 @@
 export const exampleOverview = `
 /**
- * This is the package overview, denoted by the \`@packageDocumentation\` tag below.
+ * This is the package overview, denoted by the \`@packageDocumentation\` tag at the end.
  *
  * In this first section, you can provide a quick summary of your package.
  *
@@ -51,18 +51,18 @@ export const exampleDeclarationDoc = `
 /**
  * \`sum\` returns the sum of two numbers.
  *
+ * @param a - the first number
+ * @param b - the second number
+ * @returns the sum of a and b
+ *
  * @example
  * Usage:
  * \`\`\`typescript
  * import { sum } from 'foo';
  *
- * // Output: \`4\`
- * console.log(sum(2, 2));
+ * // Output: \`5\`
+ * console.log(sum(2, 3));
  * \`\`\`
- *
- * @param a - the first number
- * @param b - the second number
- * @returns the sum of a and b
  *
  * @see {@link https://en.wikipedia.org/wiki/Addition | Addition on Wikipedia}
  */`;

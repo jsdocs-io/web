@@ -85,9 +85,20 @@ function PackageAnalysisProcessSection() {
 
             <ol className="my-2 ml-8 space-y-1 list-decimal">
                 <li>
-                    Query the npm registry for the manifest describing package{' '}
-                    <InlineCode code="foo" /> at its latest version (for
-                    example, <InlineCode code="1.0.0" />)
+                    Query the npm registry for the{' '}
+                    <A href="https://docs.npmjs.com/cli/v6/configuring-npm/package-json">
+                        manifest
+                    </A>{' '}
+                    describing package <InlineCode code="foo" /> at its latest
+                    version (for example, <InlineCode code="1.0.0" />)
+                </li>
+
+                <li>
+                    Check that the{' '}
+                    <A href="https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#including-declarations-in-your-npm-package">
+                        types field
+                    </A>{' '}
+                    exists in the manifest, signaling that the package is typed
                 </li>
 
                 <li>
@@ -96,25 +107,26 @@ function PackageAnalysisProcessSection() {
                 </li>
 
                 <li>
-                    Extract the package's public API from the downloaded files:
+                    Extract the package's public API from the{' '}
+                    <A href="#including-source-files">downloaded files</A>:
                     <ol className="my-2 ml-4 space-y-1 list-decimal">
                         <li>
-                            Find the package's index file (for example,{' '}
-                            <InlineCode code="index.ts" />)
+                            Find the package's{' '}
+                            <A href="#index-file">index file</A> (for example,{' '}
+                            <InlineCode code="index.ts" /> or{' '}
+                            <InlineCode code="index.d.ts" />)
                         </li>
 
                         <li>
-                            Extract the package's overview from the index file
+                            Extract the{' '}
+                            <A href="#package-overview">package's overview</A>{' '}
+                            from the index file
                         </li>
 
                         <li>
-                            Find all the declarations exported from the index
-                            file
-                        </li>
-
-                        <li>
-                            Extract relevant metadata from the exported
-                            declarations
+                            Find all the{' '}
+                            <A href="#package-declarations">declarations</A>{' '}
+                            exported from the index file
                         </li>
                     </ol>
                 </li>
@@ -137,12 +149,7 @@ function SupportedPackagesSection() {
 
             <p>
                 Due to the diversity of the Javascript ecosystem and current
-                technical limitations, some packages are not currently well
-                supported.
-            </p>
-
-            <p>
-                In particular, the public API can only be extracted from
+                technical limitations, the public API can only be extracted from
                 packages that:
             </p>
 
@@ -153,19 +160,20 @@ function SupportedPackagesSection() {
                     <A href="https://www.typescriptlang.org/docs/handbook/modules.html#export">
                         module export forms
                     </A>
-                    .
+                    ;
                     <br />
-                    In other words, a user would import functionalities from the
-                    package as <InlineCode code="import ... from 'foo'" />.
+                    in other words, a user would import functionalities from the
+                    package as <InlineCode code="import ... from 'foo'" />
                 </li>
 
                 <li>
                     Include Typescript definition files (
                     <InlineCode code=".d.ts" />) and/or Typescript source files
                     (<InlineCode code=".ts" />
-                    ).
+                    );
                     <br />
-                    Javascript-only packages are not currently supported.
+                    untyped (Javascript-only) packages are not currently
+                    supported
                 </li>
 
                 <li>
@@ -174,7 +182,7 @@ function SupportedPackagesSection() {
                         types field
                     </A>{' '}
                     inside <InlineCode code="package.json" /> to signal that the
-                    package is typed.
+                    package is typed
                 </li>
 
                 <li>
@@ -231,18 +239,16 @@ function IncludingSourceFilesSection() {
                 inside <InlineCode code="package.json" />.
             </p>
 
-            <p>
-                For example, for the following project structure you would need
-                to add the <InlineCode code="src" /> directory to the{' '}
-                <InlineCode code="files" /> field inside{' '}
-                <InlineCode code="package.json" />, as seen below, to publish
-                the Typescript source files (<InlineCode code=".ts" />) in
-                addition to the built files (<InlineCode code=".d.ts" />,{' '}
-                <InlineCode code=".js" />
-                ).
-            </p>
+            <p>For example, consider the following project structure.</p>
 
             <CodeBlock code={exampleProjectStructure} language="bash" />
+
+            <p>
+                To publish both the <InlineCode code="src" /> and{' '}
+                <InlineCode code="dist" /> directories in your npm package, the{' '}
+                <InlineCode code="files" /> field inside{' '}
+                <InlineCode code="package.json" /> should look like this:
+            </p>
 
             <CodeBlock code={examplePackageJSONFiles} language="json" />
         </section>
@@ -279,23 +285,24 @@ function LinkingToSourceSection() {
             />
 
             <p>
-                The repository commit corresponding to the published version of
-                your package is determined in order of preference by:
+                The commit in your repository corresponding to the published
+                version of your package is determined in order of preference by:
             </p>
 
             <ol className="my-2 ml-8 space-y-1 list-decimal">
                 <li>
                     The commit hash present in the <InlineCode code="gitHead" />{' '}
-                    field that the npm CLI automatically creates when publishing
+                    field automatically created by the npm CLI when publishing
                 </li>
 
                 <li>
-                    The package's version prefixed with <InlineCode code="v" />{' '}
-                    (for example, <InlineCode code="v1.0.0" /> for{' '}
+                    The package's version number prefixed with{' '}
+                    <InlineCode code="v" /> (for example,{' '}
+                    <InlineCode code="v1.0.0" /> for{' '}
                     <InlineCode code="foo@1.0.0" />)
                 </li>
 
-                <li>The latest commit (default branch)</li>
+                <li>The default repository branch (only for some packages)</li>
             </ol>
         </section>
     );
@@ -308,8 +315,7 @@ function IndexFileSection() {
 
             <p>
                 The index file is the single entry point to your package from
-                which all public functionalities should be exported (or
-                re-exported) using{' '}
+                which you should export all the public declarations using{' '}
                 <A href="https://www.typescriptlang.org/docs/handbook/modules.html#export">
                     module export forms
                 </A>
@@ -375,18 +381,22 @@ function PackageOverviewSection() {
             <h2>Package Overview</h2>
 
             <p>
-                The package overview is the first section displayed in your
-                package's documentation page. In the overview, you can introduce
-                your package, describe its functionalities, show examples and
-                provide any other relevant information. If the overview is not
-                found, the package's <InlineCode code="description" /> from{' '}
+                The package overview is the first documentation section
+                displayed in your package's documentation page.
+                <br />
+                In the overview, you can introduce your package, describe its
+                functionalities, show examples and provide any other relevant
+                information.
+                <br />
+                If the overview is not found, the package's{' '}
+                <InlineCode code="description" /> from{' '}
                 <InlineCode code="package.json" /> is used instead.
             </p>
 
             <p>
                 To write your package's overview, add a documentation comment
-                with the <InlineCode code="@packageDocumentation" /> tag to your
-                package's index file like in the following example:
+                containing the <InlineCode code="@packageDocumentation" /> tag
+                to your package's index file like in the following example:
             </p>
 
             <CodeBlock code={exampleOverviewFile} language="typescript" />
@@ -443,7 +453,7 @@ function PackageDeclarationsSection() {
 
             <p>
                 The documentation for the <InlineCode code="sum" /> function
-                above is rendered as follows:
+                defined above is rendered as follows:
             </p>
 
             <div className="p-4 my-4 border border-gray-300 rounded dark:border-gray-700">
