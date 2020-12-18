@@ -85,7 +85,7 @@ function GoldSponsorsSection() {
                 {goldSponsors.map(({ name, url, logo }, i) => (
                     <li key={i}>
                         <a
-                            className="flex items-center justify-center p-2 sm:p-4"
+                            className="flex items-center justify-center p-5"
                             href={url}
                             title={name}
                         >
@@ -111,7 +111,7 @@ function SilverSponsorsSection() {
                 {silverSponsors.map(({ name, url, logo }, i) => (
                     <li key={i}>
                         <a
-                            className="flex items-center justify-center p-2 sm:p-4"
+                            className="flex items-center justify-center p-4"
                             href={url}
                             title={name}
                         >
@@ -137,7 +137,7 @@ function BronzeSponsorsSection() {
                 {bronzeSponsors.map(({ name, url, logo }, i) => (
                     <li key={i}>
                         <a
-                            className="flex items-center justify-center p-2 sm:p-4"
+                            className="flex items-center justify-center p-4"
                             href={url}
                             title={name}
                         >
