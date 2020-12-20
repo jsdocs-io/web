@@ -48,7 +48,7 @@ export function CustomHead() {
             <meta property="og:type" content="website" />
             <meta
                 property="og:image"
-                content="https://www.jsdocs.io/logo.png"
+                content="https://www.jsdocs.io/logo-bg.png"
             />
             <meta property="og:image:alt" content="jsDocs.io logo" />
             <meta property="og:site_name" content="jsDocs.io" />
@@ -58,7 +58,7 @@ export function CustomHead() {
             <meta property="twitter:site" content="@jsDocs" />
             <meta
                 property="twitter:image"
-                content="https://www.jsdocs.io/logo.png"
+                content="https://www.jsdocs.io/logo-bg.png"
             />
             <meta property="twitter:image:alt" content="jsDocs.io logo" />
 
