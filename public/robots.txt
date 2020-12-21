@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /package/
+
+User-agent: *
+Crawl-Delay: 600
