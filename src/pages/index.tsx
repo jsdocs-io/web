@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import { Layout } from '../components/common/Layout';
+import { PackageLink } from '../components/common/PackageLink';
 import { SearchBar } from '../components/common/SearchBar';
 
 export default function IndexPage() {
@@ -35,6 +36,21 @@ export default function IndexPage() {
 
                     <div className="w-full mt-4 sm:w-2/3 lg:w-1/2">
                         <SearchBar />
+                    </div>
+
+                    <div className="mt-4">
+                        <p>
+                            Try with{' '}
+                            <PackageLink name="faastjs">faastjs</PackageLink>,{' '}
+                            <PackageLink name="query-registry">
+                                query-registry
+                            </PackageLink>{' '}
+                            or{' '}
+                            <PackageLink name="@types/react">
+                                @types/react
+                            </PackageLink>
+                            .
+                        </p>
                     </div>
                 </div>
             </Layout>
