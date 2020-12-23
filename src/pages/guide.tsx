@@ -94,14 +94,6 @@ function PackageAnalysisProcessSection() {
                 </li>
 
                 <li>
-                    Check that the{' '}
-                    <A href="https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#including-declarations-in-your-npm-package">
-                        types field
-                    </A>{' '}
-                    exists in the manifest, signaling that the package is typed
-                </li>
-
-                <li>
                     Download the tarball containing package{' '}
                     <InlineCode code="foo@1.0.0" /> from the npm registry
                 </li>
@@ -174,15 +166,6 @@ function SupportedPackagesSection() {
                     <br />
                     untyped (Javascript-only) packages are not currently
                     supported
-                </li>
-
-                <li>
-                    Specify a{' '}
-                    <A href="https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#including-declarations-in-your-npm-package">
-                        types field
-                    </A>{' '}
-                    inside <InlineCode code="package.json" /> to signal that the
-                    package is typed
                 </li>
 
                 <li>
