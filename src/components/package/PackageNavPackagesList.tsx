@@ -17,7 +17,7 @@ export function PackageNavPackagesList({
                     name={name}
                     title={`View the latest version of package ${name}`}
                 >
-                    <span className="font-bold">{name}</span>
+                    <span className="font-bold hover:underline">{name}</span>
                 </PackageLink>
             </li>
 
@@ -27,7 +27,9 @@ export function PackageNavPackagesList({
                         name={definitelyTypedName}
                         title={`View type definitions for package ${name}`}
                     >
-                        <span className="font-bold">{definitelyTypedName}</span>
+                        <span className="font-bold hover:underline">
+                            {definitelyTypedName}
+                        </span>
                     </PackageLink>
                 </li>
             )}
