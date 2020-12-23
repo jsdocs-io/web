@@ -44,7 +44,7 @@
         "next": "10.0.3",
         "nprogress": "^0.2.0",
         "path-to-regexp": "^6.2.0",
-        "pretty-bytes": "^5.4.1",
+        "pretty-bytes": "^5.5.0",
         "prism-react-renderer": "^1.1.1",
         "prismjs": "^1.22.0",
         "query-registry": "^1.2.0",
