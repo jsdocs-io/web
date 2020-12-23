@@ -41,7 +41,7 @@
         "clean-deep": "^3.4.0",
         "fs-extra": "^9.0.1",
         "minio": "^7.0.18",
-        "next": "10.0.3",
+        "next": "10.0.4",
         "nprogress": "^0.2.0",
         "path-to-regexp": "^6.2.0",
         "pretty-bytes": "^5.5.0",
