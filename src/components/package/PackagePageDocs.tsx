@@ -73,7 +73,6 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
 
                     <PackageTitleDocsSection
                         name={name}
-                        definitelyTypedName={definitelyTypedName}
                         version={version}
                         publishedAt={publishedAt}
                         license={license}

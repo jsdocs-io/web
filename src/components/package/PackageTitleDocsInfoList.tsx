@@ -1,20 +1,15 @@
 import prettyBytes from 'pretty-bytes';
 import React from 'react';
 import { isValidLicense } from '../../lib/is-valid-license';
-import { PackageLink } from '../common/PackageLink';
 import { TimeAgo } from '../common/TimeAgo';
 
 export function PackageTitleDocsInfoList({
-    name,
-    definitelyTypedName,
     version,
     publishedAt,
     license,
     unpackedSize,
     dependencies = {},
 }: {
-    name: string;
-    definitelyTypedName?: string;
     version: string;
     publishedAt: string;
     license?: string;
@@ -35,19 +30,6 @@ export function PackageTitleDocsInfoList({
 
     return (
         <ul className="list-inline">
-            {definitelyTypedName && (
-                <li>
-                    <PackageLink
-                        name={definitelyTypedName}
-                        title={`View type definitions for package ${name}`}
-                    >
-                        <span className="font-bold hover:underline">
-                            {definitelyTypedName}
-                        </span>
-                    </PackageLink>
-                </li>
-            )}
-
             <li>
                 Version <span className="font-bold">{version}</span>
             </li>
