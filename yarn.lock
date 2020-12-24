@@ -9908,10 +9908,10 @@ react-dom@^0.14.0:
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-0.14.10.tgz#da883daef7fa86838e9e2fcfcc084c590c350e21"
   integrity sha512-kDs8SWFb8Sry4NAplhpJbZEeAnTPir/m+s9s+lkdqA2a89BzmWGnEgGG/CfmhULjv1ogc4oHrjMfAvFNruT3jQ==
 
-react-hotkeys-hook@^2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/react-hotkeys-hook/-/react-hotkeys-hook-2.4.0.tgz#becf941641bab04c8095917b5876ad8ed53b0dc6"
-  integrity sha512-Veh9FUe+iXab+lZ5shPoyGDnFBu5codQ15omOXiOvCC/Q5QfTY1lefLVx/Zi2NnYBSXfkfQbhnpE+Rnhi2+wBw==
+react-hotkeys-hook@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-hotkeys-hook/-/react-hotkeys-hook-3.0.0.tgz#e6d10b43e9e296b9f57de1c4fdfc99cc8a3c980d"
+  integrity sha512-+REGVOXPfdENyALHIrEkLBSc4DvKXUtW9eNLZwtotrcucUCySNqiH8NfXPpTAX2LUR8kB9rv7j453HoXD2e5oA==
   dependencies:
     hotkeys-js "3.8.1"
 
