@@ -1,5 +1,6 @@
 import prettyBytes from 'pretty-bytes';
 import React from 'react';
+import { isValidLicense } from '../../lib/is-valid-license';
 import { PackageLink } from '../common/PackageLink';
 import { TimeAgo } from '../common/TimeAgo';
 
@@ -55,7 +56,11 @@ export function PackageTitleDocsInfoList({
                 Published <TimeAgo date={publishedAt} />
             </li>
 
-            {license && <li>{license} license</li>}
+            {isValidLicense({ license }) ? (
+                <li>{license} license</li>
+            ) : (
+                <li>Custom license</li>
+            )}
 
             {unpackedSize && <li>{prettyBytes(unpackedSize)}</li>}
 

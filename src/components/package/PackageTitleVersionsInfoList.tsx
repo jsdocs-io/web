@@ -1,5 +1,6 @@
 import { DistTags } from 'query-registry';
 import React from 'react';
+import { isValidLicense } from '../../lib/is-valid-license';
 import { TimeAgo } from '../common/TimeAgo';
 
 export function PackageTitleVersionsInfoList({
@@ -31,7 +32,11 @@ export function PackageTitleVersionsInfoList({
                 published <TimeAgo date={latestVersionPublishedAt} />
             </li>
 
-            {license && <li>{license} license</li>}
+            {isValidLicense({ license }) ? (
+                <li>{license} license</li>
+            ) : (
+                <li>Custom license</li>
+            )}
         </ul>
     );
 }
