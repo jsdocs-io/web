@@ -5,6 +5,7 @@ import { Layout } from '../common/Layout';
 import { PackageAPISections } from './PackageAPISections';
 import { PackageBadgeSection } from './PackageBadgeSection';
 import { PackageDependenciesSections } from './PackageDependenciesSections';
+import { PackageExternalTypesAlert } from './PackageExternalTypesAlert';
 import { PackageFooterSection } from './PackageFooterSection';
 import { PackageInstallSection } from './PackageInstallSection';
 import { PackageLicenseAlert } from './PackageLicenseAlert';
@@ -57,6 +58,10 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
             <Layout>
                 <div className="space-y-12">
                     <PackageLicenseAlert license={license} />
+
+                    <PackageExternalTypesAlert
+                        definitelyTypedName={definitelyTypedName}
+                    />
 
                     <PackageNav
                         name={name}
