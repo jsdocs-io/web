@@ -52,7 +52,7 @@ describe('getPackagePageStaticProps', () => {
         expect(props).toMatchObject({
             props: {
                 kind: PackagePageKind.Error,
-                message: 'Package not found',
+                message: 'Package Not Found',
             },
             revalidate: 10 * minute,
         });
@@ -147,7 +147,7 @@ describe('getPackagePageStaticProps', () => {
         expect(props).toMatchObject({
             props: {
                 kind: PackagePageKind.Error,
-                message: 'Package version not found',
+                message: 'Package Version Not Found',
             },
             revalidate: 10 * minute,
         });
@@ -203,7 +203,7 @@ describe('getPackagePageStaticProps', () => {
         expect(props).toMatchObject({
             props: {
                 kind: PackagePageKind.Error,
-                message: 'Package not found',
+                message: 'Package Not Found',
             },
             revalidate: 10 * minute,
         });
@@ -222,7 +222,7 @@ describe('getPackagePageStaticProps', () => {
         expect(props).toMatchObject({
             props: {
                 kind: PackagePageKind.Error,
-                message: 'Page not found',
+                message: 'Page Not Found',
             },
         });
 

@@ -74,7 +74,7 @@ async function getDocLatestVersionRedirect({
         };
     } catch {
         return getErrorProps({
-            message: 'Package not found',
+            message: 'Package Not Found',
             revalidate: 10 * minute,
         });
     }
@@ -136,7 +136,7 @@ async function getDocFixedVersionProps({
         };
     } catch {
         return getErrorProps({
-            message: 'Package version not found',
+            message: 'Package Version Not Found',
             revalidate: 10 * minute,
         });
     }
@@ -167,14 +167,14 @@ async function getAvailableVersionsProps({
         };
     } catch {
         return getErrorProps({
-            message: 'Package not found',
+            message: 'Package Not Found',
             revalidate: 10 * minute,
         });
     }
 }
 
 function getErrorProps({
-    message = 'Page not found',
+    message = 'Page Not Found',
     revalidate = week,
 }: {
     message?: string;

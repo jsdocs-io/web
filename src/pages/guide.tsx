@@ -21,7 +21,7 @@ import {
 } from '../data/examples';
 
 export default function GuidePage() {
-    const pageTitle = 'Package documentation guide - jsDocs.io';
+    const pageTitle = 'Package Documentation Guide - jsDocs.io';
     const pageDescription =
         'Documentation guide for packages displayed on jsDocs.io';
 

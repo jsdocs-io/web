@@ -4,7 +4,7 @@ import { A } from '../components/common/A';
 import { Layout } from '../components/common/Layout';
 
 export default function PrivacyPolicyPage() {
-    const pageTitle = 'Privacy policy - jsDocs.io';
+    const pageTitle = 'Privacy Policy - jsDocs.io';
     const pageDescription = 'Privacy policy for jsDocs.io';
 
     return (

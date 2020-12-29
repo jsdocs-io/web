@@ -3,11 +3,11 @@ import React from 'react';
 import { Layout } from '../components/common/Layout';
 
 export default function Page404({
-    message = 'Page not found',
+    message = 'Page Not Found',
 }: {
     message?: string;
 }) {
-    const pageTitle = 'Page not found - jsDocs.io';
+    const pageTitle = 'Page Not Found - jsDocs.io';
     const pageDescription = pageTitle;
 
     return (
