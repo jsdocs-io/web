@@ -98,6 +98,8 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
                     <PackageBadgeSection name={name} />
 
                     <PackageFooterSection
+                        name={name}
+                        version={version}
                         createdAt={createdAt}
                         analysisTime={elapsed}
                     />

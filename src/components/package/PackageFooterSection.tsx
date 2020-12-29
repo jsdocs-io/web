@@ -1,16 +1,28 @@
+import newGitHubIssueURL from 'new-github-issue-url';
 import React from 'react';
+import { A } from '../common/A';
 import { TimeAgo } from '../common/TimeAgo';
 
 export function PackageFooterSection({
+    name,
+    version,
     createdAt,
     analysisTime,
 }: {
+    name?: string;
+    version?: string;
     createdAt: string;
     analysisTime?: number;
 }) {
     const scrollToTop = () => {
         window.scrollTo(0, 0);
     };
+
+    const packageIssueURL = newGitHubIssueURL({
+        repoUrl: 'https://github.com/jsdocs-io/jsdocs-io',
+        template: 'package-with-missing-or-incorrect-documentation.md',
+        title: `Package ${name}@${version} has missing or incorrect documentation`,
+    });
 
     return (
         <section>
@@ -26,6 +38,16 @@ export function PackageFooterSection({
                         </>
                     )}
                 </li>
+
+                {name && version && (
+                    <li>
+                        Missing or incorrect documentation?{' '}
+                        <A href={packageIssueURL}>
+                            Open an issue for this package
+                        </A>
+                        .
+                    </li>
+                )}
 
                 <li>
                     <button
