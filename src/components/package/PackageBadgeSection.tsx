@@ -1,5 +1,7 @@
 import React from 'react';
+import { A } from '../common/A';
 import { CodeBlock } from '../common/CodeBlock';
+import { InlineCode } from '../common/InlineCode';
 
 export function PackageBadgeSection({ name }: { name: string }) {
     const badgeURL = 'https://img.shields.io/badge/jsDocs.io-reference-blue';
@@ -12,9 +14,17 @@ export function PackageBadgeSection({ name }: { name: string }) {
         <section>
             <h2 id="package-badge">Badge</h2>
 
+            <img src="/badge.svg" alt="jsDocs.io badge" className="my-4" />
+
             <p>
-                To link to the latest version of this page from your project,
-                you can use the following badge codes.
+                To add a badge like the one displayed above to your project's
+                README, you can use the badge codes available below.
+            </p>
+
+            <p>
+                You can also use <A href="https://shields.io/">Shields.io</A> to
+                create a custom badge linking to{' '}
+                <InlineCode code={packageURL} />.
             </p>
 
             <ul className="mt-4">
