@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import NextHead from 'next/head';
 import React from 'react';
 import { Layout } from '../common/Layout';
 
@@ -8,10 +8,10 @@ export function PackagePageLoading() {
 
     return (
         <>
-            <Head>
+            <NextHead>
                 <title>{pageTitle}</title>
                 <meta name="description" content={pageDescription} />
-            </Head>
+            </NextHead>
 
             <Layout>
                 <div className="flex flex-col items-center justify-center h-full">

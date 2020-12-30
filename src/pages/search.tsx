@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import NextHead from 'next/head';
 import React from 'react';
 import { Layout } from '../components/common/Layout';
 import { SearchBar } from '../components/common/SearchBar';
@@ -18,7 +18,7 @@ export default function SearchPage() {
 
     return (
         <>
-            <Head>
+            <NextHead>
                 <title>{pageTitle}</title>
                 <meta name="description" content={pageDescription} />
 
@@ -34,7 +34,7 @@ export default function SearchPage() {
                     property="twitter:description"
                     content={pageDescription}
                 />
-            </Head>
+            </NextHead>
 
             <Layout>
                 <div className="flex justify-center">

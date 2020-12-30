@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import NextHead from 'next/head';
 import React from 'react';
 import { A } from '../components/common/A';
 import { CodeBlock } from '../components/common/CodeBlock';
@@ -27,7 +27,7 @@ export default function GuidePage() {
 
     return (
         <>
-            <Head>
+            <NextHead>
                 <title>{pageTitle}</title>
                 <meta name="description" content={pageDescription} />
 
@@ -40,7 +40,7 @@ export default function GuidePage() {
                     property="twitter:description"
                     content={pageDescription}
                 />
-            </Head>
+            </NextHead>
 
             <Layout>
                 <article className="space-y-12">

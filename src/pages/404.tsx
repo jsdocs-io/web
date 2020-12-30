@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import NextHead from 'next/head';
 import React from 'react';
 import { Layout } from '../components/common/Layout';
 
@@ -12,7 +12,7 @@ export default function Page404({
 
     return (
         <>
-            <Head>
+            <NextHead>
                 <title>{pageTitle}</title>
                 <meta name="description" content={pageDescription} />
 
@@ -25,7 +25,7 @@ export default function Page404({
                     property="twitter:description"
                     content={pageDescription}
                 />
-            </Head>
+            </NextHead>
 
             <Layout>
                 <div className="flex flex-col items-center justify-center h-full">

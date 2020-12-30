@@ -1,11 +1,11 @@
-import Head from 'next/head';
+import NextHead from 'next/head';
 import React from 'react';
 import { darkModeScriptMinified } from '../../data/dark-mode-script';
 import { windowScript } from '../../data/window-script';
 
-export function CustomHead() {
+export function Head() {
     return (
-        <Head>
+        <NextHead>
             <meta charSet="utf-8" />
 
             <meta
@@ -80,6 +80,6 @@ export function CustomHead() {
                     src="https://plausible.io/js/plausible.js"
                 />
             )}
-        </Head>
+        </NextHead>
     );
 }

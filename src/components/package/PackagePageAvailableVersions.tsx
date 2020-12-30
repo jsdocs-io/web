@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import NextHead from 'next/head';
 import React from 'react';
 import { PackagePagePropsAvailableVersions } from '../../lib/package-page-props';
 import { Layout } from '../common/Layout';
@@ -26,7 +26,7 @@ export function PackagePageAvailableVersions({
 
     return (
         <>
-            <Head>
+            <NextHead>
                 <title>{pageTitle}</title>
                 <meta name="description" content={pageDescription} />
 
@@ -39,7 +39,7 @@ export function PackagePageAvailableVersions({
                     property="twitter:description"
                     content={pageDescription}
                 />
-            </Head>
+            </NextHead>
 
             <Layout>
                 <div className="space-y-12">

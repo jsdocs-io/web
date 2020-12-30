@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import NextHead from 'next/head';
 import React from 'react';
 import { Layout } from '../components/common/Layout';
 import { PackageLink } from '../components/common/PackageLink';
@@ -11,7 +11,7 @@ export default function IndexPage() {
 
     return (
         <>
-            <Head>
+            <NextHead>
                 <title>{pageTitle}</title>
                 <meta name="description" content={pageDescription} />
 
@@ -24,7 +24,7 @@ export default function IndexPage() {
                     property="twitter:description"
                     content={pageDescription}
                 />
-            </Head>
+            </NextHead>
 
             <Layout>
                 <div className="flex flex-col items-center h-screen sm:h-full">

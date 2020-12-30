@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import NextHead from 'next/head';
 import React from 'react';
 import { A } from '../components/common/A';
 import { Layout } from '../components/common/Layout';
@@ -9,7 +9,7 @@ export default function PrivacyPolicyPage() {
 
     return (
         <>
-            <Head>
+            <NextHead>
                 <title>{pageTitle}</title>
                 <meta name="description" content={pageDescription} />
 
@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
                     property="twitter:description"
                     content={pageDescription}
                 />
-            </Head>
+            </NextHead>
 
             <Layout>
                 <article className="space-y-12">
