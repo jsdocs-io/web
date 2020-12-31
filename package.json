@@ -53,7 +53,7 @@
         "react-dom": "17.0.1",
         "react-hotkeys-hook": "2.4.0",
         "semver": "^7.3.4",
-        "short-time-ago": "^1.1.1",
+        "short-time-ago": "^2.0.0",
         "stream-json": "^1.7.1",
         "swr": "^0.3.11",
         "use-dark-mode": "^2.3.1",

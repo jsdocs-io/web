@@ -10490,10 +10490,10 @@ shellwords@^0.1.1:
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
 
-short-time-ago@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/short-time-ago/-/short-time-ago-1.1.1.tgz#23d4305c9721fd9078b58227f356828c311e0f27"
-  integrity sha512-vM5LgYu2ywFwAQvjGpDIMcJeiXTQhXorO+zZ4ODV0YcI8I2yhhBuOznqq62NKaVuLhrm5jTXFstx0NeouEi0gQ==
+short-time-ago@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/short-time-ago/-/short-time-ago-2.0.0.tgz#3fde172e626999510c5ca6784aba568c964d50dc"
+  integrity sha512-klqvTBTPpU2xI/+qeTl3zMX6EVfcF7ddTfoaOg+aOpJY4IOhwwgxTQ2eu3sLDrSAQL0PwjFAoWqJUDUcJSEXXA==
 
 side-channel@^1.0.2:
   version "1.0.2"
