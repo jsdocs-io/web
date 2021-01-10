@@ -62,7 +62,7 @@
     "devDependencies": {
         "@commitlint/cli": "11.0.0",
         "@commitlint/config-conventional": "11.0.0",
-        "@next/bundle-analyzer": "10.0.4",
+        "@next/bundle-analyzer": "10.0.5",
         "@testing-library/jest-dom": "5.11.8",
         "@testing-library/react": "11.2.3",
         "@types/anchor-js": "4.2.0",
