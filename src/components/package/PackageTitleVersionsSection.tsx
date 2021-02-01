@@ -5,12 +5,12 @@ import { PackageTitleVersionsInfoList } from './PackageTitleVersionsInfoList';
 export function PackageTitleVersionsSection({
     name,
     distTags,
-    versionsTimestamps,
+    versionsToTimestamps,
     license,
 }: {
     name: string;
     distTags: DistTags;
-    versionsTimestamps: Record<string, string>;
+    versionsToTimestamps: Record<string, string>;
     license?: string;
 }) {
     return (
@@ -19,7 +19,7 @@ export function PackageTitleVersionsSection({
 
             <PackageTitleVersionsInfoList
                 distTags={distTags}
-                versionsTimestamps={versionsTimestamps}
+                versionsToTimestamps={versionsToTimestamps}
                 license={license}
             />
         </section>

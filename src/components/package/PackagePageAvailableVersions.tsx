@@ -14,9 +14,9 @@ export function PackagePageAvailableVersions({
 }: PackagePagePropsAvailableVersions) {
     const {
         name,
-        repository,
+        gitRepository,
         distTags,
-        versionsTimestamps,
+        versionsToTimestamps,
         license,
     } = packument;
 
@@ -45,14 +45,14 @@ export function PackagePageAvailableVersions({
                 <div className="space-y-12">
                     <PackageNav
                         name={name}
-                        repositoryURL={repository?.url}
+                        repositoryURL={gitRepository?.url}
                         hideInternalNav={true}
                     />
 
                     <PackageTitleVersionsSection
                         name={name}
                         distTags={distTags}
-                        versionsTimestamps={versionsTimestamps}
+                        versionsToTimestamps={versionsToTimestamps}
                         license={license}
                     />
 
@@ -60,7 +60,7 @@ export function PackagePageAvailableVersions({
 
                     <PackageVersionsSection
                         name={name}
-                        versionsTimestamps={versionsTimestamps}
+                        versionsToTimestamps={versionsToTimestamps}
                     />
 
                     <PackageFooterSection createdAt={createdAt} />

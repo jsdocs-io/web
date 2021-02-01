@@ -5,17 +5,17 @@ import { TimeAgo } from '../common/TimeAgo';
 
 export function PackageTitleVersionsInfoList({
     distTags,
-    versionsTimestamps,
+    versionsToTimestamps,
     license,
 }: {
     distTags: DistTags;
-    versionsTimestamps: Record<string, string>;
+    versionsToTimestamps: Record<string, string>;
     license?: string;
 }) {
     const numDistTags = Object.keys(distTags).length;
-    const numVersions = Object.keys(versionsTimestamps).length;
+    const numVersions = Object.keys(versionsToTimestamps).length;
     const latestVersion = distTags.latest;
-    const latestVersionPublishedAt = versionsTimestamps[latestVersion];
+    const latestVersionPublishedAt = versionsToTimestamps[latestVersion];
 
     return (
         <ul className="list-inline">

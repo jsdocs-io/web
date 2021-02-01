@@ -3,7 +3,7 @@ import {
     RegistryPackageInfo,
 } from '@jsdocs-io/package-analyzer';
 import { GetStaticPropsResult } from 'next';
-import { Registry } from 'query-registry';
+import { getPackageManifest, getPackument } from 'query-registry';
 import { cleanObject } from './clean-object';
 import {
     PackagePageKind,
@@ -24,13 +24,11 @@ import { Storage } from './storage';
 
 export async function getPackagePageStaticProps({
     route,
-    registry,
     packageAnalyzer,
     storage,
     currentPackageAnalyzerVersion,
 }: {
     route: string;
-    registry: Registry;
     packageAnalyzer: PackageAnalyzer;
     storage: Storage;
     currentPackageAnalyzerVersion?: string;
@@ -39,7 +37,7 @@ export async function getPackagePageStaticProps({
 
     switch (parsedRoute.kind) {
         case PackageRouteKind.DocLatestVersion:
-            return getDocLatestVersionRedirect({ parsedRoute, registry });
+            return getDocLatestVersionRedirect({ parsedRoute });
         case PackageRouteKind.DocFixedVersion:
             return getDocFixedVersionProps({
                 parsedRoute,
@@ -48,7 +46,7 @@ export async function getPackagePageStaticProps({
                 currentPackageAnalyzerVersion,
             });
         case PackageRouteKind.AvailableVersions:
-            return getAvailableVersionsProps({ parsedRoute, registry });
+            return getAvailableVersionsProps({ parsedRoute });
         case PackageRouteKind.Error:
             return getErrorProps();
     }
@@ -56,14 +54,12 @@ export async function getPackagePageStaticProps({
 
 async function getDocLatestVersionRedirect({
     parsedRoute,
-    registry,
 }: {
     parsedRoute: PackageRouteDocLatestVersion;
-    registry: Registry;
 }): Promise<GetStaticPropsResult<PackagePagePropsError>> {
     try {
         const { name } = parsedRoute;
-        const { version } = await registry.getPackageManifest(name);
+        const { version } = await getPackageManifest({ name });
 
         return {
             redirect: {
@@ -144,10 +140,8 @@ async function getDocFixedVersionProps({
 
 async function getAvailableVersionsProps({
     parsedRoute,
-    registry,
 }: {
     parsedRoute: PackageRouteAvailableVersions;
-    registry: Registry;
 }): Promise<
     GetStaticPropsResult<
         PackagePagePropsAvailableVersions | PackagePagePropsError
@@ -155,7 +149,7 @@ async function getAvailableVersionsProps({
 > {
     try {
         const { name } = parsedRoute;
-        const packument = await registry.getPackument(name);
+        const packument = await getPackument({ name });
 
         return {
             props: {
