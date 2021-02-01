@@ -39,7 +39,7 @@
         "@microsoft/tsdoc": "^0.12.24",
         "anchor-js": "^4.3.0",
         "clean-deep": "^3.4.0",
-        "fs-extra": "^9.0.1",
+        "fs-extra": "^9.1.0",
         "minio": "^7.0.18",
         "new-github-issue-url": "^0.2.1",
         "next": "10.0.5",
