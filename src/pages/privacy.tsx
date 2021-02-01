@@ -48,7 +48,7 @@ function IntroSection() {
 
             <p>This page contains the privacy policy for jsDocs.io.</p>
 
-            <p>The privacy policy was last updated on December 17, 2020.</p>
+            <p>The privacy policy was last updated on February 1, 2021.</p>
         </section>
     );
 }
@@ -87,6 +87,11 @@ function AnalyticsSection() {
                 visit their{' '}
                 <A href="https://plausible.io/data-policy">data policy</A> and{' '}
                 <A href="https://plausible.io/privacy">privacy policy</A> pages.
+            </p>
+
+            <p>
+                Note: we honor Do Not Track (DNT) requests by not loading the
+                analytics script.
             </p>
         </section>
     );
