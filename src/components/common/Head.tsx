@@ -77,7 +77,7 @@ export function Head() {
                     async
                     defer
                     data-domain="jsdocs.io"
-                    src="https://plausible.io/js/plausible.js"
+                    src="https://plausible.jsdocs.io/js/index.outbound-links.js"
                 />
             )}
         </NextHead>
