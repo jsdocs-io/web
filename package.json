@@ -70,7 +70,7 @@
         "@types/minio": "7.0.7",
         "@types/node": "14.14.22",
         "@types/nprogress": "0.2.0",
-        "@types/react": "17.0.0",
+        "@types/react": "17.0.1",
         "@types/semver": "7.3.4",
         "@types/stream-json": "1.5.1",
         "@types/validate-npm-package-name": "3.0.2",
