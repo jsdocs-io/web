@@ -5052,6 +5052,13 @@ git-url-parse@^11.1.3:
   dependencies:
     git-up "^4.0.0"
 
+git-url-parse@^11.4.4:
+  version "11.4.4"
+  resolved "https://registry.yarnpkg.com/git-url-parse/-/git-url-parse-11.4.4.tgz#5d747debc2469c17bc385719f7d0427802d83d77"
+  integrity sha512-Y4o9o7vQngQDIU9IjyCmRJBin5iYjI5u9ZITnddRZpD7dcCFQj2sL2XuMNbLRE4b4B/4ENPsp2Q8P44fjAZ0Pw==
+  dependencies:
+    git-up "^4.0.0"
+
 github-from-package@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/github-from-package/-/github-from-package-0.0.0.tgz#97fb5d96bfde8973313f20e8288ef9a167fa64ce"
@@ -8907,17 +8914,15 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-query-registry@2.0.0-0:
-  version "2.0.0-0"
-  resolved "https://registry.yarnpkg.com/query-registry/-/query-registry-2.0.0-0.tgz#5438627424e9ec1a5886867da2d1cc40cfa5e266"
-  integrity sha512-XOYlIpzk8BzghThoo5Wnnj93Mt8IaghD5Uu42s0hWptkqt5ikGao8eUslyDIObVrdcY4bkqcAYrS3UJ+lrpeaQ==
+query-registry@2.0.0-3:
+  version "2.0.0-3"
+  resolved "https://registry.yarnpkg.com/query-registry/-/query-registry-2.0.0-3.tgz#c51f3c985b8f4076a443d2243e4b27d30b4b8d97"
+  integrity sha512-e3+dLTNDn+xw69jX+IRX5q5PrGENiVlsWeP139zBK7ZpYPLu8o+C4khVRyEzddGBuFbAWHSW8UJVUrbCYQIB9A==
   dependencies:
     debug "^4.1.1"
-    git-url-parse "^11.1.3"
-    hosted-git-info "^3.0.5"
+    git-url-parse "^11.4.4"
     isomorphic-unfetch "^3.1.0"
     make-error "^1.3.6"
-    proper-url-join "^2.1.1"
     tiny-lru "^7.0.6"
     validate-npm-package-name "^3.0.0"
 
