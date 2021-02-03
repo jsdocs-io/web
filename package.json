@@ -7,6 +7,7 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
+        "build:check": "tsc --noEmit",
         "start": "next start",
         "lint": "tsdx lint src test",
         "lint:fix": "tsdx lint src test --fix",
