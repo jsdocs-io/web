@@ -1,7 +1,3 @@
-import {
-    PackageAnalyzer,
-    version as currentPackageAnalyzerVersion,
-} from '@jsdocs-io/package-analyzer';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -16,7 +12,6 @@ import {
 import { Storage } from '../../lib/storage';
 import Page404 from '../404';
 
-const packageAnalyzer = new PackageAnalyzer();
 const storage = new Storage();
 
 export default function PackagePage(props: PackagePageProps) {
@@ -51,8 +46,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
     return getPackagePageStaticProps({
         route,
-        packageAnalyzer,
         storage,
-        currentPackageAnalyzerVersion,
     });
 };

@@ -1,3 +1,4 @@
+import { analyzeRegistryPackage } from '@jsdocs-io/package-analyzer';
 import { getPackageManifest, getPackument } from 'query-registry';
 import { mocked } from 'ts-jest/utils';
 import { getPackagePageStaticProps } from '../../src/lib/get-package-page-static-props';
@@ -9,8 +10,13 @@ jest.mock('query-registry', () => ({
     getPackageManifest: jest.fn(),
 }));
 
+jest.mock('@jsdocs-io/package-analyzer', () => ({
+    analyzeRegistryPackage: jest.fn(),
+}));
+
 const mockedGetPackument = mocked(getPackument, true);
 const mockedGetPackageManifest = mocked(getPackageManifest, true);
+const mockedAnalyzeRegistryPackage = mocked(analyzeRegistryPackage, true);
 
 describe('getPackagePageStaticProps', () => {
     it('returns the redirect URL (latest version)', async () => {
@@ -27,11 +33,10 @@ describe('getPackagePageStaticProps', () => {
 
         const props = await getPackagePageStaticProps({
             route: '/foo',
-            packageAnalyzer: {} as any,
             storage: {} as any,
         });
 
-        expect(props).toMatchObject({
+        expect(props).toStrictEqual({
             redirect: {
                 destination: '/package/foo/v/1.0.0',
                 permanent: false,
@@ -49,11 +54,10 @@ describe('getPackagePageStaticProps', () => {
 
         const props = await getPackagePageStaticProps({
             route: '/foo',
-            packageAnalyzer: {} as any,
             storage: {} as any,
         });
 
-        expect(props).toMatchObject({
+        expect(props).toStrictEqual({
             props: {
                 kind: PackagePageKind.Error,
                 message: 'Package Not Found',
@@ -69,11 +73,9 @@ describe('getPackagePageStaticProps', () => {
             id: 'foo',
         };
 
-        const mockPackageAnalyzer = {
-            analyzeRegistryPackage() {
-                return wantedInfo;
-            },
-        };
+        mockedAnalyzeRegistryPackage.mockImplementation(() => {
+            return wantedInfo as any;
+        });
 
         const mockStorage = {
             getObject() {
@@ -84,7 +86,6 @@ describe('getPackagePageStaticProps', () => {
 
         const props = await getPackagePageStaticProps({
             route: '/foo/v/1.0.0',
-            packageAnalyzer: mockPackageAnalyzer as any,
             storage: mockStorage as any,
         });
 
@@ -115,9 +116,7 @@ describe('getPackagePageStaticProps', () => {
 
         const props = await getPackagePageStaticProps({
             route: '/foo/v/1.0.0',
-            packageAnalyzer: {} as any,
             storage: mockStorage as any,
-            currentPackageAnalyzerVersion: '1.0.0',
         });
 
         expect(props).toMatchObject({
@@ -133,19 +132,16 @@ describe('getPackagePageStaticProps', () => {
     it('returns the error props if the docs props package version is not found (fixed version)', async () => {
         expect.assertions(1);
 
-        const mockPackageAnalyzer = {
-            analyzeRegistryPackage() {
-                throw new Error();
-            },
-        };
+        mockedAnalyzeRegistryPackage.mockImplementation(() => {
+            throw new Error();
+        });
 
         const props = await getPackagePageStaticProps({
             route: '/foo/v/1.0.0',
-            packageAnalyzer: mockPackageAnalyzer as any,
             storage: {} as any,
         });
 
-        expect(props).toMatchObject({
+        expect(props).toStrictEqual({
             props: {
                 kind: PackagePageKind.Error,
                 message: 'Package Version Not Found',
@@ -167,7 +163,6 @@ describe('getPackagePageStaticProps', () => {
 
         const props = await getPackagePageStaticProps({
             route: '/foo/versions',
-            packageAnalyzer: {} as any,
             storage: {} as any,
         });
 
@@ -191,7 +186,6 @@ describe('getPackagePageStaticProps', () => {
 
         const props = await getPackagePageStaticProps({
             route: '/foo/versions',
-            packageAnalyzer: {} as any,
             storage: {} as any,
         });
 
@@ -209,7 +203,6 @@ describe('getPackagePageStaticProps', () => {
 
         const props = await getPackagePageStaticProps({
             route: '/!',
-            packageAnalyzer: {} as any,
             storage: {} as any,
         });
 

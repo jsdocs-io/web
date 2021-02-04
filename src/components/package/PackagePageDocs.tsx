@@ -23,7 +23,7 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
         description,
         definitelyTypedName,
         untypedName,
-        repository,
+        gitRepository,
         createdAt: publishedAt,
         license,
         dist: { unpackedSize },
@@ -67,7 +67,7 @@ export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
                         name={name}
                         definitelyTypedName={definitelyTypedName}
                         untypedName={untypedName}
-                        repositoryURL={repository?.url}
+                        repositoryURL={gitRepository?.url}
                         hasDocs={hasDocs}
                     />
 

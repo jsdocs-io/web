@@ -1,7 +1,8 @@
 import {
-    PackageAnalyzer,
+    analyzeRegistryPackage,
     RegistryPackageInfo,
 } from '@jsdocs-io/package-analyzer';
+import { version as packageAnalyzerVersion } from '@jsdocs-io/package-analyzer/package.json';
 import { GetStaticPropsResult } from 'next';
 import { getPackageManifest, getPackument } from 'query-registry';
 import { cleanObject } from './clean-object';
@@ -24,14 +25,10 @@ import { Storage } from './storage';
 
 export async function getPackagePageStaticProps({
     route,
-    packageAnalyzer,
     storage,
-    currentPackageAnalyzerVersion,
 }: {
     route: string;
-    packageAnalyzer: PackageAnalyzer;
     storage: Storage;
-    currentPackageAnalyzerVersion?: string;
 }): Promise<GetStaticPropsResult<PackagePageProps>> {
     const parsedRoute = parsePackageRoute({ route });
 
@@ -41,9 +38,7 @@ export async function getPackagePageStaticProps({
         case PackageRouteKind.DocFixedVersion:
             return getDocFixedVersionProps({
                 parsedRoute,
-                packageAnalyzer,
                 storage,
-                currentPackageAnalyzerVersion,
             });
         case PackageRouteKind.AvailableVersions:
             return getAvailableVersionsProps({ parsedRoute });
@@ -78,31 +73,22 @@ async function getDocLatestVersionRedirect({
 
 async function getDocFixedVersionProps({
     parsedRoute,
-    packageAnalyzer,
     storage,
-    currentPackageAnalyzerVersion,
 }: {
     parsedRoute: PackageRouteDocFixedVersion;
-    packageAnalyzer: PackageAnalyzer;
     storage: Storage;
-    currentPackageAnalyzerVersion?: string;
 }): Promise<
     GetStaticPropsResult<PackagePagePropsDocs | PackagePagePropsError>
 > {
     try {
         const { name, version } = parsedRoute;
 
-        const objectName = `registry-package-info/${name}/${version}.json`;
+        const objectName = `registry-package-info/${packageAnalyzerVersion}/${name}/${version}.json`;
         const storedInfo = await storage.getObject<RegistryPackageInfo>({
             name: objectName,
         });
 
-        // Use stored info only if it was extracted by the latest package analyzer
-        if (
-            storedInfo &&
-            storedInfo.packageAnalyzerVersion &&
-            storedInfo.packageAnalyzerVersion === currentPackageAnalyzerVersion
-        ) {
+        if (storedInfo) {
             return {
                 props: {
                     kind: PackagePageKind.Docs,
@@ -112,10 +98,7 @@ async function getDocFixedVersionProps({
             };
         }
 
-        const info = await packageAnalyzer.analyzeRegistryPackage(
-            name,
-            version
-        );
+        const info = await analyzeRegistryPackage({ name, version });
 
         // Store fresh info for future use
         await storage.putObject({
