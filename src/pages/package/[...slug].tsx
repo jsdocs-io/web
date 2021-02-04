@@ -1,9 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { useRouter } from 'next/router';
 import React from 'react';
 import { PackagePageAvailableVersions } from '../../components/package/PackagePageAvailableVersions';
 import { PackagePageDocs } from '../../components/package/PackagePageDocs';
-import { PackagePageLoading } from '../../components/package/PackagePageLoading';
 import { getPackagePageStaticProps } from '../../lib/get-package-page-static-props';
 import {
     PackagePageKind,
@@ -15,12 +13,6 @@ import Page404 from '../404';
 const storage = new Storage();
 
 export default function PackagePage(props: PackagePageProps) {
-    const router = useRouter();
-
-    if (router.isFallback) {
-        return <PackagePageLoading />;
-    }
-
     switch (props.kind) {
         case PackagePageKind.Docs:
             return <PackagePageDocs {...props} />;
@@ -34,7 +26,7 @@ export default function PackagePage(props: PackagePageProps) {
 export const getStaticPaths: GetStaticPaths = async () => {
     return {
         paths: [],
-        fallback: true,
+        fallback: 'blocking',
     };
 };
 
