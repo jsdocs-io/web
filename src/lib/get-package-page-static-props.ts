@@ -36,10 +36,7 @@ export async function getPackagePageStaticProps({
         case PackageRouteKind.DocLatestVersion:
             return getDocLatestVersionRedirect({ parsedRoute });
         case PackageRouteKind.DocFixedVersion:
-            return getDocFixedVersionProps({
-                parsedRoute,
-                storage,
-            });
+            return getDocFixedVersionProps({ parsedRoute, storage });
         case PackageRouteKind.AvailableVersions:
             return getAvailableVersionsProps({ parsedRoute });
         case PackageRouteKind.Error:
