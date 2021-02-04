@@ -97,15 +97,15 @@ describe('parsePackageRoute', () => {
     });
 
     it('parses invalid routes', () => {
-        expect(parsePackageRoute({ route: '/!' })).toStrictEqual({
+        expect(parsePackageRoute({ route: '/<>' })).toStrictEqual({
             kind: PackageRouteKind.Error,
         });
 
-        expect(parsePackageRoute({ route: '/!/v/1.0.0' })).toStrictEqual({
+        expect(parsePackageRoute({ route: '/<>/v/1.0.0' })).toStrictEqual({
             kind: PackageRouteKind.Error,
         });
 
-        expect(parsePackageRoute({ route: '/!/versions' })).toStrictEqual({
+        expect(parsePackageRoute({ route: '/<>/versions' })).toStrictEqual({
             kind: PackageRouteKind.Error,
         });
 

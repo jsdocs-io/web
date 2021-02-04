@@ -202,7 +202,7 @@ describe('getPackagePageStaticProps', () => {
         expect.assertions(2);
 
         const props = await getPackagePageStaticProps({
-            route: '/!',
+            route: '/<>',
             storage: {} as any,
         });
 

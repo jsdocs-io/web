@@ -7,7 +7,7 @@ export default function Page404({
 }: {
     message?: string;
 }) {
-    const pageTitle = 'Page Not Found - jsDocs.io';
+    const pageTitle = `${message} - jsDocs.io`;
     const pageDescription = pageTitle;
 
     return (

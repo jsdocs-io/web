@@ -138,5 +138,8 @@ function getPackageName({ scope, name }: PackageNameParams): string {
 }
 
 function isValidPackageName({ name }: { name: string }): boolean {
-    return validateNpmPackageName(name).validForNewPackages;
+    const { validForOldPackages, validForNewPackages } = validateNpmPackageName(
+        name
+    );
+    return validForNewPackages || validForOldPackages;
 }
