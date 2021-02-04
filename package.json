@@ -48,7 +48,7 @@
         "pretty-bytes": "^5.5.0",
         "prism-react-renderer": "^1.1.1",
         "prismjs": "^1.23.0",
-        "query-registry": "2.0.0-0",
+        "query-registry": "2.0.0-3",
         "react": "17.0.1",
         "react-dom": "17.0.1",
         "react-hotkeys-hook": "3.0.3",
