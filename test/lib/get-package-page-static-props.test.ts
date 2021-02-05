@@ -3,28 +3,34 @@ import { getPackageManifest, getPackument } from 'query-registry';
 import { mocked } from 'ts-jest/utils';
 import { getPackagePageStaticProps } from '../../src/lib/get-package-page-static-props';
 import { PackagePageKind } from '../../src/lib/package-page-props';
-import { hour, minute } from '../../src/lib/revalidate-times';
+import { loadRegistryPackageInfo } from '../../src/lib/registry-package-info-storage';
+import { hour, minute, week } from '../../src/lib/revalidate-times';
 
 jest.mock('query-registry', () => ({
     getPackument: jest.fn(),
     getPackageManifest: jest.fn(),
 }));
+const mockedGetPackument = mocked(getPackument, true);
+const mockedGetPackageManifest = mocked(getPackageManifest, true);
 
 jest.mock('@jsdocs-io/package-analyzer', () => ({
     analyzeRegistryPackage: jest.fn(),
 }));
-
-const mockedGetPackument = mocked(getPackument, true);
-const mockedGetPackageManifest = mocked(getPackageManifest, true);
 const mockedAnalyzeRegistryPackage = mocked(analyzeRegistryPackage, true);
 
-describe('getPackagePageStaticProps', () => {
-    it('returns the redirect URL (latest version)', async () => {
+jest.mock('../../src/lib/registry-package-info-storage', () => ({
+    loadRegistryPackageInfo: jest.fn(),
+    storeRegistryPackageInfo: jest.fn(),
+}));
+const mockedLoadRegistryPackageInfo = mocked(loadRegistryPackageInfo, true);
+
+describe('getPackagePageStaticProps:DocLatestVersion', () => {
+    it('redirects to the latest package version', async () => {
         expect.assertions(1);
 
         const wantedManifest = {
             name: 'foo',
-            version: '1.0.0',
+            version: '99.0.0',
         };
 
         mockedGetPackageManifest.mockImplementation(async () => {
@@ -33,28 +39,26 @@ describe('getPackagePageStaticProps', () => {
 
         const props = await getPackagePageStaticProps({
             route: '/foo',
-            storage: {} as any,
         });
 
         expect(props).toStrictEqual({
             redirect: {
-                destination: '/package/foo/v/1.0.0',
+                destination: '/package/foo/v/99.0.0',
                 permanent: false,
             },
             revalidate: hour,
         });
     });
 
-    it('returns the error props if the redirect URL is not found (latest version)', async () => {
+    it('returns an error page if the package is not found', async () => {
         expect.assertions(1);
 
         mockedGetPackageManifest.mockImplementation(async () => {
-            throw new Error();
+            throw new Error('package not found');
         });
 
         const props = await getPackagePageStaticProps({
             route: '/foo',
-            storage: {} as any,
         });
 
         expect(props).toStrictEqual({
@@ -65,28 +69,27 @@ describe('getPackagePageStaticProps', () => {
             revalidate: 10 * minute,
         });
     });
+});
 
-    it('returns the docs props (fixed version)', async () => {
+describe('getPackagePageStaticProps:DocFixedVersion', () => {
+    it('returns the fresh docs for a package', async () => {
         expect.assertions(2);
 
         const wantedInfo = {
             id: 'foo',
+            fake: true,
         };
+
+        mockedLoadRegistryPackageInfo.mockImplementation(async () => {
+            return undefined;
+        });
 
         mockedAnalyzeRegistryPackage.mockImplementation(() => {
             return wantedInfo as any;
         });
 
-        const mockStorage = {
-            getObject() {
-                return undefined;
-            },
-            putObject() {},
-        };
-
         const props = await getPackagePageStaticProps({
             route: '/foo/v/1.0.0',
-            storage: mockStorage as any,
         });
 
         expect(props).toMatchObject({
@@ -99,24 +102,24 @@ describe('getPackagePageStaticProps', () => {
         expect(props).toHaveProperty('props.createdAt');
     });
 
-    it('returns the stored docs props (fixed version)', async () => {
+    it('returns the stored docs for a package', async () => {
         expect.assertions(2);
 
         const wantedInfo = {
             id: 'foo',
-            packageAnalyzerVersion: '1.0.0',
+            fake: true,
         };
 
-        const mockStorage = {
-            getObject() {
-                return wantedInfo;
-            },
-            putObject() {},
-        };
+        mockedLoadRegistryPackageInfo.mockImplementation(async () => {
+            return wantedInfo as any;
+        });
+
+        mockedAnalyzeRegistryPackage.mockImplementation(() => {
+            throw new Error('should not be called');
+        });
 
         const props = await getPackagePageStaticProps({
             route: '/foo/v/1.0.0',
-            storage: mockStorage as any,
         });
 
         expect(props).toMatchObject({
@@ -129,16 +132,19 @@ describe('getPackagePageStaticProps', () => {
         expect(props).toHaveProperty('props.createdAt');
     });
 
-    it('returns the error props if the docs props package version is not found (fixed version)', async () => {
+    it('returns an error page if the package version is not found', async () => {
         expect.assertions(1);
 
+        mockedLoadRegistryPackageInfo.mockImplementation(async () => {
+            return undefined;
+        });
+
         mockedAnalyzeRegistryPackage.mockImplementation(() => {
-            throw new Error();
+            throw new Error('package not found');
         });
 
         const props = await getPackagePageStaticProps({
             route: '/foo/v/1.0.0',
-            storage: {} as any,
         });
 
         expect(props).toStrictEqual({
@@ -149,12 +155,15 @@ describe('getPackagePageStaticProps', () => {
             revalidate: 10 * minute,
         });
     });
+});
 
-    it('returns the available versions props', async () => {
+describe('getPackagePageStaticProps:AvailableVersions', () => {
+    it('returns the available versions of a package', async () => {
         expect.assertions(2);
 
         const wantedPackument = {
             id: 'foo',
+            fake: true,
         };
 
         mockedGetPackument.mockImplementation(async () => {
@@ -163,7 +172,6 @@ describe('getPackagePageStaticProps', () => {
 
         const props = await getPackagePageStaticProps({
             route: '/foo/versions',
-            storage: {} as any,
         });
 
         expect(props).toMatchObject({
@@ -177,16 +185,15 @@ describe('getPackagePageStaticProps', () => {
         expect(props).toHaveProperty('props.createdAt');
     });
 
-    it('returns the error props if the available versions props package is not found', async () => {
+    it('returns an error page if the package is not found', async () => {
         expect.assertions(1);
 
         mockedGetPackument.mockImplementation(async () => {
-            throw new Error();
+            throw new Error('package not found');
         });
 
         const props = await getPackagePageStaticProps({
             route: '/foo/versions',
-            storage: {} as any,
         });
 
         expect(props).toMatchObject({
@@ -197,22 +204,22 @@ describe('getPackagePageStaticProps', () => {
             revalidate: 10 * minute,
         });
     });
+});
 
-    it('returns error props for an invalid package route', async () => {
-        expect.assertions(2);
+describe('getPackagePageStaticProps:Error', () => {
+    it('returns an error page for invalid routes', async () => {
+        expect.assertions(1);
 
         const props = await getPackagePageStaticProps({
             route: '/<>',
-            storage: {} as any,
         });
 
-        expect(props).toMatchObject({
+        expect(props).toStrictEqual({
             props: {
                 kind: PackagePageKind.Error,
                 message: 'Page Not Found',
             },
+            revalidate: week,
         });
-
-        expect(props).toHaveProperty('revalidate');
     });
 });

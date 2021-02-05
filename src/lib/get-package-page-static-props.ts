@@ -1,11 +1,7 @@
-import {
-    analyzeRegistryPackage,
-    RegistryPackageInfo,
-} from '@jsdocs-io/package-analyzer';
-import { version as packageAnalyzerVersion } from '@jsdocs-io/package-analyzer/package.json';
 import { GetStaticPropsResult } from 'next';
 import { getPackageManifest, getPackument } from 'query-registry';
 import { cleanObject } from './clean-object';
+import { getRegistryPackageInfo } from './get-registry-package-info';
 import {
     PackagePageKind,
     PackagePageProps,
@@ -21,14 +17,11 @@ import {
     parsePackageRoute,
 } from './parse-package-route';
 import { hour, minute, week } from './revalidate-times';
-import { Storage } from './storage';
 
 export async function getPackagePageStaticProps({
     route,
-    storage,
 }: {
     route: string;
-    storage: Storage;
 }): Promise<GetStaticPropsResult<PackagePageProps>> {
     const parsedRoute = parsePackageRoute({ route });
 
@@ -36,7 +29,7 @@ export async function getPackagePageStaticProps({
         case PackageRouteKind.DocLatestVersion:
             return getDocLatestVersionRedirect({ parsedRoute });
         case PackageRouteKind.DocFixedVersion:
-            return getDocFixedVersionProps({ parsedRoute, storage });
+            return getDocFixedVersionProps({ parsedRoute });
         case PackageRouteKind.AvailableVersions:
             return getAvailableVersionsProps({ parsedRoute });
         case PackageRouteKind.Error:
@@ -70,44 +63,20 @@ async function getDocLatestVersionRedirect({
 
 async function getDocFixedVersionProps({
     parsedRoute,
-    storage,
 }: {
     parsedRoute: PackageRouteDocFixedVersion;
-    storage: Storage;
 }): Promise<
     GetStaticPropsResult<PackagePagePropsDocs | PackagePagePropsError>
 > {
     try {
         const { name, version } = parsedRoute;
-
-        const objectName = `registry-package-info/${packageAnalyzerVersion}/${name}/${version}.json`;
-        const storedInfo = await storage.getObject<RegistryPackageInfo>({
-            name: objectName,
-        });
-
-        if (storedInfo) {
-            return {
-                props: {
-                    kind: PackagePageKind.Docs,
-                    info: cleanObject(storedInfo),
-                    createdAt: storedInfo.createdAt,
-                },
-            };
-        }
-
-        const info = await analyzeRegistryPackage({ name, version });
-
-        // Store fresh info for future use
-        await storage.putObject({
-            name: objectName,
-            obj: info,
-        });
+        const info = await getRegistryPackageInfo({ name, version });
 
         return {
             props: {
                 kind: PackagePageKind.Docs,
                 info: cleanObject(info),
-                createdAt: now(),
+                createdAt: info.createdAt,
             },
         };
     } catch {
@@ -135,7 +104,7 @@ async function getAvailableVersionsProps({
             props: {
                 kind: PackagePageKind.AvailableVersions,
                 packument: cleanObject(packument),
-                createdAt: now(),
+                createdAt: new Date().toISOString(),
             },
             revalidate: hour,
         };
@@ -161,8 +130,4 @@ function getErrorProps({
         },
         revalidate,
     };
-}
-
-function now(): string {
-    return new Date().toISOString();
 }

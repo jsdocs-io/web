@@ -7,10 +7,7 @@ import {
     PackagePageKind,
     PackagePageProps,
 } from '../../lib/package-page-props';
-import { Storage } from '../../lib/storage';
 import Page404 from '../404';
-
-const storage = new Storage();
 
 export default function PackagePage(props: PackagePageProps) {
     switch (props.kind) {
@@ -36,8 +33,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const slug = params!.slug as string[];
     const route = `/${slug.join('/')}`;
 
-    return getPackagePageStaticProps({
-        route,
-        storage,
-    });
+    return getPackagePageStaticProps({ route });
 };
