@@ -1,5 +1,5 @@
 const { StatsWriterPlugin } = require('webpack-stats-plugin');
-const Visualizer = require('webpack-visualizer-plugin');
+const Visualizer = require('webpack-visualizer-plugin2');
 const LicensePlugin = require('webpack-license-plugin');
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
