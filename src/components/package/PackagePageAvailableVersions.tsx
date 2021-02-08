@@ -1,6 +1,6 @@
 import NextHead from 'next/head';
 import React from 'react';
-import { PackagePagePropsAvailableVersions } from '../../lib/package-page-props';
+import { PackagePagePropsAvailableVersions } from '../../lib/get-package-page-available-versions-props';
 import { Layout } from '../common/Layout';
 import { PackageDistTagsSection } from './PackageDistTagsSection';
 import { PackageFooterSection } from './PackageFooterSection';
@@ -9,7 +9,7 @@ import { PackageTitleVersionsSection } from './PackageTitleVersionsSection';
 import { PackageVersionsSection } from './PackageVersionsSection';
 
 export function PackagePageAvailableVersions({
-    packument,
+    data,
     createdAt,
 }: PackagePagePropsAvailableVersions) {
     const {
@@ -18,7 +18,7 @@ export function PackagePageAvailableVersions({
         distTags,
         versionsToTimestamps,
         license,
-    } = packument;
+    } = data;
 
     const pageTitle = `${name} versions - jsDocs.io`;
     const pageDescription = `Available versions for npm package ${name} - jsDocs.io`;

@@ -40,6 +40,7 @@
         "@microsoft/tsdoc": "^0.13.0",
         "anchor-js": "^4.3.0",
         "clean-deep": "^3.4.0",
+        "filter-anything": "^2.1.8",
         "fs-extra": "^9.1.0",
         "minio": "^7.0.18",
         "new-github-issue-url": "^0.2.1",

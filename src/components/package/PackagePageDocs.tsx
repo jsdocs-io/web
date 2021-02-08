@@ -1,6 +1,6 @@
 import NextHead from 'next/head';
 import React from 'react';
-import { PackagePagePropsDocs } from '../../lib/package-page-props';
+import { PackagePagePropsDocs } from '../../lib/get-package-page-docs-props';
 import { Layout } from '../common/Layout';
 import { PackageAPISections } from './PackageAPISections';
 import { PackageBadgeSection } from './PackageBadgeSection';
@@ -13,8 +13,8 @@ import { PackageNav } from './PackageNav';
 import { PackageOverviewSection } from './PackageOverviewSection';
 import { PackageTitleDocsSection } from './PackageTitleDocsSection';
 
-export function PackagePageDocs({ info, createdAt }: PackagePagePropsDocs) {
-    const { manifest, api, elapsed } = info;
+export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
+    const { manifest, api, elapsed } = data;
 
     const {
         id,

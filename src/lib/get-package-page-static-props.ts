@@ -1,133 +1,38 @@
 import { GetStaticPropsResult } from 'next';
-import { getPackageManifest, getPackument } from 'query-registry';
-import { cleanObject } from './clean-object';
-import { getRegistryPackageInfo } from './get-registry-package-info';
 import {
-    PackagePageKind,
-    PackagePageProps,
+    getPackagePageAvailableVersionsProps,
     PackagePagePropsAvailableVersions,
-    PackagePagePropsDocs,
-    PackagePagePropsError,
-} from './package-page-props';
+} from './get-package-page-available-versions-props';
 import {
-    PackageRouteAvailableVersions,
-    PackageRouteDocFixedVersion,
-    PackageRouteDocLatestVersion,
-    PackageRouteKind,
-    parsePackageRoute,
-} from './parse-package-route';
-import { hour, minute, week } from './revalidate-times';
+    getPackagePageDocsProps,
+    PackagePagePropsDocs,
+} from './get-package-page-docs-props';
+import {
+    getPackagePageErrorProps,
+    PackagePagePropsError,
+} from './get-package-page-error-props';
+import { getPackagePageLatestVersionRedirect } from './get-package-page-latest-version-redirect';
+import { PackageRouteKind, parsePackageRoute } from './parse-package-route';
+
+export type PackagePageProps =
+    | PackagePagePropsDocs
+    | PackagePagePropsAvailableVersions
+    | PackagePagePropsError;
 
 export async function getPackagePageStaticProps({
-    route,
+    route: rawRoute,
 }: {
     route: string;
 }): Promise<GetStaticPropsResult<PackagePageProps>> {
-    const parsedRoute = parsePackageRoute({ route });
-
-    switch (parsedRoute.kind) {
+    const route = parsePackageRoute({ route: rawRoute });
+    switch (route.kind) {
         case PackageRouteKind.DocLatestVersion:
-            return getDocLatestVersionRedirect({ parsedRoute });
+            return getPackagePageLatestVersionRedirect({ route });
         case PackageRouteKind.DocFixedVersion:
-            return getDocFixedVersionProps({ parsedRoute });
+            return getPackagePageDocsProps({ route });
         case PackageRouteKind.AvailableVersions:
-            return getAvailableVersionsProps({ parsedRoute });
+            return getPackagePageAvailableVersionsProps({ route });
         case PackageRouteKind.Error:
-            return getErrorProps();
+            return getPackagePageErrorProps();
     }
-}
-
-async function getDocLatestVersionRedirect({
-    parsedRoute,
-}: {
-    parsedRoute: PackageRouteDocLatestVersion;
-}): Promise<GetStaticPropsResult<PackagePagePropsError>> {
-    try {
-        const { name } = parsedRoute;
-        const { version } = await getPackageManifest({ name });
-
-        return {
-            redirect: {
-                destination: `/package/${name}/v/${version}`,
-                permanent: false,
-            },
-            revalidate: hour,
-        };
-    } catch {
-        return getErrorProps({
-            message: 'Package Not Found',
-            revalidate: 10 * minute,
-        });
-    }
-}
-
-async function getDocFixedVersionProps({
-    parsedRoute,
-}: {
-    parsedRoute: PackageRouteDocFixedVersion;
-}): Promise<
-    GetStaticPropsResult<PackagePagePropsDocs | PackagePagePropsError>
-> {
-    try {
-        const { name, version } = parsedRoute;
-        const info = await getRegistryPackageInfo({ name, version });
-
-        return {
-            props: {
-                kind: PackagePageKind.Docs,
-                info: cleanObject(info),
-                createdAt: info.createdAt,
-            },
-        };
-    } catch {
-        return getErrorProps({
-            message: 'Package Version Not Found',
-            revalidate: 10 * minute,
-        });
-    }
-}
-
-async function getAvailableVersionsProps({
-    parsedRoute,
-}: {
-    parsedRoute: PackageRouteAvailableVersions;
-}): Promise<
-    GetStaticPropsResult<
-        PackagePagePropsAvailableVersions | PackagePagePropsError
-    >
-> {
-    try {
-        const { name } = parsedRoute;
-        const packument = await getPackument({ name });
-
-        return {
-            props: {
-                kind: PackagePageKind.AvailableVersions,
-                packument: cleanObject(packument),
-                createdAt: new Date().toISOString(),
-            },
-            revalidate: hour,
-        };
-    } catch {
-        return getErrorProps({
-            message: 'Package Not Found',
-            revalidate: 10 * minute,
-        });
-    }
-}
-
-function getErrorProps({
-    message = 'Page Not Found',
-    revalidate = week,
-}: {
-    message?: string;
-    revalidate?: number | boolean;
-} = {}): GetStaticPropsResult<PackagePagePropsError> {
-    return {
-        props: {
-            kind: PackagePageKind.Error,
-            message,
-        },
-        revalidate,
-    };
 }

@@ -2,11 +2,11 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
 import { PackagePageAvailableVersions } from '../../components/package/PackagePageAvailableVersions';
 import { PackagePageDocs } from '../../components/package/PackagePageDocs';
-import { getPackagePageStaticProps } from '../../lib/get-package-page-static-props';
 import {
-    PackagePageKind,
+    getPackagePageStaticProps,
     PackagePageProps,
-} from '../../lib/package-page-props';
+} from '../../lib/get-package-page-static-props';
+import { PackagePageKind } from '../../lib/package-page-kind';
 import Page404 from '../404';
 
 export default function PackagePage(props: PackagePageProps) {
