@@ -86,21 +86,21 @@ function getMinimalPackageManifest({
 }: {
     fullManifest: PackageManifest;
 }): MinimalPackageManifest {
-    return pick(fullManifest, [
+    return (pick(fullManifest, [
         'id',
         'name',
         'version',
         'description',
         'definitelyTypedName',
         'untypedName',
-        'gitRepository',
+        'gitRepository.url',
         'license',
         'dependencies',
         'devDependencies',
         'peerDependencies',
-        'dist',
+        'dist.unpackedSize',
         'createdAt',
-    ]);
+    ]) as unknown) as MinimalPackageManifest;
 }
 
 function getMinimalPackageAPI({

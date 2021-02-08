@@ -58,7 +58,7 @@ function getMinimalPackument({
 }): MinimalPackument {
     return pick(packument, [
         'name',
-        'gitRepository',
+        'gitRepository.url',
         'distTags',
         'versionsToTimestamps',
         'license',
