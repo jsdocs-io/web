@@ -1,4 +1,5 @@
 import { PackageAPI, RegistryPackageInfo } from '@jsdocs-io/package-analyzer';
+import cleanDeep from 'clean-deep';
 import { pick } from 'filter-anything';
 import { GetStaticPropsResult } from 'next';
 import { PackageManifest } from 'query-registry';
@@ -73,8 +74,9 @@ function getMinimalRegistryPackageInfo({
 }: {
     info: RegistryPackageInfo;
 }): MinimalRegistryPackageInfo {
-    const { manifest: fullManifest, api, elapsed } = info;
+    const { manifest: fullManifest, api: fullAPI, elapsed } = info;
     const manifest = getMinimalPackageManifest({ fullManifest });
+    const api = getMinimalPackageAPI({ fullAPI });
 
     return { manifest, api, elapsed };
 }
@@ -99,4 +101,42 @@ function getMinimalPackageManifest({
         'dist',
         'createdAt',
     ]);
+}
+
+function getMinimalPackageAPI({
+    fullAPI,
+}: {
+    fullAPI?: PackageAPI;
+}): PackageAPI | undefined {
+    if (!fullAPI) {
+        return undefined;
+    }
+
+    // Not anymore a proper `PackageAPI` with respect to `Declaration` kinds!
+    // For example, a `VariableDeclaration` won't have the `variableKind` property.
+    return cleanDeep(fullAPI, {
+        cleanKeys: [
+            // VariableDeclaration, FunctionDeclaration,
+            // ClassPropertyDeclaration, ClassMethodDeclaration,
+            // InterfacePropertyDeclaration, InterfaceMethodDeclaration
+            'type',
+            // VariableDeclaration
+            'variableKind',
+            // ClassDeclaration
+            'isAbstract',
+            // ClassPropertyDeclaration, ClassMethodDeclaration
+            'isStatic',
+            // InterfacePropertyDeclaration
+            'isReadonly',
+            // InterfacePropertyDeclaration
+            'isOptional',
+            // EnumDeclaration
+            'isConst',
+            // EnumMemberDeclaration
+            'value',
+        ],
+        emptyArrays: false,
+        emptyObjects: false,
+        emptyStrings: false,
+    }) as PackageAPI;
 }

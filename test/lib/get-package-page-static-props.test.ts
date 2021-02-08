@@ -122,9 +122,6 @@ describe('getPackagePageStaticProps:DocFixedVersion', () => {
                 name: 'foo',
                 version: '1.0.0',
             },
-            api: {
-                overview: '/** Foo */',
-            },
             createdAt: '2020-01-01',
             elapsed: 1000,
         };
@@ -146,7 +143,6 @@ describe('getPackagePageStaticProps:DocFixedVersion', () => {
                 kind: PackagePageKind.Docs,
                 data: {
                     manifest: info.manifest,
-                    api: info.api,
                     elapsed: info.elapsed,
                 },
                 createdAt: info.createdAt,
