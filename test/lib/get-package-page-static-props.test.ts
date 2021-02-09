@@ -83,6 +83,16 @@ describe('getPackagePageStaticProps:DocFixedVersion', () => {
             },
             api: {
                 overview: '/** Foo */',
+                declarations: {
+                    variables: [],
+                    functions: [],
+                    classes: [],
+                    interfaces: [],
+                    enums: [],
+                    typeAliases: [],
+                    namespaces: [],
+                },
+                files: [],
             },
             createdAt: '2020-01-01',
             elapsed: 1000,

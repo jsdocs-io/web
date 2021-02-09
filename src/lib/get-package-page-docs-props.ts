@@ -4,6 +4,7 @@ import { pick } from 'filter-anything';
 import { GetStaticPropsResult } from 'next';
 import { PackageManifest } from 'query-registry';
 import { cleanObject } from './clean-object';
+import { flattenPackageAPI } from './flatten-package-api';
 import {
     getPackagePageErrorProps,
     PackagePagePropsError,
@@ -76,7 +77,8 @@ function getMinimalRegistryPackageInfo({
 }): MinimalRegistryPackageInfo {
     const { manifest: fullManifest, api: fullAPI, elapsed } = info;
     const manifest = getMinimalPackageManifest({ fullManifest });
-    const api = getMinimalPackageAPI({ fullAPI });
+    const minimalAPI = getMinimalPackageAPI({ fullAPI });
+    const api = flattenPackageAPI({ api: minimalAPI });
 
     return { manifest, api, elapsed };
 }
