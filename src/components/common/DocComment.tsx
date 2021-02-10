@@ -314,10 +314,6 @@ function DocNode({ node }: DocNodeProps) {
             return <DocParagraph node={node} />;
         case 'PlainText':
             return <DocPlainText node={node} />;
-        case 'HtmlStartTag':
-            return <DocHtmlStartTag node={node} />;
-        case 'HtmlEndTag':
-            return <DocHtmlEndTag node={node} />;
         case 'SoftBreak':
             return <DocSoftBreak />;
         default:
@@ -402,18 +398,6 @@ function DocPlainText({ node }: DocNodeProps) {
     const plainText = (node as tsdoc.DocPlainText).text;
 
     return <>{plainText}</>;
-}
-
-function DocHtmlStartTag({ node }: DocNodeProps) {
-    const htmlStartTag = node as tsdoc.DocHtmlStartTag;
-
-    return <span className="break-all">{htmlStartTag.emitAsHtml()}</span>;
-}
-
-function DocHtmlEndTag({ node }: DocNodeProps) {
-    const htmlEndTag = node as tsdoc.DocHtmlEndTag;
-
-    return <span className="break-all">{htmlEndTag.emitAsHtml()}</span>;
 }
 
 /** DocSoftBreak renders a single space */
