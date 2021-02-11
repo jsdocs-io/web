@@ -49,6 +49,13 @@ export function PackageNamespaceDeclarationSections({
                     </div>
                 ))}
 
+                {declaration.declarations.typeAliases.map((decl) => (
+                    <PackageDeclarationSection
+                        key={decl.id}
+                        declaration={decl}
+                    />
+                ))}
+
                 {declaration.declarations.namespaces.map((decl) => (
                     <div key={decl.id}>
                         <PackageNamespaceDeclarationSections
