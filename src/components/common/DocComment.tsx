@@ -159,8 +159,8 @@ function DocParamsSections({
 }) {
     return (
         <>
-            {paramBlocks.map(({ parameterName, content }) => (
-                <section key={parameterName}>
+            {paramBlocks.map(({ parameterName, content }, index) => (
+                <section key={index}>
                     <h4>Parameter {parameterName}</h4>
 
                     <DocContainer container={content} />
