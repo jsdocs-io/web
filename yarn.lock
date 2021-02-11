@@ -1484,10 +1484,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@jsdocs-io/package-analyzer@2.0.0-1":
-  version "2.0.0-1"
-  resolved "https://npm.pkg.github.com/download/@jsdocs-io/package-analyzer/2.0.0-1/f631200dc2ec8c75ee107bd87bdeed4a888712e4ad466a4c63e99029d3e24a67#4b457a3723fe3be3ca6ad8b12150faf0e5d6322a"
-  integrity sha512-f+nWnRPQwCwPHJgcTCfZebRYS7lkZOBphYUoBBtjlrN1oSqlN7SWH6u8rrrI6umK9k8AyTSeLP4chvoLtyvZMg==
+"@jsdocs-io/package-analyzer@^2.0.0-2":
+  version "2.0.0-2"
+  resolved "https://npm.pkg.github.com/download/@jsdocs-io/package-analyzer/2.0.0-2/bd75431b0a5f12179878208be278ab5339da4bcf6fa6e9aa25681769daf9a92c#1ee9f9fa07f64ae4cd8698da57eefbec4b4d00b3"
+  integrity sha512-+YPHfYiLlBFYnMzkQPvvf7wAgP5ANNwhc1fb3L7kmyDx1xmi5lbDdNWDUFEwpGCO2tRqON6zqsWqDFDea2SFxg==
   dependencies:
     "@microsoft/tsdoc" "^0.13.0"
     concat-stream "^2.0.0"
@@ -1496,7 +1496,7 @@
     gunzip-maybe "^1.4.2"
     hosted-git-info "^3.0.8"
     prettier "^2.2.1"
-    query-registry "2.0.0-3"
+    query-registry "^2.0.0-4"
     tar-stream "^2.2.0"
     ts-morph "^9.1.0"
 
@@ -8428,18 +8428,6 @@ qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
-
-query-registry@2.0.0-3:
-  version "2.0.0-3"
-  resolved "https://registry.yarnpkg.com/query-registry/-/query-registry-2.0.0-3.tgz#c51f3c985b8f4076a443d2243e4b27d30b4b8d97"
-  integrity sha512-e3+dLTNDn+xw69jX+IRX5q5PrGENiVlsWeP139zBK7ZpYPLu8o+C4khVRyEzddGBuFbAWHSW8UJVUrbCYQIB9A==
-  dependencies:
-    debug "^4.1.1"
-    git-url-parse "^11.4.4"
-    isomorphic-unfetch "^3.1.0"
-    make-error "^1.3.6"
-    tiny-lru "^7.0.6"
-    validate-npm-package-name "^3.0.0"
 
 query-registry@^2.0.0-4:
   version "2.0.0-4"
