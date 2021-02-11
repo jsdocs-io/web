@@ -1,6 +1,7 @@
 import NextHead from 'next/head';
 import React from 'react';
 import { PackagePagePropsDocs } from '../../lib/get-package-page-docs-props';
+import { hasPackageDeclarations } from '../../lib/has-package-declarations';
 import { Layout } from '../common/Layout';
 import { PackageAPISections } from './PackageAPISections';
 import { PackageBadgeSection } from './PackageBadgeSection';
@@ -32,10 +33,12 @@ export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
         peerDependencies,
     } = manifest;
 
-    const hasDocs = !!api?.files.length;
+    const hasDocs = hasPackageDeclarations({ api });
 
     const pageTitle = `${id} - jsDocs.io`;
-    const pageDescription = `Documentation for npm package ${id} - jsDocs.io`;
+    const pageDescription = hasDocs
+        ? `Documentation for npm package ${id} - jsDocs.io`
+        : `Information for npm package ${id} - jsDocs.io`;
     const pageURL = `https://www.jsdocs.io/package/${name}/v/${version}`;
 
     return (
@@ -87,7 +90,7 @@ export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
                         description={description}
                     />
 
-                    <PackageAPISections api={api} />
+                    <PackageAPISections api={api} hasDocs={hasDocs} />
 
                     <PackageDependenciesSections
                         dependencies={dependencies}

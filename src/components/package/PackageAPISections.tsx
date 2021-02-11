@@ -4,8 +4,14 @@ import { PackageDeclarationsSections } from './PackageDeclarationsSections';
 import { PackageFilesSection } from './PackageFilesSection';
 import { PackageIndexSection } from './PackageIndexSection';
 
-export function PackageAPISections({ api }: { api?: PackageAPI }) {
-    if (!api || !api.files.length) {
+export function PackageAPISections({
+    api,
+    hasDocs,
+}: {
+    api?: PackageAPI;
+    hasDocs: boolean;
+}) {
+    if (!api || !hasDocs) {
         return null;
     }
 
