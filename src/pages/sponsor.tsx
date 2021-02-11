@@ -82,8 +82,8 @@ function GoldSponsorsSection() {
             <h2>Gold Sponsors</h2>
 
             <ul className="flex flex-wrap items-center justify-center mt-4 rounded dark:bg-gray-200">
-                {goldSponsors.map(({ name, url, logo }, i) => (
-                    <li key={i}>
+                {goldSponsors.map(({ name, url, logo }, index) => (
+                    <li key={index}>
                         <a
                             className="flex items-center justify-center p-5"
                             href={url}
@@ -108,8 +108,8 @@ function SilverSponsorsSection() {
             <h2>Silver Sponsors</h2>
 
             <ul className="flex flex-wrap items-center justify-center mt-4 rounded dark:bg-gray-200">
-                {silverSponsors.map(({ name, url, logo }, i) => (
-                    <li key={i}>
+                {silverSponsors.map(({ name, url, logo }, index) => (
+                    <li key={index}>
                         <a
                             className="flex items-center justify-center p-4"
                             href={url}
@@ -134,8 +134,8 @@ function BronzeSponsorsSection() {
             <h2>Bronze Sponsors</h2>
 
             <ul className="flex flex-wrap items-center justify-center mt-4 rounded dark:bg-gray-200">
-                {bronzeSponsors.map(({ name, url, logo }, i) => (
-                    <li key={i}>
+                {bronzeSponsors.map(({ name, url, logo }, index) => (
+                    <li key={index}>
                         <a
                             className="flex items-center justify-center p-4"
                             href={url}
@@ -160,8 +160,8 @@ function BackersSection() {
             <h2>Backers</h2>
 
             <ul className="mt-4 list-inline">
-                {backers.map(({ name, url }, i) => (
-                    <li key={i}>
+                {backers.map(({ name, url }, index) => (
+                    <li key={index}>
                         {url ? <A href={url}>{name}</A> : <>{name}</>}
                     </li>
                 ))}
