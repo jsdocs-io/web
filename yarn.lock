@@ -1433,10 +1433,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@jsdocs-io/package-analyzer@^2.0.0-2":
-  version "2.0.0-2"
-  resolved "https://npm.pkg.github.com/download/@jsdocs-io/package-analyzer/2.0.0-2/bd75431b0a5f12179878208be278ab5339da4bcf6fa6e9aa25681769daf9a92c#1ee9f9fa07f64ae4cd8698da57eefbec4b4d00b3"
-  integrity sha512-+YPHfYiLlBFYnMzkQPvvf7wAgP5ANNwhc1fb3L7kmyDx1xmi5lbDdNWDUFEwpGCO2tRqON6zqsWqDFDea2SFxg==
+"@jsdocs-io/package-analyzer@^2.0.0-3":
+  version "2.0.0-3"
+  resolved "https://npm.pkg.github.com/download/@jsdocs-io/package-analyzer/2.0.0-3/3f273ab6fd57b14bd5fb52c86c268a13e372a808775f2f51047f3c54b8c9a3cc#d1e2002cb66e87e73b3712615a544aa67eb2abc2"
+  integrity sha512-9kc4697+7zsGa5h5BR+56y0YDeR+4niWB8E0m69kN2/OZP2gOwP/HrC0KV/aSIjk5NL+nZkdPhcN/aQOqD5yOw==
   dependencies:
     "@microsoft/tsdoc" "^0.13.0"
     concat-stream "^2.0.0"
