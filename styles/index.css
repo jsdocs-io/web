@@ -48,6 +48,24 @@
         content: '·';
     }
 
+    .list-declaration-docs {
+        @apply mt-4;
+    }
+
+    .list-declaration-docs li {
+        @apply block;
+    }
+
+    .list-declaration-docs li + li::before {
+        @apply block;
+        @apply my-4;
+        @apply border-b;
+        @apply border-dashed;
+        @apply border-gray-300;
+        @apply dark:border-gray-700;
+        content: '';
+    }
+
     .navbar-links {
         scrollbar-width: none;
         -ms-overflow-style: none;

@@ -13,7 +13,7 @@ export function PackageDeclarationSection({
         id,
         name,
         kind,
-        doc,
+        docs,
         signature,
         source: { filename, url },
     } = declaration;
@@ -30,7 +30,13 @@ export function PackageDeclarationSection({
 
             <DeclarationSignature signature={signature} />
 
-            <DocComment doc={doc} />
+            <ul className="list-declaration-docs">
+                {docs.map((doc) => (
+                    <li key={doc}>
+                        <DocComment doc={doc} />
+                    </li>
+                ))}
+            </ul>
         </section>
     );
 }
