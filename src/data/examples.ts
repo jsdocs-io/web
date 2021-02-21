@@ -45,7 +45,7 @@ export const exampleOverview = `
 export const exampleOverviewFile = `
 // index.ts
 
-${exampleOverview}`.trim();
+${exampleOverview.trimLeft()}`;
 
 export const exampleDeclarationDoc = `
 /**
@@ -70,10 +70,10 @@ export const exampleDeclarationDoc = `
 export const exampleDeclarationFile = `
 // index.ts
 
-${exampleDeclarationDoc}
+${exampleDeclarationDoc.trimLeft()}
 export function sum(a: number, b: number): number {
     return a + b;
-}`.trim();
+}`;
 
 export const exampleDeclarationSignature =
     'sum: (a: number, b: number) => number;';
@@ -88,7 +88,7 @@ export const examplePackageJSONRepository = `
         "url": "https://github.com/username/repository.git"
     },
     ...
-}`.trim();
+}`;
 
 export const examplePackageJSONRepositoryWithDirectory = `
 // package.json
@@ -101,7 +101,7 @@ export const examplePackageJSONRepositoryWithDirectory = `
         "directory": "path/to/dir/containing/your/package"
     },
     ...
-}`.trim();
+}`;
 
 export const exampleProjectStructure = `
 ├── src
@@ -110,7 +110,7 @@ export const exampleProjectStructure = `
 │   ├── index.js
 │   └── index.d.ts
 └── package.json
-`.trim();
+`;
 
 export const examplePackageJSONFiles = `
 // package.json
@@ -122,7 +122,7 @@ export const examplePackageJSONFiles = `
         "dist"
     ],
     ...
-}`.trim();
+}`;
 
 export const exampleIndexFile = `
 // index.ts
@@ -131,4 +131,4 @@ export const exampleIndexFile = `
 export * from './other-module';
 
 // Direct export
-export const name = 'foo';`.trim();
+export const name = 'foo';`;

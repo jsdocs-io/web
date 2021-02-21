@@ -1,13 +1,18 @@
 import React from 'react';
+import trimNewlines from 'trim-newlines';
 import { SyntaxHighlight } from './SyntaxHighlight';
 
 export function CodeBlockContents({
-    code,
+    code: rawCode,
     language,
 }: {
     code: string;
     language: string;
 }) {
+    // Trim newlines to prevent rendering empty space surrounding content
+    // but preserve other whitespace that may be used for alignment.
+    const code = trimNewlines(rawCode);
+
     const copyCodeToClipboard = () => {
         navigator.clipboard?.writeText(code);
     };

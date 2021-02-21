@@ -11,7 +11,7 @@ export function SyntaxHighlight({
     return (
         <Highlight
             {...defaultProps}
-            // Use css theme imported in _app
+            // Use CSS theme for Prism theme imported in `_app.tsx`
             theme={undefined}
             code={code}
             language={language as any}
@@ -19,30 +19,13 @@ export function SyntaxHighlight({
             {({ className, tokens, getLineProps, getTokenProps }) => (
                 <pre className={`${className} rounded`}>
                     <code>
-                        {tokens.map((line, i) => {
-                            const isLineBreak =
-                                line.length === 1 &&
-                                line[0].content === '' &&
-                                i < tokens.length - 1;
-
-                            return (
-                                <div {...getLineProps({ line, key: i })}>
-                                    {isLineBreak ? (
-                                        // See https://github.com/FormidableLabs/prism-react-renderer/issues/36
-                                        <span className="inline-block token plain" />
-                                    ) : (
-                                        line.map((token, key) => (
-                                            <span
-                                                {...getTokenProps({
-                                                    token,
-                                                    key,
-                                                })}
-                                            />
-                                        ))
-                                    )}
-                                </div>
-                            );
-                        })}
+                        {tokens.map((line, index) => (
+                            <div {...getLineProps({ line, key: index })}>
+                                {line.map((token, key) => (
+                                    <span {...getTokenProps({ token, key })} />
+                                ))}
+                            </div>
+                        ))}
                     </code>
                 </pre>
             )}
