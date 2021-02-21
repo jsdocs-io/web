@@ -38,11 +38,11 @@
         @apply -mx-1;
     }
 
-    .list-inline li:first-child {
+    .list-inline > li:first-child {
         @apply pl-1;
     }
 
-    .list-inline li + li::before {
+    .list-inline > li + li::before {
         @apply px-1;
         @apply text-gray-500;
         content: '·';
@@ -52,11 +52,11 @@
         @apply mt-4;
     }
 
-    .list-declaration-docs li {
+    .list-declaration-docs > li {
         @apply block;
     }
 
-    .list-declaration-docs li + li::before {
+    .list-declaration-docs > li + li::before {
         @apply block;
         @apply my-4;
         @apply border-b;
