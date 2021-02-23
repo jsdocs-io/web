@@ -25,10 +25,10 @@ export function PackageFooterSection({
     });
 
     return (
-        <section>
+        <section className="space-y-4">
             <hr className="border-gray-300 dark:border-gray-700" />
 
-            <ul className="mt-4 space-y-2">
+            <ul className="space-y-2">
                 <li>
                     Updated <TimeAgo date={createdAt} />.
                     {analysisTime && (
