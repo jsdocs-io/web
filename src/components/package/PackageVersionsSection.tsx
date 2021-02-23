@@ -9,11 +9,11 @@ export function PackageVersionsSection({
     name: string;
     versionsToTimestamps: Record<string, string>;
 }) {
-    const numVersions = Object.keys(versionsToTimestamps).length;
-
     return (
         <section>
-            <h2 id="package-versions">Versions ({numVersions})</h2>
+            <h2 id="package-versions">
+                Versions ({Object.keys(versionsToTimestamps).length})
+            </h2>
 
             <ul className="max-w-3xl mt-6 space-y-6">
                 {Object.entries(versionsToTimestamps)
