@@ -1,16 +1,25 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { InternalLink } from '../common/InternalLink';
 import { PackageVersionsLink } from '../common/PackageVersionsLink';
 
-export function PackageNavAnchorsList({
+export function PackageNavDocsResourcesList({
     name,
     hasDocs,
 }: {
     name: string;
     hasDocs: boolean;
 }) {
+    // Do not render this component on the `/package/<name>/versions` route
+    const router = useRouter();
+    const slug = router.query['slug'] as string[];
+    const isPackageAvailableVersionsPage = [...slug].pop() === 'versions';
+    if (isPackageAvailableVersionsPage) {
+        return null;
+    }
+
     return (
-        <ul className="mt-2 list-inline">
+        <ul className="list-inline">
             {hasDocs && (
                 <>
                     <li>

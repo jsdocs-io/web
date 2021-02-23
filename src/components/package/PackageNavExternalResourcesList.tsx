@@ -1,7 +1,7 @@
 import React from 'react';
 import { A } from '../common/A';
 
-export function PackageNavResourcesList({
+export function PackageNavExternalResourcesList({
     name,
     repositoryURL,
 }: {
@@ -9,10 +9,15 @@ export function PackageNavResourcesList({
     repositoryURL?: string;
 }) {
     return (
-        <ul className="mt-2 list-inline">
+        <ul className="list-inline">
             {repositoryURL && (
                 <li>
-                    <RepositoryLink name={name} repositoryURL={repositoryURL} />
+                    <A
+                        href={repositoryURL}
+                        title={`View repository for package ${name}`}
+                    >
+                        {repositoryURL.replace(/^https?:\/\//, '')}
+                    </A>
                 </li>
             )}
 
@@ -43,32 +48,5 @@ export function PackageNavResourcesList({
                 </A>
             </li>
         </ul>
-    );
-}
-
-function RepositoryLink({
-    name,
-    repositoryURL,
-}: {
-    name: string;
-    repositoryURL: string;
-}) {
-    const [host, user, repository] = repositoryURL
-        .replace(/^https?:\/\//, '')
-        .split('/');
-
-    return (
-        <A href={repositoryURL} title={`View repository for package ${name}`}>
-            {/* Insert word breaks, otherwise Chrome overflows the text */}
-            <span>{host}</span>
-            <wbr />
-
-            <span>/</span>
-            <span>{user}</span>
-            <wbr />
-
-            <span>/</span>
-            <span>{repository}</span>
-        </A>
     );
 }

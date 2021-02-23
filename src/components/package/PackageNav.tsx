@@ -1,7 +1,7 @@
 import React from 'react';
-import { PackageNavAnchorsList } from './PackageNavAnchorsList';
+import { PackageNavDocsResourcesList } from './PackageNavDocsResourcesList';
+import { PackageNavExternalResourcesList } from './PackageNavExternalResourcesList';
 import { PackageNavPackagesList } from './PackageNavPackagesList';
-import { PackageNavResourcesList } from './PackageNavResourcesList';
 
 export function PackageNav({
     name,
@@ -9,33 +9,27 @@ export function PackageNav({
     untypedName,
     repositoryURL,
     hasDocs = false,
-    hideInternalNav = false,
 }: {
     name: string;
     definitelyTypedName?: string;
     untypedName?: string;
     repositoryURL?: string;
     hasDocs?: boolean;
-    hideInternalNav?: boolean;
 }) {
-    const showInternalNav = !hideInternalNav;
-
     return (
-        <div className="p-4 border border-gray-300 rounded dark:border-gray-700">
+        <div className="p-4 space-y-2 border border-gray-300 rounded dark:border-gray-700">
             <PackageNavPackagesList
                 name={name}
                 definitelyTypedName={definitelyTypedName}
                 untypedName={untypedName}
             />
 
-            <PackageNavResourcesList
+            <PackageNavExternalResourcesList
                 name={name}
                 repositoryURL={repositoryURL}
             />
 
-            {showInternalNav && (
-                <PackageNavAnchorsList name={name} hasDocs={hasDocs} />
-            )}
+            <PackageNavDocsResourcesList name={name} hasDocs={hasDocs} />
         </div>
     );
 }
