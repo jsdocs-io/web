@@ -3,16 +3,16 @@ import React from 'react';
 import { PackagePagePropsDocs } from '../../lib/get-package-page-docs-props';
 import { hasPackageDeclarations } from '../../lib/has-package-declarations';
 import { Layout } from '../common/Layout';
-import { PackageAPISections } from './PackageAPISections';
-import { PackageBadgeSection } from './PackageBadgeSection';
-import { PackageDependenciesSections } from './PackageDependenciesSections';
-import { PackageExternalTypesAlert } from './PackageExternalTypesAlert';
-import { PackageFooterSection } from './PackageFooterSection';
-import { PackageInstallSection } from './PackageInstallSection';
-import { PackageLicenseAlert } from './PackageLicenseAlert';
-import { PackageNav } from './PackageNav';
-import { PackageOverviewSection } from './PackageOverviewSection';
-import { PackageTitleDocsSection } from './PackageTitleDocsSection';
+import { PackageAPISections } from '../package/PackageAPISections';
+import { PackageBadgeSection } from '../package/PackageBadgeSection';
+import { PackageDependenciesSections } from '../package/PackageDependenciesSections';
+import { PackageExternalTypesAlert } from '../package/PackageExternalTypesAlert';
+import { PackageFooterSection } from '../package/PackageFooterSection';
+import { PackageInstallSection } from '../package/PackageInstallSection';
+import { PackageLicenseAlert } from '../package/PackageLicenseAlert';
+import { PackageNav } from '../package/PackageNav';
+import { PackageOverviewSection } from '../package/PackageOverviewSection';
+import { PackageTitleSection } from '../package/PackageTitleSection';
 
 export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
     const { manifest, api, elapsed } = data;
@@ -74,13 +74,13 @@ export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
                         hasDocs={hasDocs}
                     />
 
-                    <PackageTitleDocsSection
+                    <PackageTitleSection
                         name={name}
                         version={version}
                         publishedAt={publishedAt}
-                        license={license}
                         unpackedSize={unpackedSize}
-                        dependencies={dependencies}
+                        dependencies={dependencies ?? {}}
+                        license={license}
                     />
 
                     <PackageInstallSection name={name} />

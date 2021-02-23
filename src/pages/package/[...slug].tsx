@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
-import { PackagePageAvailableVersions } from '../../components/package/PackagePageAvailableVersions';
-import { PackagePageDocs } from '../../components/package/PackagePageDocs';
+import { PackagePageAvailableVersions } from '../../components/pages/PackagePageAvailableVersions';
+import { PackagePageDocs } from '../../components/pages/PackagePageDocs';
 import {
     getPackagePageStaticProps,
     PackagePageProps,

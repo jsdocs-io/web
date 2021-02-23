@@ -2,11 +2,11 @@ import NextHead from 'next/head';
 import React from 'react';
 import { PackagePagePropsAvailableVersions } from '../../lib/get-package-page-available-versions-props';
 import { Layout } from '../common/Layout';
-import { PackageDistTagsSection } from './PackageDistTagsSection';
-import { PackageFooterSection } from './PackageFooterSection';
-import { PackageNav } from './PackageNav';
-import { PackageTitleVersionsSection } from './PackageTitleVersionsSection';
-import { PackageVersionsSection } from './PackageVersionsSection';
+import { PackageDistTagsSection } from '../package/PackageDistTagsSection';
+import { PackageFooterSection } from '../package/PackageFooterSection';
+import { PackageNav } from '../package/PackageNav';
+import { PackageTitleSection } from '../package/PackageTitleSection';
+import { PackageVersionsSection } from '../package/PackageVersionsSection';
 
 export function PackagePageAvailableVersions({
     data,
@@ -46,10 +46,9 @@ export function PackagePageAvailableVersions({
                     <PackageNav
                         name={name}
                         repositoryURL={gitRepository?.url}
-                        hideInternalNav={true}
                     />
 
-                    <PackageTitleVersionsSection
+                    <PackageTitleSection
                         name={name}
                         distTags={distTags}
                         versionsToTimestamps={versionsToTimestamps}
