@@ -3,13 +3,12 @@ import React from 'react';
 import { PackagePagePropsDocs } from '../../lib/get-package-page-docs-props';
 import { hasPackageDeclarations } from '../../lib/has-package-declarations';
 import { Layout } from '../common/Layout';
+import { PackageAlerts } from '../package/PackageAlerts';
 import { PackageAPISections } from '../package/PackageAPISections';
 import { PackageBadgeSection } from '../package/PackageBadgeSection';
 import { PackageDependenciesSections } from '../package/PackageDependenciesSections';
-import { PackageExternalTypesAlert } from '../package/PackageExternalTypesAlert';
 import { PackageFooterSection } from '../package/PackageFooterSection';
 import { PackageInstallSection } from '../package/PackageInstallSection';
-import { PackageLicenseAlert } from '../package/PackageLicenseAlert';
 import { PackageNav } from '../package/PackageNav';
 import { PackageOverviewSection } from '../package/PackageOverviewSection';
 import { PackageTitleSection } from '../package/PackageTitleSection';
@@ -60,10 +59,10 @@ export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
 
             <Layout>
                 <div className="space-y-12">
-                    <PackageLicenseAlert license={license} />
-
-                    <PackageExternalTypesAlert
+                    <PackageAlerts
+                        hasDocs={hasDocs}
                         definitelyTypedName={definitelyTypedName}
+                        license={license}
                     />
 
                     <PackageNav

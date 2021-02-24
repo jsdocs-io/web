@@ -1,14 +1,9 @@
 import React from 'react';
-import { isValidLicense } from '../../lib/is-valid-license';
 
-export function PackageLicenseAlert({ license }: { license?: string }) {
-    if (isValidLicense({ license })) {
-        return null;
-    }
-
+export function PackageLicenseAlert() {
     return (
-        <div className="flex justify-center p-4 border border-red-500 rounded">
-            <p className="mt-0">
+        <div className="flex justify-center p-4 border-2 border-red-500 rounded">
+            <p className="mt-0 font-bold">
                 API extraction from unlicensed or proprietary packages is not
                 supported
             </p>
