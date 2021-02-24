@@ -3,7 +3,7 @@ import { CodeBlock } from '../common/CodeBlock';
 
 export function PackageInstallSection({ name }: { name: string }) {
     return (
-        <section>
+        <section className="space-y-4">
             <h2 id="package-install">Install</h2>
 
             <CodeBlock code={`npm i ${name}`} language="bash" />
