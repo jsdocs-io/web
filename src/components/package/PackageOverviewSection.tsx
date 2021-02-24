@@ -8,25 +8,15 @@ export function PackageOverviewSection({
     overview?: string;
     description?: string;
 }) {
-    if (overview) {
-        return (
-            <section>
-                <h2 id="package-overview">Overview</h2>
+    return (
+        <section className="space-y-2">
+            <h2 id="package-overview">Overview</h2>
 
-                <DocComment doc={overview} />
-            </section>
-        );
-    }
+            {overview && <DocComment doc={overview} />}
 
-    if (description) {
-        return (
-            <section>
-                <h2 id="package-overview">Overview</h2>
+            {!overview && description && <p>{description}</p>}
 
-                <p>{description}</p>
-            </section>
-        );
-    }
-
-    return null;
+            {!overview && !description && <p>Overview not available.</p>}
+        </section>
+    );
 }
