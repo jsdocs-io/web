@@ -12,7 +12,7 @@ export function PackageIndexInterfacesSection({
     }
 
     return (
-        <section>
+        <section className="space-y-2">
             <h3 id="package-index-interfaces">Interfaces</h3>
 
             <PackageIndexInterfacesList interfaces={interfaces} />

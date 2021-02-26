@@ -8,7 +8,7 @@ export function PackageIndexFunctionsList({
     functions: FunctionDeclaration[];
 }) {
     return (
-        <ul className="mt-2 space-y-1">
+        <ul className="space-y-1">
             {functions.map(({ id, name }) => (
                 <li key={id}>
                     <InternalLink href={`#${id}`} title={`Function ${name}`}>

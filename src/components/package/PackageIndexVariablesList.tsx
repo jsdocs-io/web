@@ -8,7 +8,7 @@ export function PackageIndexVariablesList({
     variables: VariableDeclaration[];
 }) {
     return (
-        <ul className="mt-2 space-y-1">
+        <ul className="space-y-1">
             {variables.map(({ id, name }) => (
                 <li key={id}>
                     <InternalLink href={`#${id}`} title={`Variable ${name}`}>

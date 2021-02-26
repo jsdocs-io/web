@@ -12,7 +12,7 @@ export function PackageIndexTypeAliasesSection({
     }
 
     return (
-        <section>
+        <section className="space-y-2">
             <h3 id="package-index-type-aliases">Type Aliases</h3>
 
             <PackageIndexTypeAliasesList typeAliases={typeAliases} />

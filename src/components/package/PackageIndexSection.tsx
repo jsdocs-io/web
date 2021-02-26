@@ -24,10 +24,10 @@ export function PackageIndexSection({
     } = declarations;
 
     return (
-        <section>
+        <section className="space-y-4">
             <h2 id="package-index">Index</h2>
 
-            <div className="mt-4 space-y-4">
+            <div className="space-y-4">
                 <PackageIndexVariablesSection variables={variables} />
                 <PackageIndexFunctionsSection functions={functions} />
                 <PackageIndexClassesSection classes={classes} />

@@ -12,7 +12,7 @@ export function PackageIndexVariablesSection({
     }
 
     return (
-        <section>
+        <section className="space-y-2">
             <h3 id="package-index-variables">Variables</h3>
 
             <PackageIndexVariablesList variables={variables} />

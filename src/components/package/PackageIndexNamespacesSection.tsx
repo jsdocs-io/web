@@ -12,7 +12,7 @@ export function PackageIndexNamespacesSection({
     }
 
     return (
-        <section>
+        <section className="space-y-2">
             <h3 id="package-index-namespaces">Namespaces</h3>
 
             <PackageIndexNamespacesList namespaces={namespaces} />

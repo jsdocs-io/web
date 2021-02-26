@@ -9,7 +9,7 @@ export function PackageIndexClassesList({
     classes: ClassDeclaration[];
 }) {
     return (
-        <ul className="mt-2 space-y-1">
+        <ul className="space-y-1">
             {classes.map(({ id, name, members }) => (
                 <li key={id}>
                     <details>

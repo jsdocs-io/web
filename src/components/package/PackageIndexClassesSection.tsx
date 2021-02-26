@@ -12,7 +12,7 @@ export function PackageIndexClassesSection({
     }
 
     return (
-        <section>
+        <section className="space-y-2">
             <h3 id="package-index-classes">Classes</h3>
 
             <PackageIndexClassesList classes={classes} />

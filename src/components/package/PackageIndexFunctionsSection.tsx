@@ -12,7 +12,7 @@ export function PackageIndexFunctionsSection({
     }
 
     return (
-        <section>
+        <section className="space-y-2">
             <h3 id="package-index-functions">Functions</h3>
 
             <PackageIndexFunctionsList functions={functions} />
