@@ -16,7 +16,7 @@ export function PackageDependenciesList({
         }));
 
     return (
-        <ul className="mt-2 list-inline">
+        <ul className="list-inline">
             {dependencies.map(({ name, semver, version }) => (
                 <li key={name}>
                     <PackageLink

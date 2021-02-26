@@ -6,7 +6,7 @@ import { Layout } from '../common/Layout';
 import { PackageAlerts } from '../package/PackageAlerts';
 import { PackageAPISections } from '../package/PackageAPISections';
 import { PackageBadgeSection } from '../package/PackageBadgeSection';
-import { PackageDependenciesSections } from '../package/PackageDependenciesSections';
+import { PackageDependenciesSection } from '../package/PackageDependenciesSection';
 import { PackageFooterSection } from '../package/PackageFooterSection';
 import { PackageInstallSection } from '../package/PackageInstallSection';
 import { PackageNav } from '../package/PackageNav';
@@ -27,9 +27,9 @@ export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
         createdAt: publishedAt,
         license,
         dist: { unpackedSize },
-        dependencies,
-        devDependencies,
-        peerDependencies,
+        dependencies = {},
+        devDependencies = {},
+        peerDependencies = {},
     } = manifest;
 
     const hasDocs = hasPackageDeclarations({ api });
@@ -78,7 +78,7 @@ export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
                         version={version}
                         publishedAt={publishedAt}
                         unpackedSize={unpackedSize}
-                        dependencies={dependencies ?? {}}
+                        dependencies={dependencies}
                         license={license}
                     />
 
@@ -91,10 +91,19 @@ export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
 
                     <PackageAPISections api={api} hasDocs={hasDocs} />
 
-                    <PackageDependenciesSections
+                    <PackageDependenciesSection
                         dependencies={dependencies}
-                        devDependencies={devDependencies}
-                        peerDependencies={peerDependencies}
+                        kind={'dependencies'}
+                    />
+
+                    <PackageDependenciesSection
+                        dependencies={devDependencies}
+                        kind={'dev-dependencies'}
+                    />
+
+                    <PackageDependenciesSection
+                        dependencies={peerDependencies}
+                        kind={'peer-dependencies'}
                     />
 
                     <PackageBadgeSection name={name} />
