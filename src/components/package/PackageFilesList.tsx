@@ -1,55 +1,46 @@
 import { PackageFile } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { isRepositoryFile } from '../../lib/is-repository-file';
 import { A } from '../common/A';
 
-export function PackageFilesList({ files }: { files: PackageFile[] }) {
+export function PackageFilesList({
+    name,
+    version,
+    files: rawFiles,
+}: {
+    name: string;
+    version: string;
+    files: PackageFile[];
+}) {
+    const files = rawFiles.map((file) => {
+        const { filename, url: rawURL } = file;
+        const unpkgURL = `https://unpkg.com/browse/${name}@${version}/${filename}`;
+
+        // Type definition files are present on GitHub for DefinitelyTyped packages.
+        // For other packages try to link to an available source for the file
+        // between unpkg and the original repository.
+        const url =
+            filename.endsWith('.d.ts') && !name.startsWith('@types/')
+                ? unpkgURL
+                : rawURL ?? unpkgURL;
+
+        return { ...file, url };
+    });
+
     return (
-        <ul className="mt-2 list-inline">
+        <ul className="list-inline">
             {files.map(({ filename, url, isIndexFile }) => (
                 <li key={filename}>
-                    <Filename
-                        filename={filename}
-                        url={url}
-                        isIndexFile={isIndexFile}
-                    />
+                    <A href={url} title={`View file ${filename}`}>
+                        {isIndexFile ? (
+                            <span className="font-bold hover:underline">
+                                {filename}
+                            </span>
+                        ) : (
+                            <>{filename}</>
+                        )}
+                    </A>
                 </li>
             ))}
         </ul>
-    );
-}
-
-function Filename({
-    filename,
-    url,
-    isIndexFile,
-}: {
-    filename: string;
-    url?: string;
-    isIndexFile?: boolean;
-}) {
-    // Can link to source
-    if (url && isRepositoryFile({ filename })) {
-        return (
-            <A href={url} title="View source file">
-                {isIndexFile ? (
-                    <span className="font-bold hover:underline">
-                        {filename}
-                    </span>
-                ) : (
-                    <>{filename}</>
-                )}
-            </A>
-        );
-    }
-
-    return (
-        <>
-            {isIndexFile ? (
-                <span className="font-bold">{filename}</span>
-            ) : (
-                <>{filename}</>
-            )}
-        </>
     );
 }

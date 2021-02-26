@@ -2,14 +2,20 @@ import { PackageFile } from '@jsdocs-io/package-analyzer';
 import React from 'react';
 import { PackageFilesList } from './PackageFilesList';
 
-export function PackageFilesSection({ files }: { files: PackageFile[] }) {
-    const numFiles = files.length;
-
+export function PackageFilesSection({
+    name,
+    version,
+    files,
+}: {
+    name: string;
+    version: string;
+    files: PackageFile[];
+}) {
     return (
-        <section>
-            <h2 id="package-files">Package Files ({numFiles})</h2>
+        <section className="space-y-2">
+            <h2 id="package-files">Package Files ({files.length})</h2>
 
-            <PackageFilesList files={files} />
+            <PackageFilesList name={name} version={version} files={files} />
         </section>
     );
 }
