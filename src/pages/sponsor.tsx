@@ -78,10 +78,10 @@ function IntroSection() {
 
 function GoldSponsorsSection() {
     return (
-        <section>
+        <section className="space-y-4">
             <h2>Gold Sponsors</h2>
 
-            <ul className="flex flex-wrap items-center justify-center mt-4 rounded dark:bg-gray-200">
+            <ul className="flex flex-wrap items-center justify-center rounded dark:bg-gray-200">
                 {goldSponsors.map(({ name, url, logo }, index) => (
                     <li key={index}>
                         <a
@@ -104,10 +104,10 @@ function GoldSponsorsSection() {
 
 function SilverSponsorsSection() {
     return (
-        <section>
+        <section className="space-y-4">
             <h2>Silver Sponsors</h2>
 
-            <ul className="flex flex-wrap items-center justify-center mt-4 rounded dark:bg-gray-200">
+            <ul className="flex flex-wrap items-center justify-center rounded dark:bg-gray-200">
                 {silverSponsors.map(({ name, url, logo }, index) => (
                     <li key={index}>
                         <a
@@ -130,10 +130,10 @@ function SilverSponsorsSection() {
 
 function BronzeSponsorsSection() {
     return (
-        <section>
+        <section className="space-y-4">
             <h2>Bronze Sponsors</h2>
 
-            <ul className="flex flex-wrap items-center justify-center mt-4 rounded dark:bg-gray-200">
+            <ul className="flex flex-wrap items-center justify-center rounded dark:bg-gray-200">
                 {bronzeSponsors.map(({ name, url, logo }, index) => (
                     <li key={index}>
                         <a
@@ -156,10 +156,10 @@ function BronzeSponsorsSection() {
 
 function BackersSection() {
     return (
-        <section>
+        <section className="space-y-4">
             <h2>Backers</h2>
 
-            <ul className="mt-4 list-inline">
+            <ul className="list-inline">
                 {backers.map(({ name, url }, index) => (
                     <li key={index}>
                         {url ? <A href={url}>{name}</A> : <>{name}</>}
