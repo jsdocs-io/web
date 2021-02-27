@@ -8,10 +8,10 @@ export function PackageEnumDeclarationSections({
     declaration: EnumDeclaration;
 }) {
     return (
-        <>
+        <div className="space-y-4">
             <PackageDeclarationSection declaration={declaration} />
 
-            <div className="pl-6 mt-6 space-y-8 border-l border-gray-300 dark:border-gray-700">
+            <div className="py-2 pl-4 space-y-8 border-l-2 border-gray-300 dark:border-gray-700">
                 {declaration.members.map((decl) => (
                     <PackageDeclarationSection
                         key={decl.id}
@@ -19,6 +19,6 @@ export function PackageEnumDeclarationSections({
                     />
                 ))}
             </div>
-        </>
+        </div>
     );
 }

@@ -1,6 +1,6 @@
 import { Declaration } from '@jsdocs-io/package-analyzer';
 import React from 'react';
-import { DeclarationSignature } from '../common/DeclarationSignature';
+import { CodeBlock } from '../common/CodeBlock';
 import { DocComment } from '../common/DocComment';
 import { PackageDeclarationTitle } from './PackageDeclarationTitle';
 
@@ -19,7 +19,7 @@ export function PackageDeclarationSection({
     } = declaration;
 
     return (
-        <section>
+        <section className="space-y-4">
             <PackageDeclarationTitle
                 id={id}
                 name={name}
@@ -28,7 +28,7 @@ export function PackageDeclarationSection({
                 filename={filename}
             />
 
-            <DeclarationSignature signature={signature} />
+            <CodeBlock code={signature} language="typescript" />
 
             <ul className="list-declaration-docs">
                 {docs.map((doc) => (

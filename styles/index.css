@@ -48,10 +48,6 @@
         content: '·';
     }
 
-    .list-declaration-docs {
-        @apply mt-4;
-    }
-
     .list-declaration-docs > li {
         @apply block;
     }

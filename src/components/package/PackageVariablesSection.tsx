@@ -12,10 +12,10 @@ export function PackageVariablesSection({
     }
 
     return (
-        <section>
+        <section className="space-y-4">
             <h2 id="package-variables">Variables</h2>
 
-            <div className="mt-4 space-y-8">
+            <div className="space-y-8">
                 {variables.map((declaration) => (
                     <PackageDeclarationSection
                         key={declaration.id}

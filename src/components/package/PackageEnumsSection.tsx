@@ -8,16 +8,15 @@ export function PackageEnumsSection({ enums }: { enums: EnumDeclaration[] }) {
     }
 
     return (
-        <section>
+        <section className="space-y-4">
             <h2 id="package-enums">Enums</h2>
 
-            <div className="mt-4 space-y-8">
+            <div className="space-y-8">
                 {enums.map((declaration) => (
-                    <div key={declaration.id}>
-                        <PackageEnumDeclarationSections
-                            declaration={declaration}
-                        />
-                    </div>
+                    <PackageEnumDeclarationSections
+                        key={declaration.id}
+                        declaration={declaration}
+                    />
                 ))}
             </div>
         </section>

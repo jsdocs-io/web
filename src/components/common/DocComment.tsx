@@ -121,7 +121,7 @@ function DocInheritDocSection({
     });
 
     return (
-        <section className="mt-4">
+        <section>
             <p>
                 See documentation for{' '}
                 {packageName ? (
@@ -240,10 +240,10 @@ function DocSeeSection({
     seeBlocks: ReadonlyArray<tsdoc.DocBlock>;
 }) {
     return (
-        <section>
+        <section className="space-y-2">
             <h4>See Also</h4>
 
-            <ul className="mt-2">
+            <ul>
                 {seeBlocks.map(({ content }, index) => (
                     <li key={index}>
                         <DocContainer container={content} />
@@ -260,10 +260,10 @@ function DocModifiersSection({
     modifierTags: tsdoc.DocBlockTag[];
 }) {
     return (
-        <section>
+        <section className="space-y-2">
             <h4>Modifiers</h4>
 
-            <ul className="mt-2 list-inline">
+            <ul className="list-inline">
                 {modifierTags.map(({ tagName }) => (
                     <li key={tagName}>
                         <InlineCode code={tagName} />
@@ -343,7 +343,7 @@ function DocFencedCode({ node }: DocNodeProps) {
     const fencedCode = node as tsdoc.DocFencedCode;
     const { code, language } = fencedCode;
 
-    return <CodeBlock code={code} language={language} />;
+    return <CodeBlock className="my-4" code={code} language={language} />;
 }
 
 function DocLinkTag({ node }: DocNodeProps) {
@@ -423,7 +423,7 @@ function resolveDeclarationReference({
     const declarationID = memberReferences
         .flatMap(({ memberIdentifier }) => {
             const id = memberIdentifier?.identifier;
-            return id !== undefined ? [id] : [];
+            return id ? id : [];
         })
         .join('.');
 

@@ -12,16 +12,15 @@ export function PackageClassesSection({
     }
 
     return (
-        <section>
+        <section className="space-y-4">
             <h2 id="package-classes">Classes</h2>
 
-            <div className="mt-4 space-y-8">
+            <div className="space-y-8">
                 {classes.map((declaration) => (
-                    <div key={declaration.id}>
-                        <PackageClassDeclarationSections
-                            declaration={declaration}
-                        />
-                    </div>
+                    <PackageClassDeclarationSections
+                        key={declaration.id}
+                        declaration={declaration}
+                    />
                 ))}
             </div>
         </section>

@@ -11,10 +11,10 @@ export function PackageNamespaceDeclarationSections({
     declaration: NamespaceDeclaration;
 }) {
     return (
-        <>
+        <div className="space-y-4">
             <PackageDeclarationSection declaration={declaration} />
 
-            <div className="pl-6 mt-6 space-y-8 border-l border-gray-300 dark:border-gray-700">
+            <div className="py-2 pl-4 space-y-8 border-l-2 border-gray-300 dark:border-gray-700">
                 {declaration.declarations.variables.map((decl) => (
                     <PackageDeclarationSection
                         key={decl.id}
@@ -30,23 +30,24 @@ export function PackageNamespaceDeclarationSections({
                 ))}
 
                 {declaration.declarations.classes.map((decl) => (
-                    <div key={decl.id}>
-                        <PackageClassDeclarationSections declaration={decl} />
-                    </div>
+                    <PackageClassDeclarationSections
+                        key={decl.id}
+                        declaration={decl}
+                    />
                 ))}
 
                 {declaration.declarations.interfaces.map((decl) => (
-                    <div key={decl.id}>
-                        <PackageInterfaceDeclarationSections
-                            declaration={decl}
-                        />
-                    </div>
+                    <PackageInterfaceDeclarationSections
+                        key={decl.id}
+                        declaration={decl}
+                    />
                 ))}
 
                 {declaration.declarations.enums.map((decl) => (
-                    <div key={decl.id}>
-                        <PackageEnumDeclarationSections declaration={decl} />
-                    </div>
+                    <PackageEnumDeclarationSections
+                        key={decl.id}
+                        declaration={decl}
+                    />
                 ))}
 
                 {declaration.declarations.typeAliases.map((decl) => (
@@ -57,13 +58,12 @@ export function PackageNamespaceDeclarationSections({
                 ))}
 
                 {declaration.declarations.namespaces.map((decl) => (
-                    <div key={decl.id}>
-                        <PackageNamespaceDeclarationSections
-                            declaration={decl}
-                        />
-                    </div>
+                    <PackageNamespaceDeclarationSections
+                        key={decl.id}
+                        declaration={decl}
+                    />
                 ))}
             </div>
-        </>
+        </div>
     );
 }

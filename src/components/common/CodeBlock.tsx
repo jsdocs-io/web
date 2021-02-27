@@ -4,12 +4,14 @@ import { CodeBlockContents } from './CodeBlockContents';
 export function CodeBlock({
     code,
     language,
+    className,
 }: {
     code: string;
     language: string;
+    className?: string;
 }) {
     return (
-        <div className="my-4">
+        <div className={className}>
             <CodeBlockContents code={code} language={language} />
         </div>
     );

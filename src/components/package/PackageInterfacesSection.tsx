@@ -12,16 +12,15 @@ export function PackageInterfacesSection({
     }
 
     return (
-        <section>
+        <section className="space-y-4">
             <h2 id="package-interfaces">Interfaces</h2>
 
-            <div className="mt-4 space-y-8">
+            <div className="space-y-8">
                 {interfaces.map((declaration) => (
-                    <div key={declaration.id}>
-                        <PackageInterfaceDeclarationSections
-                            declaration={declaration}
-                        />
-                    </div>
+                    <PackageInterfaceDeclarationSections
+                        key={declaration.id}
+                        declaration={declaration}
+                    />
                 ))}
             </div>
         </section>

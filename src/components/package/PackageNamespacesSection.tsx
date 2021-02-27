@@ -12,16 +12,15 @@ export function PackageNamespacesSection({
     }
 
     return (
-        <section>
+        <section className="space-y-4">
             <h2 id="package-namespaces">Namespaces</h2>
 
-            <div className="mt-4 space-y-8">
+            <div className="space-y-8">
                 {namespaces.map((declaration) => (
-                    <div key={declaration.id}>
-                        <PackageNamespaceDeclarationSections
-                            declaration={declaration}
-                        />
-                    </div>
+                    <PackageNamespaceDeclarationSections
+                        key={declaration.id}
+                        declaration={declaration}
+                    />
                 ))}
             </div>
         </section>
