@@ -4,14 +4,22 @@ import { PackagePagePropsDocs } from '../../lib/get-package-page-docs-props';
 import { hasPackageDeclarations } from '../../lib/has-package-declarations';
 import { Layout } from '../common/Layout';
 import { PackageAlerts } from '../package/PackageAlerts';
-import { PackageAPISections } from '../package/PackageAPISections';
 import { PackageBadgeSection } from '../package/PackageBadgeSection';
+import { PackageClassesSection } from '../package/PackageClassesSection';
 import { PackageDependenciesSection } from '../package/PackageDependenciesSection';
+import { PackageEnumsSection } from '../package/PackageEnumsSection';
+import { PackageFilesSection } from '../package/PackageFilesSection';
 import { PackageFooterSection } from '../package/PackageFooterSection';
+import { PackageFunctionsSection } from '../package/PackageFunctionsSection';
+import { PackageIndexSection } from '../package/PackageIndexSection';
 import { PackageInstallSection } from '../package/PackageInstallSection';
+import { PackageInterfacesSection } from '../package/PackageInterfacesSection';
+import { PackageNamespacesSection } from '../package/PackageNamespacesSection';
 import { PackageNav } from '../package/PackageNav';
 import { PackageOverviewSection } from '../package/PackageOverviewSection';
 import { PackageTitleSection } from '../package/PackageTitleSection';
+import { PackageTypeAliasesSection } from '../package/PackageTypeAliasesSection';
+import { PackageVariablesSection } from '../package/PackageVariablesSection';
 
 export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
     const { manifest, api, elapsed } = data;
@@ -89,7 +97,47 @@ export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
                         description={description}
                     />
 
-                    <PackageAPISections api={api} hasDocs={hasDocs} />
+                    {api && hasDocs && (
+                        <>
+                            <PackageIndexSection
+                                declarations={api.declarations}
+                            />
+
+                            <PackageVariablesSection
+                                variables={api.declarations.variables}
+                            />
+
+                            <PackageFunctionsSection
+                                functions={api.declarations.functions}
+                            />
+
+                            <PackageClassesSection
+                                classes={api.declarations.classes}
+                            />
+
+                            <PackageInterfacesSection
+                                interfaces={api.declarations.interfaces}
+                            />
+
+                            <PackageEnumsSection
+                                enums={api.declarations.enums}
+                            />
+
+                            <PackageTypeAliasesSection
+                                typeAliases={api.declarations.typeAliases}
+                            />
+
+                            <PackageNamespacesSection
+                                namespaces={api.declarations.namespaces}
+                            />
+
+                            <PackageFilesSection
+                                name={name}
+                                version={version}
+                                files={api.files}
+                            />
+                        </>
+                    )}
 
                     <PackageDependenciesSection
                         dependencies={dependencies}
