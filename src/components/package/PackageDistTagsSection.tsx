@@ -10,12 +10,12 @@ export function PackageDistTagsSection({
     distTags: DistTags;
 }) {
     return (
-        <section>
+        <section className="space-y-6">
             <h2 id="package-dist-tags">
                 Tags ({Object.keys(distTags).length})
             </h2>
 
-            <ul className="max-w-3xl mt-6 space-y-6">
+            <ul className="max-w-3xl space-y-6">
                 {Object.entries(distTags).map(([tag, version]) => (
                     <li
                         key={tag}

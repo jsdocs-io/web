@@ -10,12 +10,12 @@ export function PackageVersionsSection({
     versionsToTimestamps: Record<string, string>;
 }) {
     return (
-        <section>
+        <section className="space-y-6">
             <h2 id="package-versions">
                 Versions ({Object.keys(versionsToTimestamps).length})
             </h2>
 
-            <ul className="max-w-3xl mt-6 space-y-6">
+            <ul className="max-w-3xl space-y-6">
                 {Object.entries(versionsToTimestamps)
                     .reverse()
                     .map(([version, publishedAt]) => (
