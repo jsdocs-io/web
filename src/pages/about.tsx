@@ -67,7 +67,7 @@ function IntroSection() {
 
 function TechnologySection() {
     return (
-        <section>
+        <section className="space-y-2">
             <h2>Technology</h2>
 
             <p>
@@ -76,7 +76,7 @@ function TechnologySection() {
                 consists of three main parts:
             </p>
 
-            <ul className="my-2 ml-8 space-y-1 list-disc">
+            <ul className="pl-4 space-y-1 list-disc list-inside">
                 <li>
                     An adapter for the npm registry, available as the{' '}
                     <A href="https://www.npmjs.com/package/query-registry">
@@ -102,12 +102,12 @@ function TechnologySection() {
 
 function AddingAPackageSection() {
     return (
-        <section>
+        <section className="space-y-2">
             <h2>Adding a Package</h2>
 
             <p>To add a package to jsDocs.io, you can:</p>
 
-            <ul className="my-2 ml-8 space-y-1 list-disc">
+            <ul className="pl-4 space-y-1 list-disc list-inside">
                 <li>
                     <InternalLink href="/">Search</InternalLink> the package by
                     name
@@ -169,11 +169,16 @@ function BadgeSection() {
         <section>
             <h2>Badge</h2>
 
-            <img src="/badge.svg" alt="jsDocs.io badge" className="my-4" />
-
             <p>
-                You can find the code for a badge like the one pictured above at
-                the bottom of your package's documentation page.
+                <span className="mr-2">
+                    You can find the Markdown code for a badge like this one
+                </span>
+                <img
+                    className="inline mr-2"
+                    src="/badge.svg"
+                    alt="jsDocs.io badge"
+                />
+                at the bottom of your package's documentation page.
             </p>
         </section>
     );
@@ -181,7 +186,7 @@ function BadgeSection() {
 
 function BookmarkletsSection() {
     return (
-        <section>
+        <section className="space-y-2">
             <h2>Bookmarklets</h2>
 
             <p>
@@ -191,10 +196,10 @@ function BookmarkletsSection() {
 
             <p>
                 To install a bookmarklet, simply drag and drop it to your
-                bookmarks bar.
+                browser's bookmarks bar.
             </p>
 
-            <ul className="my-2">
+            <ul>
                 <li
                     dangerouslySetInnerHTML={{
                         __html: `Redirect: <a href="${redirectBookmarklet}" class="text-blue-700 dark:text-blue-300 hover:underline">jsDocs.io</a>`,
@@ -222,7 +227,9 @@ function FeedbackSection() {
                     open an issue
                 </A>
                 .
-                <br />
+            </p>
+
+            <p>
                 You can also reach us on Twitter at{' '}
                 <A href="https://twitter.com/jsDocs">@jsDocs</A> or by email at{' '}
                 <A href="mailto:info@jsdocs.io">info@jsdocs.io</A>.
