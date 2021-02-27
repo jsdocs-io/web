@@ -27,31 +27,29 @@ export default function IndexPage() {
             </NextHead>
 
             <Layout>
-                <div className="flex flex-col items-center h-screen sm:h-full">
+                <div className="flex flex-col items-center h-screen space-y-4 sm:h-full">
                     <img
                         className="h-32"
                         src="/logo.png"
                         alt="jsDocs.io logo"
                     />
 
-                    <div className="w-full mt-4 sm:w-2/3 lg:w-1/2">
+                    <div className="w-full sm:w-2/3 lg:w-1/2">
                         <SearchBar />
                     </div>
 
-                    <div className="mt-4">
-                        <p>
-                            Try with{' '}
-                            <PackageLink name="faastjs">faastjs</PackageLink>,{' '}
-                            <PackageLink name="query-registry">
-                                query-registry
-                            </PackageLink>{' '}
-                            or{' '}
-                            <PackageLink name="@types/react">
-                                @types/react
-                            </PackageLink>
-                            .
-                        </p>
-                    </div>
+                    <p>
+                        Try with{' '}
+                        <PackageLink name="faastjs">faastjs</PackageLink>,{' '}
+                        <PackageLink name="query-registry">
+                            query-registry
+                        </PackageLink>{' '}
+                        or{' '}
+                        <PackageLink name="@types/react">
+                            @types/react
+                        </PackageLink>
+                        .
+                    </p>
                 </div>
             </Layout>
         </>
