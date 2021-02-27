@@ -38,18 +38,10 @@ export default function SearchPage() {
 
             <Layout>
                 <div className="flex justify-center">
-                    <div className="w-full lg:w-2/3">
+                    <div className="w-full space-y-12 lg:w-2/3">
                         <SearchBar initialQuery={query} />
 
-                        <div className="mt-12">
-                            {searchResults ? (
-                                <SearchResults searchResults={searchResults} />
-                            ) : (
-                                <h1 className="text-center animate-pulse">
-                                    Loading...
-                                </h1>
-                            )}
-                        </div>
+                        <SearchResults searchResults={searchResults} />
                     </div>
                 </div>
             </Layout>

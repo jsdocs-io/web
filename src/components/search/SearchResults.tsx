@@ -7,12 +7,23 @@ import { PackageLink } from '../common/PackageLink';
 export default function SearchResults({
     searchResults,
 }: {
-    searchResults: SearchResult[];
+    searchResults?: SearchResult[];
 }) {
-    const packages = searchResults.map(({ package: pkg }) => pkg);
+    if (!searchResults) {
+        return (
+            <p className="mt-0 text-2xl font-bold text-center animate-pulse">
+                Loading...
+            </p>
+        );
+    }
 
-    if (packages.length === 0) {
-        return <h1 className="text-center">No search results</h1>;
+    const packages = searchResults.map(({ package: pkg }) => pkg);
+    if (!packages.length) {
+        return (
+            <p className="mt-0 text-2xl font-bold text-center">
+                No search results
+            </p>
+        );
     }
 
     return (
