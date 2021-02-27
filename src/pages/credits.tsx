@@ -64,16 +64,16 @@ function OpenSourceSoftwareSection({
     ossLibraries: OSSLibrary[];
 }) {
     return (
-        <section>
+        <section className="space-y-2">
             <h2>OSS Licenses</h2>
 
             <p>This website uses the following open source software:</p>
 
-            <ul className="my-2 space-y-1">
+            <ul className="space-y-1">
                 {ossLibraries.map(
                     ({ id, name, version, npm, license, licenseText }) => (
                         <li key={id}>
-                            <details>
+                            <details className="space-y-2">
                                 <summary>
                                     <A
                                         href={npm}
@@ -83,7 +83,7 @@ function OpenSourceSoftwareSection({
                                     </A>
                                 </summary>
 
-                                <ul className="mb-4">
+                                <ul>
                                     <li>Version: {version}</li>
 
                                     <li>License: {license}</li>
@@ -91,6 +91,7 @@ function OpenSourceSoftwareSection({
                                     {licenseText && (
                                         <li>
                                             <CodeBlock
+                                                className="my-4"
                                                 code={licenseText}
                                                 language="plain"
                                             />
@@ -100,6 +101,7 @@ function OpenSourceSoftwareSection({
                                     {name === 'anchor-js' && (
                                         <li>
                                             <CodeBlock
+                                                className="my-4"
                                                 code={anchorJSLicense}
                                                 language="plain"
                                             />
@@ -117,7 +119,7 @@ function OpenSourceSoftwareSection({
 
 function StylingSection() {
     return (
-        <section>
+        <section className="space-y-2">
             <h2>Styling</h2>
 
             <p>
@@ -128,10 +130,14 @@ function StylingSection() {
                 .
             </p>
 
-            <details className="mt-1">
+            <details>
                 <summary>License: MIT</summary>
 
-                <CodeBlock code={tailwindCSSLicense} language="plain" />
+                <CodeBlock
+                    className="my-4"
+                    code={tailwindCSSLicense}
+                    language="plain"
+                />
             </details>
 
             <p>
@@ -142,10 +148,14 @@ function StylingSection() {
                 .
             </p>
 
-            <details className="mt-1">
+            <details>
                 <summary>License: MIT</summary>
 
-                <CodeBlock code={modernNormalizeLicense} language="plain" />
+                <CodeBlock
+                    className="my-4"
+                    code={modernNormalizeLicense}
+                    language="plain"
+                />
             </details>
         </section>
     );
@@ -153,7 +163,7 @@ function StylingSection() {
 
 function IconsSection() {
     return (
-        <section>
+        <section className="space-y-2">
             <h2>Icons</h2>
 
             <p>
@@ -164,10 +174,14 @@ function IconsSection() {
                 .
             </p>
 
-            <details className="mt-1">
+            <details>
                 <summary>License: MIT</summary>
 
-                <CodeBlock code={heroIconsLicense} language="plain" />
+                <CodeBlock
+                    className="my-4"
+                    code={heroIconsLicense}
+                    language="plain"
+                />
             </details>
         </section>
     );
