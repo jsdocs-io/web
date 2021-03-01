@@ -29,11 +29,15 @@ export function Footer() {
                     </li>
 
                     <li>
-                        <InternalLink href="/credits">Credits</InternalLink>
+                        <InternalLink href="/guide">Guide</InternalLink>
                     </li>
 
                     <li>
                         <InternalLink href="/sponsor">Sponsor</InternalLink>
+                    </li>
+
+                    <li>
+                        <InternalLink href="/credits">Credits</InternalLink>
                     </li>
 
                     <li>
