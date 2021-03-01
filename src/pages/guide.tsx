@@ -2,7 +2,6 @@ import NextHead from 'next/head';
 import React from 'react';
 import { A } from '../components/common/A';
 import { CodeBlock } from '../components/common/CodeBlock';
-import { DeclarationSignature } from '../components/common/DeclarationSignature';
 import { DocComment } from '../components/common/DocComment';
 import { InlineCode } from '../components/common/InlineCode';
 import { Layout } from '../components/common/Layout';
@@ -74,7 +73,7 @@ function IntroSection() {
 
 function PackageAnalysisProcessSection() {
     return (
-        <section>
+        <section className="space-y-2">
             <h2>Package Analysis Process</h2>
 
             <p>
@@ -83,7 +82,7 @@ function PackageAnalysisProcessSection() {
                 following analysis process:
             </p>
 
-            <ol className="my-2 ml-8 space-y-1 list-decimal">
+            <ol className="pl-8 space-y-1 list-decimal">
                 <li>
                     Query the npm registry for the{' '}
                     <A href="https://docs.npmjs.com/cli/v6/configuring-npm/package-json">
@@ -98,10 +97,10 @@ function PackageAnalysisProcessSection() {
                     <InlineCode code="foo@1.0.0" /> from the npm registry
                 </li>
 
-                <li>
+                <li className="space-y-1">
                     Extract the package's public API from the{' '}
                     <A href="#including-source-files">downloaded files</A>:
-                    <ol className="my-2 ml-4 space-y-1 list-decimal">
+                    <ol className="pl-8 space-y-1 list-decimal">
                         <li>
                             Find the package's{' '}
                             <A href="#index-file">index file</A> (for example,{' '}
@@ -136,7 +135,7 @@ function PackageAnalysisProcessSection() {
 
 function SupportedPackagesSection() {
     return (
-        <section>
+        <section className="space-y-2">
             <h2>Supported Packages</h2>
 
             <p>
@@ -145,7 +144,7 @@ function SupportedPackagesSection() {
                 packages that:
             </p>
 
-            <ul className="my-2 ml-8 space-y-1 list-disc">
+            <ul className="pl-8 space-y-1 list-disc">
                 <li>
                     Provide exports through a single entry point file (for
                     example, <InlineCode code="index.ts" />) using{' '}
@@ -168,13 +167,13 @@ function SupportedPackagesSection() {
                     supported
                 </li>
 
-                <li>
+                <li className="space-y-1">
                     Specify a{' '}
                     <A href="https://docs.npmjs.com/cli/v6/configuring-npm/package-json#license">
                         license field
                     </A>{' '}
                     inside <InlineCode code="package.json" /> that:
-                    <ul className="my-2 ml-4 space-y-1 list-disc">
+                    <ul className="pl-8 space-y-1 list-disc">
                         <li>Is not empty</li>
 
                         <li>
@@ -272,7 +271,7 @@ function LinkingToSourceSection() {
                 version of your package is determined in order of preference by:
             </p>
 
-            <ol className="my-2 ml-8 space-y-1 list-decimal">
+            <ol className="pl-8 mt-2 space-y-1 list-decimal">
                 <li>
                     The commit hash present in the <InlineCode code="gitHead" />{' '}
                     field automatically created by the npm CLI when publishing
@@ -317,7 +316,7 @@ function IndexFileSection() {
                 following filenames, listed in order of preference:
             </p>
 
-            <ol className="my-2 ml-8 space-y-1 list-decimal">
+            <ol className="pl-8 mt-2 space-y-1 list-decimal">
                 <li>
                     <InlineCode code="public-package-api.ts" />
                 </li>
@@ -416,7 +415,7 @@ function PackageDeclarationsSection() {
                 Your package can export any of the following declaration kinds:
             </p>
 
-            <ul className="my-2 ml-8 space-y-1 list-disc">
+            <ul className="pl-8 mt-2 space-y-1 list-disc">
                 <li>Variables</li>
                 <li>Functions</li>
                 <li>Classes</li>
@@ -442,7 +441,10 @@ function PackageDeclarationsSection() {
             <div className="p-4 my-4 border border-gray-300 rounded dark:border-gray-700">
                 <h3>function sum</h3>
 
-                <DeclarationSignature signature={exampleDeclarationSignature} />
+                <CodeBlock
+                    code={exampleDeclarationSignature}
+                    language="typescript"
+                />
 
                 <DocComment doc={exampleDeclarationDoc} />
             </div>
@@ -478,7 +480,7 @@ function ExamplePackagesSection() {
                 documenting your package:
             </p>
 
-            <ul className="my-2 ml-8 space-y-1 list-disc">
+            <ul className="pl-8 mt-2 space-y-1 list-disc">
                 <li>
                     <InlineCode code="short-time-ago" /> (
                     <PackageLink name="short-time-ago">docs</PackageLink>,{' '}
