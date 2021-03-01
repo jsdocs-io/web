@@ -11,7 +11,7 @@ export function CodeBlock({
     className?: string;
 }) {
     return (
-        <div className={className}>
+        <div className={className ?? 'my-4'}>
             <CodeBlockContents code={code} language={language} />
         </div>
     );

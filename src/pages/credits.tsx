@@ -91,7 +91,6 @@ function OpenSourceSoftwareSection({
                                     {licenseText && (
                                         <li>
                                             <CodeBlock
-                                                className="my-4"
                                                 code={licenseText}
                                                 language="plain"
                                             />
@@ -101,7 +100,6 @@ function OpenSourceSoftwareSection({
                                     {name === 'anchor-js' && (
                                         <li>
                                             <CodeBlock
-                                                className="my-4"
                                                 code={anchorJSLicense}
                                                 language="plain"
                                             />
@@ -133,11 +131,7 @@ function StylingSection() {
             <details>
                 <summary>License: MIT</summary>
 
-                <CodeBlock
-                    className="my-4"
-                    code={tailwindCSSLicense}
-                    language="plain"
-                />
+                <CodeBlock code={tailwindCSSLicense} language="plain" />
             </details>
 
             <p>
@@ -151,11 +145,7 @@ function StylingSection() {
             <details>
                 <summary>License: MIT</summary>
 
-                <CodeBlock
-                    className="my-4"
-                    code={modernNormalizeLicense}
-                    language="plain"
-                />
+                <CodeBlock code={modernNormalizeLicense} language="plain" />
             </details>
         </section>
     );
@@ -177,11 +167,7 @@ function IconsSection() {
             <details>
                 <summary>License: MIT</summary>
 
-                <CodeBlock
-                    className="my-4"
-                    code={heroIconsLicense}
-                    language="plain"
-                />
+                <CodeBlock code={heroIconsLicense} language="plain" />
             </details>
         </section>
     );

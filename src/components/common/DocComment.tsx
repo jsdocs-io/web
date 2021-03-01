@@ -343,7 +343,7 @@ function DocFencedCode({ node }: DocNodeProps) {
     const fencedCode = node as tsdoc.DocFencedCode;
     const { code, language } = fencedCode;
 
-    return <CodeBlock className="my-4" code={code} language={language} />;
+    return <CodeBlock code={code} language={language} />;
 }
 
 function DocLinkTag({ node }: DocNodeProps) {
