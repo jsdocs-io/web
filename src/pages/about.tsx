@@ -76,7 +76,7 @@ function TechnologySection() {
                 consists of three main parts:
             </p>
 
-            <ul className="pl-4 space-y-1 list-disc list-inside">
+            <ul className="pl-8 space-y-1 list-disc">
                 <li>
                     An adapter for the npm registry, available as the{' '}
                     <A href="https://www.npmjs.com/package/query-registry">
@@ -107,7 +107,7 @@ function AddingAPackageSection() {
 
             <p>To add a package to jsDocs.io, you can:</p>
 
-            <ul className="pl-4 space-y-1 list-disc list-inside">
+            <ul className="pl-8 space-y-1 list-disc">
                 <li>
                     <InternalLink href="/">Search</InternalLink> the package by
                     name
