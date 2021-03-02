@@ -49,7 +49,7 @@ export function PackageInfoSummaryList({
 
     const describeLatestVersion = () => {
         const latestVersion = distTags!.latest;
-        const latestVersionPublishedAt = versionsToTimestamps![latestVersion];
+        const latestVersionPublishedAt = versionsToTimestamps![latestVersion]!;
 
         return (
             <>
