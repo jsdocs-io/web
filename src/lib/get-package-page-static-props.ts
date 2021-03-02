@@ -11,7 +11,6 @@ import {
     getPackagePageErrorProps,
     PackagePagePropsError,
 } from './get-package-page-error-props';
-import { getPackagePageLatestVersionRedirect } from './get-package-page-latest-version-redirect';
 import { PackageRouteKind, parsePackageRoute } from './parse-package-route';
 
 export type PackagePageProps =
@@ -27,7 +26,6 @@ export async function getPackagePageStaticProps({
     const route = parsePackageRoute({ route: rawRoute });
     switch (route.kind) {
         case PackageRouteKind.DocLatestVersion:
-            return getPackagePageLatestVersionRedirect({ route });
         case PackageRouteKind.DocFixedVersion:
             return getPackagePageDocsProps({ route });
         case PackageRouteKind.AvailableVersions:

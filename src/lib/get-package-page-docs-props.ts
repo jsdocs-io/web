@@ -2,7 +2,7 @@ import { PackageAPI, RegistryPackageInfo } from '@jsdocs-io/package-analyzer';
 import cleanDeep from 'clean-deep';
 import { pick } from 'filter-anything';
 import { GetStaticPropsResult } from 'next';
-import { PackageManifest } from 'query-registry';
+import { getPackument, PackageManifest } from 'query-registry';
 import { cleanObject } from './clean-object';
 import { flattenPackageAPI } from './flatten-package-api';
 import {
@@ -11,8 +11,12 @@ import {
 } from './get-package-page-error-props';
 import { getRegistryPackageInfo } from './get-registry-package-info';
 import { PackagePageKind } from './package-page-kind';
-import { PackageRouteDocFixedVersion } from './parse-package-route';
-import { minute } from './revalidate-times';
+import {
+    PackageRouteDocFixedVersion,
+    PackageRouteDocLatestVersion,
+    PackageRouteKind,
+} from './parse-package-route';
+import { day, minute } from './revalidate-times';
 
 export interface PackagePagePropsDocs {
     readonly kind: PackagePageKind.Docs;
@@ -46,12 +50,16 @@ export type MinimalPackageManifest = Pick<
 export async function getPackagePageDocsProps({
     route,
 }: {
-    route: PackageRouteDocFixedVersion;
+    route: PackageRouteDocLatestVersion | PackageRouteDocFixedVersion;
 }): Promise<
     GetStaticPropsResult<PackagePagePropsDocs | PackagePagePropsError>
 > {
     try {
-        const { name, version } = route;
+        // Establish the semver version number to analyze
+        const { name, version: rawVersion } = { version: 'latest', ...route };
+        const { distTags } = await getPackument({ name });
+        const version = distTags[rawVersion] ?? rawVersion;
+
         const info = await getRegistryPackageInfo({ name, version });
         const data = getMinimalRegistryPackageInfo({ info });
 
@@ -61,10 +69,17 @@ export async function getPackagePageDocsProps({
                 data: cleanObject(data),
                 createdAt: info.createdAt,
             },
+            revalidate:
+                route.kind === PackageRouteKind.DocLatestVersion
+                    ? day
+                    : undefined,
         };
     } catch {
         return getPackagePageErrorProps({
-            message: 'Package Version Not Found',
+            message:
+                route.kind === PackageRouteKind.DocLatestVersion
+                    ? 'Package Not Found'
+                    : 'Package Version Not Found',
             revalidate: 10 * minute,
         });
     }
