@@ -1435,21 +1435,21 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@jsdocs-io/package-analyzer@^2.0.0-3":
-  version "2.0.0-3"
-  resolved "https://npm.pkg.github.com/download/@jsdocs-io/package-analyzer/2.0.0-3/3f273ab6fd57b14bd5fb52c86c268a13e372a808775f2f51047f3c54b8c9a3cc#d1e2002cb66e87e73b3712615a544aa67eb2abc2"
-  integrity sha512-9kc4697+7zsGa5h5BR+56y0YDeR+4niWB8E0m69kN2/OZP2gOwP/HrC0KV/aSIjk5NL+nZkdPhcN/aQOqD5yOw==
+"@jsdocs-io/package-analyzer@^2.0.0-5":
+  version "2.0.0-5"
+  resolved "https://npm.pkg.github.com/download/@jsdocs-io/package-analyzer/2.0.0-5/a1bcab4a9bfa2edd2fe60ad49e283370445dc1c29b45242f42436817a7768504#4781ff332c2345e5d3436f1f28681265c7c0c9da"
+  integrity sha1-R4H/MywjReXTQ28fKGgSZcfAydo=
   dependencies:
     "@microsoft/tsdoc" "^0.13.0"
     concat-stream "^2.0.0"
     debug "^4.3.1"
-    got "^11.8.1"
+    got "^11.8.2"
     gunzip-maybe "^1.4.2"
     hosted-git-info "^3.0.8"
     prettier "^2.2.1"
-    query-registry "^2.0.0-4"
+    query-registry "^2.0.0-5"
     tar-stream "^2.2.0"
-    ts-morph "^9.1.0"
+    ts-morph "^10.0.1"
 
 "@microsoft/tsdoc@^0.13.0":
   version "0.13.0"
@@ -1652,17 +1652,16 @@
     "@babel/runtime" "^7.12.5"
     "@testing-library/dom" "^7.28.1"
 
-"@ts-morph/common@~0.7.0":
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/@ts-morph/common/-/common-0.7.2.tgz#b937d13376695146735aecec6af4573cee513a56"
-  integrity sha512-XyUPLf1UHtteP5C5FEgVJqgIEOcmaSEoJyU/jQ1gTBKlz/lb1Uss4ix+D2e5qRwPFiBMqM/jwJpna0yVDE5V/g==
+"@ts-morph/common@~0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@ts-morph/common/-/common-0.8.0.tgz#ae7b292df8258040465c50b378108ec8f09a9516"
+  integrity sha512-YbjWiMXLMKxWxcMqP47nwZVWVBwoF5B65dtRz0lya2LetjldAPxTxRbRo1n4Iszr2tSvzXeaa+f1AbULmfc5uA==
   dependencies:
     "@dsherret/to-absolute-glob" "^2.0.2"
-    fast-glob "^3.2.4"
+    fast-glob "^3.2.5"
     is-negated-glob "^1.0.0"
     mkdirp "^1.0.4"
     multimatch "^5.0.0"
-    typescript "~4.1.2"
 
 "@types/anchor-js@4.2.0":
   version "4.2.0"
@@ -4424,10 +4423,10 @@ fast-diff@^1.1.2:
   resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.2.0.tgz#73ee11982d86caaf7959828d519cfe927fac5f03"
   integrity sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
 
-fast-glob@^3.2.4:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.4.tgz#d20aefbf99579383e7f3cc66529158c9b98554d3"
-  integrity sha512-kr/Oo6PX51265qeuCYsyGypiO5uJFgBS0jksyG7FUeCyQzNwYnzrNIMR1NXfkZXsMYXYLRAHgISHBz8gQcxKHQ==
+fast-glob@^3.2.5:
+  version "3.2.5"
+  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.5.tgz#7939af2a656de79a4f1901903ee8adcaa7cb9661"
+  integrity sha512-2DtFcgT68wiTTiwZ2hNdJfcHNke9XOfnwmBRWXhmeKM8rF0TGwmC/Qto3S7RoZKp5cilZbxzO5iTNTQsJ+EeDg==
   dependencies:
     "@nodelib/fs.stat" "^2.0.2"
     "@nodelib/fs.walk" "^1.2.3"
@@ -4838,10 +4837,10 @@ good-listener@^1.2.2:
   dependencies:
     delegate "^3.1.2"
 
-got@^11.8.1:
-  version "11.8.1"
-  resolved "https://registry.yarnpkg.com/got/-/got-11.8.1.tgz#df04adfaf2e782babb3daabc79139feec2f7e85d"
-  integrity sha512-9aYdZL+6nHmvJwHALLwKSUZ0hMwGaJGYv3hoPLPgnT8BoBXm1SjnZeky+91tfwJaDzun2s4RsBRy48IEYv2q2Q==
+got@^11.8.2:
+  version "11.8.2"
+  resolved "https://registry.yarnpkg.com/got/-/got-11.8.2.tgz#7abb3959ea28c31f3576f1576c1effce23f33599"
+  integrity sha512-D0QywKgIe30ODs+fm8wMZiAcZjypcCodPNuMz5H9Mny7RJ+IjJ10BdmGW7OM7fHXP+O7r6ZwapQ/YQmMSvB0UQ==
   dependencies:
     "@sindresorhus/is" "^4.0.0"
     "@szmarczak/http-timer" "^4.0.5"
@@ -8249,18 +8248,6 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-query-registry@^2.0.0-4:
-  version "2.0.0-4"
-  resolved "https://registry.yarnpkg.com/query-registry/-/query-registry-2.0.0-4.tgz#8f8ad8f54c151531c9a3bc6b03276af653865a7b"
-  integrity sha512-4t6S+YxV5lxUldzTU84FpifH4Acscvn4Z34XMldk+5ds4OvMtpdVbF7gNcf3vCmbrUP4PnTK0LlO7z+9vgNFig==
-  dependencies:
-    debug "^4.1.1"
-    git-url-parse "^11.4.4"
-    isomorphic-unfetch "^3.1.0"
-    make-error "^1.3.6"
-    tiny-lru "^7.0.6"
-    validate-npm-package-name "^3.0.0"
-
 query-registry@^2.0.0-5:
   version "2.0.0-5"
   resolved "https://registry.yarnpkg.com/query-registry/-/query-registry-2.0.0-5.tgz#e6fb7c517ed699201b02644460f512f580f5a7ff"
@@ -9900,13 +9887,13 @@ ts-jest@^25.3.1:
     semver "6.x"
     yargs-parser "18.x"
 
-ts-morph@^9.1.0:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/ts-morph/-/ts-morph-9.1.0.tgz#10d2088387c71f3c674f82492a3cec1e3538f0dd"
-  integrity sha512-sei4u651MBenr27sD6qLDXN3gZ4thiX71E3qV7SuVtDas0uvK2LtgZkIYUf9DKm/fLJ6AB/+yhRJ1vpEBJgy7Q==
+ts-morph@^10.0.1:
+  version "10.0.1"
+  resolved "https://registry.yarnpkg.com/ts-morph/-/ts-morph-10.0.1.tgz#5a620cc4ef85e3e6d161989e690f44d0a0f723b0"
+  integrity sha512-T1zufImtp5goTLTFhzi7XuKR1y/f+Jwz1gSULzB045LFjXuoqVlR87sfkpyWow8u2JwgusCJrhOnwmHCFNutTQ==
   dependencies:
     "@dsherret/to-absolute-glob" "^2.0.2"
-    "@ts-morph/common" "~0.7.0"
+    "@ts-morph/common" "~0.8.0"
     code-block-writer "^10.1.1"
 
 ts-pnp@^1.1.6:
@@ -10083,11 +10070,6 @@ typescript@^3.7.3:
   version "3.9.7"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
   integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
-
-typescript@~4.1.2:
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.1.3.tgz#519d582bd94cba0cf8934c7d8e8467e473f53bb7"
-  integrity sha512-B3ZIOf1IKeH2ixgHhj6la6xdwR9QrLC5d1VKeCSY4tvkqhF2eqd9O7txNlS0PO3GrBAFIdr3L1ndNwteUbZLYg==
 
 unc-path-regex@^0.1.2:
   version "0.1.2"
