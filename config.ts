@@ -14,3 +14,6 @@ export const minioConfig: minio.ClientOptions = (() => {
 
 /** Storage bucket name */
 export const storageBucket = process.env.STORAGE_BUCKET ?? 'storage.jsdocs.io';
+
+/** Use prerendering for known/popular packages */
+export const prerenderPackages = process.env.PRERENDER_PACKAGES === 'true';

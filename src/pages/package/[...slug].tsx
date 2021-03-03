@@ -1,7 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import React from 'react';
+import { prerenderPackages } from '../../../config';
 import { PackagePageAvailableVersions } from '../../components/pages/PackagePageAvailableVersions';
 import { PackagePageDocs } from '../../components/pages/PackagePageDocs';
+import { prerenderedPackages } from '../../data/prerendered-packages';
 import {
     getPackagePageStaticProps,
     PackagePageProps,
@@ -22,7 +24,9 @@ export default function PackagePage(props: PackagePageProps) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
     return {
-        paths: [],
+        paths: prerenderPackages
+            ? prerenderedPackages.map((name) => `/package/${name}`)
+            : [],
         fallback: 'blocking',
     };
 };
