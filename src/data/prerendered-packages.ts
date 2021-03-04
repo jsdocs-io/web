@@ -1,6 +1,17 @@
 export const prerenderedPackages = [
+    '@babel/types',
+    '@jest/types',
+    '@types/aws-lambda',
+    '@types/lodash',
     '@types/react',
+    '@types/underscore',
+    'csstype',
+    'enttec-open-dmx-usb',
     'faastjs',
+    'firebase',
+    'fp-ts',
+    'phaser',
     'query-registry',
     'short-time-ago',
+    'typescript',
 ];

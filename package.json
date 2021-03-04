@@ -17,6 +17,7 @@
         "test:ci": "jest --ci --maxWorkers=2 --coverage",
         "pre-push": "yarn && yarn lint && yarn build && yarn test:cov",
         "generate:favicon": "yarn real-favicon generate faviconDescription.json faviconData.json public",
+        "generate:prerendered-packages": "yarn ts-node --skip-project scripts/update-prerendered-packages.ts",
         "analyze": "cross-env ANALYZE=true next build"
     },
     "husky": {
@@ -90,6 +91,7 @@
         "stylelint-config-recommended": "3.0.0",
         "tailwindcss": "2.0.3",
         "ts-jest": "26.5.2",
+        "ts-node": "9.1.1",
         "tsdx": "0.14.1",
         "typescript": "4.2.2",
         "webpack-license-plugin": "4.1.2",
