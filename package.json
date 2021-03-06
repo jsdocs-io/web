@@ -18,6 +18,8 @@
         "pre-push": "yarn && yarn lint && yarn build && yarn test:cov",
         "generate:favicon": "yarn real-favicon generate faviconDescription.json faviconData.json public",
         "generate:prerendered-packages": "yarn ts-node --skip-project scripts/update-prerendered-packages.ts",
+        "generate:robots-txt": "yarn ts-node --skip-project scripts/update-robots-txt.ts",
+        "generate:sitemap": "yarn ts-node --skip-project scripts/update-sitemap.ts",
         "analyze": "cross-env ANALYZE=true next build"
     },
     "husky": {
@@ -93,12 +95,14 @@
         "react-test-renderer": "17.0.1",
         "stylelint-config-recommended": "3.0.0",
         "tailwindcss": "2.0.3",
+        "ts-dedent": "2.0.0",
         "ts-jest": "26.5.2",
         "ts-node": "9.1.1",
         "tsdx": "0.14.1",
         "typescript": "4.2.2",
         "webpack-license-plugin": "4.1.2",
         "webpack-stats-plugin": "1.0.3",
-        "webpack-visualizer-plugin2": "1.0.0"
+        "webpack-visualizer-plugin2": "1.0.0",
+        "xml-formatter": "2.4.0"
     }
 }
