@@ -8237,10 +8237,10 @@ react-dom@17.0.1, react-dom@^17.0.1:
     object-assign "^4.1.1"
     scheduler "^0.20.1"
 
-react-hotkeys-hook@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/react-hotkeys-hook/-/react-hotkeys-hook-3.1.0.tgz#fa2f6a7752b54c0fff94d4fdf3d13f24f7756189"
-  integrity sha512-czZxVyQR21AXrkHXgx1GwIoyc72vtRpDHMKM4oEI/At+7urrYDZyHSw+tDjVQR5r8BYZZ/++4wwq6BF30SXdlw==
+react-hotkeys-hook@3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/react-hotkeys-hook/-/react-hotkeys-hook-3.2.1.tgz#314760bad7b27c1cf5dedb4b8b15fb7eced3ae1f"
+  integrity sha512-l5Y4Dr109Fz10hHq40hkJmppXUqdv7tNVFldPq7lDsgWBpPLWCtkkSkrzTySje4GK+t5VLzPA01cCyUsZutOmQ==
   dependencies:
     hotkeys-js "3.8.2"
 
