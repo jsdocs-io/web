@@ -62,5 +62,5 @@ function getMinimalPackument({
         'distTags',
         'versionsToTimestamps',
         'license',
-    ]);
+    ]) as MinimalPackument;
 }
