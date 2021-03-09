@@ -60,7 +60,7 @@
         "semver": "^7.3.4",
         "short-time-ago": "^2.0.0",
         "stream-json": "^1.7.1",
-        "swr": "^0.4.2",
+        "swr": "^0.5.0",
         "trim-newlines": "^3.0.0",
         "use-dark-mode": "^2.3.1",
         "validate-npm-package-name": "^3.0.0"
