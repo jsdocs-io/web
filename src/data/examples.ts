@@ -82,7 +82,8 @@ export const examplePackageJSONRepository = `
 // package.json
 
 {
-    ...,
+    "name": "foo",
+    "version": "1.0.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/username/repository.git"
@@ -94,7 +95,8 @@ export const examplePackageJSONRepositoryWithDirectory = `
 // package.json
 
 {
-    ...,
+    "name": "foo",
+    "version": "1.0.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/username/repository.git",
@@ -104,6 +106,7 @@ export const examplePackageJSONRepositoryWithDirectory = `
 }`;
 
 export const exampleProjectStructure = `
+.
 ├── src
 │   └── index.ts
 ├── dist
@@ -116,7 +119,10 @@ export const examplePackageJSONFiles = `
 // package.json
 
 {
-    ...,
+    "name": "foo",
+    "version": "1.0.0",
+    "source": "./src/index.ts",
+    "types": "./dist/index.d.ts",
     "files": [
         "src",
         "dist"
