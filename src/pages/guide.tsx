@@ -46,7 +46,7 @@ export default function GuidePage() {
                     <IntroSection />
                     <PackageAnalysisProcessSection />
                     <SupportedPackagesSection />
-                    <IncludingSourceFilesSection />
+                    <IncludingTypeDefinitionFilesSection />
                     <LinkingToSourceSection />
                     <IndexFileSection />
                     <PackageOverviewSection />
@@ -77,7 +77,7 @@ function PackageAnalysisProcessSection() {
             <h2>Package Analysis Process</h2>
 
             <p>
-                Visiting a package documentation page (for example,{' '}
+                Visiting the documentation page for a package (for example,{' '}
                 <InlineCode code="jsdocs.io/package/foo" />) starts the
                 following analysis process:
             </p>
@@ -99,7 +99,10 @@ function PackageAnalysisProcessSection() {
 
                 <li className="space-y-1">
                     Extract the package's public API from the{' '}
-                    <A href="#including-source-files">downloaded files</A>:
+                    <A href="#including-type-definition-files">
+                        downloaded files
+                    </A>
+                    :
                     <ol className="pl-8 space-y-1 list-decimal">
                         <li>
                             Find the package's{' '}
@@ -158,8 +161,12 @@ function SupportedPackagesSection() {
                 </li>
 
                 <li>
-                    Include Typescript definition files (
-                    <InlineCode code=".d.ts" />) and/or Typescript source files
+                    Include{' '}
+                    <A href="#include-type-definition-files">
+                        Typescript definition files
+                    </A>{' '}
+                    (
+                    <InlineCode code=".d.ts" />) and/or Typescript source files{' '}
                     (<InlineCode code=".ts" />
                     );
                     <br />
@@ -170,7 +177,7 @@ function SupportedPackagesSection() {
                 <li className="space-y-1">
                     Specify a{' '}
                     <A href="https://docs.npmjs.com/cli/v6/configuring-npm/package-json#license">
-                        license field
+                        license property
                     </A>{' '}
                     inside <InlineCode code="package.json" /> that:
                     <ul className="pl-8 space-y-1 list-disc">
@@ -195,41 +202,60 @@ function SupportedPackagesSection() {
             </p>
 
             <p>
-                If your package does not include type definitions (for example,
-                a Javascript-only package) but some are available thanks to the{' '}
-                <A href="https://github.com/DefinitelyTyped/DefinitelyTyped/">
+                If a package does not include type definitions (for example, a
+                Javascript-only package) but some are available thanks to the{' '}
+                <A href="https://github.com/DefinitelyTyped/DefinitelyTyped">
                     Definitely Typed project
                 </A>
-                , your package's documentation page will contain a link to the
+                , that package's documentation page will contain a link to the
                 corresponding <InlineCode code="@types" /> package.
             </p>
         </section>
     );
 }
 
-function IncludingSourceFilesSection() {
+function IncludingTypeDefinitionFilesSection() {
     return (
         <section>
-            <h2>Including Source Files</h2>
+            <h2>Including Type Definition Files</h2>
 
             <p>
-                To include source files when publishing your package to npm, you
-                need to specify the appropriate file patterns in the{' '}
+                To include Typescript definition files (
+                <InlineCode code=".d.ts" />) and, optionally, Typescript source
+                files (
+                <InlineCode code=".ts" />) when publishing your package to npm,
+                you need to set the{' '}
                 <A href="https://docs.npmjs.com/cli/v6/configuring-npm/package-json#files">
-                    files field
+                    files property
                 </A>{' '}
-                inside <InlineCode code="package.json" />.
+                inside <InlineCode code="package.json" /> with the desired file
+                patterns.
             </p>
 
-            <p>For example, consider the following project structure.</p>
+            <p>
+                You also need to set the <InlineCode code="types" /> property
+                and, optionally, the <InlineCode code="source" /> property
+                inside <InlineCode code="package.json" /> to point to the main
+                type definition and source file respectively.
+            </p>
+
+            <p>
+                For example, consider the following project structure where{' '}
+                <InlineCode code="src" /> contains the source file named{' '}
+                <InlineCode code="index.ts" /> and <InlineCode code="dist" />{' '}
+                contains the type definition file named{' '}
+                <InlineCode code="index.d.ts" />:
+            </p>
 
             <CodeBlock code={exampleProjectStructure} language="bash" />
 
             <p>
-                To publish both the <InlineCode code="src" /> and{' '}
-                <InlineCode code="dist" /> directories in your npm package, the{' '}
-                <InlineCode code="files" /> field inside{' '}
-                <InlineCode code="package.json" /> should look like this:
+                To include both the <InlineCode code="src" /> and{' '}
+                <InlineCode code="dist" /> directories in your published npm
+                package and to set <InlineCode code="index.d.ts" /> as the main
+                type definition file and <InlineCode code="index.ts" /> as the
+                main source file, your package's{' '}
+                <InlineCode code="package.json" /> file should look like this:
             </p>
 
             <CodeBlock code={examplePackageJSONFiles} language="json" />
@@ -243,12 +269,14 @@ function LinkingToSourceSection() {
             <h2>Linking to Source</h2>
 
             <p>
-                If your published package contains{' '}
-                <A href="#including-source-files">source files</A>, you can
-                enable linking to source from documentation pages by specifying
-                a GitHub, GitLab or Bitbucket repository in the{' '}
+                If your published package{' '}
+                <A href="#including-type-definition-files">
+                    contains source files
+                </A>
+                , you can enable linking to source from documentation pages by
+                specifying a GitHub, GitLab or Bitbucket repository in the{' '}
                 <A href="https://docs.npmjs.com/cli/v6/configuring-npm/package-json#repository">
-                    repository field
+                    repository property
                 </A>{' '}
                 inside <InlineCode code="package.json" /> like in the following
                 example:
@@ -274,7 +302,8 @@ function LinkingToSourceSection() {
             <ol className="pl-8 mt-2 space-y-1 list-decimal">
                 <li>
                     The commit hash present in the <InlineCode code="gitHead" />{' '}
-                    field automatically created by the npm CLI when publishing
+                    property automatically created by the npm CLI when
+                    publishing
                 </li>
 
                 <li>
