@@ -26,7 +26,7 @@ export const exampleOverview = `
  *
  * @example
  * Inline code:
- * \`ENV_VAR=true\`
+ * \`ENV_VAR='true'\`
  *
  * @example
  * Code blocks:
@@ -82,7 +82,7 @@ export const examplePackageJSONRepository = `
 // package.json
 
 {
-    "name": "foo",
+    "name": "your-package-name",
     "version": "1.0.0",
     "repository": {
         "type": "git",
@@ -95,7 +95,7 @@ export const examplePackageJSONRepositoryWithDirectory = `
 // package.json
 
 {
-    "name": "foo",
+    "name": "your-package-name",
     "version": "1.0.0",
     "repository": {
         "type": "git",
@@ -119,7 +119,7 @@ export const examplePackageJSONFiles = `
 // package.json
 
 {
-    "name": "foo",
+    "name": "your-package-name",
     "version": "1.0.0",
     "source": "./src/index.ts",
     "types": "./dist/index.d.ts",
@@ -133,7 +133,7 @@ export const examplePackageJSONFiles = `
 export const exampleIndexFile = `
 // index.ts
 
-// Re-export declarations from another module
+// Re-export all the declarations from another module
 export * from './other-module';
 
 // Direct export

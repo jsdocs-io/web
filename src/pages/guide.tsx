@@ -162,7 +162,7 @@ function SupportedPackagesSection() {
 
                 <li>
                     Include{' '}
-                    <A href="#include-type-definition-files">
+                    <A href="#including-type-definition-files">
                         Typescript definition files
                     </A>{' '}
                     (
@@ -295,7 +295,7 @@ function LinkingToSourceSection() {
             />
 
             <p>
-                The commit in your repository corresponding to the published
+                The repository's commit/tag corresponding to the published
                 version of your package is determined in order of preference by:
             </p>
 
@@ -313,7 +313,10 @@ function LinkingToSourceSection() {
                     <InlineCode code="foo@1.0.0" />)
                 </li>
 
-                <li>The default repository branch (only for some packages)</li>
+                <li>
+                    The default repository branch (only for{' '}
+                    <InlineCode code="@types" /> packages)
+                </li>
             </ol>
         </section>
     );
@@ -347,41 +350,65 @@ function IndexFileSection() {
 
             <ol className="pl-8 mt-2 space-y-1 list-decimal">
                 <li>
-                    <InlineCode code="public-package-api.ts" />
+                    The name of the Typescript source file (
+                    <InlineCode code=".ts" />) present in the{' '}
+                    <InlineCode code="source" /> property inside{' '}
+                    <InlineCode code="package.json" />
                 </li>
 
                 <li>
-                    <InlineCode code="<package name>.ts" /> (for example,{' '}
+                    The name of the Typescript type definition file (
+                    <InlineCode code=".d.ts" />) present in the{' '}
+                    <InlineCode code="types" /> (or{' '}
+                    <InlineCode code="typings" />) property inside{' '}
+                    <InlineCode code="package.json" />
+                </li>
+
+                <li>
+                    The fixed name <InlineCode code="public-package-api.ts" />
+                </li>
+
+                <li>
+                    The name of your package followed by the{' '}
+                    <InlineCode code=".ts" /> extension (for example,{' '}
                     <InlineCode code="foo.ts" /> if your package is named{' '}
                     <InlineCode code="foo" />)
                 </li>
 
                 <li>
-                    <InlineCode code="index.ts" />
+                    The fixed name <InlineCode code="index.ts" />
                 </li>
 
                 <li>
-                    <InlineCode code="main.ts" />
+                    The fixed name <InlineCode code="main.ts" />
                 </li>
 
                 <li>
-                    <InlineCode code="public-package-api.d.ts" />
+                    The fixed name <InlineCode code="public-package-api.d.ts" />
                 </li>
 
                 <li>
-                    <InlineCode code="<package name>.d.ts" /> (for example,{' '}
+                    The name of your package followed by the{' '}
+                    <InlineCode code=".d.ts" /> extension (for example,{' '}
                     <InlineCode code="foo.d.ts" /> if your package is named{' '}
                     <InlineCode code="foo" />)
                 </li>
 
                 <li>
-                    <InlineCode code="index.d.ts" />
+                    The fixed name <InlineCode code="index.d.ts" />
                 </li>
 
                 <li>
-                    <InlineCode code="main.d.ts" />
+                    The fixed name <InlineCode code="main.d.ts" />
                 </li>
             </ol>
+
+            <p>
+                In case of conflicts (for example, two or more files named{' '}
+                <InlineCode code="index.ts" />
+                ), the file with the shortest path and that comes first in
+                alphabetical order is selected.
+            </p>
         </section>
     );
 }
@@ -392,16 +419,10 @@ function PackageOverviewSection() {
             <h2>Package Overview</h2>
 
             <p>
-                The package overview is the first documentation section
-                displayed in your package's documentation page.
-                <br />
-                In the overview, you can introduce your package, describe its
-                functionalities, show examples and provide any other relevant
-                information.
-                <br />
-                If the overview is not found, the package's{' '}
-                <InlineCode code="description" /> from{' '}
-                <InlineCode code="package.json" /> is used instead.
+                The overview is the first documentation section displayed in
+                your package's documentation page. You can use it to introduce
+                your package, describe its functionalities, show examples and
+                provide any other relevant information.
             </p>
 
             <p>
@@ -441,7 +462,11 @@ function PackageDeclarationsSection() {
             <h2>Package Declarations</h2>
 
             <p>
-                Your package can export any of the following declaration kinds:
+                Your package can export, using{' '}
+                <A href="https://www.typescriptlang.org/docs/handbook/modules.html#export">
+                    module export forms
+                </A>
+                , any of the following kinds of declarations:
             </p>
 
             <ul className="pl-8 mt-2 space-y-1 list-disc">
@@ -481,11 +506,10 @@ function PackageDeclarationsSection() {
             <p>
                 To prevent an exported declaration from being documented, use
                 the <InlineCode code="@internal" /> tag in its documentation
-                comment. <br />
-                Note that private declarations (for example, the private methods
-                of a class) and declarations with names starting with an
-                underscore (for example, <InlineCode code="_foo" />) are never
-                documented.
+                comment. Note that private declarations (for example, the
+                private fields or methods of a class) and declarations with
+                names starting with an underscore (for example,{' '}
+                <InlineCode code="_foo" />) are never documented.
             </p>
 
             <p>
