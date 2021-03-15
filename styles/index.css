@@ -71,3 +71,10 @@
         display: none;
     }
 }
+
+/* Reset Prism CSS theme */
+code[class*='language-'],
+pre[class*='language-'] {
+    @apply m-0 !important;
+    @apply font-mono !important;
+}
