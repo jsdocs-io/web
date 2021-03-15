@@ -324,13 +324,13 @@ function DocNode({ node }: DocNodeProps) {
 function DocErrorText({ node }: DocNodeProps) {
     const errorText = (node as tsdoc.DocErrorText).text;
 
-    return <span className="break-all sm:break-normal">{errorText}</span>;
+    return <span className="break-words">{errorText}</span>;
 }
 
 function DocEscapedText({ node }: DocNodeProps) {
     const escapedText = (node as tsdoc.DocEscapedText).decodedText;
 
-    return <span className="break-all sm:break-normal">{escapedText}</span>;
+    return <span className="break-words">{escapedText}</span>;
 }
 
 function DocCodeSpan({ node }: DocNodeProps) {

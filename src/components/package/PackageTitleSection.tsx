@@ -23,7 +23,7 @@ export function PackageTitleSection({
 }) {
     return (
         <section className="space-y-2">
-            <h1 className="break-all sm:break-words">{name}</h1>
+            <h1 className="break-words">{name}</h1>
 
             <PackageInfoSummaryList
                 version={version}

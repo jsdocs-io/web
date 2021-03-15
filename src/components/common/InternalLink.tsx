@@ -29,7 +29,7 @@ export function InternalLink({
         <Link href={href} prefetch={false}>
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
             <a
-                className="text-blue-700 break-all sm:break-normal dark:text-blue-300 hover:underline"
+                className="text-blue-700 break-words dark:text-blue-300 hover:underline"
                 title={title}
                 onClick={() => {
                     window.jsdocsio.prevHash = hash;
