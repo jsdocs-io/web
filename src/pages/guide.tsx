@@ -236,7 +236,7 @@ function IncludingTypeDefinitionFilesSection() {
                 You also need to set the <InlineCode code="types" /> property
                 and, optionally, the <InlineCode code="source" /> property
                 inside <InlineCode code="package.json" /> to point to the main
-                type definition and source file respectively.
+                type definition file and source file respectively.
             </p>
 
             <p>
