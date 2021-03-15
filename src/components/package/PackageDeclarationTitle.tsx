@@ -27,7 +27,7 @@ export function PackageDeclarationTitle({
         .replace('type alias', 'type');
 
     return (
-        <h3 id={id}>
+        <h3 className="break-words" id={id}>
             {kindDescription}{' '}
             {url && isRepositoryFile({ filename }) ? (
                 <A href={url} title={`View source for ${name}`}>
