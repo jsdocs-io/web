@@ -38,6 +38,11 @@
         @apply -mx-1;
     }
 
+    .list-inline > li {
+        /* Make Chrome apply `break-words` correctly for flex children */
+        @apply min-w-0;
+    }
+
     .list-inline > li:first-child {
         @apply pl-1;
     }
