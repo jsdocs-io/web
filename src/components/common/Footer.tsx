@@ -6,7 +6,7 @@ import { InternalLink } from './InternalLink';
 export function Footer() {
     return (
         <footer className="p-4 bg-gray-100 border-t border-gray-300 dark:bg-gray-900 dark:border-gray-700">
-            <div className="md:flex md:items-center md:justify-between">
+            <div className="lg:flex lg:items-center lg:justify-between">
                 <Link href="/">
                     {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <a
@@ -23,7 +23,7 @@ export function Footer() {
                     </a>
                 </Link>
 
-                <ul className="mt-4 space-y-1 md:mt-0 sm:flex sm:space-x-4 sm:space-y-0">
+                <ul className="mt-4 space-y-1 lg:mt-0 md:flex md:space-x-4 md:space-y-0">
                     <li>
                         <InternalLink href="/about">About</InternalLink>
                     </li>
