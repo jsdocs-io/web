@@ -22,7 +22,7 @@ export function PackageTitleSection({
     versionsToTimestamps?: Record<string, string>;
 }) {
     return (
-        <section className="space-y-2">
+        <section className="space-y-1">
             <h1 className="break-words">{name}</h1>
 
             <PackageInfoSummaryList
