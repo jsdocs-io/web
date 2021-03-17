@@ -72,16 +72,14 @@ export function Head() {
 
             {/* Plausible.io analytics */}
             {/* See https://github.com/vercel/next.js/issues/9070#issuecomment-552981178 */}
-            {process.env.NODE_ENV === 'production' &&
-                process.browser &&
-                navigator.doNotTrack !== '1' && (
-                    <script
-                        async
-                        defer
-                        data-domain="jsdocs.io"
-                        src="https://plausible.jsdocs.io/js/index.outbound-links.js"
-                    />
-                )}
+            {process.env.NODE_ENV === 'production' && process.browser && (
+                <script
+                    async
+                    defer
+                    data-domain="jsdocs.io"
+                    src="https://plausible.io/js/plausible.outbound-links.js"
+                />
+            )}
         </NextHead>
     );
 }
