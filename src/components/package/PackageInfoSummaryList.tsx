@@ -53,20 +53,19 @@ export function PackageInfoSummaryList({
 
         return (
             <>
-                Latest version{' '}
-                <span className="font-bold">{latestVersion}</span> published{' '}
-                <TimeAgo date={latestVersionPublishedAt} />
+                Version <span className="font-bold">{latestVersion}</span>{' '}
+                published <TimeAgo date={latestVersionPublishedAt} />
             </>
         );
     };
 
     return (
-        <ul className="text-lg list-inline">
+        <ul className="text-lg sm:list-inline">
             {/* Docs page info */}
             {version && (
-                <li className="">
+                <li>
                     <svg
-                        className="inline-block w-5 h-5 align-middle"
+                        className="inline-block w-5 h-5 mb-1 align-middle"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -86,7 +85,7 @@ export function PackageInfoSummaryList({
             {publishedAt && (
                 <li>
                     <svg
-                        className="inline-block w-5 h-5 align-middle"
+                        className="inline-block w-5 h-5 mb-1 align-middle"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -106,7 +105,7 @@ export function PackageInfoSummaryList({
             {unpackedSize && (
                 <li>
                     <svg
-                        className="inline-block w-5 h-5 align-middle"
+                        className="inline-block w-5 h-5 mb-1 align-middle"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -126,7 +125,7 @@ export function PackageInfoSummaryList({
             {dependencies && (
                 <li>
                     <svg
-                        className="inline-block w-5 h-5 align-middle"
+                        className="inline-block w-5 h-5 mb-1 align-middle"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -147,7 +146,7 @@ export function PackageInfoSummaryList({
             {distTags && versionsToTimestamps && (
                 <li>
                     <svg
-                        className="inline-block w-5 h-5 align-middle"
+                        className="inline-block w-5 h-5 mb-1 align-middle"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -167,7 +166,7 @@ export function PackageInfoSummaryList({
             {distTags && (
                 <li>
                     <svg
-                        className="inline-block w-5 h-5 align-middle"
+                        className="inline-block w-5 h-5 mb-1 align-middle"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -187,7 +186,7 @@ export function PackageInfoSummaryList({
             {versionsToTimestamps && (
                 <li>
                     <svg
-                        className="inline-block w-5 h-5 align-middle"
+                        className="inline-block w-5 h-5 mb-1 align-middle"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -207,7 +206,7 @@ export function PackageInfoSummaryList({
             {/* Common info */}
             <li>
                 <svg
-                    className="inline-block w-5 h-5 align-middle"
+                    className="inline-block w-5 h-5 mb-1 align-middle"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
