@@ -45,8 +45,8 @@ export default function IndexPage() {
                             query-registry
                         </PackageLink>{' '}
                         or{' '}
-                        <PackageLink name="@types/react">
-                            @types/react
+                        <PackageLink name="@types/prettier">
+                            @types/prettier
                         </PackageLink>
                         .
                     </p>

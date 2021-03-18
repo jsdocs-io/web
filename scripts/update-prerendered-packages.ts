@@ -39,7 +39,7 @@ async function getPrerenderedPackages(): Promise<string[]> {
 
 function getShowcasedPackages(): string[] {
     return [
-        '@types/react',
+        '@types/prettier',
         'faastjs',
         'query-registry',
         'short-time-ago',
