@@ -493,6 +493,9 @@
         <loc>https://www.jsdocs.io/package/@ionic/core</loc>
     </url>
     <url>
+        <loc>https://www.jsdocs.io/package/@ionic/storage</loc>
+    </url>
+    <url>
         <loc>https://www.jsdocs.io/package/@jest/console</loc>
     </url>
     <url>
@@ -608,9 +611,6 @@
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/@oclif/plugin-not-found</loc>
-    </url>
-    <url>
-        <loc>https://www.jsdocs.io/package/@oclif/plugin-plugins</loc>
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/@octokit/endpoint</loc>
@@ -1304,6 +1304,9 @@
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/@types/function-bind</loc>
+    </url>
+    <url>
+        <loc>https://www.jsdocs.io/package/@types/functional-red-black-tree</loc>
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/@types/gaze</loc>
@@ -4516,6 +4519,9 @@
         <loc>https://www.jsdocs.io/package/is-glob</loc>
     </url>
     <url>
+        <loc>https://www.jsdocs.io/package/is-in-browser</loc>
+    </url>
+    <url>
         <loc>https://www.jsdocs.io/package/is-lower-case</loc>
     </url>
     <url>
@@ -4822,9 +4828,6 @@
         <loc>https://www.jsdocs.io/package/koa-connect</loc>
     </url>
     <url>
-        <loc>https://www.jsdocs.io/package/laravel-echo</loc>
-    </url>
-    <url>
         <loc>https://www.jsdocs.io/package/lazy-cache</loc>
     </url>
     <url>
@@ -5054,6 +5057,9 @@
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/moment</loc>
+    </url>
+    <url>
+        <loc>https://www.jsdocs.io/package/mongodb-download-url</loc>
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/morgan</loc>
@@ -5707,6 +5713,9 @@
         <loc>https://www.jsdocs.io/package/react-native-device-info</loc>
     </url>
     <url>
+        <loc>https://www.jsdocs.io/package/react-native-elements</loc>
+    </url>
+    <url>
         <loc>https://www.jsdocs.io/package/react-native-gesture-handler</loc>
     </url>
     <url>
@@ -5738,9 +5747,6 @@
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/react-overlays</loc>
-    </url>
-    <url>
-        <loc>https://www.jsdocs.io/package/react-particles-js</loc>
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/react-popper-tooltip</loc>
@@ -6220,6 +6226,9 @@
         <loc>https://www.jsdocs.io/package/statuses</loc>
     </url>
     <url>
+        <loc>https://www.jsdocs.io/package/steno</loc>
+    </url>
+    <url>
         <loc>https://www.jsdocs.io/package/stream-browserify</loc>
     </url>
     <url>
@@ -6388,9 +6397,6 @@
         <loc>https://www.jsdocs.io/package/trim-right</loc>
     </url>
     <url>
-        <loc>https://www.jsdocs.io/package/truncate-html</loc>
-    </url>
-    <url>
         <loc>https://www.jsdocs.io/package/ts-helpers</loc>
     </url>
     <url>
@@ -6479,9 +6485,6 @@
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/typescript</loc>
-    </url>
-    <url>
-        <loc>https://www.jsdocs.io/package/typescript-compare</loc>
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/typescript-formatter</loc>
@@ -6635,9 +6638,6 @@
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/vue-functional-data-merge</loc>
-    </url>
-    <url>
-        <loc>https://www.jsdocs.io/package/vue-i18n</loc>
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/vue-property-decorator</loc>
@@ -6794,6 +6794,9 @@
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/yallist</loc>
+    </url>
+    <url>
+        <loc>https://www.jsdocs.io/package/yaml</loc>
     </url>
     <url>
         <loc>https://www.jsdocs.io/package/yaml-ast-parser</loc>

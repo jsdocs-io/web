@@ -157,6 +157,7 @@ Allow: /package/@ionic/cli-plugin-cordova
 Allow: /package/@ionic/cli-plugin-ionic-angular
 Allow: /package/@ionic/cli-utils
 Allow: /package/@ionic/core
+Allow: /package/@ionic/storage
 Allow: /package/@jest/console
 Allow: /package/@jest/core
 Allow: /package/@jest/environment
@@ -196,7 +197,6 @@ Allow: /package/@oclif/errors
 Allow: /package/@oclif/parser
 Allow: /package/@oclif/plugin-help
 Allow: /package/@oclif/plugin-not-found
-Allow: /package/@oclif/plugin-plugins
 Allow: /package/@octokit/endpoint
 Allow: /package/@octokit/plugin-enterprise-rest
 Allow: /package/@octokit/request
@@ -428,6 +428,7 @@ Allow: /package/@types/fresh
 Allow: /package/@types/from2
 Allow: /package/@types/fs-extra
 Allow: /package/@types/function-bind
+Allow: /package/@types/functional-red-black-tree
 Allow: /package/@types/gaze
 Allow: /package/@types/geojson
 Allow: /package/@types/get-caller-file
@@ -1498,6 +1499,7 @@ Allow: /package/is-extglob
 Allow: /package/is-finite
 Allow: /package/is-fullwidth-code-point
 Allow: /package/is-glob
+Allow: /package/is-in-browser
 Allow: /package/is-lower-case
 Allow: /package/is-number
 Allow: /package/is-obj
@@ -1600,7 +1602,6 @@ Allow: /package/karma-typescript
 Allow: /package/killable
 Allow: /package/kind-of
 Allow: /package/koa-connect
-Allow: /package/laravel-echo
 Allow: /package/lazy-cache
 Allow: /package/lazy-val
 Allow: /package/lcid
@@ -1678,6 +1679,7 @@ Allow: /package/mobx
 Allow: /package/mobx-react
 Allow: /package/mocha
 Allow: /package/moment
+Allow: /package/mongodb-download-url
 Allow: /package/morgan
 Allow: /package/move-concurrently
 Allow: /package/ms
@@ -1895,6 +1897,7 @@ Allow: /package/react-intl
 Allow: /package/react-json-tree
 Allow: /package/react-leaflet
 Allow: /package/react-native-device-info
+Allow: /package/react-native-elements
 Allow: /package/react-native-gesture-handler
 Allow: /package/react-native-modal
 Allow: /package/react-native-safe-area-view
@@ -1906,7 +1909,6 @@ Allow: /package/react-navigation-drawer
 Allow: /package/react-navigation-stack
 Allow: /package/react-navigation-tabs
 Allow: /package/react-overlays
-Allow: /package/react-particles-js
 Allow: /package/react-popper-tooltip
 Allow: /package/react-resize-detector
 Allow: /package/react-scrollbar-size
@@ -2066,6 +2068,7 @@ Allow: /package/ssri
 Allow: /package/stat-mode
 Allow: /package/static-extend
 Allow: /package/statuses
+Allow: /package/steno
 Allow: /package/stream-browserify
 Allow: /package/stream-each
 Allow: /package/stream-equal
@@ -2122,7 +2125,6 @@ Allow: /package/tough-cookie
 Allow: /package/tr46
 Allow: /package/trim-newlines
 Allow: /package/trim-right
-Allow: /package/truncate-html
 Allow: /package/ts-helpers
 Allow: /package/ts-invariant
 Allow: /package/ts-jest
@@ -2153,7 +2155,6 @@ Allow: /package/typechecker
 Allow: /package/typedarray
 Allow: /package/typeorm
 Allow: /package/typescript
-Allow: /package/typescript-compare
 Allow: /package/typescript-formatter
 Allow: /package/typescript-logic
 Allow: /package/typescript-tuple
@@ -2205,7 +2206,6 @@ Allow: /package/vue-awesome-swiper
 Allow: /package/vue-class-component
 Allow: /package/vue-eslint-parser
 Allow: /package/vue-functional-data-merge
-Allow: /package/vue-i18n
 Allow: /package/vue-property-decorator
 Allow: /package/vuepress
 Allow: /package/vuetify
@@ -2258,6 +2258,7 @@ Allow: /package/xtend
 Allow: /package/xterm
 Allow: /package/y18n
 Allow: /package/yallist
+Allow: /package/yaml
 Allow: /package/yaml-ast-parser
 Allow: /package/yargs
 Allow: /package/yargs-parser
