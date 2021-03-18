@@ -7,7 +7,10 @@ import {
     npmRegistry,
     npmRegistryMirrors,
 } from 'query-registry';
+import { prerenderedPackages } from '../src/data/prerendered-packages';
 const urlJoin = require('proper-url-join');
+
+const prevPrerenderedPackages = [...prerenderedPackages];
 
 main().then(() => {
     console.log('Done');
@@ -82,6 +85,19 @@ async function getPopularNpmPackagesWithDefinitelyTyped({
     const definitelyTypedPackages: string[] = [];
     for (const name of popularPackages) {
         console.log(`Checking for DT package for: ${name}`);
+
+        if (name.startsWith('@types/')) {
+            console.log(`Already a DT package: ${name}`);
+            continue;
+        }
+
+        const prevDTName = toDefinitelyTypedName({ name });
+        if (prevPrerenderedPackages.includes(prevDTName)) {
+            console.log(`Using previously found DT package: ${prevDTName}`);
+            definitelyTypedPackages.push(prevDTName);
+            continue;
+        }
+
         const { definitelyTypedName } = await getPackageManifest({
             name,
             registry: 'http://localhost:4873',
@@ -184,4 +200,10 @@ function format({ text }: { text: string }): string {
 
 async function sleep(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function toDefinitelyTypedName({ name }: { name: string }): string {
+    return name.startsWith('@types/')
+        ? name
+        : `@types/${name.replace('@', '').replace('/', '__')}`;
 }
