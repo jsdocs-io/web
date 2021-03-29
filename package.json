@@ -68,7 +68,7 @@
         "@types/anchor-js": "4.2.0",
         "@types/fs-extra": "9.0.6",
         "@types/minio": "7.0.7",
-        "@types/node": "14.14.22",
+        "@types/node": "14.14.37",
         "@types/nprogress": "0.2.0",
         "@types/react": "17.0.0",
         "@types/semver": "7.3.4",
