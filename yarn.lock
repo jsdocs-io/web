@@ -9449,10 +9449,10 @@ supports-hyperlinks@^2.0.0:
     has-flag "^4.0.0"
     supports-color "^7.0.0"
 
-swr@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/swr/-/swr-0.5.1.tgz#47173f120340cb44937ad70366b01d1b3d2de1e7"
-  integrity sha512-hDGCe4h6ZOtloyJNpSu6NhvG+8pfWzNSVhXznNCSe23zkeeTVtiItqWitxeUISFVHbSyzADkm7bulAe6mbTqwA==
+swr@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-0.5.4.tgz#9516af6ffd84ba2c23a804ff771be2eb83ba8d46"
+  integrity sha512-TUSxxuC8uP/4JKV22ml91WQ0tbif+9HVhm683xm8KYfwZIW5ogwcnU634dg3x6N7azpIDIOLokoIi+z5vCz/yA==
 
 symbol-tree@^3.2.2, symbol-tree@^3.2.4:
   version "3.2.4"
