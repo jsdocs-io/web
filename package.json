@@ -23,14 +23,6 @@
         "analyze": "cross-env ANALYZE=true next build",
         "prepare": "husky install"
     },
-    "prettier": {
-        "printWidth": 80,
-        "tabWidth": 4,
-        "semi": true,
-        "singleQuote": true,
-        "trailingComma": "es5",
-        "arrowParens": "always"
-    },
     "dependencies": {
         "@braintree/sanitize-url": "^5.0.0",
         "@jsdocs-io/package-analyzer": "^2.0.0-5",
