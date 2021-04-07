@@ -11,6 +11,7 @@
         "start": "next start",
         "lint": "tsdx lint src test",
         "lint:fix": "tsdx lint src test --fix",
+        "format": "prettier --write .",
         "test": "jest --runInBand",
         "test:cov": "jest --runInBand --coverage",
         "test:watch": "jest --runInBand --watchAll --coverage",
