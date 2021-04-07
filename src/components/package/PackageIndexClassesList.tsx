@@ -1,4 +1,4 @@
-import { ClassDeclaration } from '@jsdocs-io/package-analyzer';
+import { ClassDeclaration } from '@jsdocs-io/extractor';
 import React from 'react';
 import { InternalLink } from '../common/InternalLink';
 import { PackageIndexClassMembersList } from './PackageIndexClassMembersList';

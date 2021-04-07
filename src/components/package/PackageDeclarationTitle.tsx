@@ -1,4 +1,4 @@
-import { DeclarationKinds } from '@jsdocs-io/package-analyzer';
+import { DeclarationKinds } from '@jsdocs-io/extractor';
 import React from 'react';
 import { getDeclarationKindDescription } from '../../lib/get-declaration-kind-description';
 import { isRepositoryFile } from '../../lib/is-repository-file';

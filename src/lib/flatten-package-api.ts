@@ -1,4 +1,4 @@
-import { NamespaceDeclaration, PackageAPI } from '@jsdocs-io/package-analyzer';
+import { NamespaceDeclaration, PackageAPI } from '@jsdocs-io/extractor';
 
 export function flattenPackageAPI({
     api,

@@ -1,4 +1,4 @@
-import { Declaration } from '@jsdocs-io/package-analyzer';
+import { Declaration } from '@jsdocs-io/extractor';
 import React from 'react';
 import { CodeBlock } from '../common/CodeBlock';
 import { DocComment } from '../common/DocComment';

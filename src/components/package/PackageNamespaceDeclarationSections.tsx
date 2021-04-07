@@ -1,4 +1,4 @@
-import { NamespaceDeclaration } from '@jsdocs-io/package-analyzer';
+import { NamespaceDeclaration } from '@jsdocs-io/extractor';
 import React from 'react';
 import { PackageClassDeclarationSections } from './PackageClassDeclarationSections';
 import { PackageDeclarationSection } from './PackageDeclarationSection';

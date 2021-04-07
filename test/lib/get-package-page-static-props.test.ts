@@ -1,4 +1,4 @@
-import { analyzeRegistryPackage } from '@jsdocs-io/package-analyzer';
+import { analyzeRegistryPackage } from '@jsdocs-io/extractor';
 import { getPackument } from 'query-registry';
 import { mocked } from 'ts-jest/utils';
 import { getPackagePageStaticProps } from '../../src/lib/get-package-page-static-props';
@@ -12,7 +12,7 @@ jest.mock('query-registry', () => ({
 }));
 const mockedGetPackument = mocked(getPackument, true);
 
-jest.mock('@jsdocs-io/package-analyzer', () => ({
+jest.mock('@jsdocs-io/extractor', () => ({
     analyzeRegistryPackage: jest.fn(),
 }));
 const mockedAnalyzeRegistryPackage = mocked(analyzeRegistryPackage, true);

@@ -1,4 +1,4 @@
-import { EnumDeclaration } from '@jsdocs-io/package-analyzer';
+import { EnumDeclaration } from '@jsdocs-io/extractor';
 import React from 'react';
 import { PackageIndexEnumsList } from './PackageIndexEnumsList';
 

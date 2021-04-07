@@ -1,4 +1,4 @@
-import { DeclarationKinds } from '@jsdocs-io/package-analyzer';
+import { DeclarationKinds } from '@jsdocs-io/extractor';
 import { getDeclarationKindDescription } from '../../src/lib/get-declaration-kind-description';
 
 describe('getDeclarationKindDescription', () => {

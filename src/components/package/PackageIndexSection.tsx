@@ -1,4 +1,4 @@
-import { ModuleDeclarations } from '@jsdocs-io/package-analyzer';
+import { ModuleDeclarations } from '@jsdocs-io/extractor';
 import React from 'react';
 import { PackageIndexClassesSection } from './PackageIndexClassesSection';
 import { PackageIndexEnumsSection } from './PackageIndexEnumsSection';

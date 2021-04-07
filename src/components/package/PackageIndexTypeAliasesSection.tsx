@@ -1,4 +1,4 @@
-import { TypeAliasDeclaration } from '@jsdocs-io/package-analyzer';
+import { TypeAliasDeclaration } from '@jsdocs-io/extractor';
 import React from 'react';
 import { PackageIndexTypeAliasesList } from './PackageIndexTypeAliasesList';
 

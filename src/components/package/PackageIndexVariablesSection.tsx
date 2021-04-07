@@ -1,4 +1,4 @@
-import { VariableDeclaration } from '@jsdocs-io/package-analyzer';
+import { VariableDeclaration } from '@jsdocs-io/extractor';
 import React from 'react';
 import { PackageIndexVariablesList } from './PackageIndexVariablesList';
 

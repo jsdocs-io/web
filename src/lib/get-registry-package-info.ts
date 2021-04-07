@@ -1,7 +1,7 @@
 import {
     analyzeRegistryPackage,
     RegistryPackageInfo,
-} from '@jsdocs-io/package-analyzer';
+} from '@jsdocs-io/extractor';
 import {
     loadRegistryPackageInfo,
     storeRegistryPackageInfo,

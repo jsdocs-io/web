@@ -1,4 +1,4 @@
-import { Declaration, ModuleDeclarations } from '@jsdocs-io/package-analyzer';
+import { Declaration, ModuleDeclarations } from '@jsdocs-io/extractor';
 import React from 'react';
 import { getDeclarationKindDescription } from '../../lib/get-declaration-kind-description';
 import { isCallableDeclarationKind } from '../../lib/is-callable-declaration-kind';

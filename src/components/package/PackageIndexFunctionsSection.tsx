@@ -1,4 +1,4 @@
-import { FunctionDeclaration } from '@jsdocs-io/package-analyzer';
+import { FunctionDeclaration } from '@jsdocs-io/extractor';
 import React from 'react';
 import { PackageIndexFunctionsList } from './PackageIndexFunctionsList';
 

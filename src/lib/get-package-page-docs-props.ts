@@ -1,4 +1,4 @@
-import { PackageAPI, RegistryPackageInfo } from '@jsdocs-io/package-analyzer';
+import { PackageAPI, RegistryPackageInfo } from '@jsdocs-io/extractor';
 import cleanDeep from 'clean-deep';
 import { pick } from 'filter-anything';
 import { GetStaticPropsResult } from 'next';

@@ -1,5 +1,5 @@
-import { RegistryPackageInfo } from '@jsdocs-io/package-analyzer';
-import { version as packageAnalyzerVersion } from '@jsdocs-io/package-analyzer/package.json';
+import { RegistryPackageInfo } from '@jsdocs-io/extractor';
+import { version as packageAnalyzerVersion } from '@jsdocs-io/extractor/package.json';
 import { loadObject, storeObject } from './storage';
 
 export async function loadRegistryPackageInfo({

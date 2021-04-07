@@ -1,4 +1,4 @@
-import { InterfaceDeclaration } from '@jsdocs-io/package-analyzer';
+import { InterfaceDeclaration } from '@jsdocs-io/extractor';
 import React from 'react';
 import { PackageDeclarationSection } from './PackageDeclarationSection';
 

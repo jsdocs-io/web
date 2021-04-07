@@ -1,4 +1,4 @@
-import { PackageFile } from '@jsdocs-io/package-analyzer';
+import { PackageFile } from '@jsdocs-io/extractor';
 import React from 'react';
 import { PackageFilesList } from './PackageFilesList';
 
