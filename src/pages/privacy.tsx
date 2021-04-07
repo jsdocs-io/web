@@ -48,7 +48,7 @@ function IntroSection() {
 
             <p>This page contains the privacy policy for jsDocs.io.</p>
 
-            <p>The privacy policy was last updated on March 17, 2021.</p>
+            <p>The privacy policy was last updated on April 7, 2021.</p>
         </section>
     );
 }
