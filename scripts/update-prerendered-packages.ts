@@ -24,20 +24,24 @@ async function main(): Promise<void> {
 }
 
 async function getPrerenderedPackages(): Promise<string[]> {
-    return Array.from(
-        new Set([
-            ...getShowcasedPackages(),
-            ...getPackagesLinkingToJsDocs(),
-            ...getHeavyPackages(),
-            ...(await getPopularNpmPackagesWithDefinitelyTyped({
-                minPackages: 1000,
-            })),
-            ...(await getPopularNpmPackages({
-                minPackages: 1000,
-                language: 'typescript',
-            })),
-        ])
-    ).sort();
+    const uniquePackages = new Set([
+        ...getShowcasedPackages(),
+        ...getPackagesLinkingToJsDocs(),
+        ...getHeavyPackages(),
+        ...(await getPopularNpmPackagesWithDefinitelyTyped({
+            minPackages: 1000,
+        })),
+        ...(await getPopularNpmPackages({
+            minPackages: 1000,
+            language: 'typescript',
+        })),
+    ]);
+
+    for (const pkg of getProblematicPackages()) {
+        uniquePackages.delete(pkg);
+    }
+
+    return Array.from(uniquePackages).sort();
 }
 
 function getShowcasedPackages(): string[] {
@@ -67,6 +71,13 @@ function getHeavyPackages(): string[] {
         'phaser',
         'ts-morph',
         'typescript',
+    ];
+}
+
+function getProblematicPackages(): string[] {
+    return [
+        // OOM when analyzing
+        'googleapis',
     ];
 }
 

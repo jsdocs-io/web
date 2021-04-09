@@ -1366,7 +1366,6 @@ Allow: /package/google-gax
 Allow: /package/google-maps
 Allow: /package/google-p12-pem
 Allow: /package/google-proto-files
-Allow: /package/googleapis
 Allow: /package/got
 Allow: /package/graceful-fs
 Allow: /package/graphiql

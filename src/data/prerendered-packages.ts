@@ -1366,7 +1366,6 @@ export const prerenderedPackages = [
     'google-maps',
     'google-p12-pem',
     'google-proto-files',
-    'googleapis',
     'got',
     'graceful-fs',
     'graphiql',
