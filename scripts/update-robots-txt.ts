@@ -16,7 +16,7 @@ function writeRobotsTXTFile({ packages }: { packages: string[] }): void {
     const data = dedent(`
         User-agent: *
         ${packages
-            .map((name) => `Allow: /package/${name}`)
+            .map((name) => `Allow: /package/${name}$`)
             .join('\n'.padEnd(9, ' '))}
         Disallow: /package/
         Crawl-Delay: 30
