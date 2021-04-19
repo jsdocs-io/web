@@ -1,6 +1,6 @@
-import { analyzeRegistryPackage } from '@jsdocs-io/extractor';
 import { getPackument } from 'query-registry';
 import { mocked } from 'ts-jest/utils';
+import { analyzeRegistryPackageWithWorker } from '../../src/lib/analyze-registry-package-with-worker';
 import { getPackagePageStaticProps } from '../../src/lib/get-package-page-static-props';
 import { PackagePageKind } from '../../src/lib/package-page-kind';
 import { loadRegistryPackageInfo } from '../../src/lib/registry-package-info-storage';
@@ -12,10 +12,13 @@ jest.mock('query-registry', () => ({
 }));
 const mockedGetPackument = mocked(getPackument, true);
 
-jest.mock('@jsdocs-io/extractor', () => ({
-    analyzeRegistryPackage: jest.fn(),
+jest.mock('../../src/lib/analyze-registry-package-with-worker', () => ({
+    analyzeRegistryPackageWithWorker: jest.fn(),
 }));
-const mockedAnalyzeRegistryPackage = mocked(analyzeRegistryPackage, true);
+const mockedAnalyzeRegistryPackageWithWorker = mocked(
+    analyzeRegistryPackageWithWorker,
+    true
+);
 
 jest.mock('../../src/lib/registry-package-info-storage', () => ({
     loadRegistryPackageInfo: jest.fn(),
@@ -63,7 +66,7 @@ describe('getPackagePageStaticProps:DocLatestVersion', () => {
             return undefined;
         });
 
-        mockedAnalyzeRegistryPackage.mockImplementation(() => {
+        mockedAnalyzeRegistryPackageWithWorker.mockImplementation(() => {
             return info as any;
         });
 
@@ -146,7 +149,7 @@ describe('getPackagePageStaticProps:DocFixedVersion', () => {
             return undefined;
         });
 
-        mockedAnalyzeRegistryPackage.mockImplementation(() => {
+        mockedAnalyzeRegistryPackageWithWorker.mockImplementation(() => {
             return info as any;
         });
 
@@ -194,7 +197,7 @@ describe('getPackagePageStaticProps:DocFixedVersion', () => {
             return info as any;
         });
 
-        mockedAnalyzeRegistryPackage.mockImplementation(() => {
+        mockedAnalyzeRegistryPackageWithWorker.mockImplementation(() => {
             throw new Error('should not be called');
         });
 
