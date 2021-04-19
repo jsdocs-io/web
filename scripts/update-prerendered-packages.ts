@@ -33,7 +33,7 @@ async function getPrerenderedPackages(): Promise<string[]> {
             minPackages: 1000,
         })),
         ...(await getPopularNpmPackages({
-            minPackages: 1000,
+            minPackages: 2000,
             language: 'typescript',
         })),
     ]);
