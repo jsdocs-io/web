@@ -17,9 +17,11 @@ const piscina = new Piscina({
 export async function analyzeRegistryPackageWithWorker({
     name,
     version,
+    timeout = 55000,
 }: {
     name: string;
     version: string;
+    timeout?: number;
 }): Promise<RegistryPackageInfo> {
     const abortEmitter = new EventEmitter();
 
@@ -28,12 +30,12 @@ export async function analyzeRegistryPackageWithWorker({
         abortEmitter
     );
 
-    const timeout = setTimeout(() => {
+    const timeoutHandle = setTimeout(() => {
         abortEmitter.emit('abort');
-    }, 55000);
+    }, timeout);
 
     const info: RegistryPackageInfo = await analyzeRegistryPackageTask;
-    clearTimeout(timeout);
+    clearTimeout(timeoutHandle);
 
     return info;
 }
