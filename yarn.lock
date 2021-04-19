@@ -2058,10 +2058,10 @@ ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-anchor-js@^4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/anchor-js/-/anchor-js-4.3.0.tgz#812a1467178c0b227b2cec23dbb5b336e588ee6c"
-  integrity sha512-ROYrnfZIA0zLJbWCFO7IJH9VPetyN0gXb9iSWNXUGh4wLHX7Mw+foIizbbxAhOgfNFJfQDrAWbuU49ChF8bQ0A==
+anchor-js@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/anchor-js/-/anchor-js-4.3.1.tgz#643685df60fbefe7516edd07c11be98c05381cf8"
+  integrity sha512-TziERoibspey7KSm95oIdzTxiogXonJl7inQI07Y3cI25DKQaLkUftB7RhCuSb1GcwunHL6/PcIKM4dDUb9xYQ==
 
 anser@1.4.9:
   version "1.4.9"

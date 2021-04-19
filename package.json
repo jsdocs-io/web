@@ -28,7 +28,7 @@
         "@braintree/sanitize-url": "^5.0.0",
         "@jsdocs-io/extractor": "^0.0.1",
         "@microsoft/tsdoc": "^0.13.0",
-        "anchor-js": "^4.3.0",
+        "anchor-js": "^4.3.1",
         "clean-deep": "^3.4.0",
         "filter-anything": "^2.2.1",
         "fs-extra": "^9.1.0",
