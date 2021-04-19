@@ -25,6 +25,7 @@ async function main(): Promise<void> {
 
 async function getPrerenderedPackages(): Promise<string[]> {
     const uniquePackages = new Set([
+        ...prevPrerenderedPackages,
         ...getShowcasedPackages(),
         ...getPackagesLinkingToJsDocs(),
         ...getHeavyPackages(),
