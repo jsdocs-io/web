@@ -1,6 +1,8 @@
 import { RegistryPackageInfo } from '@jsdocs-io/extractor';
-import { version as packageAnalyzerVersion } from '@jsdocs-io/extractor/package.json';
+import pkgJSON from '@jsdocs-io/extractor/package.json';
 import { loadObject, storeObject } from './storage';
+
+const { version: packageAnalyzerVersion } = pkgJSON;
 
 export async function loadRegistryPackageInfo({
     name,
