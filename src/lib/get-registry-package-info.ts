@@ -1,18 +1,9 @@
 import { RegistryPackageInfo } from '@jsdocs-io/extractor';
-import EventEmitter from 'events';
-import path from 'path';
-import Piscina from 'piscina';
+import { analyzeRegistryPackageWithWorker } from './analyze-registry-package-with-worker';
 import {
     loadRegistryPackageInfo,
     storeRegistryPackageInfo,
 } from './registry-package-info-storage';
-
-const piscina = new Piscina({
-    filename: path.join(
-        process.cwd(),
-        'src/worker/analyze-registry-package-worker.js'
-    ),
-});
 
 export async function getRegistryPackageInfo({
     name,
@@ -26,19 +17,7 @@ export async function getRegistryPackageInfo({
         return cachedInfo;
     }
 
-    // Run `analyzeRegistryPackage({ name, version })` in a separate worker thread
-    // and timeout after 55 seconds (Vercel limits functions to 60 seconds)
-    const abortEmitter = new EventEmitter();
-    const analyzeRegistryPackageTask = piscina.runTask(
-        { name, version },
-        abortEmitter
-    );
-    const timeout = setTimeout(() => {
-        abortEmitter.emit('abort');
-    }, 55000);
-
-    const info: RegistryPackageInfo = await analyzeRegistryPackageTask;
-    clearTimeout(timeout);
+    const info = await analyzeRegistryPackageWithWorker({ name, version });
 
     await storeRegistryPackageInfo({ name, version, info });
 
