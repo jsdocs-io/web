@@ -68,7 +68,6 @@ function getHeavyPackages(): string[] {
         'csstype',
         'firebase',
         'fp-ts',
-        'phaser',
         'ts-morph',
         'typescript',
     ];
@@ -76,8 +75,8 @@ function getHeavyPackages(): string[] {
 
 function getProblematicPackages(): string[] {
     return [
-        // OOM when analyzing
-        'googleapis',
+        'googleapis', // OOM when analyzing
+        'phaser',
     ];
 }
 
