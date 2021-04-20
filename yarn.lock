@@ -1418,12 +1418,12 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@jsdocs-io/extractor@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@jsdocs-io/extractor/-/extractor-0.0.1.tgz#799c2e6e0b7cf3382c55499eb4e2a48488e361b7"
-  integrity sha512-FZcXvpYwrFDJYeTibcBBfc7Cl6if3YoRMRCUYOZc9beS2uYcUPcT1/Wbahafr5kB62NHZWwRhwF/8WiTkAS5qg==
+"@jsdocs-io/extractor@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@jsdocs-io/extractor/-/extractor-0.1.0.tgz#913abdfba7d18962163abb55634298bbc5ae50a8"
+  integrity sha512-H9kZZcmEo5V28dZFfQvw21/ExSfBG3HidTXQLwoXhTDtD+VbKaOYYEK/M46UK0vBuNdF60MOukXo7M+YCb/uHg==
   dependencies:
-    "@microsoft/tsdoc" "^0.13.0"
+    "@microsoft/tsdoc" "^0.13.2"
     concat-stream "^2.0.0"
     debug "^4.3.1"
     got "^11.8.2"
@@ -1433,11 +1433,6 @@
     query-registry "^2.0.0"
     tar-stream "^2.2.0"
     ts-morph "^10.0.2"
-
-"@microsoft/tsdoc@^0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.13.0.tgz#f05c6315bc3dfd18cdca70f28cd40d28da643249"
-  integrity sha512-/8J+4DdvexBH1Qh1yR8VZ6bPay2DL/TDdmSIypAa3dAghJzsdaiZG8COvzpYIML6HV2UVN0g4qbuqzjG4YKgWg==
 
 "@microsoft/tsdoc@^0.13.2":
   version "0.13.2"
