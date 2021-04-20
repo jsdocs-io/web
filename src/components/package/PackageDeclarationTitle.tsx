@@ -1,21 +1,18 @@
 import { DeclarationKinds } from '@jsdocs-io/extractor';
 import React from 'react';
 import { getDeclarationKindDescription } from '../../lib/get-declaration-kind-description';
-import { isRepositoryFile } from '../../lib/is-repository-file';
 import { A } from '../common/A';
 
 export function PackageDeclarationTitle({
     id,
     name,
     kind,
-    url,
-    filename,
+    unpkgURL,
 }: {
     id: string;
     name: string;
     kind: DeclarationKinds;
-    url?: string;
-    filename: string;
+    unpkgURL?: string;
 }) {
     const kindDescription = getDeclarationKindDescription({ kind })
         .toLowerCase()
@@ -29,8 +26,8 @@ export function PackageDeclarationTitle({
     return (
         <h3 className="break-words" id={id}>
             {kindDescription}{' '}
-            {url && isRepositoryFile({ filename }) ? (
-                <A href={url} title={`View source for ${name}`}>
+            {unpkgURL ? (
+                <A href={unpkgURL} title={`View definition for ${name}`}>
                     {name}
                 </A>
             ) : (

@@ -151,6 +151,8 @@ function getMinimalPackageAPI({
             'isConst',
             // EnumMemberDeclaration
             'value',
+            // DeclarationSource, PackageFile
+            'url',
         ],
         emptyArrays: false,
         emptyObjects: false,

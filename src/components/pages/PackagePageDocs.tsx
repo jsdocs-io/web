@@ -131,11 +131,7 @@ export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
                                 namespaces={api.declarations.namespaces}
                             />
 
-                            <PackageFilesSection
-                                name={name}
-                                version={version}
-                                files={api.files}
-                            />
+                            <PackageFilesSection files={api.files} />
                         </>
                     )}
 

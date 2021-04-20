@@ -15,7 +15,7 @@ export function PackageDeclarationSection({
         kind,
         docs,
         signature,
-        source: { filename, url },
+        source: { unpkgURL },
     } = declaration;
 
     return (
@@ -24,8 +24,7 @@ export function PackageDeclarationSection({
                 id={id}
                 name={name}
                 kind={kind}
-                url={url}
-                filename={filename}
+                unpkgURL={unpkgURL}
             />
 
             <CodeBlock code={signature} language="typescript" />
