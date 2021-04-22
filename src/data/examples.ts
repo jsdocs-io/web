@@ -78,33 +78,6 @@ export function sum(a: number, b: number): number {
 export const exampleDeclarationSignature =
     'sum: (a: number, b: number) => number;';
 
-export const examplePackageJSONRepository = `
-// package.json
-
-{
-    "name": "your-package-name",
-    "version": "1.0.0",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/username/repository.git"
-    },
-    ...
-}`;
-
-export const examplePackageJSONRepositoryWithDirectory = `
-// package.json
-
-{
-    "name": "your-package-name",
-    "version": "1.0.0",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/username/repository.git",
-        "directory": "path/to/dir/containing/your/package"
-    },
-    ...
-}`;
-
 export const exampleProjectStructure = `
 .
 ├── src

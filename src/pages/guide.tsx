@@ -14,8 +14,6 @@ import {
     exampleOverview,
     exampleOverviewFile,
     examplePackageJSONFiles,
-    examplePackageJSONRepository,
-    examplePackageJSONRepositoryWithDirectory,
     exampleProjectStructure,
 } from '../data/examples';
 
@@ -47,7 +45,6 @@ export default function GuidePage() {
                     <PackageAnalysisProcessSection />
                     <SupportedPackagesSection />
                     <IncludingTypeDefinitionFilesSection />
-                    <LinkingToSourceSection />
                     <IndexFileSection />
                     <PackageOverviewSection />
                     <PackageDeclarationsSection />
@@ -259,65 +256,6 @@ function IncludingTypeDefinitionFilesSection() {
             </p>
 
             <CodeBlock code={examplePackageJSONFiles} language="json" />
-        </section>
-    );
-}
-
-function LinkingToSourceSection() {
-    return (
-        <section>
-            <h2>Linking to Source</h2>
-
-            <p>
-                If your published package{' '}
-                <A href="#including-type-definition-files">
-                    contains source files
-                </A>
-                , you can enable linking to source from documentation pages by
-                specifying a GitHub, GitLab or Bitbucket repository in the{' '}
-                <A href="https://docs.npmjs.com/cli/v6/configuring-npm/package-json#repository">
-                    repository property
-                </A>{' '}
-                inside <InlineCode code="package.json" /> like in the following
-                example:
-            </p>
-
-            <CodeBlock code={examplePackageJSONRepository} language="json" />
-
-            <p>
-                If your package is part of a monorepo, you should also specify
-                its containing directory as follows:
-            </p>
-
-            <CodeBlock
-                code={examplePackageJSONRepositoryWithDirectory}
-                language="json"
-            />
-
-            <p>
-                The repository's commit/tag corresponding to the published
-                version of your package is determined in order of preference by:
-            </p>
-
-            <ol className="pl-8 mt-2 space-y-1 list-decimal">
-                <li>
-                    The commit hash present in the <InlineCode code="gitHead" />{' '}
-                    property automatically created by the npm CLI when
-                    publishing
-                </li>
-
-                <li>
-                    The package's version number prefixed with{' '}
-                    <InlineCode code="v" /> (for example,{' '}
-                    <InlineCode code="v1.0.0" /> for{' '}
-                    <InlineCode code="foo@1.0.0" />)
-                </li>
-
-                <li>
-                    The default repository branch (only for{' '}
-                    <InlineCode code="@types" /> packages)
-                </li>
-            </ol>
         </section>
     );
 }
