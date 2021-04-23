@@ -1418,10 +1418,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@jsdocs-io/extractor@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@jsdocs-io/extractor/-/extractor-0.1.0.tgz#913abdfba7d18962163abb55634298bbc5ae50a8"
-  integrity sha512-H9kZZcmEo5V28dZFfQvw21/ExSfBG3HidTXQLwoXhTDtD+VbKaOYYEK/M46UK0vBuNdF60MOukXo7M+YCb/uHg==
+"@jsdocs-io/extractor@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@jsdocs-io/extractor/-/extractor-0.2.0.tgz#66b5fd1b834ad02fa631755164d0146690648add"
+  integrity sha512-XpBlrgrKA4/ZV5u8NQXAmE+uKvSjk0D72RWsWjYkh1Aj73c44dVKKU2cxCfyAFeoLn/+QawgHNFjhG9Lu80cuQ==
   dependencies:
     "@microsoft/tsdoc" "^0.13.2"
     concat-stream "^2.0.0"
