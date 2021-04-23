@@ -1,4 +1,4 @@
-import { getPackument } from 'query-registry';
+import { getPackageManifest, getPackument } from 'query-registry';
 import { mocked } from 'ts-jest/utils';
 import { analyzeRegistryPackageWithWorker } from '../../src/lib/analyze-registry-package-with-worker';
 import { getPackagePageStaticProps } from '../../src/lib/get-package-page-static-props';
@@ -11,6 +11,7 @@ jest.mock('query-registry', () => ({
     getPackageManifest: jest.fn(),
 }));
 const mockedGetPackument = mocked(getPackument, true);
+const mockedGetPackageManifest = mocked(getPackageManifest, true);
 
 jest.mock('../../src/lib/analyze-registry-package-with-worker', () => ({
     analyzeRegistryPackageWithWorker: jest.fn(),
@@ -213,6 +214,52 @@ describe('getPackagePageStaticProps:DocFixedVersion', () => {
                     elapsed: info.elapsed,
                 },
                 createdAt: info.createdAt,
+            },
+            revalidate: undefined,
+        });
+    });
+
+    it('returns basic docs if API extraction fails', async () => {
+        expect.assertions(1);
+
+        const wantedPackument = {
+            name: 'foo',
+            distTags: { latest: '1.0.0' },
+        };
+
+        mockedGetPackument.mockImplementation(async () => {
+            return wantedPackument as any;
+        });
+
+        const wantedManifest = {
+            id: 'foo@1.0.0',
+            name: 'foo',
+            version: '1.0.0',
+        };
+
+        mockedGetPackageManifest.mockImplementation(async () => {
+            return wantedManifest as any;
+        });
+
+        mockedLoadRegistryPackageInfo.mockImplementation(async () => {
+            return undefined;
+        });
+
+        mockedAnalyzeRegistryPackageWithWorker.mockImplementation(() => {
+            throw new Error();
+        });
+
+        const props = await getPackagePageStaticProps({
+            route: '/foo/v/1.0.0',
+        });
+
+        expect(props).toMatchObject({
+            props: {
+                kind: PackagePageKind.Docs,
+                data: {
+                    manifest: wantedManifest,
+                    elapsed: 1,
+                },
             },
             revalidate: undefined,
         });
