@@ -2,7 +2,11 @@ import { PackageAPI, RegistryPackageInfo } from '@jsdocs-io/extractor';
 import cleanDeep from 'clean-deep';
 import { pick } from 'filter-anything';
 import { GetStaticPropsResult } from 'next';
-import { getPackument, PackageManifest } from 'query-registry';
+import {
+    getPackageManifest,
+    getPackument,
+    PackageManifest,
+} from 'query-registry';
 import { cleanObject } from './clean-object';
 import { flattenPackageAPI } from './flatten-package-api';
 import {
@@ -60,7 +64,20 @@ export async function getPackagePageDocsProps({
         const { distTags } = await getPackument({ name });
         const version = distTags[rawVersion] ?? rawVersion;
 
-        const info = await getRegistryPackageInfo({ name, version });
+        // If API extraction fails return basic info
+        let info: RegistryPackageInfo;
+        try {
+            info = await getRegistryPackageInfo({ name, version });
+        } catch {
+            const manifest = await getPackageManifest({ name, version });
+            info = {
+                id: manifest.id,
+                manifest,
+                createdAt: new Date().toISOString(),
+                elapsed: 1,
+            };
+        }
+
         const data = getMinimalRegistryPackageInfo({ info });
 
         return {
