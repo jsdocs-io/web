@@ -14,12 +14,16 @@ function writeRobotsTXTFile({ packages }: { packages: string[] }): void {
     const robotsTXTFilepath = path.join(__dirname, '../public/robots.txt');
 
     const data = dedent(`
+        User-agent: SemrushBot
+        Disallow: /
+
         User-agent: *
         ${packages
             .map((name) => `Allow: /package/${name}$`)
             .join('\n'.padEnd(9, ' '))}
         Disallow: /package/
         Crawl-Delay: 30
+
         Sitemap: https://www.jsdocs.io/sitemap.xml
 
     `);
