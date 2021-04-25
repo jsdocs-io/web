@@ -5,6 +5,7 @@ import { Layout } from '../components/common/Layout';
 import {
     backers,
     bronzeSponsors,
+    generousBackers,
     goldSponsors,
     silverSponsors,
 } from '../data/sponsors';
@@ -39,6 +40,7 @@ export default function SponsorPage() {
                     <GoldSponsorsSection />
                     <SilverSponsorsSection />
                     <BronzeSponsorsSection />
+                    <GenerousBackersSection />
                     <BackersSection />
                 </article>
             </Layout>
@@ -154,16 +156,30 @@ function BronzeSponsorsSection() {
     );
 }
 
+function GenerousBackersSection() {
+    return (
+        <section className="space-y-4">
+            <h2>Generous Backers</h2>
+
+            <ul className="list-inline">
+                {generousBackers.map(({ name, url }, index) => (
+                    <li key={index}>
+                        {url ? <A href={url}>{name}</A> : <>{name}</>}
+                    </li>
+                ))}
+            </ul>
+        </section>
+    );
+}
+
 function BackersSection() {
     return (
         <section className="space-y-4">
             <h2>Backers</h2>
 
             <ul className="list-inline">
-                {backers.map(({ name, url }, index) => (
-                    <li key={index}>
-                        {url ? <A href={url}>{name}</A> : <>{name}</>}
-                    </li>
+                {backers.map(({ name }, index) => (
+                    <li key={index}>{name}</li>
                 ))}
             </ul>
         </section>

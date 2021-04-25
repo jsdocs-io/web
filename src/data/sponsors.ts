@@ -63,6 +63,12 @@ export const bronzeSponsors: Sponsor[] = [
     },
 ];
 
+export const generousBackers: Backer[] = [
+    { name: 'Your name here' },
+    { name: 'Your name here' },
+    { name: 'Your name here' },
+].sort((a, b) => a.name.localeCompare(b.name));
+
 export const backers: Backer[] = [
     { name: 'Your name here' },
     { name: 'Your name here' },
