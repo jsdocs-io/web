@@ -83,9 +83,9 @@ function OpenSourceSoftwareSection({
                                 </summary>
 
                                 <ul>
-                                    <li>Version: {version}</li>
+                                    {version && <li>Version: {version}</li>}
 
-                                    <li>License: {license}</li>
+                                    {license && <li>License: {license}</li>}
 
                                     {licenseText && (
                                         <li>

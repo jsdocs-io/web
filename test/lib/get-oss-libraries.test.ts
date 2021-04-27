@@ -22,6 +22,6 @@ describe('getOSSLibraries', () => {
             ),
         });
 
-        expect(licenses.length).toEqual(23);
+        expect(licenses.length).toEqual(32);
     });
 });
