@@ -17,7 +17,15 @@ export default function SearchResults({
         );
     }
 
-    const packages = searchResults.map(({ package: pkg }) => pkg);
+    const packages = searchResults.map(({ package: pkg }) => {
+        return {
+            name: pkg.name,
+            version: pkg.version,
+            description: pkg.description,
+            date: pkg.date as string | undefined,
+            publisherName: pkg.publisher?.username as string | undefined,
+        };
+    });
     if (!packages.length) {
         return (
             <p className="mt-0 text-2xl font-bold text-center">
@@ -29,13 +37,7 @@ export default function SearchResults({
     return (
         <div className="space-y-12">
             {packages.map(
-                ({
-                    name,
-                    version,
-                    description,
-                    date,
-                    publisher: { username },
-                }) => (
+                ({ name, version, description, date, publisherName }) => (
                     <div key={name}>
                         <PackageLink
                             name={name}
@@ -52,17 +54,22 @@ export default function SearchResults({
                         )}
 
                         <p>
-                            Version <span className="font-bold">{version}</span>{' '}
-                            published <TimeAgo date={date} />
-                            {username && (
+                            Version <span className="font-bold">{version}</span>
+                            {date && (
+                                <>
+                                    {' '}
+                                    published <TimeAgo date={date} />
+                                </>
+                            )}
+                            {publisherName && (
                                 <>
                                     {' '}
                                     by{' '}
                                     <A
-                                        href={`https://www.npmjs.com/~${username}`}
-                                        title={`${username}'s npm profile page`}
+                                        href={`https://www.npmjs.com/~${publisherName}`}
+                                        title={`${publisherName}'s npm profile page`}
                                     >
-                                        {username}
+                                        {publisherName}
                                     </A>
                                 </>
                             )}
