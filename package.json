@@ -25,7 +25,7 @@
         "prepare": "husky install"
     },
     "dependencies": {
-        "@braintree/sanitize-url": "^5.0.0",
+        "@braintree/sanitize-url": "^5.0.1",
         "@jsdocs-io/extractor": "^0.2.0",
         "@microsoft/tsdoc": "^0.13.2",
         "anchor-js": "^4.3.1",
