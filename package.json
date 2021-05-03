@@ -4,6 +4,7 @@
     "description": "jsDocs.io website",
     "author": "Edoardo Scibona (velut)",
     "version": "0.1.0",
+    "license": "AGPL-3.0-or-later",
     "scripts": {
         "dev": "next dev",
         "build": "cross-env NODE_OPTIONS='--max-old-space-size=7168' next build",
