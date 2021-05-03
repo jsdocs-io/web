@@ -7911,10 +7911,10 @@ pirates@^4.0.1:
   dependencies:
     node-modules-regexp "^1.0.0"
 
-piscina@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/piscina/-/piscina-2.2.0.tgz#8fd5236f07aaa9676c4100a3e4d90b6b7aaabf4c"
-  integrity sha512-CQb0DfyTdC9FBIMYkVV/00fXRLKDjmWKA8S0N1zDg2JGEc5z3P9qHXtoq8OkJQ+vjCfXySkVonTNMqskMFOW/w==
+piscina@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/piscina/-/piscina-3.0.0.tgz#3880ac03f942c81dd1b9de349ede9ffbcb9aa530"
+  integrity sha512-ye56YiBCK3loPGsagK/Sf/aeuCPAkvZIJDGQnv+SSOQUz1Od5cUsDeirQBB0cxFkXCY6FDsk36Z9xX1D2Zb8Zw==
   dependencies:
     eventemitter-asyncresource "^1.0.0"
     hdr-histogram-js "^2.0.1"
