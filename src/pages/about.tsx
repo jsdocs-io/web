@@ -31,6 +31,7 @@ export default function AboutPage() {
                 <article className="space-y-12">
                     <IntroSection />
                     <TechnologySection />
+                    <SponsorSection />
                     <AddingAPackageSection />
                     <DocumentingAPackageSection />
                     <RemovingAPackageSection />
@@ -50,8 +51,9 @@ function IntroSection() {
             <h1>About</h1>
 
             <p>
-                jsDocs.io is a documentation host for Javascript and Typescript
-                packages published on <A href="https://www.npmjs.com/">npm</A>.
+                jsDocs.io is an open source documentation host for Javascript
+                and Typescript packages published on{' '}
+                <A href="https://www.npmjs.com/">npm</A>.
             </p>
 
             <p>
@@ -86,16 +88,39 @@ function TechnologySection() {
                 </li>
 
                 <li>
-                    A custom API extractor, based on the{' '}
+                    A{' '}
+                    <A href="https://github.com/jsdocs-io/extractor">
+                        custom API extractor
+                    </A>{' '}
+                    based on the{' '}
                     <A href="https://github.com/dsherret/ts-morph">ts-morph</A>{' '}
                     library by David Sherret
                 </li>
 
                 <li>
-                    This website, powered by{' '}
-                    <A href="https://nextjs.org/">Next.js</A>
+                    <A href="https://github.com/jsdocs-io/web">This website</A>,
+                    built with <A href="https://nextjs.org/">Next.js</A>
                 </li>
             </ul>
+
+            <p>
+                The source code for this website is available on{' '}
+                <A href="https://github.com/jsdocs-io">GitHub</A>.
+            </p>
+        </section>
+    );
+}
+
+function SponsorSection() {
+    return (
+        <section>
+            <h2>Sponsor</h2>
+
+            <p>
+                To support jsDocs.io and have your name or logo listed on this
+                website, visit the{' '}
+                <InternalLink href="/sponsor">sponsor page</InternalLink>.
+            </p>
         </section>
     );
 }
@@ -126,8 +151,8 @@ function AddingAPackageSection() {
             </ul>
 
             <p>
-                If the package wasn't already indexed, it will be downloaded
-                from npm, analyzed and its documentation will be displayed.
+                If the package isn't already indexed, it will be downloaded from
+                npm, analyzed and its documentation will be displayed.
             </p>
         </section>
     );
@@ -223,7 +248,7 @@ function FeedbackSection() {
 
             <p>
                 To report bugs, leave suggestions, or ask questions, please{' '}
-                <A href="https://github.com/jsdocs-io/jsdocs-io/issues">
+                <A href="https://github.com/jsdocs-io/web/issues">
                     open an issue
                 </A>
                 .
