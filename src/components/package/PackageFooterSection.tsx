@@ -19,7 +19,7 @@ export function PackageFooterSection({
     };
 
     const packageIssueURL = newGitHubIssueURL({
-        repoUrl: 'https://github.com/jsdocs-io/jsdocs-io',
+        repoUrl: 'https://github.com/jsdocs-io/web',
         template: 'package-with-missing-or-incorrect-documentation.md',
         title: `Package ${name}@${version} has missing or incorrect documentation`,
     });
