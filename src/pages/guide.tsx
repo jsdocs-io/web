@@ -193,7 +193,7 @@ function SupportedPackagesSection() {
             </ul>
 
             <p>
-                In practice, most open-source Typescript and Javascript packages
+                In practice, most open source Typescript and Javascript packages
                 that provide their own type definitions should be well
                 supported.
             </p>
