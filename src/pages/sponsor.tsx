@@ -56,7 +56,7 @@ function IntroSection() {
             <p>
                 Thank you for your interest in supporting jsDocs.io, your
                 contribution will help fund the ongoing development and
-                maintenance of this project!
+                maintenance of this open source project!
             </p>
 
             <p>
@@ -68,11 +68,6 @@ function IntroSection() {
                 </A>{' '}
                 with a monthly contribution and have your name or company logo
                 listed below.
-            </p>
-
-            <p>
-                After our initial funding goal is reached, jsDocs.io will be
-                released as open-source software.
             </p>
         </section>
     );
