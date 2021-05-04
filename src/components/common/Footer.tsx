@@ -47,7 +47,7 @@ export function Footer() {
                     </li>
 
                     <li>
-                        <A href="https://github.com/jsdocs-io/jsdocs-io/issues">
+                        <A href="https://github.com/jsdocs-io/web/issues">
                             Report an Issue
                         </A>
                     </li>
