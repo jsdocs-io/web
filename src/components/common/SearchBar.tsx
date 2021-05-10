@@ -14,13 +14,8 @@ export function SearchBar({ initialQuery = '' }: { initialQuery?: string }) {
 
     const router = useRouter();
 
-    const {
-        rawQuery,
-        cleanQuery,
-        prevQuery,
-        setQuery,
-        setSearched,
-    } = useSearch(initialQuery);
+    const { rawQuery, cleanQuery, prevQuery, setQuery, setSearched } =
+        useSearch(initialQuery);
 
     const performSearch = () => {
         if (cleanQuery && cleanQuery !== prevQuery) {

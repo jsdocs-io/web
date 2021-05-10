@@ -12,13 +12,8 @@ export function PackagePageAvailableVersions({
     data,
     createdAt,
 }: PackagePagePropsAvailableVersions) {
-    const {
-        name,
-        gitRepository,
-        distTags,
-        versionsToTimestamps,
-        license,
-    } = data;
+    const { name, gitRepository, distTags, versionsToTimestamps, license } =
+        data;
 
     const pageTitle = `${name} versions - jsDocs.io`;
     const pageDescription = `Available versions for npm package ${name} - jsDocs.io`;

@@ -24,5 +24,5 @@ export async function parseJSONStream<T>({
         })
     );
 
-    return (data as unknown) as T;
+    return data as unknown as T;
 }

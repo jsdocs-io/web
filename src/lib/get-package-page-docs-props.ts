@@ -120,7 +120,7 @@ function getMinimalPackageManifest({
 }: {
     fullManifest: PackageManifest;
 }): MinimalPackageManifest {
-    return (pick(fullManifest, [
+    return pick(fullManifest, [
         'id',
         'name',
         'version',
@@ -134,7 +134,7 @@ function getMinimalPackageManifest({
         'peerDependencies',
         'dist.unpackedSize',
         'createdAt',
-    ]) as unknown) as MinimalPackageManifest;
+    ]) as unknown as MinimalPackageManifest;
 }
 
 function getMinimalPackageAPI({
