@@ -2,28 +2,37 @@ import Link from 'next/link';
 import React from 'react';
 import { A } from './A';
 import { InternalLink } from './InternalLink';
+import { PoweredByVercelBanner } from './PoweredByVercelBanner';
 
 export function Footer() {
     return (
         <footer className="p-4 bg-gray-100 border-t border-gray-300 dark:bg-gray-900 dark:border-gray-700">
-            <div className="lg:flex lg:items-center lg:justify-between">
-                <Link href="/">
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <a
-                        className="flex items-center space-x-3"
-                        title="jsDocs.io"
-                    >
-                        <img
-                            className="h-8"
-                            src="/logo.png"
-                            alt="jsDocs.io logo"
-                        />
+            <div>
+                <div className="sm:flex sm:justify-between sm:items-center">
+                    <Link href="/">
+                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+                        <a
+                            className="flex items-center space-x-3"
+                            title="jsDocs.io"
+                        >
+                            <img
+                                className="h-8"
+                                src="/logo.png"
+                                alt="jsDocs.io logo"
+                            />
 
-                        <span className="text-2xl font-bold">jsDocs.io</span>
-                    </a>
-                </Link>
+                            <span className="text-2xl font-bold">
+                                jsDocs.io
+                            </span>
+                        </a>
+                    </Link>
 
-                <ul className="mt-4 space-y-1 lg:mt-0 md:flex md:space-x-4 md:space-y-0">
+                    <div className="hidden sm:block">
+                        <PoweredByVercelBanner />
+                    </div>
+                </div>
+
+                <ul className="mt-2 space-y-1 font-bold lg:flex lg:space-x-3 lg:space-y-0">
                     <li>
                         <InternalLink href="/about">About</InternalLink>
                     </li>
@@ -60,6 +69,10 @@ export function Footer() {
                         <A href="https://twitter.com/jsDocs">Twitter</A>
                     </li>
                 </ul>
+            </div>
+
+            <div className="flex justify-end mt-8 sm:hidden">
+                <PoweredByVercelBanner />
             </div>
         </footer>
     );
