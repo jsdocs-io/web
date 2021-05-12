@@ -2,6 +2,7 @@ import NextHead from 'next/head';
 import React from 'react';
 import { A } from '../components/common/A';
 import { Layout } from '../components/common/Layout';
+import { vercelPrivacyPolicyURL, vercelURL } from '../data/vercel-url';
 
 export default function PrivacyPolicyPage() {
     const pageTitle = 'Privacy Policy - jsDocs.io';
@@ -98,17 +99,13 @@ function HostingSection() {
             <h2>Hosting</h2>
 
             <p>
-                jsDocs.io is hosted on <A href="https://vercel.com/">Vercel</A>,
-                which may collect some data to provide its hosting services.
+                jsDocs.io is hosted on <A href={vercelURL}>Vercel</A>, which may
+                collect some data to provide its hosting services.
             </p>
 
             <p>
                 To learn more about the data collected by Vercel, you can visit
-                their{' '}
-                <A href="https://vercel.com/legal/privacy-policy">
-                    privacy policy
-                </A>{' '}
-                page.
+                their <A href={vercelPrivacyPolicyURL}>privacy policy</A> page.
             </p>
         </section>
     );
