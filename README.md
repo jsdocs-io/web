@@ -15,6 +15,12 @@ jsDocs<span></span>.io is an open source documentation host inspired by [GoDoc](
 
 To learn more about jsDocs<span></span>.io, please visit our [About page](https://www.jsdocs.io/about).
 
+<p align="center">
+    <a href="https://vercel.com/?utm_source=jsdocs-io&utm_campaign=oss">
+        <img  src="public/powered-by-vercel.svg?raw=true" alt="Powered by Vercel">
+    </a>
+</p>
+
 ## Package Authors
 
 If you are a developer interested in improving your packages' public documentation, please visit our [package documentation guide](https://www.jsdocs.io/guide).
