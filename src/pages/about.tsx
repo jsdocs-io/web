@@ -5,6 +5,7 @@ import { InlineCode } from '../components/common/InlineCode';
 import { InternalLink } from '../components/common/InternalLink';
 import { Layout } from '../components/common/Layout';
 import { newTabBookmarklet, redirectBookmarklet } from '../data/bookmarklets';
+import { vercelURL } from '../data/vercel-url';
 
 export default function AboutPage() {
     const pageTitle = 'About - jsDocs.io';
@@ -99,7 +100,8 @@ function TechnologySection() {
 
                 <li>
                     <A href="https://github.com/jsdocs-io/web">This website</A>,
-                    built with <A href="https://nextjs.org/">Next.js</A>
+                    built with <A href="https://nextjs.org/">Next.js</A> and
+                    powered by <A href={vercelURL}>Vercel</A>.
                 </li>
             </ul>
 
