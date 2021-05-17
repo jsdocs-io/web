@@ -67,7 +67,7 @@
         "@types/nprogress": "0.2.0",
         "@types/proper-url-join": "2.1.0",
         "@types/react": "17.0.5",
-        "@types/semver": "7.3.5",
+        "@types/semver": "7.3.6",
         "@types/stream-json": "1.7.0",
         "@types/validate-npm-package-name": "3.0.2",
         "autoprefixer": "10.2.5",
