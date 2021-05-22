@@ -25,9 +25,9 @@ export async function analyzeRegistryPackageWithWorker({
 }): Promise<RegistryPackageInfo> {
     const abortEmitter = new EventEmitter();
 
-    const analyzeRegistryPackageTask = piscina.runTask(
+    const analyzeRegistryPackageTask = piscina.run(
         { name, version },
-        abortEmitter
+        { signal: abortEmitter }
     );
 
     const timeoutHandle = setTimeout(() => {
