@@ -50,7 +50,7 @@
         "short-time-ago": "^2.0.0",
         "stream-json": "^1.7.1",
         "swr": "^0.5.6",
-        "trim-newlines": "^3.0.0",
+        "trim-newlines": "^4.0.1",
         "use-dark-mode": "^2.3.1",
         "validate-npm-package-name": "^3.0.0"
     },
