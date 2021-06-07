@@ -58,7 +58,7 @@
         "@commitlint/cli": "12.1.4",
         "@commitlint/config-conventional": "12.1.4",
         "@next/bundle-analyzer": "10.2.3",
-        "@testing-library/jest-dom": "5.12.0",
+        "@testing-library/jest-dom": "5.13.0",
         "@testing-library/react": "11.2.7",
         "@types/anchor-js": "4.2.0",
         "@types/fs-extra": "9.0.11",
