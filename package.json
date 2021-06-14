@@ -80,7 +80,7 @@
         "identity-obj-proxy": "3.0.0",
         "jest": "26.6.3",
         "license-webpack-plugin": "2.3.19",
-        "postcss": "8.3.0",
+        "postcss": "8.3.3",
         "prettier": "2.3.1",
         "proper-url-join": "2.1.1",
         "react-test-renderer": "17.0.2",
