@@ -5039,10 +5039,10 @@ hosted-git-info@^4.0.2:
   dependencies:
     lru-cache "^6.0.0"
 
-hotkeys-js@3.8.3:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.8.3.tgz#0331c2cde770e62d51d5d023133f7c4395f59008"
-  integrity sha512-rUmoryG4lEAtkjF5tcYaihrVoE86Fdw1BLqO/UiBWOOF56h32a6ax8oV4urBlinVtNNtArLlBq8igGfZf2tQnw==
+hotkeys-js@3.8.7:
+  version "3.8.7"
+  resolved "https://registry.yarnpkg.com/hotkeys-js/-/hotkeys-js-3.8.7.tgz#c16cab978b53d7242f860ca3932e976b92399981"
+  integrity sha512-ckAx3EkUr5XjDwjEHDorHxRO2Kb7z6Z2Sxul4MbBkN8Nho7XDslQsgMJT+CiJ5Z4TgRxxvKHEpuLE3imzqy4Lg==
 
 html-encoding-sniffer@^1.0.2:
   version "1.0.2"
@@ -8338,12 +8338,12 @@ react-dom@17.0.2, react-dom@^17.0.1:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-hotkeys-hook@3.3.1:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/react-hotkeys-hook/-/react-hotkeys-hook-3.3.1.tgz#8b03b0b2741d59f91b9b7564e8221c92e3230010"
-  integrity sha512-y6eCMEysh09lIgRQvIC76L7ehqUWf/7h8VlqT6w7RRnim5CX5CXldo64+CjWanIcgr++q5yTNwr7A/8DXA1u9A==
+react-hotkeys-hook@3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/react-hotkeys-hook/-/react-hotkeys-hook-3.3.2.tgz#00730bda494ccf429a1693840fa2375405056ad1"
+  integrity sha512-sR98wtrz3qyVZ5G3I5TTRy7Odm1I9poGt1VwT4RN1ztnobRV/pNGja+6B+LONv+IBIyHLvidzW8IZRB7AuAUkw==
   dependencies:
-    hotkeys-js "3.8.3"
+    hotkeys-js "3.8.7"
 
 react-is@16.13.1, react-is@^16.12.0, react-is@^16.8.1:
   version "16.13.1"
