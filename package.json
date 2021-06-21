@@ -35,7 +35,7 @@
         "fs-extra": "^10.0.0",
         "minio": "^7.0.18",
         "new-github-issue-url": "^0.2.1",
-        "next": "10.2.3",
+        "next": "11.0.0",
         "nprogress": "^0.2.0",
         "path-to-regexp": "^6.2.0",
         "piscina": "^3.1.0",
@@ -57,7 +57,7 @@
     "devDependencies": {
         "@commitlint/cli": "12.1.4",
         "@commitlint/config-conventional": "12.1.4",
-        "@next/bundle-analyzer": "10.2.3",
+        "@next/bundle-analyzer": "11.0.0",
         "@testing-library/jest-dom": "5.14.1",
         "@testing-library/react": "11.2.7",
         "@types/anchor-js": "4.2.0",
