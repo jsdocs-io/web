@@ -63,7 +63,7 @@
         "@types/anchor-js": "4.2.0",
         "@types/fs-extra": "9.0.11",
         "@types/minio": "7.0.7",
-        "@types/node": "15.12.1",
+        "@types/node": "15.12.4",
         "@types/nprogress": "0.2.0",
         "@types/proper-url-join": "2.1.0",
         "@types/react": "17.0.9",
