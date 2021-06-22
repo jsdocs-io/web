@@ -11,7 +11,7 @@ export function TimeAgo({ date: rawDate }: { date: string }) {
         }, 60000);
 
         return () => clearInterval(interval);
-    }, [date]);
+    });
 
     return (
         <time title={date.toUTCString()} dateTime={date.toISOString()}>

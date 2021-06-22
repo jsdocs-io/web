@@ -20,9 +20,15 @@ export function SyntaxHighlight({
                 <pre className={`${className} rounded`}>
                     <code>
                         {tokens.map((line, index) => (
-                            <div {...getLineProps({ line, key: index })}>
+                            <div
+                                key={index}
+                                {...getLineProps({ line, key: index })}
+                            >
                                 {line.map((token, key) => (
-                                    <span {...getTokenProps({ token, key })} />
+                                    <span
+                                        key={key}
+                                        {...getTokenProps({ token, key })}
+                                    />
                                 ))}
                             </div>
                         ))}

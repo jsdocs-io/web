@@ -21,7 +21,7 @@ export function PackageBadgeSection({ name }: { name: string }) {
                     src="/badge.svg"
                     alt="jsDocs.io badge"
                 />
-                to your package's README, use the codes available below.
+                to your {"package's"} README, use the codes available below.
             </p>
 
             <p>

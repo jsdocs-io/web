@@ -95,14 +95,14 @@ function PackageAnalysisProcessSection() {
                 </li>
 
                 <li className="space-y-1">
-                    Extract the package's public API from the{' '}
+                    Extract the {"package's"} public API from the{' '}
                     <A href="#including-type-definition-files">
                         downloaded files
                     </A>
                     :
                     <ol className="pl-8 space-y-1 list-decimal">
                         <li>
-                            Find the package's{' '}
+                            Find the {"package's"}{' '}
                             <A href="#index-file">index file</A> (for example,{' '}
                             <InlineCode code="index.ts" /> or{' '}
                             <InlineCode code="index.d.ts" />)
@@ -110,7 +110,9 @@ function PackageAnalysisProcessSection() {
 
                         <li>
                             Extract the{' '}
-                            <A href="#package-overview">package's overview</A>{' '}
+                            <A href="#package-overview">
+                                {"package's"} overview
+                            </A>{' '}
                             from the index file
                         </li>
 
@@ -204,8 +206,8 @@ function SupportedPackagesSection() {
                 <A href="https://github.com/DefinitelyTyped/DefinitelyTyped">
                     Definitely Typed project
                 </A>
-                , that package's documentation page will contain a link to the
-                corresponding <InlineCode code="@types" /> package.
+                , that {"package's"} documentation page will contain a link to
+                the corresponding <InlineCode code="@types" /> package.
             </p>
         </section>
     );
@@ -251,7 +253,7 @@ function IncludingTypeDefinitionFilesSection() {
                 <InlineCode code="dist" /> directories in your published npm
                 package and to set <InlineCode code="index.d.ts" /> as the main
                 type definition file and <InlineCode code="index.ts" /> as the
-                main source file, your package's{' '}
+                main source file, your {"package's"}{' '}
                 <InlineCode code="package.json" /> file should look like this:
             </p>
 
@@ -282,7 +284,7 @@ function IndexFileSection() {
             <CodeBlock code={exampleIndexFile} language="typescript" />
 
             <p>
-                The name of your package's index file must match one of the
+                The name of your {"package's"} index file must match one of the
                 following filenames, listed in order of preference:
             </p>
 
@@ -358,15 +360,16 @@ function PackageOverviewSection() {
 
             <p>
                 The overview is the first documentation section displayed in
-                your package's documentation page. You can use it to introduce
-                your package, describe its functionalities, show examples and
-                provide any other relevant information.
+                your {"package's"} documentation page. You can use it to
+                introduce your package, describe its functionalities, show
+                examples and provide any other relevant information.
             </p>
 
             <p>
-                To write your package's overview, add a documentation comment
-                containing the <InlineCode code="@packageDocumentation" /> tag
-                to your package's index file like in the following example:
+                To write your {"package's"} overview, add a documentation
+                comment containing the{' '}
+                <InlineCode code="@packageDocumentation" /> tag to your{' '}
+                {"package's"} index file like in the following example:
             </p>
 
             <CodeBlock code={exampleOverviewFile} language="typescript" />

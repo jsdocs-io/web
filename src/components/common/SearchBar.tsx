@@ -47,7 +47,7 @@ export function SearchBar({ initialQuery = '' }: { initialQuery?: string }) {
     return (
         <div className="relative w-full">
             <label className="sr-only" htmlFor="search-bar">
-                Search packages (Press 's' to focus search bar)
+                Search packages (Press {"'s'"} to focus search bar)
             </label>
 
             <input

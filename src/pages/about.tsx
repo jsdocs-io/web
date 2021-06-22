@@ -147,14 +147,14 @@ function AddingAPackageSection() {
                 </li>
 
                 <li>
-                    Directly visit the package's documentation page at{' '}
+                    Directly visit the {"package's"} documentation page at{' '}
                     <InlineCode code="jsdocs.io/package/<name>" />
                 </li>
             </ul>
 
             <p>
-                If the package isn't already indexed, it will be downloaded from
-                npm, analyzed and its documentation will be displayed.
+                If the package {"isn't"} already indexed, it will be downloaded
+                from npm, analyzed and its documentation will be displayed.
             </p>
         </section>
     );
@@ -166,8 +166,9 @@ function DocumentingAPackageSection() {
             <h2>Documenting a Package</h2>
 
             <p>
-                If you are a package author and want to improve your package's
-                documentation as displayed on jsDocs.io, please follow the{' '}
+                If you are a package author and want to improve your{' '}
+                {"package's"} documentation as displayed on jsDocs.io, please
+                follow the{' '}
                 <InternalLink href="/guide">
                     package documentation guide
                 </InternalLink>
@@ -183,8 +184,8 @@ function RemovingAPackageSection() {
             <h2>Removing a Package</h2>
 
             <p>
-                If you do not want your package's documentation to be displayed
-                on jsDocs.io, please contact us at{' '}
+                If you do not want your {"package's"} documentation to be
+                displayed on jsDocs.io, please contact us at{' '}
                 <A href="mailto:info@jsdocs.io">info@jsdocs.io</A>.
             </p>
         </section>
@@ -205,7 +206,7 @@ function BadgeSection() {
                     src="/badge.svg"
                     alt="jsDocs.io badge"
                 />
-                at the bottom of your package's documentation page.
+                at the bottom of your {"package's"} documentation page.
             </p>
         </section>
     );
@@ -217,13 +218,13 @@ function BookmarkletsSection() {
             <h2>Bookmarklets</h2>
 
             <p>
-                The bookmarklets below redirect you from a package's page on npm
-                to the corresponding page on jsDocs.io when clicked.
+                The bookmarklets below redirect you from a {"package's"} page on
+                npm to the corresponding page on jsDocs.io when clicked.
             </p>
 
             <p>
-                To install a bookmarklet, simply drag and drop it to your
-                browser's bookmarks bar.
+                To install a bookmarklet, simply drag and drop it to your{' '}
+                {"browser's"} bookmarks bar.
             </p>
 
             <ul>
