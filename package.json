@@ -40,7 +40,7 @@
         "piscina": "^3.1.0",
         "pretty-bytes": "^5.6.0",
         "prism-react-renderer": "^1.2.1",
-        "prismjs": "^1.24.1",
+        "prismjs": "^1.25.0",
         "query-registry": "^2.0.0",
         "react": "17.0.2",
         "react-dom": "17.0.2",
