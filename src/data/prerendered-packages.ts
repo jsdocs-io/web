@@ -592,7 +592,6 @@ export const prerenderedPackages = [
     '@types/cheerio',
     '@types/chokidar',
     '@types/chownr',
-    '@types/chrome',
     '@types/cipher-base',
     '@types/circular-json',
     '@types/classnames',

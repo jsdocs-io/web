@@ -595,7 +595,6 @@ Allow: /package/@types/chartist$
 Allow: /package/@types/cheerio$
 Allow: /package/@types/chokidar$
 Allow: /package/@types/chownr$
-Allow: /package/@types/chrome$
 Allow: /package/@types/cipher-base$
 Allow: /package/@types/circular-json$
 Allow: /package/@types/classnames$
