@@ -7739,10 +7739,10 @@ stream-http@^2.7.2:
     to-arraybuffer "^1.0.0"
     xtend "^4.0.0"
 
-stream-json@^1.7.2:
-  version "1.7.2"
-  resolved "https://registry.yarnpkg.com/stream-json/-/stream-json-1.7.2.tgz#5b3adf98896732b7e026031a378ccb9d8024b733"
-  integrity sha512-Z/33BkkInF6AIxJqwTjQkb6GLIxDEZEHolDLhalf5mwLCTkfwCzV7NQ5xIISkYt/S0GZCjJ0aofYeKmxJTvsFw==
+stream-json@^1.7.3:
+  version "1.7.3"
+  resolved "https://registry.yarnpkg.com/stream-json/-/stream-json-1.7.3.tgz#8a2abe8b51a2e84ffbc8d09bca9d01dc70facae3"
+  integrity sha512-Y6dXn9KKWSwxOqnvHGcdZy1PK+J+7alBwHCeU3W9oRqm4ilLRA0XSPmd1tWwhg7tv9EIxJTMWh7KF15tYelKJg==
   dependencies:
     stream-chain "^2.2.4"
 
