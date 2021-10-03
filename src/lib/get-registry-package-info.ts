@@ -1,5 +1,7 @@
-import { RegistryPackageInfo } from '@jsdocs-io/extractor';
-import { analyzeRegistryPackageWithWorker } from './analyze-registry-package-with-worker';
+import {
+    analyzeRegistryPackage,
+    RegistryPackageInfo,
+} from '@jsdocs-io/extractor';
 import {
     loadRegistryPackageInfo,
     storeRegistryPackageInfo,
@@ -17,7 +19,7 @@ export async function getRegistryPackageInfo({
         return cachedInfo;
     }
 
-    const info = await analyzeRegistryPackageWithWorker({ name, version });
+    const info = await analyzeRegistryPackage({ name, version });
 
     await storeRegistryPackageInfo({ name, version, info });
 

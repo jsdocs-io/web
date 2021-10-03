@@ -40,8 +40,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         const route = `/${slug.join('/')}`;
 
         return getPackagePageStaticProps({ route });
-    } catch (err) {
-        console.error(err);
+    } catch {
         return getPackagePageErrorProps();
     }
 };
