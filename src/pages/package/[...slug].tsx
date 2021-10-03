@@ -4,7 +4,6 @@ import { prerenderPackages } from '../../../config';
 import { PackagePageAvailableVersions } from '../../components/pages/PackagePageAvailableVersions';
 import { PackagePageDocs } from '../../components/pages/PackagePageDocs';
 import { prerenderedPackages } from '../../data/prerendered-packages';
-import { getPackagePageErrorProps } from '../../lib/get-package-page-error-props';
 import {
     getPackagePageStaticProps,
     PackagePageProps,
@@ -33,14 +32,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    try {
-        // Matched params are always an array for a catch all route.
-        // See https://nextjs.org/docs/routing/dynamic-routes#catch-all-routes
-        const slug = params!.slug as string[];
-        const route = `/${slug.join('/')}`;
+    // Matched params are always an array for a catch all route.
+    // See https://nextjs.org/docs/routing/dynamic-routes#catch-all-routes
+    const slug = params!.slug as string[];
+    const route = `/${slug.join('/')}`;
 
-        return getPackagePageStaticProps({ route });
-    } catch {
-        return getPackagePageErrorProps();
-    }
+    return getPackagePageStaticProps({ route });
 };
