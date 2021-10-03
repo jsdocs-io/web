@@ -3109,6 +3109,7 @@ export const prerenderedPackages = [
     'vee-validate',
     'vega-lite',
     'vendors',
+    'verify-hcaptcha',
     'verror',
     'vlq',
     'vm-browserify',

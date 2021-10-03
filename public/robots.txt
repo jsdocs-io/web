@@ -3112,6 +3112,7 @@ Allow: /package/vary$
 Allow: /package/vee-validate$
 Allow: /package/vega-lite$
 Allow: /package/vendors$
+Allow: /package/verify-hcaptcha$
 Allow: /package/verror$
 Allow: /package/vlq$
 Allow: /package/vm-browserify$
