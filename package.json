@@ -28,6 +28,7 @@
         "@braintree/sanitize-url": "^5.0.2",
         "@jsdocs-io/extractor": "^0.2.0",
         "@microsoft/tsdoc": "^0.13.2",
+        "@sentry/nextjs": "^6.13.2",
         "anchor-js": "^4.3.1",
         "clean-deep": "^3.4.0",
         "filter-anything": "^2.2.1",
