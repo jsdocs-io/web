@@ -27,6 +27,7 @@
         "hcaptcha",
         "jsdocs",
         "powered",
+        "tailwindcss",
         "vercel"
     ]
 }

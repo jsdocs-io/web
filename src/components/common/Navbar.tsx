@@ -20,7 +20,7 @@ export function Navbar() {
     return (
         <header className="px-4 py-3 bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
             <div className="flex items-center justify-between">
-                <div className="flex items-center flex-shrink-0 p-1 space-x-8">
+                <div className="flex items-center shrink-0 p-1 space-x-8">
                     <NavbarLogo showLogoText={!showSearchBar} />
 
                     <div className="hidden lg:block">
@@ -28,7 +28,7 @@ export function Navbar() {
                     </div>
                 </div>
 
-                <div className="flex items-center flex-grow ml-4 -mr-2 space-x-2 sm:ml-8 md:flex-grow-0 md:w-1/2 xl:w-1/3">
+                <div className="flex items-center grow ml-4 -mr-2 space-x-2 sm:ml-8 md:grow-0 md:w-1/2 xl:w-1/3">
                     {showSearchBar && <SearchBar />}
 
                     <div className="ml-auto">
