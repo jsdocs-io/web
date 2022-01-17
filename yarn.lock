@@ -5222,10 +5222,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-new-github-issue-url@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/new-github-issue-url/-/new-github-issue-url-0.2.1.tgz#e17be1f665a92de465926603e44b9f8685630c1d"
-  integrity sha512-md4cGoxuT4T4d/HDOXbrUHkTKrp/vp+m3aOA7XXVYwNsUNMK49g3SQicTSeV5GIz/5QVGAeYRAOlyp9OvlgsYA==
+new-github-issue-url@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/new-github-issue-url/-/new-github-issue-url-1.0.0.tgz#c9e84057c2609b7cbd686d1d8baa53e291292e79"
+  integrity sha512-wa9jlUFg3v6S3ddijQiB18SY4u9eJYcUe5sHa+6SB8m1UUbtX+H/bBglxOLnhhF1zIHuhWXnKBAa8kBeKRIozQ==
 
 next@12.0.8:
   version "12.0.8"
