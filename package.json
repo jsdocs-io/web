@@ -79,7 +79,7 @@
         "got": "11.8.2",
         "husky": "7.0.4",
         "identity-obj-proxy": "3.0.0",
-        "jest": "26.6.3",
+        "jest": "27.4.7",
         "license-webpack-plugin": "4.0.0",
         "postcss": "8.4.5",
         "prettier": "2.5.1",
