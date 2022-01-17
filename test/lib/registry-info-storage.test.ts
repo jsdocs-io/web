@@ -1,4 +1,3 @@
-import { mocked } from 'ts-jest/utils';
 import {
     loadRegistryPackageInfo,
     storeRegistryPackageInfo,
@@ -9,8 +8,8 @@ jest.mock('../../src/lib/storage', () => ({
     loadObject: jest.fn(),
     storeObject: jest.fn(),
 }));
-const mockedLoadObject = mocked(loadObject, true);
-const mockedStoreObject = mocked(storeObject, true);
+const mockedLoadObject = jest.mocked(loadObject, true);
+const mockedStoreObject = jest.mocked(storeObject, true);
 
 describe('loadRegistryPackageInfo', () => {
     it('returns undefined if an object cannot be retrieved', async () => {

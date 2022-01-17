@@ -1,6 +1,5 @@
 import { analyzeRegistryPackage } from '@jsdocs-io/extractor';
 import { getPackageManifest, getPackument } from 'query-registry';
-import { mocked } from 'ts-jest/utils';
 import { getPackagePageStaticProps } from '../../src/lib/get-package-page-static-props';
 import { PackagePageKind } from '../../src/lib/package-page-kind';
 import { loadRegistryPackageInfo } from '../../src/lib/registry-package-info-storage';
@@ -10,19 +9,22 @@ jest.mock('query-registry', () => ({
     getPackument: jest.fn(),
     getPackageManifest: jest.fn(),
 }));
-const mockedGetPackument = mocked(getPackument, true);
-const mockedGetPackageManifest = mocked(getPackageManifest, true);
+const mockedGetPackument = jest.mocked(getPackument, true);
+const mockedGetPackageManifest = jest.mocked(getPackageManifest, true);
 
 jest.mock('@jsdocs-io/extractor', () => ({
     analyzeRegistryPackage: jest.fn(),
 }));
-const mockedAnalyzeRegistryPackage = mocked(analyzeRegistryPackage, true);
+const mockedAnalyzeRegistryPackage = jest.mocked(analyzeRegistryPackage, true);
 
 jest.mock('../../src/lib/registry-package-info-storage', () => ({
     loadRegistryPackageInfo: jest.fn(),
     storeRegistryPackageInfo: jest.fn(),
 }));
-const mockedLoadRegistryPackageInfo = mocked(loadRegistryPackageInfo, true);
+const mockedLoadRegistryPackageInfo = jest.mocked(
+    loadRegistryPackageInfo,
+    true
+);
 
 describe('getPackagePageStaticProps:DocLatestVersion', () => {
     it('returns the fresh docs for the latest package version', async () => {
