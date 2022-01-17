@@ -93,6 +93,6 @@
         "typescript": "4.5.4",
         "webpack-stats-plugin": "1.0.3",
         "webpack-visualizer-plugin2": "1.0.0",
-        "xml-formatter": "2.4.1"
+        "xml-formatter": "2.6.0"
     }
 }
