@@ -1106,10 +1106,10 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.0.tgz#69a23a3ad29caf0097f06eda59b361ee2f0639f6"
   integrity sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
 
-"@types/minio@7.0.10":
-  version "7.0.10"
-  resolved "https://registry.yarnpkg.com/@types/minio/-/minio-7.0.10.tgz#2cd2bfd684fdc7f7553a4869d98ee9aa256aa406"
-  integrity sha512-PLzP2UYmS6GPZHWoiiFB7lwkFvfLR275UpqsXEAAihSb6+GWA3ZXGxq8ktYyvxgz/dYN7y2Esa+b1quI3v3S8w==
+"@types/minio@7.0.11":
+  version "7.0.11"
+  resolved "https://registry.yarnpkg.com/@types/minio/-/minio-7.0.11.tgz#eb86d1bb590ef0f720f59343327e966b655c707e"
+  integrity sha512-ltn30nGhtxytil4jFU1Tt6lvD+JnUyCYHfNBKsRjZ76ueSkrQdIByghcnhFvr15at3cnvj+tVn+euCqTX/5ejQ==
   dependencies:
     "@types/node" "*"
 
@@ -1118,10 +1118,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.6.tgz#8666478db8095aa66e25b7e469f3e7b53ea2855e"
   integrity sha512-VESVNFoa/ahYA62xnLBjo5ur6gPsgEE5cNRy8SrdnkZ2nwJSW0kJ4ufbFr2zuU9ALtHM8juY53VcRoTA7htXSg==
 
-"@types/node@16.10.2":
-  version "16.10.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.10.2.tgz#5764ca9aa94470adb4e1185fe2e9f19458992b2e"
-  integrity sha512-zCclL4/rx+W5SQTzFs9wyvvyCwoK9QtBpratqz2IYJ3O8Umrn0m3nsTv0wQBk9sRGpvUe9CwPDrQFB10f1FIjQ==
+"@types/node@17.0.9":
+  version "17.0.9"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.9.tgz#0b7f161afb5b1cc12518d29b2cdc7175d5490628"
+  integrity sha512-5dNBXu/FOER+EXnyah7rn8xlNrfMOQb/qXnw4NQgLkCygKBKhdmF/CA5oXVOKZLBEahw8s2WP9LxIcN/oDDRgQ==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -1155,10 +1155,10 @@
   dependencies:
     query-string "^6.3.0"
 
-"@types/react@17.0.27":
-  version "17.0.27"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.27.tgz#6498ed9b3ad117e818deb5525fa1946c09f2e0e6"
-  integrity sha512-zgiJwtsggVGtr53MndV7jfiUESTqrbxOcBvwfe6KS/9bzaVPCTDieTWnFNecVNx6EAaapg5xsLLWFfHHR437AA==
+"@types/react@17.0.38":
+  version "17.0.38"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.38.tgz#f24249fefd89357d5fa71f739a686b8d7c7202bd"
+  integrity sha512-SI92X1IA+FMnP3qM5m4QReluXzhcmovhZnLNm3pyeQlooi02qI7sLiepEYqT678uNiyc25XfCqxREFpy3W7YhQ==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -1176,10 +1176,10 @@
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.1.tgz#18845205e86ff0038517aab7a18a62a6b9f71275"
   integrity sha512-EaCxbanVeyxDRTQBkdLb3Bvl/HK7PBK6UJjsSixB0iHKoWxE5uu2Q/DgtpOhPIojN0Zl1whvOd7PoHs2P0s5eA==
 
-"@types/semver@7.3.8":
-  version "7.3.8"
-  resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.3.8.tgz#508a27995498d7586dcecd77c25e289bfaf90c59"
-  integrity sha512-D/2EJvAlCEtYFEYmmlGwbGXuK886HzyCc3nZX/tkFTQdEU8jZDAgiv08P162yB17y4ZXZoq7yFAnW4GDBb9Now==
+"@types/semver@7.3.9":
+  version "7.3.9"
+  resolved "https://registry.yarnpkg.com/@types/semver/-/semver-7.3.9.tgz#152c6c20a7688c30b967ec1841d31ace569863fc"
+  integrity sha512-L/TMpyURfBkf+o/526Zb6kd/tchUP3iBDEPjqjb+U2MAJhVRxxrmr2fwpe08E7QsV7YLcpq0tUaQ9O9x97ZIxQ==
 
 "@types/stack-utils@^2.0.0":
   version "2.0.0"
@@ -1193,10 +1193,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/stream-json@1.7.1":
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/@types/stream-json/-/stream-json-1.7.1.tgz#58b82a41161f2936c9bfc6c725a30e956bbd443b"
-  integrity sha512-BNIK/ix6iJvWvoXbDVVJhw5LNG1wie/rXcUo7jw4hBqY3FhIrg0e+RMXFN5UreKclBIStl9FDEHNSDLuuQ9/MQ==
+"@types/stream-json@1.7.2":
+  version "1.7.2"
+  resolved "https://registry.yarnpkg.com/@types/stream-json/-/stream-json-1.7.2.tgz#8d7f1cc3a37a9a402a4af284348499cdf5e28248"
+  integrity sha512-i4LE2aWVb1R3p/Z6S6Sw9kmmOs4Drhg0SybZUyfM499I1c8p7MUKZHs4Sg9jL5eu4mDmcgfQ6eGIG3+rmfUWYw==
   dependencies:
     "@types/node" "*"
     "@types/stream-chain" "*"
