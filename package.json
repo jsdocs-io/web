@@ -32,7 +32,7 @@
         "clean-deep": "^3.4.0",
         "filter-anything": "^2.2.1",
         "fs-extra": "^10.0.0",
-        "minio": "^7.0.19",
+        "minio": "^7.0.26",
         "new-github-issue-url": "^0.2.1",
         "next": "11.1.2",
         "nprogress": "^0.2.0",
