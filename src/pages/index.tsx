@@ -38,7 +38,7 @@ export default function IndexPage() {
                         <SearchBar />
                     </div>
 
-                    <p>
+                    <p className="text-center">
                         Try with{' '}
                         <PackageLink name="faastjs">faastjs</PackageLink>,{' '}
                         <PackageLink name="query-registry">
