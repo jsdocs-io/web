@@ -20,6 +20,12 @@ export function NavbarLinks() {
                 <li>
                     <NavbarLink href="/about">About</NavbarLink>
                 </li>
+
+                <li>
+                    <NavbarLink href="https://github.com/jsdocs-io/web">
+                        GitHub
+                    </NavbarLink>
+                </li>
             </ul>
         </nav>
     );
