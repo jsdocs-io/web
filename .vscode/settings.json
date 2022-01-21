@@ -23,12 +23,19 @@
         "Packument",
         "bahmutov",
         "banner",
+        "braintree",
         "by",
+        "commitlint",
         "hcaptcha",
         "jsdocs",
         "minio",
+        "nprogress",
         "powered",
+        "prerendered",
+        "prismjs",
+        "stylelint",
         "tailwindcss",
+        "tsdoc",
         "vercel"
     ]
 }
