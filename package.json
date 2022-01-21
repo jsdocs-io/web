@@ -54,7 +54,7 @@
         "validate-npm-package-name": "^3.0.0"
     },
     "devDependencies": {
-        "@commitlint/cli": "16.0.2",
+        "@commitlint/cli": "16.1.0",
         "@commitlint/config-conventional": "16.0.0",
         "@next/bundle-analyzer": "12.0.8",
         "@testing-library/jest-dom": "5.16.1",
