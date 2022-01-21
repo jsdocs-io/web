@@ -52,6 +52,7 @@ function getShowcasedPackages(): string[] {
         'query-registry',
         'short-time-ago',
         'vue',
+        'zod',
     ];
 }
 
