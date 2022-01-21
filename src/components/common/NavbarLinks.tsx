@@ -26,6 +26,12 @@ export function NavbarLinks() {
                         GitHub
                     </NavbarLink>
                 </li>
+
+                <li>
+                    <NavbarLink href="https://twitter.com/jsDocs">
+                        Twitter
+                    </NavbarLink>
+                </li>
             </ul>
         </nav>
     );
