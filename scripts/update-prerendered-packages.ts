@@ -56,7 +56,16 @@ function getShowcasedPackages(): string[] {
 }
 
 function getPackagesLinkingToJsDocs(): string[] {
-    return ['enttec-open-dmx-usb', 'verify-hcaptcha'];
+    return [
+        '@jsdocs-io/extractor',
+        'enttec-open-dmx-usb',
+        'h3',
+        'hn-ts',
+        'query-registry',
+        'short-time-ago',
+        'tinyargs',
+        'verify-hcaptcha',
+    ];
 }
 
 function getHeavyPackages(): string[] {
