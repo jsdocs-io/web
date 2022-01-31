@@ -1267,19 +1267,14 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.0.tgz#69a23a3ad29caf0097f06eda59b361ee2f0639f6"
   integrity sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
 
-"@types/minio@7.0.11":
-  version "7.0.11"
-  resolved "https://registry.yarnpkg.com/@types/minio/-/minio-7.0.11.tgz#eb86d1bb590ef0f720f59343327e966b655c707e"
-  integrity sha512-ltn30nGhtxytil4jFU1Tt6lvD+JnUyCYHfNBKsRjZ76ueSkrQdIByghcnhFvr15at3cnvj+tVn+euCqTX/5ejQ==
+"@types/minio@7.0.12":
+  version "7.0.12"
+  resolved "https://registry.yarnpkg.com/@types/minio/-/minio-7.0.12.tgz#54d78498b6ac2580b95db4af27ecd9f1af02cbe0"
+  integrity sha512-O9hfc+61y8PYSP/6InHNML0VIo9c1UYptgkveHhlLMs2kPjOms3EfSjU2dfnOXIyADvp3v1FRTwRpL9owKdxtw==
   dependencies:
     "@types/node" "*"
 
-"@types/node@*":
-  version "16.7.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.7.6.tgz#8666478db8095aa66e25b7e469f3e7b53ea2855e"
-  integrity sha512-VESVNFoa/ahYA62xnLBjo5ur6gPsgEE5cNRy8SrdnkZ2nwJSW0kJ4ufbFr2zuU9ALtHM8juY53VcRoTA7htXSg==
-
-"@types/node@17.0.10":
+"@types/node@*", "@types/node@17.0.10":
   version "17.0.10"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.10.tgz#616f16e9d3a2a3d618136b1be244315d95bd7cab"
   integrity sha512-S/3xB4KzyFxYGCppyDt68yzBU9ysL88lSdIah4D6cptdcltc4NCPCAMc0+PCpg/lLIyC7IPvj2Z52OJWeIUkog==
