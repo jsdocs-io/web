@@ -30,10 +30,10 @@ async function getPrerenderedPackages(): Promise<string[]> {
         ...getPackagesLinkingToJsDocs(),
         ...getHeavyPackages(),
         ...(await getPopularNpmPackagesWithDefinitelyTyped({
-            minPackages: 1000,
+            minPackages: 1500,
         })),
         ...(await getPopularNpmPackages({
-            minPackages: 2000,
+            minPackages: 2500,
             language: 'typescript',
         })),
     ]);
@@ -59,6 +59,7 @@ function getShowcasedPackages(): string[] {
 function getPackagesLinkingToJsDocs(): string[] {
     return [
         '@jsdocs-io/extractor',
+        'bundle-require',
         'enttec-open-dmx-usb',
         'h3',
         'hn-ts',
@@ -180,7 +181,9 @@ function getLibrariesIOEndpoint({
             per_page: packagesPerPage,
 
             // "Most used" sort criteria
-            sort: 'dependent_repos_count',
+            // sort: 'dependent_repos_count',
+            // "Dependents" sort criteria
+            sort: 'dependents_count',
             order: 'desc',
             platforms: 'npm',
 
