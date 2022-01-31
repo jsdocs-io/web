@@ -4936,7 +4936,6 @@ Allow: /package/run-sequence$
 Allow: /package/runjs$
 Allow: /package/runtypes$
 Allow: /package/rwlockfile$
-Allow: /package/rx$
 Allow: /package/rxjs$
 Allow: /package/rxjs-compat$
 Allow: /package/rxjs-marbles$

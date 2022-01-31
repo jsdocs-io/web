@@ -4933,7 +4933,6 @@ export const prerenderedPackages = [
     'runjs',
     'runtypes',
     'rwlockfile',
-    'rx',
     'rxjs',
     'rxjs-compat',
     'rxjs-marbles',

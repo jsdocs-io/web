@@ -90,6 +90,7 @@ function getProblematicPackages(): string[] {
         '@types/chrome', // Takes too long to generate static page
         'googleapis', // OOM when analyzing
         'phaser',
+        'rx',
     ];
 }
 
