@@ -3275,13 +3275,13 @@ fill-range@^7.0.1:
   dependencies:
     to-regex-range "^5.0.1"
 
-filter-anything@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/filter-anything/-/filter-anything-2.2.1.tgz#f6f46f32d5b2a1b4ba91404346bb3e775589f462"
-  integrity sha512-x4LrdHQP7cqKo1ji4RIcUEUqHn4WmTXl9XFBLs+Qwjnmc2aQeJgOSYqTCDpxrcRbdeYBAGBMKXJzaXntfQqs+w==
+filter-anything@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/filter-anything/-/filter-anything-3.0.2.tgz#5104047e694160d17c13e5378da58b9f4d8efa43"
+  integrity sha512-Tpkx9p7fPSa0hUN54D5AWrkTZ5e0amkRXJu1XEfKyzHqjTETE9fGGkFp3X/e9wV+8AcggToQBGo8m4i+9drQvA==
   dependencies:
-    is-what "^3.14.1"
-    ts-toolbelt "^9.5.10"
+    is-what "^4.1.6"
+    ts-toolbelt "^9.6.0"
 
 filter-obj@^1.1.0:
   version "1.1.0"
@@ -4101,10 +4101,10 @@ is-weakref@^1.0.1:
   dependencies:
     call-bind "^1.0.2"
 
-is-what@^3.14.1:
-  version "3.14.1"
-  resolved "https://registry.yarnpkg.com/is-what/-/is-what-3.14.1.tgz#e1222f46ddda85dead0fd1c9df131760e77755c1"
-  integrity sha512-sNxgpk9793nzSs7bA6JQJGeIuRBQhAaNGG77kzYQgMkrID+lS6SlK07K5LaptscDlSaIgH+GPFzf+d75FVxozA==
+is-what@^4.1.6:
+  version "4.1.7"
+  resolved "https://registry.yarnpkg.com/is-what/-/is-what-4.1.7.tgz#c41dc1d2d2d6a9285c624c2505f61849c8b1f9cc"
+  integrity sha512-DBVOQNiPKnGMxRMLIYSwERAS5MVY1B7xYiGnpgctsOFvVDz9f9PFXXxMcTOHuoqYp4NK9qFYQaIC1NRRxLMpBQ==
 
 isarray@0.0.1:
   version "0.0.1"
@@ -6773,10 +6773,10 @@ ts-node@10.4.0, ts-node@^10.4.0:
     make-error "^1.1.1"
     yn "3.1.1"
 
-ts-toolbelt@^9.5.10:
-  version "9.5.10"
-  resolved "https://registry.yarnpkg.com/ts-toolbelt/-/ts-toolbelt-9.5.10.tgz#4e72459aecf40651f631f821cfff1eb690611d90"
-  integrity sha512-nyfx1+97Bl86XFkHYC3TyM0IP2mP0Yc30KbZod9S6VaUNC9aJl4kcKnjKopBm+GG1TjOFsAtRbhKZZjuji86wQ==
+ts-toolbelt@^9.6.0:
+  version "9.6.0"
+  resolved "https://registry.yarnpkg.com/ts-toolbelt/-/ts-toolbelt-9.6.0.tgz#50a25426cfed500d4a09bd1b3afb6f28879edfd5"
+  integrity sha512-nsZd8ZeNUzukXPlJmTBwUAuABDe/9qtVDelJeT/qW0ow3ZS3BsQJtNkan1802aM9Uf68/Y8ljw86Hu0h5IUW3w==
 
 tsconfig-paths@^3.12.0:
   version "3.12.0"
