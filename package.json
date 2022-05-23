@@ -70,7 +70,7 @@
         "@types/semver": "7.3.9",
         "@types/stream-json": "1.7.2",
         "@types/validate-npm-package-name": "3.0.3",
-        "autoprefixer": "10.4.2",
+        "autoprefixer": "10.4.7",
         "babel-jest": "27.4.6",
         "cli-real-favicon": "0.0.8",
         "cross-env": "7.0.3",
