@@ -75,7 +75,7 @@
         "cli-real-favicon": "0.0.8",
         "cross-env": "7.0.3",
         "eslint": "8.22.0",
-        "eslint-config-next": "12.1.6",
+        "eslint-config-next": "12.2.5",
         "eslint-plugin-prettier": "4.0.0",
         "got": "11.8.5",
         "husky": "7.0.4",
