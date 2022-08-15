@@ -47,7 +47,7 @@
         "react-hotkeys-hook": "3.4.4",
         "semver": "^7.3.5",
         "short-time-ago": "^2.0.0",
-        "stream-json": "^1.7.3",
+        "stream-json": "^1.7.4",
         "swr": "^1.3.0",
         "trim-newlines": "4.0.2",
         "use-dark-mode": "^2.3.1",
