@@ -81,7 +81,7 @@
         "husky": "7.0.4",
         "identity-obj-proxy": "3.0.0",
         "jest": "27.4.7",
-        "license-webpack-plugin": "4.0.1",
+        "license-webpack-plugin": "4.0.2",
         "postcss": "8.4.5",
         "prettier": "2.7.1",
         "proper-url-join": "2.1.1",
