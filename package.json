@@ -83,7 +83,7 @@
         "jest": "27.4.7",
         "license-webpack-plugin": "4.0.1",
         "postcss": "8.4.5",
-        "prettier": "2.5.1",
+        "prettier": "2.7.1",
         "proper-url-join": "2.1.1",
         "react-test-renderer": "18.2.0",
         "stylelint-config-recommended": "6.0.0",
