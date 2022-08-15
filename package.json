@@ -26,7 +26,7 @@
     },
     "dependencies": {
         "@braintree/sanitize-url": "^6.0.0",
-        "@jsdocs-io/extractor": "^0.3.0",
+        "@jsdocs-io/extractor": "^0.4.0",
         "@microsoft/tsdoc": "^0.14.1",
         "anchor-js": "^4.3.1",
         "clean-deep": "^3.4.0",
