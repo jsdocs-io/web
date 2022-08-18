@@ -1,5 +1,4 @@
 import NextHead from "next/head";
-import React from "react";
 import { A } from "../components/common/A";
 import { InlineCode } from "../components/common/InlineCode";
 import { InternalLink } from "../components/common/InternalLink";
@@ -7,7 +6,7 @@ import { Layout } from "../components/common/Layout";
 import { newTabBookmarklet, redirectBookmarklet } from "../data/bookmarklets";
 import { vercelURL } from "../data/vercel-url";
 
-export default function AboutPage() {
+const AboutPage = () => {
   const pageTitle = "About - jsDocs.io";
   const pageDescription = "About jsDocs.io";
 
@@ -41,9 +40,9 @@ export default function AboutPage() {
       </Layout>
     </>
   );
-}
+};
 
-function IntroSection() {
+const IntroSection = () => {
   return (
     <section>
       <h1>About</h1>
@@ -63,9 +62,9 @@ function IntroSection() {
       </p>
     </section>
   );
-}
+};
 
-function TechnologySection() {
+const TechnologySection = () => {
   return (
     <section className="space-y-2">
       <h2>Technology</h2>
@@ -108,9 +107,9 @@ function TechnologySection() {
       </p>
     </section>
   );
-}
+};
 
-function SponsorSection() {
+const SponsorSection = () => {
   return (
     <section>
       <h2>Sponsor</h2>
@@ -121,9 +120,9 @@ function SponsorSection() {
       </p>
     </section>
   );
-}
+};
 
-function AddingAPackageSection() {
+const AddingAPackageSection = () => {
   return (
     <section className="space-y-2">
       <h2>Adding a Package</h2>
@@ -152,9 +151,9 @@ function AddingAPackageSection() {
       </p>
     </section>
   );
-}
+};
 
-function DocumentingAPackageSection() {
+const DocumentingAPackageSection = () => {
   return (
     <section>
       <h2>Documenting a Package</h2>
@@ -166,9 +165,9 @@ function DocumentingAPackageSection() {
       </p>
     </section>
   );
-}
+};
 
-function RemovingAPackageSection() {
+const RemovingAPackageSection = () => {
   return (
     <section>
       <h2>Removing a Package</h2>
@@ -180,9 +179,9 @@ function RemovingAPackageSection() {
       </p>
     </section>
   );
-}
+};
 
-function BadgeSection() {
+const BadgeSection = () => {
   return (
     <section>
       <h2>Badge</h2>
@@ -196,9 +195,9 @@ function BadgeSection() {
       </p>
     </section>
   );
-}
+};
 
-function BookmarkletsSection() {
+const BookmarkletsSection = () => {
   return (
     <section className="space-y-2">
       <h2>Bookmarklets</h2>
@@ -228,9 +227,9 @@ function BookmarkletsSection() {
       </ul>
     </section>
   );
-}
+};
 
-function FeedbackSection() {
+const FeedbackSection = () => {
   return (
     <section>
       <h2>Feedback</h2>
@@ -247,9 +246,9 @@ function FeedbackSection() {
       </p>
     </section>
   );
-}
+};
 
-function PrivacyPolicySection() {
+const PrivacyPolicySection = () => {
   return (
     <section>
       <h2>Privacy Policy</h2>
@@ -260,4 +259,6 @@ function PrivacyPolicySection() {
       </p>
     </section>
   );
-}
+};
+
+export default AboutPage;

@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import React from "react";
 import { prerenderPackages } from "../../../config";
 import { PackagePageAvailableVersions } from "../../components/pages/PackagePageAvailableVersions";
 import { PackagePageDocs } from "../../components/pages/PackagePageDocs";
@@ -11,7 +10,7 @@ import {
 import { PackagePageKind } from "../../lib/package-page-kind";
 import Page404 from "../404";
 
-export default function PackagePage(props: PackagePageProps) {
+const PackagePage = (props: PackagePageProps) => {
   switch (props.kind) {
     case PackagePageKind.Docs:
       return <PackagePageDocs {...props} />;
@@ -20,7 +19,7 @@ export default function PackagePage(props: PackagePageProps) {
     case PackagePageKind.Error:
       return <Page404 message={props.message} />;
   }
-}
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -39,3 +38,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return getPackagePageStaticProps({ route });
 };
+
+export default PackagePage;

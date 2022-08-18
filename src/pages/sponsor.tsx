@@ -1,5 +1,4 @@
 import NextHead from "next/head";
-import React from "react";
 import { A } from "../components/common/A";
 import { Layout } from "../components/common/Layout";
 import {
@@ -10,7 +9,7 @@ import {
   silverSponsors,
 } from "../data/sponsors";
 
-export default function SponsorPage() {
+const SponsorPage = () => {
   const pageTitle = "Sponsor - jsDocs.io";
   const pageDescription = "Sponsors page - jsDocs.io";
 
@@ -40,9 +39,9 @@ export default function SponsorPage() {
       </Layout>
     </>
   );
-}
+};
 
-function IntroSection() {
+const IntroSection = () => {
   return (
     <section>
       <h1>Sponsor</h1>
@@ -65,9 +64,9 @@ function IntroSection() {
       </p>
     </section>
   );
-}
+};
 
-function GoldSponsorsSection() {
+const GoldSponsorsSection = () => {
   return (
     <section className="space-y-4">
       <h2>Gold Sponsors</h2>
@@ -91,9 +90,9 @@ function GoldSponsorsSection() {
       </ul>
     </section>
   );
-}
+};
 
-function SilverSponsorsSection() {
+const SilverSponsorsSection = () => {
   return (
     <section className="space-y-4">
       <h2>Silver Sponsors</h2>
@@ -117,9 +116,9 @@ function SilverSponsorsSection() {
       </ul>
     </section>
   );
-}
+};
 
-function BronzeSponsorsSection() {
+const BronzeSponsorsSection = () => {
   return (
     <section className="space-y-4">
       <h2>Bronze Sponsors</h2>
@@ -143,9 +142,9 @@ function BronzeSponsorsSection() {
       </ul>
     </section>
   );
-}
+};
 
-function GenerousBackersSection() {
+const GenerousBackersSection = () => {
   return (
     <section className="space-y-4">
       <h2>Generous Backers</h2>
@@ -157,9 +156,9 @@ function GenerousBackersSection() {
       </ul>
     </section>
   );
-}
+};
 
-function BackersSection() {
+const BackersSection = () => {
   return (
     <section className="space-y-4">
       <h2>Backers</h2>
@@ -171,4 +170,6 @@ function BackersSection() {
       </ul>
     </section>
   );
-}
+};
+
+export default SponsorPage;

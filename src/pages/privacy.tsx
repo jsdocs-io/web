@@ -1,10 +1,9 @@
 import NextHead from "next/head";
-import React from "react";
 import { A } from "../components/common/A";
 import { Layout } from "../components/common/Layout";
 import { vercelPrivacyPolicyURL, vercelURL } from "../data/vercel-url";
 
-export default function PrivacyPolicyPage() {
+const PrivacyPolicyPage = () => {
   const pageTitle = "Privacy Policy - jsDocs.io";
   const pageDescription = "Privacy policy for jsDocs.io";
 
@@ -34,9 +33,9 @@ export default function PrivacyPolicyPage() {
       </Layout>
     </>
   );
-}
+};
 
-function IntroSection() {
+const IntroSection = () => {
   return (
     <section>
       <h1>Privacy Policy</h1>
@@ -46,9 +45,9 @@ function IntroSection() {
       <p>The privacy policy was last updated on April 7, 2021.</p>
     </section>
   );
-}
+};
 
-function FirstPartySection() {
+const FirstPartySection = () => {
   return (
     <section>
       <h2>First Party</h2>
@@ -58,9 +57,9 @@ function FirstPartySection() {
       </p>
     </section>
   );
-}
+};
 
-function AnalyticsSection() {
+const AnalyticsSection = () => {
   return (
     <section>
       <h2>Analytics</h2>
@@ -83,9 +82,9 @@ function AnalyticsSection() {
       </p>
     </section>
   );
-}
+};
 
-function HostingSection() {
+const HostingSection = () => {
   return (
     <section>
       <h2>Hosting</h2>
@@ -101,9 +100,9 @@ function HostingSection() {
       </p>
     </section>
   );
-}
+};
 
-function LinksToExternalWebsitesSection() {
+const LinksToExternalWebsitesSection = () => {
   return (
     <section>
       <h2>Links to External Websites</h2>
@@ -119,9 +118,9 @@ function LinksToExternalWebsitesSection() {
       </p>
     </section>
   );
-}
+};
 
-function ContactInformationSection() {
+const ContactInformationSection = () => {
   return (
     <section>
       <h2>Contact Information</h2>
@@ -132,4 +131,6 @@ function ContactInformationSection() {
       </p>
     </section>
   );
-}
+};
+
+export default PrivacyPolicyPage;

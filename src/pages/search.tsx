@@ -1,12 +1,11 @@
 import NextHead from "next/head";
-import React from "react";
 import { Layout } from "../components/common/Layout";
 import { SearchBar } from "../components/common/SearchBar";
 import SearchResults from "../components/search/SearchResults";
 import { useSearchPackages } from "../hooks/useSearchPackages";
 import Page404 from "./404";
 
-export default function SearchPage() {
+const SearchPage = () => {
   const { query, searchResults, error } = useSearchPackages();
 
   if (error || !query) {
@@ -41,4 +40,6 @@ export default function SearchPage() {
       </Layout>
     </>
   );
-}
+};
+
+export default SearchPage;

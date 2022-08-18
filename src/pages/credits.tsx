@@ -1,6 +1,5 @@
 import { GetStaticProps } from "next";
 import NextHead from "next/head";
-import React from "react";
 import { A } from "../components/common/A";
 import { CodeBlock } from "../components/common/CodeBlock";
 import { Layout } from "../components/common/Layout";
@@ -13,7 +12,7 @@ interface CreditsPageProps {
   readonly ossLibraries: OSSLibrary[];
 }
 
-export default function CreditsPage({ ossLibraries }: CreditsPageProps) {
+const CreditsPage = ({ ossLibraries }: CreditsPageProps) => {
   const pageTitle = "Credits - jsDocs.io";
   const pageDescription = "Credits for jsDocs.io";
 
@@ -41,21 +40,21 @@ export default function CreditsPage({ ossLibraries }: CreditsPageProps) {
       </Layout>
     </>
   );
-}
+};
 
-function IntroSection() {
+const IntroSection = () => {
   return (
     <section>
       <h1>Credits</h1>
     </section>
   );
-}
+};
 
-function OpenSourceSoftwareSection({
+const OpenSourceSoftwareSection = ({
   ossLibraries,
 }: {
   ossLibraries: OSSLibrary[];
-}) {
+}) => {
   return (
     <section className="space-y-2">
       <h2>OSS Licenses</h2>
@@ -91,9 +90,9 @@ function OpenSourceSoftwareSection({
       </ul>
     </section>
   );
-}
+};
 
-function StylingSection() {
+const StylingSection = () => {
   return (
     <section className="space-y-2">
       <h2>Styling</h2>
@@ -124,9 +123,9 @@ function StylingSection() {
       </details>
     </section>
   );
-}
+};
 
-function IconsSection() {
+const IconsSection = () => {
   return (
     <section className="space-y-2">
       <h2>Icons</h2>
@@ -143,7 +142,7 @@ function IconsSection() {
       </details>
     </section>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async () => {
   // During the webpack build we are in the root directory
@@ -154,3 +153,5 @@ export const getStaticProps: GetStaticProps = async () => {
     props: { ossLibraries },
   };
 };
+
+export default CreditsPage;

@@ -1,10 +1,9 @@
 import NextHead from "next/head";
-import React from "react";
 import { Layout } from "../components/common/Layout";
 import { PackageLink } from "../components/common/PackageLink";
 import { SearchBar } from "../components/common/SearchBar";
 
-export default function IndexPage() {
+const IndexPage = () => {
   const pageTitle = "jsDocs.io";
   const pageDescription =
     "jsDocs.io is a documentation host for Javascript and Typescript packages published on npm";
@@ -40,4 +39,6 @@ export default function IndexPage() {
       </Layout>
     </>
   );
-}
+};
+
+export default IndexPage;

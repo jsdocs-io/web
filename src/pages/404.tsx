@@ -1,12 +1,7 @@
 import NextHead from "next/head";
-import React from "react";
 import { Layout } from "../components/common/Layout";
 
-export default function Page404({
-  message = "Page Not Found",
-}: {
-  message?: string;
-}) {
+const Page404 = ({ message = "Page Not Found" }: { message?: string }) => {
   const pageTitle = `${message} - jsDocs.io`;
   const pageDescription = pageTitle;
 
@@ -32,4 +27,6 @@ export default function Page404({
       </Layout>
     </>
   );
-}
+};
+
+export default Page404;

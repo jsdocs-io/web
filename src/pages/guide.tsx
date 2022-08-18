@@ -1,5 +1,4 @@
 import NextHead from "next/head";
-import React from "react";
 import { A } from "../components/common/A";
 import { CodeBlock } from "../components/common/CodeBlock";
 import { DocComment } from "../components/common/DocComment";
@@ -17,7 +16,7 @@ import {
   exampleProjectStructure,
 } from "../data/examples";
 
-export default function GuidePage() {
+const GuidePage = () => {
   const pageTitle = "Package Documentation Guide - jsDocs.io";
   const pageDescription =
     "Documentation guide for packages displayed on jsDocs.io";
@@ -50,9 +49,9 @@ export default function GuidePage() {
       </Layout>
     </>
   );
-}
+};
 
-function IntroSection() {
+const IntroSection = () => {
   return (
     <section>
       <h1>Package Documentation Guide</h1>
@@ -63,9 +62,9 @@ function IntroSection() {
       </p>
     </section>
   );
-}
+};
 
-function PackageAnalysisProcessSection() {
+const PackageAnalysisProcessSection = () => {
   return (
     <section className="space-y-2">
       <h2>Package Analysis Process</h2>
@@ -122,9 +121,9 @@ function PackageAnalysisProcessSection() {
       </p>
     </section>
   );
-}
+};
 
-function SupportedPackagesSection() {
+const SupportedPackagesSection = () => {
   return (
     <section className="space-y-2">
       <h2>Supported Packages</h2>
@@ -197,9 +196,9 @@ function SupportedPackagesSection() {
       </p>
     </section>
   );
-}
+};
 
-function IncludingTypeDefinitionFilesSection() {
+const IncludingTypeDefinitionFilesSection = () => {
   return (
     <section>
       <h2>Including Type Definition Files</h2>
@@ -244,9 +243,9 @@ function IncludingTypeDefinitionFilesSection() {
       <CodeBlock code={examplePackageJSONFiles} language="json" />
     </section>
   );
-}
+};
 
-function IndexFileSection() {
+const IndexFileSection = () => {
   return (
     <section>
       <h2>Index File</h2>
@@ -331,9 +330,9 @@ function IndexFileSection() {
       </p>
     </section>
   );
-}
+};
 
-function PackageOverviewSection() {
+const PackageOverviewSection = () => {
   return (
     <section>
       <h2>Package Overview</h2>
@@ -370,9 +369,9 @@ function PackageOverviewSection() {
       </p>
     </section>
   );
-}
+};
 
-function PackageDeclarationsSection() {
+const PackageDeclarationsSection = () => {
   return (
     <section>
       <h2>Package Declarations</h2>
@@ -433,9 +432,9 @@ function PackageDeclarationsSection() {
       </p>
     </section>
   );
-}
+};
 
-function ExamplePackagesSection() {
+const ExamplePackagesSection = () => {
   return (
     <section>
       <h2>Example Packages</h2>
@@ -475,4 +474,6 @@ function ExamplePackagesSection() {
       </ul>
     </section>
   );
-}
+};
+
+export default GuidePage;
