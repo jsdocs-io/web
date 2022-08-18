@@ -22,6 +22,7 @@
   "peacock.color": "#153c4d",
   "cSpell.ignoreWords": [
     "FOUC",
+    "JSDOCSIO",
     "Packument",
     "Semrush",
     "adonisjs",
@@ -71,6 +72,7 @@
     "fullhuman",
     "hcaptcha",
     "jsdocs",
+    "jsdocsio",
     "kadira",
     "kamilkisiela",
     "kazupon",
