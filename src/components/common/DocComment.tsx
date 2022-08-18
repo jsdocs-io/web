@@ -1,367 +1,358 @@
-import * as tsdoc from '@microsoft/tsdoc';
-import React from 'react';
-import { A } from './A';
-import { CodeBlock } from './CodeBlock';
-import { InlineCode } from './InlineCode';
-import { InternalLink } from './InternalLink';
-import { PackageLink } from './PackageLink';
+import * as tsdoc from "@microsoft/tsdoc";
+import React from "react";
+import { A } from "./A";
+import { CodeBlock } from "./CodeBlock";
+import { InlineCode } from "./InlineCode";
+import { InternalLink } from "./InternalLink";
+import { PackageLink } from "./PackageLink";
 
 interface DocNodeProps {
-    readonly node: tsdoc.DocNode;
+  readonly node: tsdoc.DocNode;
 }
 
 interface DocLinkTagProps {
-    readonly linkTag: tsdoc.DocLinkTag;
+  readonly linkTag: tsdoc.DocLinkTag;
 }
 
 /**
  * DocComment renders a JSDoc/TSDoc comment (like this one).
  */
 export function DocComment({ doc }: { doc?: string }) {
-    if (!doc) {
-        return null;
+  if (!doc) {
+    return null;
+  }
+
+  const {
+    summarySection,
+    params: { blocks: paramBlocks },
+    returnsBlock,
+    remarksBlock,
+    customBlocks,
+    seeBlocks,
+    modifierTagSet: { nodes: allModifierTags },
+    deprecatedBlock,
+    inheritDocTag,
+  } = new tsdoc.TSDocParser().parseString(doc).docComment;
+
+  const returnsSection = returnsBlock?.content;
+  const remarksSection = remarksBlock?.content;
+  const deprecatedSection = deprecatedBlock?.content;
+
+  const exampleBlocks = customBlocks.filter(
+    ({ blockTag: { tagNameWithUpperCase } }) => {
+      // Example blocks are defined by the `@example` tag
+      return (
+        tagNameWithUpperCase === tsdoc.StandardTags.example.tagNameWithUpperCase
+      );
     }
+  );
 
-    const {
-        summarySection,
-        params: { blocks: paramBlocks },
-        returnsBlock,
-        remarksBlock,
-        customBlocks,
-        seeBlocks,
-        modifierTagSet: { nodes: allModifierTags },
-        deprecatedBlock,
-        inheritDocTag,
-    } = new tsdoc.TSDocParser().parseString(doc).docComment;
-
-    const returnsSection = returnsBlock?.content;
-    const remarksSection = remarksBlock?.content;
-    const deprecatedSection = deprecatedBlock?.content;
-
-    const exampleBlocks = customBlocks.filter(
-        ({ blockTag: { tagNameWithUpperCase } }) => {
-            // Example blocks are defined by the `@example` tag
-            return (
-                tagNameWithUpperCase ===
-                tsdoc.StandardTags.example.tagNameWithUpperCase
-            );
-        }
-    );
-
-    const throwsBlocks = customBlocks.filter(
-        ({ blockTag: { tagNameWithUpperCase } }) => {
-            // Throws blocks are defined by the `@throws` tag
-            return (
-                tagNameWithUpperCase ===
-                tsdoc.StandardTags.throws.tagNameWithUpperCase
-            );
-        }
-    );
-
-    const modifierTags = allModifierTags.filter(({ tagNameWithUpperCase }) => {
-        // Do not display the `@packageDocumentation` tag
-        return ![
-            tsdoc.StandardTags.packageDocumentation.tagNameWithUpperCase,
-        ].includes(tagNameWithUpperCase);
-    });
-
-    if (inheritDocTag) {
-        return <DocInheritDocSection inheritDocTag={inheritDocTag} />;
+  const throwsBlocks = customBlocks.filter(
+    ({ blockTag: { tagNameWithUpperCase } }) => {
+      // Throws blocks are defined by the `@throws` tag
+      return (
+        tagNameWithUpperCase === tsdoc.StandardTags.throws.tagNameWithUpperCase
+      );
     }
+  );
 
-    return (
-        <div className="space-y-4">
-            <DocSummarySection summarySection={summarySection} />
+  const modifierTags = allModifierTags.filter(({ tagNameWithUpperCase }) => {
+    // Do not display the `@packageDocumentation` tag
+    return ![
+      tsdoc.StandardTags.packageDocumentation.tagNameWithUpperCase,
+    ].includes(tagNameWithUpperCase);
+  });
 
-            {paramBlocks.length !== 0 && (
-                <DocParamsSections paramBlocks={paramBlocks} />
-            )}
+  if (inheritDocTag) {
+    return <DocInheritDocSection inheritDocTag={inheritDocTag} />;
+  }
 
-            {returnsSection && (
-                <DocReturnsSection returnsSection={returnsSection} />
-            )}
+  return (
+    <div className="space-y-4">
+      <DocSummarySection summarySection={summarySection} />
 
-            {throwsBlocks.length !== 0 && (
-                <DocThrowsSections throwsBlocks={throwsBlocks} />
-            )}
+      {paramBlocks.length !== 0 && (
+        <DocParamsSections paramBlocks={paramBlocks} />
+      )}
 
-            {remarksSection && (
-                <DocRemarksSection remarksSection={remarksSection} />
-            )}
+      {returnsSection && <DocReturnsSection returnsSection={returnsSection} />}
 
-            {exampleBlocks.length !== 0 && (
-                <DocExamplesSections exampleBlocks={exampleBlocks} />
-            )}
+      {throwsBlocks.length !== 0 && (
+        <DocThrowsSections throwsBlocks={throwsBlocks} />
+      )}
 
-            {seeBlocks.length !== 0 && <DocSeeSection seeBlocks={seeBlocks} />}
+      {remarksSection && <DocRemarksSection remarksSection={remarksSection} />}
 
-            {modifierTags.length !== 0 && (
-                <DocModifiersSection modifierTags={modifierTags} />
-            )}
+      {exampleBlocks.length !== 0 && (
+        <DocExamplesSections exampleBlocks={exampleBlocks} />
+      )}
 
-            {deprecatedSection && (
-                <DocDeprecatedSection deprecatedSection={deprecatedSection} />
-            )}
-        </div>
-    );
+      {seeBlocks.length !== 0 && <DocSeeSection seeBlocks={seeBlocks} />}
+
+      {modifierTags.length !== 0 && (
+        <DocModifiersSection modifierTags={modifierTags} />
+      )}
+
+      {deprecatedSection && (
+        <DocDeprecatedSection deprecatedSection={deprecatedSection} />
+      )}
+    </div>
+  );
 }
 
 function DocInheritDocSection({
-    inheritDocTag,
+  inheritDocTag,
 }: {
-    inheritDocTag: tsdoc.DocInheritDocTag;
+  inheritDocTag: tsdoc.DocInheritDocTag;
 }) {
-    const { declarationReference } = inheritDocTag;
-    if (!declarationReference) {
-        return null;
-    }
+  const { declarationReference } = inheritDocTag;
+  if (!declarationReference) {
+    return null;
+  }
 
-    const { packageName, declarationID, url } = resolveDeclarationReference({
-        declarationReference,
-    });
+  const { packageName, declarationID, url } = resolveDeclarationReference({
+    declarationReference,
+  });
 
-    return (
-        <section>
-            <p>
-                See documentation for{' '}
-                {packageName ? (
-                    <PackageLink
-                        name={packageName}
-                        declarationID={declarationID}
-                    >
-                        {declarationID} from package {packageName}
-                    </PackageLink>
-                ) : (
-                    <InternalLink href={url}>{declarationID}</InternalLink>
-                )}
-                .
-            </p>
-        </section>
-    );
+  return (
+    <section>
+      <p>
+        See documentation for{" "}
+        {packageName ? (
+          <PackageLink name={packageName} declarationID={declarationID}>
+            {declarationID} from package {packageName}
+          </PackageLink>
+        ) : (
+          <InternalLink href={url}>{declarationID}</InternalLink>
+        )}
+        .
+      </p>
+    </section>
+  );
 }
 
 function DocSummarySection({
-    summarySection,
+  summarySection,
 }: {
-    summarySection: tsdoc.DocSection;
+  summarySection: tsdoc.DocSection;
 }) {
-    return (
-        <section>
-            <DocContainer container={summarySection} />
-        </section>
-    );
+  return (
+    <section>
+      <DocContainer container={summarySection} />
+    </section>
+  );
 }
 
 function DocParamsSections({
-    paramBlocks,
+  paramBlocks,
 }: {
-    paramBlocks: ReadonlyArray<tsdoc.DocParamBlock>;
+  paramBlocks: ReadonlyArray<tsdoc.DocParamBlock>;
 }) {
-    return (
-        <>
-            {paramBlocks.map(({ parameterName, content }, index) => (
-                <section key={index}>
-                    <h4>Parameter {parameterName}</h4>
+  return (
+    <>
+      {paramBlocks.map(({ parameterName, content }, index) => (
+        <section key={index}>
+          <h4>Parameter {parameterName}</h4>
 
-                    <DocContainer container={content} />
-                </section>
-            ))}
-        </>
-    );
+          <DocContainer container={content} />
+        </section>
+      ))}
+    </>
+  );
 }
 
 function DocReturnsSection({
-    returnsSection,
+  returnsSection,
 }: {
-    returnsSection: tsdoc.DocSection;
+  returnsSection: tsdoc.DocSection;
 }) {
-    return (
-        <section>
-            <h4>Returns</h4>
+  return (
+    <section>
+      <h4>Returns</h4>
 
-            <DocContainer container={returnsSection} />
-        </section>
-    );
+      <DocContainer container={returnsSection} />
+    </section>
+  );
 }
 
 function DocThrowsSections({
-    throwsBlocks,
+  throwsBlocks,
 }: {
-    throwsBlocks: tsdoc.DocBlock[];
+  throwsBlocks: tsdoc.DocBlock[];
 }) {
-    return (
-        <>
-            {throwsBlocks.map(({ content }, index) => (
-                <section key={index}>
-                    <h4>Throws</h4>
+  return (
+    <>
+      {throwsBlocks.map(({ content }, index) => (
+        <section key={index}>
+          <h4>Throws</h4>
 
-                    <DocContainer container={content} />
-                </section>
-            ))}
-        </>
-    );
+          <DocContainer container={content} />
+        </section>
+      ))}
+    </>
+  );
 }
 
 function DocRemarksSection({
-    remarksSection,
+  remarksSection,
 }: {
-    remarksSection: tsdoc.DocSection;
+  remarksSection: tsdoc.DocSection;
 }) {
-    return (
-        <section>
-            <h4>Remarks</h4>
+  return (
+    <section>
+      <h4>Remarks</h4>
 
-            <DocContainer container={remarksSection} />
-        </section>
-    );
+      <DocContainer container={remarksSection} />
+    </section>
+  );
 }
 
 function DocExamplesSections({
-    exampleBlocks,
+  exampleBlocks,
 }: {
-    exampleBlocks: tsdoc.DocBlock[];
+  exampleBlocks: tsdoc.DocBlock[];
 }) {
-    return (
-        <>
-            {exampleBlocks.map(({ content }, index) => (
-                <section key={index}>
-                    <h4>Example {index + 1}</h4>
+  return (
+    <>
+      {exampleBlocks.map(({ content }, index) => (
+        <section key={index}>
+          <h4>Example {index + 1}</h4>
 
-                    <DocContainer container={content} />
-                </section>
-            ))}
-        </>
-    );
+          <DocContainer container={content} />
+        </section>
+      ))}
+    </>
+  );
 }
 
 function DocSeeSection({
-    seeBlocks,
+  seeBlocks,
 }: {
-    seeBlocks: ReadonlyArray<tsdoc.DocBlock>;
+  seeBlocks: ReadonlyArray<tsdoc.DocBlock>;
 }) {
-    return (
-        <section className="space-y-2">
-            <h4>See Also</h4>
+  return (
+    <section className="space-y-2">
+      <h4>See Also</h4>
 
-            <ul>
-                {seeBlocks.map(({ content }, index) => (
-                    <li key={index}>
-                        <DocContainer container={content} />
-                    </li>
-                ))}
-            </ul>
-        </section>
-    );
+      <ul>
+        {seeBlocks.map(({ content }, index) => (
+          <li key={index}>
+            <DocContainer container={content} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
 }
 
 function DocModifiersSection({
-    modifierTags,
+  modifierTags,
 }: {
-    modifierTags: tsdoc.DocBlockTag[];
+  modifierTags: tsdoc.DocBlockTag[];
 }) {
-    return (
-        <section className="space-y-2">
-            <h4>Modifiers</h4>
+  return (
+    <section className="space-y-2">
+      <h4>Modifiers</h4>
 
-            <ul className="list-inline">
-                {modifierTags.map(({ tagName }) => (
-                    <li key={tagName}>
-                        <InlineCode code={tagName} />
-                    </li>
-                ))}
-            </ul>
-        </section>
-    );
+      <ul className="list-inline">
+        {modifierTags.map(({ tagName }) => (
+          <li key={tagName}>
+            <InlineCode code={tagName} />
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
 }
 
 function DocDeprecatedSection({
-    deprecatedSection,
+  deprecatedSection,
 }: {
-    deprecatedSection: tsdoc.DocSection;
+  deprecatedSection: tsdoc.DocSection;
 }) {
-    return (
-        <section>
-            <h4 className="text-red-700 dark:text-red-500">Deprecated</h4>
+  return (
+    <section>
+      <h4 className="text-red-700 dark:text-red-500">Deprecated</h4>
 
-            <DocContainer container={deprecatedSection} />
-        </section>
-    );
+      <DocContainer container={deprecatedSection} />
+    </section>
+  );
 }
 
 function DocContainer({ container }: { container: tsdoc.DocNodeContainer }) {
-    return (
-        <>
-            {container.nodes.map((node, index) => (
-                <DocNode key={index} node={node} />
-            ))}
-        </>
-    );
+  return (
+    <>
+      {container.nodes.map((node, index) => (
+        <DocNode key={index} node={node} />
+      ))}
+    </>
+  );
 }
 
 function DocNode({ node }: DocNodeProps) {
-    switch (node.kind) {
-        case 'ErrorText':
-            return <DocErrorText node={node} />;
-        case 'EscapedText':
-            return <DocEscapedText node={node} />;
-        case 'CodeSpan':
-            return <DocCodeSpan node={node} />;
-        case 'FencedCode':
-            return <DocFencedCode node={node} />;
-        case 'LinkTag':
-            return <DocLinkTag node={node} />;
-        case 'Paragraph':
-            return <DocParagraph node={node} />;
-        case 'PlainText':
-            return <DocPlainText node={node} />;
-        case 'SoftBreak':
-            return <DocSoftBreak />;
-        default:
-            return null;
-    }
+  switch (node.kind) {
+    case "ErrorText":
+      return <DocErrorText node={node} />;
+    case "EscapedText":
+      return <DocEscapedText node={node} />;
+    case "CodeSpan":
+      return <DocCodeSpan node={node} />;
+    case "FencedCode":
+      return <DocFencedCode node={node} />;
+    case "LinkTag":
+      return <DocLinkTag node={node} />;
+    case "Paragraph":
+      return <DocParagraph node={node} />;
+    case "PlainText":
+      return <DocPlainText node={node} />;
+    case "SoftBreak":
+      return <DocSoftBreak />;
+    default:
+      return null;
+  }
 }
 
 function DocErrorText({ node }: DocNodeProps) {
-    const errorText = (node as tsdoc.DocErrorText).text;
+  const errorText = (node as tsdoc.DocErrorText).text;
 
-    return <span className="break-words">{errorText}</span>;
+  return <span className="break-words">{errorText}</span>;
 }
 
 function DocEscapedText({ node }: DocNodeProps) {
-    const escapedText = (node as tsdoc.DocEscapedText).decodedText;
+  const escapedText = (node as tsdoc.DocEscapedText).decodedText;
 
-    return <span className="break-words">{escapedText}</span>;
+  return <span className="break-words">{escapedText}</span>;
 }
 
 function DocCodeSpan({ node }: DocNodeProps) {
-    const code = (node as tsdoc.DocCodeSpan).code;
+  const code = (node as tsdoc.DocCodeSpan).code;
 
-    return <InlineCode code={code} />;
+  return <InlineCode code={code} />;
 }
 
 function DocFencedCode({ node }: DocNodeProps) {
-    const fencedCode = node as tsdoc.DocFencedCode;
-    const { code, language } = fencedCode;
+  const fencedCode = node as tsdoc.DocFencedCode;
+  const { code, language } = fencedCode;
 
-    return <CodeBlock code={code} language={language} />;
+  return <CodeBlock code={code} language={language} />;
 }
 
 function DocLinkTag({ node }: DocNodeProps) {
-    const linkTag = node as tsdoc.DocLinkTag;
+  const linkTag = node as tsdoc.DocLinkTag;
 
-    return linkTag.urlDestination ? (
-        <DocLinkTagExternal linkTag={linkTag} />
-    ) : (
-        <DocLinkTagInternal linkTag={linkTag} />
-    );
+  return linkTag.urlDestination ? (
+    <DocLinkTagExternal linkTag={linkTag} />
+  ) : (
+    <DocLinkTagInternal linkTag={linkTag} />
+  );
 }
 
 /** DocLinkTagExternal links to an external resource. */
 function DocLinkTagExternal({ linkTag }: DocLinkTagProps) {
-    const url = linkTag.urlDestination as string;
-    const text = linkTag.linkText ?? url;
+  const url = linkTag.urlDestination as string;
+  const text = linkTag.linkText ?? url;
 
-    return <A href={url}>{text}</A>;
+  return <A href={url}>{text}</A>;
 }
 
 /**
@@ -369,40 +360,40 @@ function DocLinkTagExternal({ linkTag }: DocLinkTagProps) {
  * which may be different from the one containing the link.
  */
 function DocLinkTagInternal({ linkTag }: DocLinkTagProps) {
-    const { packageName, declarationID, url } = resolveDeclarationReference({
-        declarationReference: linkTag.codeDestination!,
-    });
-    const text = linkTag.linkText;
+  const { packageName, declarationID, url } = resolveDeclarationReference({
+    declarationReference: linkTag.codeDestination!,
+  });
+  const text = linkTag.linkText;
 
-    return packageName ? (
-        <PackageLink name={packageName} declarationID={declarationID}>
-            {text ? text : `${packageName}#${declarationID}`}
-        </PackageLink>
-    ) : (
-        <InternalLink href={url}>{text ?? declarationID}</InternalLink>
-    );
+  return packageName ? (
+    <PackageLink name={packageName} declarationID={declarationID}>
+      {text ? text : `${packageName}#${declarationID}`}
+    </PackageLink>
+  ) : (
+    <InternalLink href={url}>{text ?? declarationID}</InternalLink>
+  );
 }
 
 function DocParagraph({ node }: DocNodeProps) {
-    const paragraph = node as tsdoc.DocParagraph;
-    const contents = tsdoc.DocNodeTransforms.trimSpacesInParagraph(paragraph);
+  const paragraph = node as tsdoc.DocParagraph;
+  const contents = tsdoc.DocNodeTransforms.trimSpacesInParagraph(paragraph);
 
-    return (
-        <p className="break-words">
-            <DocContainer container={contents} />
-        </p>
-    );
+  return (
+    <p className="break-words">
+      <DocContainer container={contents} />
+    </p>
+  );
 }
 
 function DocPlainText({ node }: DocNodeProps) {
-    const plainText = (node as tsdoc.DocPlainText).text;
+  const plainText = (node as tsdoc.DocPlainText).text;
 
-    return <>{plainText}</>;
+  return <>{plainText}</>;
 }
 
 /** DocSoftBreak renders a single space */
 function DocSoftBreak() {
-    return <> </>;
+  return <> </>;
 }
 
 /**
@@ -413,20 +404,20 @@ function DocSoftBreak() {
  * (e.g. `/package/@foo/bar#myClass.myProperty`).
  */
 function resolveDeclarationReference({
-    declarationReference,
+  declarationReference,
 }: {
-    declarationReference: tsdoc.DocDeclarationReference;
+  declarationReference: tsdoc.DocDeclarationReference;
 }): { packageName?: string; declarationID: string; url: string } {
-    const { packageName, memberReferences } = declarationReference;
-    const packageRoute = packageName ? `/package/${packageName}` : '';
+  const { packageName, memberReferences } = declarationReference;
+  const packageRoute = packageName ? `/package/${packageName}` : "";
 
-    const declarationID = memberReferences
-        .flatMap(({ memberIdentifier }) => {
-            const id = memberIdentifier?.identifier;
-            return id ? id : [];
-        })
-        .join('.');
+  const declarationID = memberReferences
+    .flatMap(({ memberIdentifier }) => {
+      const id = memberIdentifier?.identifier;
+      return id ? id : [];
+    })
+    .join(".");
 
-    const url = `${packageRoute}#${declarationID}`;
-    return { packageName, declarationID, url };
+  const url = `${packageRoute}#${declarationID}`;
+  return { packageName, declarationID, url };
 }

@@ -1,7 +1,7 @@
 ---
 name: Package with Missing or Incorrect Documentation
 about: Report a package with missing or incorrect documentation
-title: ''
+title: ""
 labels: package documentation
 assignees: velut
 ---
@@ -16,10 +16,10 @@ Please use this issue template to report a package that you know is documented b
 
 **Problem** (check all that apply using an [x]):
 
--   [ ] Missing documentation
--   [ ] Partial documentation
--   [ ] Incorrect documentation
--   [ ] Exposed private documentation
--   [ ] Other
+- [ ] Missing documentation
+- [ ] Partial documentation
+- [ ] Incorrect documentation
+- [ ] Exposed private documentation
+- [ ] Other
 
 **Optionally, briefly describe the problem**:

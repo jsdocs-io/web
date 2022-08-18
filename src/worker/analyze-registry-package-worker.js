@@ -1,5 +1,5 @@
-const { analyzeRegistryPackage } = require('@jsdocs-io/extractor');
+const { analyzeRegistryPackage } = require("@jsdocs-io/extractor");
 
 module.exports = async ({ name, version }) => {
-    return analyzeRegistryPackage({ name, version });
+  return analyzeRegistryPackage({ name, version });
 };

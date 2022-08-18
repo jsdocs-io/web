@@ -1,21 +1,21 @@
-import { NamespaceDeclaration } from '@jsdocs-io/extractor';
-import React from 'react';
-import { PackageIndexNamespacesList } from './PackageIndexNamespacesList';
+import { NamespaceDeclaration } from "@jsdocs-io/extractor";
+import React from "react";
+import { PackageIndexNamespacesList } from "./PackageIndexNamespacesList";
 
 export function PackageIndexNamespacesSection({
-    namespaces,
+  namespaces,
 }: {
-    namespaces: NamespaceDeclaration[];
+  namespaces: NamespaceDeclaration[];
 }) {
-    if (!namespaces.length) {
-        return null;
-    }
+  if (!namespaces.length) {
+    return null;
+  }
 
-    return (
-        <section className="space-y-2">
-            <h3 id="package-index-namespaces">Namespaces</h3>
+  return (
+    <section className="space-y-2">
+      <h3 id="package-index-namespaces">Namespaces</h3>
 
-            <PackageIndexNamespacesList namespaces={namespaces} />
-        </section>
-    );
+      <PackageIndexNamespacesList namespaces={namespaces} />
+    </section>
+  );
 }

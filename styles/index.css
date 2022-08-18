@@ -3,83 +3,83 @@
 @tailwind utilities;
 
 @layer base {
-    h1,
-    h2,
-    h3,
-    h4 {
-        @apply font-bold;
-    }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-bold;
+  }
 
-    h1 {
-        @apply text-3xl;
-    }
+  h1 {
+    @apply text-3xl;
+  }
 
-    h2 {
-        @apply text-2xl;
-    }
+  h2 {
+    @apply text-2xl;
+  }
 
-    h3 {
-        @apply text-xl;
-    }
+  h3 {
+    @apply text-xl;
+  }
 
-    h4 {
-        @apply text-lg;
-    }
+  h4 {
+    @apply text-lg;
+  }
 
-    p {
-        @apply mt-2;
-    }
+  p {
+    @apply mt-2;
+  }
 }
 
 @layer components {
-    .list-inline {
-        @apply flex;
-        @apply flex-wrap;
-        @apply -mx-1;
-    }
+  .list-inline {
+    @apply flex;
+    @apply flex-wrap;
+    @apply -mx-1;
+  }
 
-    .list-inline > li {
-        /* Make Chrome apply `break-words` correctly for flex children */
-        @apply min-w-0;
-    }
+  .list-inline > li {
+    /* Make Chrome apply `break-words` correctly for flex children */
+    @apply min-w-0;
+  }
 
-    .list-inline > li:first-child {
-        @apply pl-1;
-    }
+  .list-inline > li:first-child {
+    @apply pl-1;
+  }
 
-    .list-inline > li + li::before {
-        @apply px-1;
-        @apply text-gray-500;
-        content: '·';
-    }
+  .list-inline > li + li::before {
+    @apply px-1;
+    @apply text-gray-500;
+    content: "·";
+  }
 
-    .list-declaration-docs > li {
-        @apply block;
-    }
+  .list-declaration-docs > li {
+    @apply block;
+  }
 
-    .list-declaration-docs > li + li::before {
-        @apply block;
-        @apply my-4;
-        @apply border-b;
-        @apply border-dashed;
-        @apply border-gray-300;
-        @apply dark:border-gray-700;
-        content: '';
-    }
+  .list-declaration-docs > li + li::before {
+    @apply block;
+    @apply my-4;
+    @apply border-b;
+    @apply border-dashed;
+    @apply border-gray-300;
+    @apply dark:border-gray-700;
+    content: "";
+  }
 
-    .navbar-links {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
+  .navbar-links {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
 
-    .navbar-links::-webkit-scrollbar {
-        display: none;
-    }
+  .navbar-links::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Reset Prism CSS theme */
-code[class*='language-'],
-pre[class*='language-'] {
-    @apply m-0 !important;
-    @apply font-mono !important;
+code[class*="language-"],
+pre[class*="language-"] {
+  @apply m-0 !important;
+  @apply font-mono !important;
 }

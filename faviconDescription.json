@@ -1,62 +1,62 @@
 {
-    "masterPicture": "public/logo.png",
-    "iconsPath": "/",
-    "design": {
-        "ios": {
-            "pictureAspect": "backgroundAndMargin",
-            "backgroundColor": "#2d3748",
-            "margin": "18%",
-            "assets": {
-                "ios6AndPriorIcons": false,
-                "ios7AndLaterIcons": false,
-                "precomposedIcons": false,
-                "declareOnlyDefaultIcon": true
-            }
-        },
-        "desktopBrowser": {
-            "design": "raw"
-        },
-        "windows": {
-            "pictureAspect": "noChange",
-            "backgroundColor": "#2d3748",
-            "onConflict": "override",
-            "assets": {
-                "windows80Ie10Tile": false,
-                "windows10Ie11EdgeTiles": {
-                    "small": false,
-                    "medium": true,
-                    "big": false,
-                    "rectangle": false
-                }
-            }
-        },
-        "androidChrome": {
-            "pictureAspect": "backgroundAndMargin",
-            "margin": "13%",
-            "backgroundColor": "#2d3748",
-            "themeColor": "#2d3748",
-            "manifest": {
-                "name": "jsDocs.io",
-                "display": "standalone",
-                "orientation": "notSet",
-                "onConflict": "override",
-                "declared": true
-            },
-            "assets": {
-                "legacyIcon": false,
-                "lowResolutionIcons": false
-            }
-        },
-        "safariPinnedTab": {
-            "pictureAspect": "silhouette",
-            "themeColor": "#3182ce"
-        }
+  "masterPicture": "public/logo.png",
+  "iconsPath": "/",
+  "design": {
+    "ios": {
+      "pictureAspect": "backgroundAndMargin",
+      "backgroundColor": "#2d3748",
+      "margin": "18%",
+      "assets": {
+        "ios6AndPriorIcons": false,
+        "ios7AndLaterIcons": false,
+        "precomposedIcons": false,
+        "declareOnlyDefaultIcon": true
+      }
     },
-    "settings": {
-        "scalingAlgorithm": "Mitchell",
-        "errorOnImageTooSmall": false,
-        "readmeFile": false,
-        "htmlCodeFile": false,
-        "usePathAsIs": false
+    "desktopBrowser": {
+      "design": "raw"
+    },
+    "windows": {
+      "pictureAspect": "noChange",
+      "backgroundColor": "#2d3748",
+      "onConflict": "override",
+      "assets": {
+        "windows80Ie10Tile": false,
+        "windows10Ie11EdgeTiles": {
+          "small": false,
+          "medium": true,
+          "big": false,
+          "rectangle": false
+        }
+      }
+    },
+    "androidChrome": {
+      "pictureAspect": "backgroundAndMargin",
+      "margin": "13%",
+      "backgroundColor": "#2d3748",
+      "themeColor": "#2d3748",
+      "manifest": {
+        "name": "jsDocs.io",
+        "display": "standalone",
+        "orientation": "notSet",
+        "onConflict": "override",
+        "declared": true
+      },
+      "assets": {
+        "legacyIcon": false,
+        "lowResolutionIcons": false
+      }
+    },
+    "safariPinnedTab": {
+      "pictureAspect": "silhouette",
+      "themeColor": "#3182ce"
     }
+  },
+  "settings": {
+    "scalingAlgorithm": "Mitchell",
+    "errorOnImageTooSmall": false,
+    "readmeFile": false,
+    "htmlCodeFile": false,
+    "usePathAsIs": false
+  }
 }

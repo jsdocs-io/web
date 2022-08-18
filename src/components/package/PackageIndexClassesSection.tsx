@@ -1,21 +1,21 @@
-import { ClassDeclaration } from '@jsdocs-io/extractor';
-import React from 'react';
-import { PackageIndexClassesList } from './PackageIndexClassesList';
+import { ClassDeclaration } from "@jsdocs-io/extractor";
+import React from "react";
+import { PackageIndexClassesList } from "./PackageIndexClassesList";
 
 export function PackageIndexClassesSection({
-    classes,
+  classes,
 }: {
-    classes: ClassDeclaration[];
+  classes: ClassDeclaration[];
 }) {
-    if (!classes.length) {
-        return null;
-    }
+  if (!classes.length) {
+    return null;
+  }
 
-    return (
-        <section className="space-y-2">
-            <h3 id="package-index-classes">Classes</h3>
+  return (
+    <section className="space-y-2">
+      <h3 id="package-index-classes">Classes</h3>
 
-            <PackageIndexClassesList classes={classes} />
-        </section>
-    );
+      <PackageIndexClassesList classes={classes} />
+    </section>
+  );
 }

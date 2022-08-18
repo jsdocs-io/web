@@ -1,36 +1,36 @@
-import { GetStaticPropsResult } from 'next';
+import { GetStaticPropsResult } from "next";
 import {
-    getPackagePageAvailableVersionsProps,
-    PackagePagePropsAvailableVersions,
-} from './get-package-page-available-versions-props';
+  getPackagePageAvailableVersionsProps,
+  PackagePagePropsAvailableVersions,
+} from "./get-package-page-available-versions-props";
 import {
-    getPackagePageDocsProps,
-    PackagePagePropsDocs,
-} from './get-package-page-docs-props';
+  getPackagePageDocsProps,
+  PackagePagePropsDocs,
+} from "./get-package-page-docs-props";
 import {
-    getPackagePageErrorProps,
-    PackagePagePropsError,
-} from './get-package-page-error-props';
-import { PackageRouteKind, parsePackageRoute } from './parse-package-route';
+  getPackagePageErrorProps,
+  PackagePagePropsError,
+} from "./get-package-page-error-props";
+import { PackageRouteKind, parsePackageRoute } from "./parse-package-route";
 
 export type PackagePageProps =
-    | PackagePagePropsDocs
-    | PackagePagePropsAvailableVersions
-    | PackagePagePropsError;
+  | PackagePagePropsDocs
+  | PackagePagePropsAvailableVersions
+  | PackagePagePropsError;
 
 export async function getPackagePageStaticProps({
-    route: rawRoute,
+  route: rawRoute,
 }: {
-    route: string;
+  route: string;
 }): Promise<GetStaticPropsResult<PackagePageProps>> {
-    const route = parsePackageRoute({ route: rawRoute });
-    switch (route.kind) {
-        case PackageRouteKind.DocLatestVersion:
-        case PackageRouteKind.DocFixedVersion:
-            return getPackagePageDocsProps({ route });
-        case PackageRouteKind.AvailableVersions:
-            return getPackagePageAvailableVersionsProps({ route });
-        case PackageRouteKind.Error:
-            return getPackagePageErrorProps();
-    }
+  const route = parsePackageRoute({ route: rawRoute });
+  switch (route.kind) {
+    case PackageRouteKind.DocLatestVersion:
+    case PackageRouteKind.DocFixedVersion:
+      return getPackagePageDocsProps({ route });
+    case PackageRouteKind.AvailableVersions:
+      return getPackagePageAvailableVersionsProps({ route });
+    case PackageRouteKind.Error:
+      return getPackagePageErrorProps();
+  }
 }

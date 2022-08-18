@@ -1,21 +1,21 @@
-import { VariableDeclaration } from '@jsdocs-io/extractor';
-import React from 'react';
-import { PackageIndexVariablesList } from './PackageIndexVariablesList';
+import { VariableDeclaration } from "@jsdocs-io/extractor";
+import React from "react";
+import { PackageIndexVariablesList } from "./PackageIndexVariablesList";
 
 export function PackageIndexVariablesSection({
-    variables,
+  variables,
 }: {
-    variables: VariableDeclaration[];
+  variables: VariableDeclaration[];
 }) {
-    if (!variables.length) {
-        return null;
-    }
+  if (!variables.length) {
+    return null;
+  }
 
-    return (
-        <section className="space-y-2">
-            <h3 id="package-index-variables">Variables</h3>
+  return (
+    <section className="space-y-2">
+      <h3 id="package-index-variables">Variables</h3>
 
-            <PackageIndexVariablesList variables={variables} />
-        </section>
-    );
+      <PackageIndexVariablesList variables={variables} />
+    </section>
+  );
 }

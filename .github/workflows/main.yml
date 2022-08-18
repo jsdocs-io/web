@@ -1,36 +1,36 @@
 name: CI
 on: [push]
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-        strategy:
-            matrix:
-                node: ['16.x']
+    strategy:
+      matrix:
+        node: ["16.x"]
 
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-            - name: Use Node ${{ matrix.node }}
-              uses: actions/setup-node@v3.4.1
-              with:
-                  node-version: ${{ matrix.node }}
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v3.4.1
+        with:
+          node-version: ${{ matrix.node }}
 
-            - name: Install dependencies and build (with cache)
-              uses: bahmutov/npm-install@v1
+      - name: Install dependencies and build (with cache)
+        uses: bahmutov/npm-install@v1
 
-            - name: Install dependencies
-              run: yarn install --frozen-lockfile
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
-            - name: Lint
-              run: yarn lint
+      - name: Lint
+        run: yarn lint
 
-            - name: Test
-              run: yarn test:ci
+      - name: Test
+        run: yarn test:ci
 
-            - name: Build
-              run: yarn build
+      - name: Build
+        run: yarn build
 
-            - name: CodeCov
-              uses: codecov/codecov-action@v3.1.0
+      - name: CodeCov
+        uses: codecov/codecov-action@v3.1.0

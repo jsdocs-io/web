@@ -1,28 +1,28 @@
-import { FunctionDeclaration } from '@jsdocs-io/extractor';
-import React from 'react';
-import { PackageDeclarationSection } from './PackageDeclarationSection';
+import { FunctionDeclaration } from "@jsdocs-io/extractor";
+import React from "react";
+import { PackageDeclarationSection } from "./PackageDeclarationSection";
 
 export function PackageFunctionsSection({
-    functions,
+  functions,
 }: {
-    functions: FunctionDeclaration[];
+  functions: FunctionDeclaration[];
 }) {
-    if (!functions.length) {
-        return null;
-    }
+  if (!functions.length) {
+    return null;
+  }
 
-    return (
-        <section className="space-y-4">
-            <h2 id="package-functions">Functions</h2>
+  return (
+    <section className="space-y-4">
+      <h2 id="package-functions">Functions</h2>
 
-            <div className="space-y-8">
-                {functions.map((declaration) => (
-                    <PackageDeclarationSection
-                        key={declaration.id}
-                        declaration={declaration}
-                    />
-                ))}
-            </div>
-        </section>
-    );
+      <div className="space-y-8">
+        {functions.map((declaration) => (
+          <PackageDeclarationSection
+            key={declaration.id}
+            declaration={declaration}
+          />
+        ))}
+      </div>
+    </section>
+  );
 }

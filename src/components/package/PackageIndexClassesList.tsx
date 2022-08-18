@@ -1,31 +1,28 @@
-import { ClassDeclaration } from '@jsdocs-io/extractor';
-import React from 'react';
-import { InternalLink } from '../common/InternalLink';
-import { PackageIndexClassMembersList } from './PackageIndexClassMembersList';
+import { ClassDeclaration } from "@jsdocs-io/extractor";
+import React from "react";
+import { InternalLink } from "../common/InternalLink";
+import { PackageIndexClassMembersList } from "./PackageIndexClassMembersList";
 
 export function PackageIndexClassesList({
-    classes,
+  classes,
 }: {
-    classes: ClassDeclaration[];
+  classes: ClassDeclaration[];
 }) {
-    return (
-        <ul className="space-y-1">
-            {classes.map(({ id, name, members }) => (
-                <li key={id}>
-                    <details>
-                        <summary>
-                            <InternalLink
-                                href={`#${id}`}
-                                title={`Class ${name}`}
-                            >
-                                {name}
-                            </InternalLink>
-                        </summary>
+  return (
+    <ul className="space-y-1">
+      {classes.map(({ id, name, members }) => (
+        <li key={id}>
+          <details>
+            <summary>
+              <InternalLink href={`#${id}`} title={`Class ${name}`}>
+                {name}
+              </InternalLink>
+            </summary>
 
-                        <PackageIndexClassMembersList members={members} />
-                    </details>
-                </li>
-            ))}
-        </ul>
-    );
+            <PackageIndexClassMembersList members={members} />
+          </details>
+        </li>
+      ))}
+    </ul>
+  );
 }

@@ -1,19 +1,19 @@
-import { DeclarationKinds } from '@jsdocs-io/extractor';
+import { DeclarationKinds } from "@jsdocs-io/extractor";
 
 export function isCallableDeclarationKind({
-    kind,
+  kind,
 }: {
-    kind: DeclarationKinds;
+  kind: DeclarationKinds;
 }): boolean {
-    switch (kind) {
-        case 'FunctionDeclaration':
-        case 'ClassConstructorDeclaration':
-        case 'InterfaceConstructSignatureDeclaration':
-        case 'ClassMethodDeclaration':
-        case 'InterfaceMethodDeclaration':
-        case 'InterfaceCallSignatureDeclaration':
-            return true;
-        default:
-            return false;
-    }
+  switch (kind) {
+    case "FunctionDeclaration":
+    case "ClassConstructorDeclaration":
+    case "InterfaceConstructSignatureDeclaration":
+    case "ClassMethodDeclaration":
+    case "InterfaceMethodDeclaration":
+    case "InterfaceCallSignatureDeclaration":
+      return true;
+    default:
+      return false;
+  }
 }

@@ -1,51 +1,51 @@
-import { NamespaceDeclaration, PackageAPI } from '@jsdocs-io/extractor';
+import { NamespaceDeclaration, PackageAPI } from "@jsdocs-io/extractor";
 
 export function flattenPackageAPI({
-    api,
+  api,
 }: {
-    api?: PackageAPI;
+  api?: PackageAPI;
 }): PackageAPI | undefined {
-    if (!api) {
-        return undefined;
-    }
+  if (!api) {
+    return undefined;
+  }
 
-    const flatNamespaces = flattenNamespaces({
-        namespaces: api.declarations.namespaces,
-    }).sort((a, b) => a.id.localeCompare(b.id));
+  const flatNamespaces = flattenNamespaces({
+    namespaces: api.declarations.namespaces,
+  }).sort((a, b) => a.id.localeCompare(b.id));
 
-    return {
-        ...api,
-        declarations: {
-            ...api.declarations,
-            namespaces: flatNamespaces,
-        },
-    };
+  return {
+    ...api,
+    declarations: {
+      ...api.declarations,
+      namespaces: flatNamespaces,
+    },
+  };
 }
 
 function flattenNamespaces({
-    namespaces,
+  namespaces,
 }: {
-    namespaces: NamespaceDeclaration[];
+  namespaces: NamespaceDeclaration[];
 }): NamespaceDeclaration[] {
-    if (!namespaces.length) {
-        return [];
-    }
+  if (!namespaces.length) {
+    return [];
+  }
 
-    // Copy current namespaces removing nested namespaces from declarations
-    const shallowNamespaces = namespaces.map((declaration) => ({
-        ...declaration,
-        declarations: { ...declaration.declarations, namespaces: [] },
-    }));
+  // Copy current namespaces removing nested namespaces from declarations
+  const shallowNamespaces = namespaces.map((declaration) => ({
+    ...declaration,
+    declarations: { ...declaration.declarations, namespaces: [] },
+  }));
 
-    // Extract nested namespaces
-    const nestedNamespaces = namespaces.flatMap(
-        ({ declarations: { namespaces } }) => namespaces
-    );
+  // Extract nested namespaces
+  const nestedNamespaces = namespaces.flatMap(
+    ({ declarations: { namespaces } }) => namespaces
+  );
 
-    // Flatten nested namespaces recursively
-    const shallowNestedNamespaces = flattenNamespaces({
-        namespaces: nestedNamespaces,
-    });
+  // Flatten nested namespaces recursively
+  const shallowNestedNamespaces = flattenNamespaces({
+    namespaces: nestedNamespaces,
+  });
 
-    return [...shallowNamespaces, ...shallowNestedNamespaces];
+  return [...shallowNamespaces, ...shallowNestedNamespaces];
 }

@@ -1,28 +1,28 @@
-import { NamespaceDeclaration } from '@jsdocs-io/extractor';
-import React from 'react';
-import { PackageNamespaceDeclarationSections } from './PackageNamespaceDeclarationSections';
+import { NamespaceDeclaration } from "@jsdocs-io/extractor";
+import React from "react";
+import { PackageNamespaceDeclarationSections } from "./PackageNamespaceDeclarationSections";
 
 export function PackageNamespacesSection({
-    namespaces,
+  namespaces,
 }: {
-    namespaces: NamespaceDeclaration[];
+  namespaces: NamespaceDeclaration[];
 }) {
-    if (!namespaces.length) {
-        return null;
-    }
+  if (!namespaces.length) {
+    return null;
+  }
 
-    return (
-        <section className="space-y-4">
-            <h2 id="package-namespaces">Namespaces</h2>
+  return (
+    <section className="space-y-4">
+      <h2 id="package-namespaces">Namespaces</h2>
 
-            <div className="space-y-8">
-                {namespaces.map((declaration) => (
-                    <PackageNamespaceDeclarationSections
-                        key={declaration.id}
-                        declaration={declaration}
-                    />
-                ))}
-            </div>
-        </section>
-    );
+      <div className="space-y-8">
+        {namespaces.map((declaration) => (
+          <PackageNamespaceDeclarationSections
+            key={declaration.id}
+            declaration={declaration}
+          />
+        ))}
+      </div>
+    </section>
+  );
 }

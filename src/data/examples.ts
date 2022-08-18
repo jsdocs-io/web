@@ -76,7 +76,7 @@ export function sum(a: number, b: number): number {
 }`;
 
 export const exampleDeclarationSignature =
-    'sum: (a: number, b: number) => number;';
+  "sum: (a: number, b: number) => number;";
 
 export const exampleProjectStructure = `
 .
