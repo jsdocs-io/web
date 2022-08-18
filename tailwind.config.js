@@ -1,14 +1,9 @@
-const colors = require("tailwindcss/colors");
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
   content: ["src/**/*.tsx"],
   theme: {
-    extend: {
-      colors: {
-        gray: colors.stone,
-        blue: colors.sky,
-      },
-    },
+    extend: {},
   },
+  plugins: [],
 };
