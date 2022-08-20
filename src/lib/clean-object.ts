@@ -6,7 +6,7 @@ import cleanDeep from "clean-deep";
  *
  * @param obj - the object to clean
  */
-const cleanObject = <T extends Record<string, any>>(obj: T): T => {
+const cleanObject = <T>(obj: T): T => {
   return cleanDeep(obj, {
     emptyArrays: false,
     emptyObjects: false,

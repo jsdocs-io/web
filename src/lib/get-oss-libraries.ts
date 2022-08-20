@@ -38,7 +38,6 @@ const getOSSLibraries = async ({
       };
     })
     .sort((a, b) => a.name.localeCompare(b.name));
-
   return cleanObject(ossLibraries);
 };
 
