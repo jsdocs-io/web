@@ -51,7 +51,7 @@ const SearchBar = ({ initialQuery = "" }: { initialQuery?: string }) => {
       </label>
 
       <input
-        className="w-full py-3 pl-4 pr-16 border border-gray-300 rounded dark:border-gray-700 dark:bg-gray-900"
+        className="w-full py-3 pl-4 pr-16 border border-stone-300 rounded dark:border-stone-700 dark:bg-stone-900"
         id="search-bar"
         type="search"
         name="q"
@@ -64,7 +64,7 @@ const SearchBar = ({ initialQuery = "" }: { initialQuery?: string }) => {
       />
 
       <button
-        className="absolute inset-y-0 right-0 px-4 text-gray-600 border-l border-gray-300 dark:border-gray-700 hover:text-gray-900 dark:text-gray-500 dark:hover:text-gray-300"
+        className="absolute inset-y-0 right-0 px-4 text-stone-600 border-l border-stone-300 dark:border-stone-700 hover:text-stone-900 dark:text-stone-500 dark:hover:text-stone-300"
         title="Search"
         type="button"
         onClick={onButtonClick}

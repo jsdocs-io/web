@@ -46,7 +46,7 @@ const PackageNavDocsResourcesList = ({
           Dependencies
         </InternalLink>
 
-        <span className="text-gray-500">{" ("}</span>
+        <span className="text-stone-500">{" ("}</span>
 
         <InternalLink
           href="#package-dev-dependencies"
@@ -55,7 +55,7 @@ const PackageNavDocsResourcesList = ({
           Dev
         </InternalLink>
 
-        <span className="text-gray-500">{", "}</span>
+        <span className="text-stone-500">{", "}</span>
 
         <InternalLink
           href="#package-peer-dependencies"
@@ -64,7 +64,7 @@ const PackageNavDocsResourcesList = ({
           Peer
         </InternalLink>
 
-        <span className="text-gray-500">{")"}</span>
+        <span className="text-stone-500">{")"}</span>
       </li>
 
       <li>

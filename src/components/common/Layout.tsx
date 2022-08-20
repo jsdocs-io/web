@@ -13,7 +13,7 @@ const Layout = (props: any) => {
     <>
       <Head />
 
-      <div className="flex flex-col h-screen text-gray-900 dark:text-gray-100">
+      <div className="flex flex-col h-screen text-stone-900 dark:text-stone-100">
         <Navbar />
 
         <Main {...props} />

@@ -16,7 +16,7 @@ const PackageDistTagsSection = ({
         {Object.entries(distTags).map(([tag, version]) => (
           <li
             key={tag}
-            className="flex flex-wrap justify-between pb-1 border-b border-gray-300 dark:border-gray-700"
+            className="flex flex-wrap justify-between pb-1 border-b border-stone-300 dark:border-stone-700"
           >
             <PackageLink
               name={name}

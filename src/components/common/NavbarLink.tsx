@@ -10,7 +10,7 @@ const NavbarLink = ({
   return (
     <Link href={href}>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-      <a className="block p-2 text-lg font-bold rounded hover:bg-gray-200 dark:hover:bg-gray-700">
+      <a className="block p-2 text-lg font-bold rounded hover:bg-stone-200 dark:hover:bg-stone-700">
         {children}
       </a>
     </Link>

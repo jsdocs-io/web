@@ -16,7 +16,7 @@ const PackageNav = ({
   hasDocs?: boolean;
 }) => {
   return (
-    <div className="p-4 space-y-2 border border-gray-300 rounded dark:border-gray-700">
+    <div className="p-4 space-y-2 border border-stone-300 rounded dark:border-stone-700">
       <PackageNavPackagesList
         name={name}
         definitelyTypedName={definitelyTypedName}

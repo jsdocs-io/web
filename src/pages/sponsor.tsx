@@ -71,7 +71,7 @@ const GoldSponsorsSection = () => {
     <section className="space-y-4">
       <h2>Gold Sponsors</h2>
 
-      <ul className="flex flex-wrap items-center justify-center rounded dark:bg-gray-200">
+      <ul className="flex flex-wrap items-center justify-center rounded dark:bg-stone-200">
         {goldSponsors.map(({ name, url, logo }, index) => (
           <li key={index}>
             <a
@@ -97,7 +97,7 @@ const SilverSponsorsSection = () => {
     <section className="space-y-4">
       <h2>Silver Sponsors</h2>
 
-      <ul className="flex flex-wrap items-center justify-center rounded dark:bg-gray-200">
+      <ul className="flex flex-wrap items-center justify-center rounded dark:bg-stone-200">
         {silverSponsors.map(({ name, url, logo }, index) => (
           <li key={index}>
             <a
@@ -123,7 +123,7 @@ const BronzeSponsorsSection = () => {
     <section className="space-y-4">
       <h2>Bronze Sponsors</h2>
 
-      <ul className="flex flex-wrap items-center justify-center rounded dark:bg-gray-200">
+      <ul className="flex flex-wrap items-center justify-center rounded dark:bg-stone-200">
         {bronzeSponsors.map(({ name, url, logo }, index) => (
           <li key={index}>
             <a

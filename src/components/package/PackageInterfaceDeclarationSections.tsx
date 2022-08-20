@@ -13,7 +13,7 @@ const PackageInterfaceDeclarationSections = ({
       <PackageDeclarationSection declaration={declaration} />
 
       {hasMembers && (
-        <div className="py-2 pl-4 space-y-8 border-l-2 border-gray-300 dark:border-gray-700">
+        <div className="py-2 pl-4 space-y-8 border-l-2 border-stone-300 dark:border-stone-700">
           {declaration.members.properties.map((decl) => (
             <PackageDeclarationSection key={decl.id} declaration={decl} />
           ))}

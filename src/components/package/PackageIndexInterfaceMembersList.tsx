@@ -16,7 +16,7 @@ const PackageIndexInterfaceMembersList = ({
   }
 
   return (
-    <ul className="py-1 pl-4 ml-5 border-l border-gray-300 dark:border-gray-700">
+    <ul className="py-1 pl-4 ml-5 border-l border-stone-300 dark:border-stone-700">
       {members.map(({ id, name, kind }) => (
         <li key={id}>
           <InternalLink

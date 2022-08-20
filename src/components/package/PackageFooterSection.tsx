@@ -25,7 +25,7 @@ const PackageFooterSection = ({
 
   return (
     <section className="space-y-4">
-      <hr className="border-gray-300 dark:border-gray-700" />
+      <hr className="border-stone-300 dark:border-stone-700" />
 
       <ul className="space-y-2">
         <li>

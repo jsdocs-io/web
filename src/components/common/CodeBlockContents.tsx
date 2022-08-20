@@ -19,7 +19,7 @@ const CodeBlockContents = ({
   return (
     <div className="relative">
       <button
-        className="absolute right-0 p-2 text-gray-100 opacity-25 hover:opacity-100 active:text-green-500"
+        className="absolute right-0 p-2 text-stone-100 opacity-25 hover:opacity-100 active:text-green-500"
         title="Copy to clipboard"
         onClick={copyCodeToClipboard}
       >

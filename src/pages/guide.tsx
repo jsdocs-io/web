@@ -358,7 +358,7 @@ const PackageOverviewSection = () => {
         follows:
       </p>
 
-      <div className="p-4 my-4 border border-gray-300 rounded dark:border-gray-700">
+      <div className="p-4 my-4 border border-stone-300 rounded dark:border-stone-700">
         <DocComment doc={exampleOverview} />
       </div>
 
@@ -407,7 +407,7 @@ const PackageDeclarationsSection = () => {
         above is rendered as follows:
       </p>
 
-      <div className="p-4 my-4 border border-gray-300 rounded dark:border-gray-700">
+      <div className="p-4 my-4 border border-stone-300 rounded dark:border-stone-700">
         <h3>function sum</h3>
 
         <CodeBlock code={exampleDeclarationSignature} language="typescript" />

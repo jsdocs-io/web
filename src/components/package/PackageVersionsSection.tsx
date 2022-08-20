@@ -20,7 +20,7 @@ const PackageVersionsSection = ({
           .map(([version, publishedAt]) => (
             <li
               key={version}
-              className="flex flex-wrap justify-between pb-1 border-b border-gray-300 dark:border-gray-700"
+              className="flex flex-wrap justify-between pb-1 border-b border-stone-300 dark:border-stone-700"
             >
               <PackageLink
                 name={name}

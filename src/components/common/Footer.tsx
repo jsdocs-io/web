@@ -5,7 +5,7 @@ import PoweredByVercelBanner from "./PoweredByVercelBanner";
 
 const Footer = () => {
   return (
-    <footer className="p-4 bg-gray-100 border-t border-gray-300 dark:bg-gray-900 dark:border-gray-700">
+    <footer className="p-4 bg-stone-100 border-t border-stone-300 dark:bg-stone-900 dark:border-stone-700">
       <div>
         <div className="sm:flex sm:justify-between sm:items-center">
           <Link href="/">

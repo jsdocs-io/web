@@ -49,7 +49,7 @@
 
   .list-inline > li + li::before {
     @apply px-1;
-    @apply text-gray-500;
+    @apply text-stone-500;
     content: "·";
   }
 
@@ -62,8 +62,8 @@
     @apply my-4;
     @apply border-b;
     @apply border-dashed;
-    @apply border-gray-300;
-    @apply dark:border-gray-700;
+    @apply border-stone-300;
+    @apply dark:border-stone-700;
     content: "";
   }
 

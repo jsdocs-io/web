@@ -16,7 +16,7 @@ const Navbar = () => {
   const showSearchBar = !["/", "/search"].includes(router.pathname);
 
   return (
-    <header className="px-4 py-3 bg-white border-b border-gray-300 dark:bg-gray-900 dark:border-gray-700">
+    <header className="px-4 py-3 bg-white border-b border-stone-300 dark:bg-stone-900 dark:border-stone-700">
       <div className="flex items-center justify-between">
         <div className="flex items-center shrink-0 p-1 space-x-8">
           <NavbarLogo showLogoText={!showSearchBar} />
