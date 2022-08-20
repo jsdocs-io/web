@@ -1,6 +1,6 @@
 import { analyzeRegistryPackage } from "@jsdocs-io/extractor";
 import { getPackageManifest, getPackument } from "query-registry";
-import { getPackagePageStaticProps } from "../../src/lib/get-package-page-static-props";
+import getPackagePageStaticProps from "../../src/lib/get-package-page-static-props";
 import { PackagePageKind } from "../../src/lib/package-page-kind";
 import { loadRegistryPackageInfo } from "../../src/lib/registry-package-info-storage";
 import { day, hour, minute, week } from "../../src/lib/revalidate-times";

@@ -1,5 +1,5 @@
 import stream from "stream";
-import { parseJSONStream } from "../../src/lib/parse-json-stream";
+import parseJSONStream from "../../src/lib/parse-json-stream";
 
 describe("parseJSONStream", () => {
   it("rejects when the JSON stream is invalid", async () => {

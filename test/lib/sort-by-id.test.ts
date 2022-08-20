@@ -1,4 +1,4 @@
-import { sortByID } from "../../src/lib/sort-by-id";
+import sortByID from "../../src/lib/sort-by-id";
 
 describe("sortByID", () => {
   it("supports empty lists", () => {

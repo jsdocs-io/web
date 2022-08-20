@@ -1,5 +1,5 @@
 import { DeclarationKinds } from "@jsdocs-io/extractor";
-import { getDeclarationKindDescription } from "../../src/lib/get-declaration-kind-description";
+import getDeclarationKindDescription from "../../src/lib/get-declaration-kind-description";
 
 describe("getDeclarationKindDescription", () => {
   it("returns a description for each declaration kind", () => {

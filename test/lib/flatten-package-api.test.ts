@@ -1,4 +1,4 @@
-import { flattenPackageAPI } from "../../src/lib/flatten-package-api";
+import flattenPackageAPI from "../../src/lib/flatten-package-api";
 
 describe("flattenPackageAPI", () => {
   it("returns undefined when API is not available", () => {

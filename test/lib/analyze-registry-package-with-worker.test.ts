@@ -1,4 +1,4 @@
-import { analyzeRegistryPackageWithWorker } from "../../src/lib/analyze-registry-package-with-worker";
+import analyzeRegistryPackageWithWorker from "../../src/lib/analyze-registry-package-with-worker";
 
 describe("analyzeRegistryPackageWithWorker", () => {
   it("rejects when the timeout expires", async () => {

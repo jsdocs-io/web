@@ -1,4 +1,4 @@
-import { hasPackageDeclarations } from "../../src/lib/has-package-declarations";
+import hasPackageDeclarations from "../../src/lib/has-package-declarations";
 
 describe("hasPackageDeclarations", () => {
   it("returns false if API is undefined", () => {

@@ -1,5 +1,5 @@
 import * as path from "path";
-import { getOSSLibraries } from "../../src/lib/get-oss-libraries";
+import getOSSLibraries from "../../src/lib/get-oss-libraries";
 
 describe("getOSSLibraries", () => {
   it("rejects when the licenses file is not found", async () => {

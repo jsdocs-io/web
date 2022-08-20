@@ -1,4 +1,4 @@
-import { isValidLicense } from "../../src/lib/is-valid-license";
+import isValidLicense from "../../src/lib/is-valid-license";
 
 describe("isValidLicense", () => {
   it("returns false for invalid licenses", () => {

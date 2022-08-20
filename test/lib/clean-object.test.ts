@@ -1,4 +1,4 @@
-import { cleanObject } from "../../src/lib/clean-object";
+import cleanObject from "../../src/lib/clean-object";
 
 describe("cleanObject", () => {
   it("should remove null and undefined values from objects", () => {

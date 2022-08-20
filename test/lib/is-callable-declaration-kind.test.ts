@@ -1,5 +1,5 @@
 import { DeclarationKinds } from "@jsdocs-io/extractor";
-import { isCallableDeclarationKind } from "../../src/lib/is-callable-declaration-kind";
+import isCallableDeclarationKind from "../../src/lib/is-callable-declaration-kind";
 
 describe("isCallableDeclarationKind", () => {
   it("returns true for callable declaration kinds", () => {

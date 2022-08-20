@@ -1,6 +1,5 @@
-import {
+import parsePackageRoute, {
   PackageRouteKind,
-  parsePackageRoute,
 } from "../../src/lib/parse-package-route";
 
 describe("parsePackageRoute", () => {

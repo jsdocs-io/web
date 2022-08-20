@@ -1,4 +1,4 @@
-import { minSemverVersion } from "../../src/lib/min-semver-version";
+import minSemverVersion from "../../src/lib/min-semver-version";
 
 describe("minSemverVersion", () => {
   it("should return undefined when the minimum version cannot be found", () => {
