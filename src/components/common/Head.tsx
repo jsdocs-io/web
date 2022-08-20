@@ -1,6 +1,4 @@
 import NextHead from "next/head";
-import { darkModeScriptMinified } from "../../data/dark-mode-script";
-import { windowScript } from "../../data/window-script";
 
 const Head = () => {
   return (
@@ -50,12 +48,6 @@ const Head = () => {
         content="https://www.jsdocs.io/logo-bg.png"
       />
       <meta property="twitter:image:alt" content="jsDocs.io logo" />
-
-      {/* Add custom namespace to window */}
-      <script dangerouslySetInnerHTML={{ __html: windowScript }} />
-
-      {/* Prevent flash of unstyled content (FOUC) for dark mode */}
-      <script dangerouslySetInnerHTML={{ __html: darkModeScriptMinified }} />
 
       {/* Plausible.io analytics */}
       {/* See https://github.com/vercel/next.js/issues/9070#issuecomment-552981178 */}
