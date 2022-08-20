@@ -1,7 +1,7 @@
 import NextHead from "next/head";
-import { Layout } from "../components/common/Layout";
-import { PackageLink } from "../components/common/PackageLink";
-import { SearchBar } from "../components/common/SearchBar";
+import Layout from "../components/common/Layout";
+import PackageLink from "../components/common/PackageLink";
+import SearchBar from "../components/common/SearchBar";
 
 const IndexPage = () => {
   const pageTitle = "jsDocs.io";

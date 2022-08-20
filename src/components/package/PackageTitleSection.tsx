@@ -1,8 +1,7 @@
 import { DistTags } from "query-registry";
-import React from "react";
-import { PackageInfoSummaryList } from "./PackageInfoSummaryList";
+import PackageInfoSummaryList from "./PackageInfoSummaryList";
 
-export function PackageTitleSection({
+const PackageTitleSection = ({
   name,
   version,
   publishedAt,
@@ -20,7 +19,7 @@ export function PackageTitleSection({
   dependencies?: Record<string, string>;
   distTags?: DistTags;
   versionsToTimestamps?: Record<string, string>;
-}) {
+}) => {
   return (
     <section className="space-y-1">
       <h1 className="break-words">{name}</h1>
@@ -36,4 +35,6 @@ export function PackageTitleSection({
       />
     </section>
   );
-}
+};
+
+export default PackageTitleSection;

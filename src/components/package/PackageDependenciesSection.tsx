@@ -1,13 +1,12 @@
-import React from "react";
-import { PackageDependenciesList } from "./PackageDependenciesList";
+import PackageDependenciesList from "./PackageDependenciesList";
 
-export function PackageDependenciesSection({
+const PackageDependenciesSection = ({
   dependencies,
   kind,
 }: {
   dependencies: Record<string, string>;
   kind: "dependencies" | "dev-dependencies" | "peer-dependencies";
-}) {
+}) => {
   const numDeps = Object.keys(dependencies).length;
   const [kindTitle, kindDescription] = {
     dependencies: ["Dependencies", ""],
@@ -28,4 +27,6 @@ export function PackageDependenciesSection({
       )}
     </section>
   );
-}
+};
+
+export default PackageDependenciesSection;

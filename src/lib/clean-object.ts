@@ -6,10 +6,12 @@ import cleanDeep from "clean-deep";
  *
  * @param obj - the object to clean
  */
-export function cleanObject<T extends Record<string, any>>(obj: T): T {
+const cleanObject = <T extends Record<string, any>>(obj: T): T => {
   return cleanDeep(obj, {
     emptyArrays: false,
     emptyObjects: false,
     emptyStrings: false,
   }) as T;
-}
+};
+
+export default cleanObject;

@@ -1,10 +1,10 @@
 import NextHead from "next/head";
-import { A } from "../components/common/A";
-import { CodeBlock } from "../components/common/CodeBlock";
-import { DocComment } from "../components/common/DocComment";
-import { InlineCode } from "../components/common/InlineCode";
-import { Layout } from "../components/common/Layout";
-import { PackageLink } from "../components/common/PackageLink";
+import A from "../components/common/A";
+import CodeBlock from "../components/common/CodeBlock";
+import DocComment from "../components/common/DocComment";
+import InlineCode from "../components/common/InlineCode";
+import Layout from "../components/common/Layout";
+import PackageLink from "../components/common/PackageLink";
 import {
   exampleDeclarationDoc,
   exampleDeclarationFile,

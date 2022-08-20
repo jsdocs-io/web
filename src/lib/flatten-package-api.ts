@@ -1,32 +1,10 @@
 import { NamespaceDeclaration, PackageAPI } from "@jsdocs-io/extractor";
 
-export function flattenPackageAPI({
-  api,
-}: {
-  api?: PackageAPI;
-}): PackageAPI | undefined {
-  if (!api) {
-    return undefined;
-  }
-
-  const flatNamespaces = flattenNamespaces({
-    namespaces: api.declarations.namespaces,
-  }).sort((a, b) => a.id.localeCompare(b.id));
-
-  return {
-    ...api,
-    declarations: {
-      ...api.declarations,
-      namespaces: flatNamespaces,
-    },
-  };
-}
-
-function flattenNamespaces({
+const flattenNamespaces = ({
   namespaces,
 }: {
   namespaces: NamespaceDeclaration[];
-}): NamespaceDeclaration[] {
+}): NamespaceDeclaration[] => {
   if (!namespaces.length) {
     return [];
   }
@@ -48,4 +26,28 @@ function flattenNamespaces({
   });
 
   return [...shallowNamespaces, ...shallowNestedNamespaces];
-}
+};
+
+const flattenPackageAPI = ({
+  api,
+}: {
+  api?: PackageAPI;
+}): PackageAPI | undefined => {
+  if (!api) {
+    return undefined;
+  }
+
+  const flatNamespaces = flattenNamespaces({
+    namespaces: api.declarations.namespaces,
+  }).sort((a, b) => a.id.localeCompare(b.id));
+
+  return {
+    ...api,
+    declarations: {
+      ...api.declarations,
+      namespaces: flatNamespaces,
+    },
+  };
+};
+
+export default flattenPackageAPI;

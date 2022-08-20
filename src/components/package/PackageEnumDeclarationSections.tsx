@@ -1,12 +1,11 @@
 import { EnumDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageDeclarationSection } from "./PackageDeclarationSection";
+import PackageDeclarationSection from "./PackageDeclarationSection";
 
-export function PackageEnumDeclarationSections({
+const PackageEnumDeclarationSections = ({
   declaration,
 }: {
   declaration: EnumDeclaration;
-}) {
+}) => {
   const hasMembers = declaration.members.length > 0;
 
   return (
@@ -22,4 +21,6 @@ export function PackageEnumDeclarationSections({
       )}
     </div>
   );
-}
+};
+
+export default PackageEnumDeclarationSections;

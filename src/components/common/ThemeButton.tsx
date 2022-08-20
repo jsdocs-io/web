@@ -1,7 +1,6 @@
-import React from "react";
 import useDarkMode from "use-dark-mode";
 
-export function ThemeButton() {
+const ThemeButton = () => {
   const { value: isDarkMode, toggle: toggleDarkMode } = useDarkMode(
     localStorage.darkMode === "true",
     {
@@ -30,4 +29,6 @@ export function ThemeButton() {
       </svg>
     </button>
   );
-}
+};
+
+export default ThemeButton;

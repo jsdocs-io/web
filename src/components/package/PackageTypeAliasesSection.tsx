@@ -1,12 +1,11 @@
 import { TypeAliasDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageDeclarationSection } from "./PackageDeclarationSection";
+import PackageDeclarationSection from "./PackageDeclarationSection";
 
-export function PackageTypeAliasesSection({
+const PackageTypeAliasesSection = ({
   typeAliases,
 }: {
   typeAliases: TypeAliasDeclaration[];
-}) {
+}) => {
   if (!typeAliases.length) {
     return null;
   }
@@ -25,4 +24,6 @@ export function PackageTypeAliasesSection({
       </div>
     </section>
   );
-}
+};
+
+export default PackageTypeAliasesSection;

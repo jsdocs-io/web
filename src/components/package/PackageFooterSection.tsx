@@ -1,9 +1,8 @@
 import newGitHubIssueURL from "new-github-issue-url";
-import React from "react";
-import { A } from "../common/A";
-import { TimeAgo } from "../common/TimeAgo";
+import A from "../common/A";
+import TimeAgo from "../common/TimeAgo";
 
-export function PackageFooterSection({
+const PackageFooterSection = ({
   name,
   version,
   createdAt,
@@ -13,7 +12,7 @@ export function PackageFooterSection({
   version?: string;
   createdAt: string;
   analysisTime?: number;
-}) {
+}) => {
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
@@ -57,4 +56,6 @@ export function PackageFooterSection({
       </ul>
     </section>
   );
-}
+};
+
+export default PackageFooterSection;

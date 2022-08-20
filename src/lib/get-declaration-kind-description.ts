@@ -1,10 +1,10 @@
 import { DeclarationKinds } from "@jsdocs-io/extractor";
 
-export function getDeclarationKindDescription({
+const getDeclarationKindDescription = ({
   kind,
 }: {
   kind: DeclarationKinds;
-}): string {
+}): string => {
   switch (kind) {
     // Top level declarations
     case "VariableDeclaration":
@@ -41,4 +41,6 @@ export function getDeclarationKindDescription({
   }
 
   return "";
-}
+};
+
+export default getDeclarationKindDescription;

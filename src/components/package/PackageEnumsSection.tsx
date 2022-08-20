@@ -1,8 +1,7 @@
 import { EnumDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageEnumDeclarationSections } from "./PackageEnumDeclarationSections";
+import PackageEnumDeclarationSections from "./PackageEnumDeclarationSections";
 
-export function PackageEnumsSection({ enums }: { enums: EnumDeclaration[] }) {
+const PackageEnumsSection = ({ enums }: { enums: EnumDeclaration[] }) => {
   if (!enums.length) {
     return null;
   }
@@ -21,4 +20,6 @@ export function PackageEnumsSection({ enums }: { enums: EnumDeclaration[] }) {
       </div>
     </section>
   );
-}
+};
+
+export default PackageEnumsSection;

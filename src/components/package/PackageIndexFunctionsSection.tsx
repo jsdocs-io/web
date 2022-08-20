@@ -1,12 +1,11 @@
 import { FunctionDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageIndexFunctionsList } from "./PackageIndexFunctionsList";
+import PackageIndexFunctionsList from "./PackageIndexFunctionsList";
 
-export function PackageIndexFunctionsSection({
+const PackageIndexFunctionsSection = ({
   functions,
 }: {
   functions: FunctionDeclaration[];
-}) {
+}) => {
   if (!functions.length) {
     return null;
   }
@@ -18,4 +17,6 @@ export function PackageIndexFunctionsSection({
       <PackageIndexFunctionsList functions={functions} />
     </section>
   );
-}
+};
+
+export default PackageIndexFunctionsSection;

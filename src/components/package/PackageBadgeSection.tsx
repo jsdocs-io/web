@@ -1,9 +1,8 @@
-import React from "react";
-import { A } from "../common/A";
-import { CodeBlock } from "../common/CodeBlock";
-import { InlineCode } from "../common/InlineCode";
+import A from "../common/A";
+import CodeBlock from "../common/CodeBlock";
+import InlineCode from "../common/InlineCode";
 
-export function PackageBadgeSection({ name }: { name: string }) {
+const PackageBadgeSection = ({ name }: { name: string }) => {
   const badgeURL = "https://img.shields.io/badge/jsDocs.io-reference-blue";
   const packageURL = `https://www.jsdocs.io/package/${name}`;
   const altText = "jsDocs.io";
@@ -38,4 +37,6 @@ export function PackageBadgeSection({ name }: { name: string }) {
       </ul>
     </section>
   );
-}
+};
+
+export default PackageBadgeSection;

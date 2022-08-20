@@ -1,12 +1,11 @@
 import { FunctionDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageDeclarationSection } from "./PackageDeclarationSection";
+import PackageDeclarationSection from "./PackageDeclarationSection";
 
-export function PackageFunctionsSection({
+const PackageFunctionsSection = ({
   functions,
 }: {
   functions: FunctionDeclaration[];
-}) {
+}) => {
   if (!functions.length) {
     return null;
   }
@@ -25,4 +24,6 @@ export function PackageFunctionsSection({
       </div>
     </section>
   );
-}
+};
+
+export default PackageFunctionsSection;

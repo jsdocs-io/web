@@ -1,7 +1,6 @@
 import Link from "next/link";
-import React from "react";
 
-export function NavbarLogo({ showLogoText }: { showLogoText: boolean }) {
+const NavbarLogo = ({ showLogoText }: { showLogoText: boolean }) => {
   return (
     <Link href="/">
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -18,4 +17,6 @@ export function NavbarLogo({ showLogoText }: { showLogoText: boolean }) {
       </a>
     </Link>
   );
-}
+};
+
+export default NavbarLogo;

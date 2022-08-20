@@ -7,13 +7,13 @@ import {
   storeRegistryPackageInfo,
 } from "./registry-package-info-storage";
 
-export async function getRegistryPackageInfo({
+const getRegistryPackageInfo = async ({
   name,
   version,
 }: {
   name: string;
   version: string;
-}): Promise<RegistryPackageInfo> {
+}): Promise<RegistryPackageInfo> => {
   const cachedInfo = await loadRegistryPackageInfo({ name, version });
   if (cachedInfo) {
     return cachedInfo;
@@ -24,4 +24,6 @@ export async function getRegistryPackageInfo({
   await storeRegistryPackageInfo({ name, version, info });
 
   return info;
-}
+};
+
+export default getRegistryPackageInfo;

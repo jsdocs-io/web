@@ -1,13 +1,12 @@
-import React from "react";
-import { A } from "../common/A";
+import A from "../common/A";
 
-export function PackageNavExternalResourcesList({
+const PackageNavExternalResourcesList = ({
   name,
   repositoryURL,
 }: {
   name: string;
   repositoryURL?: string;
-}) {
+}) => {
   return (
     <ul className="list-inline">
       {repositoryURL && (
@@ -46,4 +45,6 @@ export function PackageNavExternalResourcesList({
       </li>
     </ul>
   );
-}
+};
+
+export default PackageNavExternalResourcesList;

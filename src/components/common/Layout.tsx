@@ -1,12 +1,11 @@
-import React from "react";
-import { useAnchorLinks } from "../../hooks/useAnchorLinks";
-import { useLocationHashRefresh } from "../../hooks/useLocationHashRefresh";
-import { Footer } from "./Footer";
-import { Head } from "./Head";
-import { Main } from "./Main";
-import { Navbar } from "./Navbar";
+import useAnchorLinks from "../../hooks/useAnchorLinks";
+import useLocationHashRefresh from "../../hooks/useLocationHashRefresh";
+import Footer from "./Footer";
+import Head from "./Head";
+import Main from "./Main";
+import Navbar from "./Navbar";
 
-export function Layout(props: any) {
+const Layout = (props: any) => {
   useAnchorLinks();
   useLocationHashRefresh();
 
@@ -23,4 +22,6 @@ export function Layout(props: any) {
       </div>
     </>
   );
-}
+};
+
+export default Layout;

@@ -1,7 +1,6 @@
-import React from "react";
-import { NavbarLink } from "./NavbarLink";
+import NavbarLink from "./NavbarLink";
 
-export function NavbarLinks() {
+const NavbarLinks = () => {
   return (
     <nav>
       <ul className="flex items-center space-x-2 overflow-x-auto navbar-links">
@@ -33,4 +32,6 @@ export function NavbarLinks() {
       </ul>
     </nav>
   );
-}
+};
+
+export default NavbarLinks;

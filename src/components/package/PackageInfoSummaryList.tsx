@@ -1,10 +1,9 @@
 import prettyBytes from "pretty-bytes";
 import { DistTags } from "query-registry";
-import React from "react";
-import { isValidLicense } from "../../lib/is-valid-license";
-import { TimeAgo } from "../common/TimeAgo";
+import isValidLicense from "../../lib/is-valid-license";
+import TimeAgo from "../common/TimeAgo";
 
-export function PackageInfoSummaryList({
+const PackageInfoSummaryList = ({
   version,
   publishedAt,
   license,
@@ -20,7 +19,7 @@ export function PackageInfoSummaryList({
   dependencies?: Record<string, string>;
   distTags?: DistTags;
   versionsToTimestamps?: Record<string, string>;
-}) {
+}) => {
   const describeDeps = () => {
     const numDeps = Object.keys(dependencies!).length;
     switch (numDeps) {
@@ -223,4 +222,6 @@ export function PackageInfoSummaryList({
       </li>
     </ul>
   );
-}
+};
+
+export default PackageInfoSummaryList;

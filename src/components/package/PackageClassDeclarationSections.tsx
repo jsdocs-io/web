@@ -1,12 +1,11 @@
 import { ClassDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageDeclarationSection } from "./PackageDeclarationSection";
+import PackageDeclarationSection from "./PackageDeclarationSection";
 
-export function PackageClassDeclarationSections({
+const PackageClassDeclarationSections = ({
   declaration,
 }: {
   declaration: ClassDeclaration;
-}) {
+}) => {
   const hasMembers =
     declaration.constructors.length > 0 ||
     Object.values(declaration.members).flat().length > 0;
@@ -32,4 +31,6 @@ export function PackageClassDeclarationSections({
       )}
     </div>
   );
-}
+};
+
+export default PackageClassDeclarationSections;

@@ -1,15 +1,14 @@
 import { NamespaceDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageClassDeclarationSections } from "./PackageClassDeclarationSections";
-import { PackageDeclarationSection } from "./PackageDeclarationSection";
-import { PackageEnumDeclarationSections } from "./PackageEnumDeclarationSections";
-import { PackageInterfaceDeclarationSections } from "./PackageInterfaceDeclarationSections";
+import PackageClassDeclarationSections from "./PackageClassDeclarationSections";
+import PackageDeclarationSection from "./PackageDeclarationSection";
+import PackageEnumDeclarationSections from "./PackageEnumDeclarationSections";
+import PackageInterfaceDeclarationSections from "./PackageInterfaceDeclarationSections";
 
-export function PackageNamespaceDeclarationSections({
+const PackageNamespaceDeclarationSections = ({
   declaration,
 }: {
   declaration: NamespaceDeclaration;
-}) {
+}) => {
   const hasMembers = Object.values(declaration.declarations).flat().length > 0;
 
   return (
@@ -55,4 +54,6 @@ export function PackageNamespaceDeclarationSections({
       )}
     </div>
   );
-}
+};
+
+export default PackageNamespaceDeclarationSections;

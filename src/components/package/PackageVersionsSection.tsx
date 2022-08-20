@@ -1,14 +1,13 @@
-import React from "react";
-import { PackageLink } from "../common/PackageLink";
-import { TimeAgo } from "../common/TimeAgo";
+import PackageLink from "../common/PackageLink";
+import TimeAgo from "../common/TimeAgo";
 
-export function PackageVersionsSection({
+const PackageVersionsSection = ({
   name,
   versionsToTimestamps,
 }: {
   name: string;
   versionsToTimestamps: Record<string, string>;
-}) {
+}) => {
   return (
     <section className="space-y-6">
       <h2 id="package-versions">
@@ -37,4 +36,6 @@ export function PackageVersionsSection({
       </ul>
     </section>
   );
-}
+};
+
+export default PackageVersionsSection;

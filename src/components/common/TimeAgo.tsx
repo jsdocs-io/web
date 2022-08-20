@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { timeAgo } from "short-time-ago";
 
-export function TimeAgo({ date: rawDate }: { date: string }) {
+const TimeAgo = ({ date: rawDate }: { date: string }) => {
   const date = new Date(rawDate);
   const [description, setDescription] = useState(timeAgo(date));
 
@@ -18,4 +18,6 @@ export function TimeAgo({ date: rawDate }: { date: string }) {
       {description}
     </time>
   );
-}
+};
+
+export default TimeAgo;

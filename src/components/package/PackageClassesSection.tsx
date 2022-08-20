@@ -1,12 +1,11 @@
 import { ClassDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageClassDeclarationSections } from "./PackageClassDeclarationSections";
+import PackageClassDeclarationSections from "./PackageClassDeclarationSections";
 
-export function PackageClassesSection({
+const PackageClassesSection = ({
   classes,
 }: {
   classes: ClassDeclaration[];
-}) {
+}) => {
   if (!classes.length) {
     return null;
   }
@@ -25,4 +24,6 @@ export function PackageClassesSection({
       </div>
     </section>
   );
-}
+};
+
+export default PackageClassesSection;

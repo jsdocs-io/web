@@ -1,13 +1,12 @@
 import { InterfaceDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { InternalLink } from "../common/InternalLink";
-import { PackageIndexInterfaceMembersList } from "./PackageIndexInterfaceMembersList";
+import InternalLink from "../common/InternalLink";
+import PackageIndexInterfaceMembersList from "./PackageIndexInterfaceMembersList";
 
-export function PackageIndexInterfacesList({
+const PackageIndexInterfacesList = ({
   interfaces,
 }: {
   interfaces: InterfaceDeclaration[];
-}) {
+}) => {
   return (
     <ul className="space-y-1">
       {interfaces.map(({ id, name, members }) => (
@@ -25,4 +24,6 @@ export function PackageIndexInterfacesList({
       ))}
     </ul>
   );
-}
+};
+
+export default PackageIndexInterfacesList;

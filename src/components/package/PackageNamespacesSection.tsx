@@ -1,12 +1,11 @@
 import { NamespaceDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageNamespaceDeclarationSections } from "./PackageNamespaceDeclarationSections";
+import PackageNamespaceDeclarationSections from "./PackageNamespaceDeclarationSections";
 
-export function PackageNamespacesSection({
+const PackageNamespacesSection = ({
   namespaces,
 }: {
   namespaces: NamespaceDeclaration[];
-}) {
+}) => {
   if (!namespaces.length) {
     return null;
   }
@@ -25,4 +24,6 @@ export function PackageNamespacesSection({
       </div>
     </section>
   );
-}
+};
+
+export default PackageNamespacesSection;

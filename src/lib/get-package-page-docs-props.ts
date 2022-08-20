@@ -7,13 +7,12 @@ import {
   getPackument,
   PackageManifest,
 } from "query-registry";
-import { cleanObject } from "./clean-object";
-import { flattenPackageAPI } from "./flatten-package-api";
-import {
-  getPackagePageErrorProps,
+import cleanObject from "./clean-object";
+import flattenPackageAPI from "./flatten-package-api";
+import getPackagePageErrorProps, {
   PackagePagePropsError,
 } from "./get-package-page-error-props";
-import { getRegistryPackageInfo } from "./get-registry-package-info";
+import getRegistryPackageInfo from "./get-registry-package-info";
 import { PackagePageKind } from "./package-page-kind";
 import {
   PackageRouteDocFixedVersion,
@@ -51,13 +50,88 @@ export type MinimalPackageManifest = Pick<
   | "createdAt"
 >;
 
-export async function getPackagePageDocsProps({
+const getMinimalPackageAPI = ({
+  fullAPI,
+}: {
+  fullAPI?: PackageAPI;
+}): PackageAPI | undefined => {
+  if (!fullAPI) {
+    return undefined;
+  }
+
+  // Not anymore a proper `PackageAPI` with respect to `Declaration` kinds!
+  // For example, a `VariableDeclaration` won't have the `variableKind` property.
+  return cleanDeep(fullAPI, {
+    cleanKeys: [
+      // VariableDeclaration, FunctionDeclaration,
+      // ClassPropertyDeclaration, ClassMethodDeclaration,
+      // InterfacePropertyDeclaration, InterfaceMethodDeclaration
+      "type",
+      // VariableDeclaration
+      "variableKind",
+      // ClassDeclaration
+      "isAbstract",
+      // ClassPropertyDeclaration, ClassMethodDeclaration
+      "isStatic",
+      // InterfacePropertyDeclaration
+      "isReadonly",
+      // InterfacePropertyDeclaration
+      "isOptional",
+      // EnumDeclaration
+      "isConst",
+      // EnumMemberDeclaration
+      "value",
+      // DeclarationSource, PackageFile
+      "url",
+    ],
+    emptyArrays: false,
+    emptyObjects: false,
+    emptyStrings: false,
+  }) as PackageAPI;
+};
+
+const getMinimalPackageManifest = ({
+  fullManifest,
+}: {
+  fullManifest: PackageManifest;
+}): MinimalPackageManifest => {
+  return pick(fullManifest, [
+    "id",
+    "name",
+    "version",
+    "description",
+    "definitelyTypedName",
+    "untypedName",
+    "gitRepository.url",
+    "license",
+    "dependencies",
+    "devDependencies",
+    "peerDependencies",
+    "dist.unpackedSize",
+    "createdAt",
+  ]) as unknown as MinimalPackageManifest;
+};
+
+const getMinimalRegistryPackageInfo = ({
+  info,
+}: {
+  info: RegistryPackageInfo;
+}): MinimalRegistryPackageInfo => {
+  const { manifest: fullManifest, api: fullAPI, elapsed } = info;
+  const manifest = getMinimalPackageManifest({ fullManifest });
+  const minimalAPI = getMinimalPackageAPI({ fullAPI });
+  const api = flattenPackageAPI({ api: minimalAPI });
+
+  return { manifest, api, elapsed };
+};
+
+const getPackagePageDocsProps = async ({
   route,
 }: {
   route: PackageRouteDocLatestVersion | PackageRouteDocFixedVersion;
 }): Promise<
   GetStaticPropsResult<PackagePagePropsDocs | PackagePagePropsError>
-> {
+> => {
   try {
     // Establish the semver version number to analyze
     const { name, version: rawVersion } = { version: "latest", ...route };
@@ -98,79 +172,6 @@ export async function getPackagePageDocsProps({
       revalidate: 10 * minute,
     });
   }
-}
+};
 
-function getMinimalRegistryPackageInfo({
-  info,
-}: {
-  info: RegistryPackageInfo;
-}): MinimalRegistryPackageInfo {
-  const { manifest: fullManifest, api: fullAPI, elapsed } = info;
-  const manifest = getMinimalPackageManifest({ fullManifest });
-  const minimalAPI = getMinimalPackageAPI({ fullAPI });
-  const api = flattenPackageAPI({ api: minimalAPI });
-
-  return { manifest, api, elapsed };
-}
-
-function getMinimalPackageManifest({
-  fullManifest,
-}: {
-  fullManifest: PackageManifest;
-}): MinimalPackageManifest {
-  return pick(fullManifest, [
-    "id",
-    "name",
-    "version",
-    "description",
-    "definitelyTypedName",
-    "untypedName",
-    "gitRepository.url",
-    "license",
-    "dependencies",
-    "devDependencies",
-    "peerDependencies",
-    "dist.unpackedSize",
-    "createdAt",
-  ]) as unknown as MinimalPackageManifest;
-}
-
-function getMinimalPackageAPI({
-  fullAPI,
-}: {
-  fullAPI?: PackageAPI;
-}): PackageAPI | undefined {
-  if (!fullAPI) {
-    return undefined;
-  }
-
-  // Not anymore a proper `PackageAPI` with respect to `Declaration` kinds!
-  // For example, a `VariableDeclaration` won't have the `variableKind` property.
-  return cleanDeep(fullAPI, {
-    cleanKeys: [
-      // VariableDeclaration, FunctionDeclaration,
-      // ClassPropertyDeclaration, ClassMethodDeclaration,
-      // InterfacePropertyDeclaration, InterfaceMethodDeclaration
-      "type",
-      // VariableDeclaration
-      "variableKind",
-      // ClassDeclaration
-      "isAbstract",
-      // ClassPropertyDeclaration, ClassMethodDeclaration
-      "isStatic",
-      // InterfacePropertyDeclaration
-      "isReadonly",
-      // InterfacePropertyDeclaration
-      "isOptional",
-      // EnumDeclaration
-      "isConst",
-      // EnumMemberDeclaration
-      "value",
-      // DeclarationSource, PackageFile
-      "url",
-    ],
-    emptyArrays: false,
-    emptyObjects: false,
-    emptyStrings: false,
-  }) as PackageAPI;
-}
+export default getPackagePageDocsProps;

@@ -1,7 +1,6 @@
-import React from "react";
-import { CodeBlock } from "../common/CodeBlock";
+import CodeBlock from "../common/CodeBlock";
 
-export function PackageInstallSection({ name }: { name: string }) {
+const PackageInstallSection = ({ name }: { name: string }) => {
   const installCommands = [
     `npm i ${name}`,
     `yarn add ${name}`,
@@ -17,4 +16,6 @@ export function PackageInstallSection({ name }: { name: string }) {
       ))}
     </section>
   );
-}
+};
+
+export default PackageInstallSection;

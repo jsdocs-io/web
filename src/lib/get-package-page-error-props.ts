@@ -7,13 +7,13 @@ export interface PackagePagePropsError {
   readonly message?: string;
 }
 
-export function getPackagePageErrorProps({
+const getPackagePageErrorProps = ({
   message = "Page Not Found",
   revalidate = week,
 }: {
   message?: string;
   revalidate?: number | boolean;
-} = {}): GetStaticPropsResult<PackagePagePropsError> {
+} = {}): GetStaticPropsResult<PackagePagePropsError> => {
   return {
     props: {
       kind: PackagePageKind.Error,
@@ -21,4 +21,6 @@ export function getPackagePageErrorProps({
     },
     revalidate,
   };
-}
+};
+
+export default getPackagePageErrorProps;

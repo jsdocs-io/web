@@ -1,17 +1,16 @@
 import NextHead from "next/head";
-import React from "react";
 import { PackagePagePropsAvailableVersions } from "../../lib/get-package-page-available-versions-props";
-import { Layout } from "../common/Layout";
-import { PackageDistTagsSection } from "../package/PackageDistTagsSection";
-import { PackageFooterSection } from "../package/PackageFooterSection";
-import { PackageNav } from "../package/PackageNav";
-import { PackageTitleSection } from "../package/PackageTitleSection";
-import { PackageVersionsSection } from "../package/PackageVersionsSection";
+import Layout from "../common/Layout";
+import PackageDistTagsSection from "../package/PackageDistTagsSection";
+import PackageFooterSection from "../package/PackageFooterSection";
+import PackageNav from "../package/PackageNav";
+import PackageTitleSection from "../package/PackageTitleSection";
+import PackageVersionsSection from "../package/PackageVersionsSection";
 
-export function PackagePageAvailableVersions({
+const PackagePageAvailableVersions = ({
   data,
   createdAt,
-}: PackagePagePropsAvailableVersions) {
+}: PackagePagePropsAvailableVersions) => {
   const { name, gitRepository, distTags, versionsToTimestamps, license } = data;
 
   const pageTitle = `${name} versions - jsDocs.io`;
@@ -55,4 +54,6 @@ export function PackagePageAvailableVersions({
       </Layout>
     </>
   );
-}
+};
+
+export default PackagePageAvailableVersions;

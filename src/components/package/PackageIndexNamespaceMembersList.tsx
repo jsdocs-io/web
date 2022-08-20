@@ -1,15 +1,14 @@
 import { Declaration, ModuleDeclarations } from "@jsdocs-io/extractor";
-import React from "react";
-import { getDeclarationKindDescription } from "../../lib/get-declaration-kind-description";
-import { isCallableDeclarationKind } from "../../lib/is-callable-declaration-kind";
-import { sortByID } from "../../lib/sort-by-id";
-import { InternalLink } from "../common/InternalLink";
+import getDeclarationKindDescription from "../../lib/get-declaration-kind-description";
+import isCallableDeclarationKind from "../../lib/is-callable-declaration-kind";
+import sortByID from "../../lib/sort-by-id";
+import InternalLink from "../common/InternalLink";
 
-export function PackageIndexNamespaceMembersList({
+const PackageIndexNamespaceMembersList = ({
   declarations,
 }: {
   declarations: ModuleDeclarations;
-}) {
+}) => {
   const allDeclarations = Object.values(declarations).flat() as Declaration[];
   const members = sortByID(allDeclarations);
 
@@ -30,4 +29,6 @@ export function PackageIndexNamespaceMembersList({
       ))}
     </ul>
   );
-}
+};
+
+export default PackageIndexNamespaceMembersList;

@@ -1,13 +1,12 @@
 import Link from "next/link";
-import React from "react";
 
-export function NavbarLink({
+const NavbarLink = ({
   href,
   children,
 }: {
   href: string;
   children: React.ReactNode;
-}) {
+}) => {
   return (
     <Link href={href}>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
@@ -16,4 +15,6 @@ export function NavbarLink({
       </a>
     </Link>
   );
-}
+};
+
+export default NavbarLink;

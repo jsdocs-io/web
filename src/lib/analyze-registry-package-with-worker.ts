@@ -14,7 +14,7 @@ const piscina = new Piscina({
  * Run `analyzeRegistryPackage({ name, version })` in a separate worker thread
  * and timeout after 55 seconds (Vercel limits functions to 60 seconds).
  */
-export async function analyzeRegistryPackageWithWorker({
+const analyzeRegistryPackageWithWorker = async ({
   name,
   version,
   timeout = 55000,
@@ -22,7 +22,7 @@ export async function analyzeRegistryPackageWithWorker({
   name: string;
   version: string;
   timeout?: number;
-}): Promise<RegistryPackageInfo> {
+}): Promise<RegistryPackageInfo> => {
   const abortEmitter = new EventEmitter();
 
   const analyzeRegistryPackageTask = piscina.run(
@@ -38,4 +38,6 @@ export async function analyzeRegistryPackageWithWorker({
   clearTimeout(timeoutHandle);
 
   return info;
-}
+};
+
+export default analyzeRegistryPackageWithWorker;

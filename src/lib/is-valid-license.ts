@@ -1,7 +1,9 @@
-export function isValidLicense({ license }: { license?: string }): boolean {
+const isValidLicense = ({ license }: { license?: string }): boolean => {
   return (
     license !== undefined &&
     license.toLowerCase() !== "unlicensed" &&
     !license.toLowerCase().startsWith("see ")
   );
-}
+};
+
+export default isValidLicense;

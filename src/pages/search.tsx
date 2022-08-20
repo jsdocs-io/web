@@ -1,8 +1,8 @@
 import NextHead from "next/head";
-import { Layout } from "../components/common/Layout";
-import { SearchBar } from "../components/common/SearchBar";
+import Layout from "../components/common/Layout";
+import SearchBar from "../components/common/SearchBar";
 import SearchResults from "../components/search/SearchResults";
-import { useSearchPackages } from "../hooks/useSearchPackages";
+import useSearchPackages from "../hooks/useSearchPackages";
 import Page404 from "./404";
 
 const SearchPage = () => {

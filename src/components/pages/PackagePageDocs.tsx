@@ -1,27 +1,26 @@
 import NextHead from "next/head";
-import React from "react";
 import { PackagePagePropsDocs } from "../../lib/get-package-page-docs-props";
-import { hasPackageDeclarations } from "../../lib/has-package-declarations";
-import { Layout } from "../common/Layout";
-import { PackageAlerts } from "../package/PackageAlerts";
-import { PackageBadgeSection } from "../package/PackageBadgeSection";
-import { PackageClassesSection } from "../package/PackageClassesSection";
-import { PackageDependenciesSection } from "../package/PackageDependenciesSection";
-import { PackageEnumsSection } from "../package/PackageEnumsSection";
-import { PackageFilesSection } from "../package/PackageFilesSection";
-import { PackageFooterSection } from "../package/PackageFooterSection";
-import { PackageFunctionsSection } from "../package/PackageFunctionsSection";
-import { PackageIndexSection } from "../package/PackageIndexSection";
-import { PackageInstallSection } from "../package/PackageInstallSection";
-import { PackageInterfacesSection } from "../package/PackageInterfacesSection";
-import { PackageNamespacesSection } from "../package/PackageNamespacesSection";
-import { PackageNav } from "../package/PackageNav";
-import { PackageOverviewSection } from "../package/PackageOverviewSection";
-import { PackageTitleSection } from "../package/PackageTitleSection";
-import { PackageTypeAliasesSection } from "../package/PackageTypeAliasesSection";
-import { PackageVariablesSection } from "../package/PackageVariablesSection";
+import hasPackageDeclarations from "../../lib/has-package-declarations";
+import Layout from "../common/Layout";
+import PackageAlerts from "../package/PackageAlerts";
+import PackageBadgeSection from "../package/PackageBadgeSection";
+import PackageClassesSection from "../package/PackageClassesSection";
+import PackageDependenciesSection from "../package/PackageDependenciesSection";
+import PackageEnumsSection from "../package/PackageEnumsSection";
+import PackageFilesSection from "../package/PackageFilesSection";
+import PackageFooterSection from "../package/PackageFooterSection";
+import PackageFunctionsSection from "../package/PackageFunctionsSection";
+import PackageIndexSection from "../package/PackageIndexSection";
+import PackageInstallSection from "../package/PackageInstallSection";
+import PackageInterfacesSection from "../package/PackageInterfacesSection";
+import PackageNamespacesSection from "../package/PackageNamespacesSection";
+import PackageNav from "../package/PackageNav";
+import PackageOverviewSection from "../package/PackageOverviewSection";
+import PackageTitleSection from "../package/PackageTitleSection";
+import PackageTypeAliasesSection from "../package/PackageTypeAliasesSection";
+import PackageVariablesSection from "../package/PackageVariablesSection";
 
-export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
+const PackagePageDocs = ({ data, createdAt }: PackagePagePropsDocs) => {
   const { manifest, api, elapsed } = data;
 
   const {
@@ -149,4 +148,6 @@ export function PackagePageDocs({ data, createdAt }: PackagePagePropsDocs) {
       </Layout>
     </>
   );
-}
+};
+
+export default PackagePageDocs;

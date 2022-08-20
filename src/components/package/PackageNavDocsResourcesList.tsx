@@ -1,15 +1,14 @@
 import { useRouter } from "next/router";
-import React from "react";
-import { InternalLink } from "../common/InternalLink";
-import { PackageVersionsLink } from "../common/PackageVersionsLink";
+import InternalLink from "../common/InternalLink";
+import PackageVersionsLink from "../common/PackageVersionsLink";
 
-export function PackageNavDocsResourcesList({
+const PackageNavDocsResourcesList = ({
   name,
   hasDocs,
 }: {
   name: string;
   hasDocs: boolean;
-}) {
+}) => {
   // Do not render this component on the `/package/<name>/versions` route
   const router = useRouter();
   const slug = router.query["slug"] as string[];
@@ -87,4 +86,6 @@ export function PackageNavDocsResourcesList({
       </li>
     </ul>
   );
-}
+};
+
+export default PackageNavDocsResourcesList;

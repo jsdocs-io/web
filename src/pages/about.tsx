@@ -1,8 +1,8 @@
 import NextHead from "next/head";
-import { A } from "../components/common/A";
-import { InlineCode } from "../components/common/InlineCode";
-import { InternalLink } from "../components/common/InternalLink";
-import { Layout } from "../components/common/Layout";
+import A from "../components/common/A";
+import InlineCode from "../components/common/InlineCode";
+import InternalLink from "../components/common/InternalLink";
+import Layout from "../components/common/Layout";
 import { newTabBookmarklet, redirectBookmarklet } from "../data/bookmarklets";
 import { vercelURL } from "../data/vercel-url";
 

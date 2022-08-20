@@ -1,7 +1,6 @@
-import React from "react";
-import { CodeBlockContents } from "./CodeBlockContents";
+import CodeBlockContents from "./CodeBlockContents";
 
-export function CodeBlock({
+const CodeBlock = ({
   code,
   language,
   className,
@@ -9,10 +8,12 @@ export function CodeBlock({
   code: string;
   language: string;
   className?: string;
-}) {
+}) => {
   return (
     <div className={className ?? "my-4"}>
       <CodeBlockContents code={code} language={language} />
     </div>
   );
-}
+};
+
+export default CodeBlock;

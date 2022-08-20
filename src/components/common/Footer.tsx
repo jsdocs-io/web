@@ -1,10 +1,9 @@
 import Link from "next/link";
-import React from "react";
-import { A } from "./A";
-import { InternalLink } from "./InternalLink";
-import { PoweredByVercelBanner } from "./PoweredByVercelBanner";
+import A from "./A";
+import InternalLink from "./InternalLink";
+import PoweredByVercelBanner from "./PoweredByVercelBanner";
 
-export function Footer() {
+const Footer = () => {
   return (
     <footer className="p-4 bg-gray-100 border-t border-gray-300 dark:bg-gray-900 dark:border-gray-700">
       <div>
@@ -65,4 +64,6 @@ export function Footer() {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

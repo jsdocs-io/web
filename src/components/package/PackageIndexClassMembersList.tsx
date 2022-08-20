@@ -1,15 +1,14 @@
 import { ClassMemberDeclarations } from "@jsdocs-io/extractor";
-import React from "react";
-import { getDeclarationKindDescription } from "../../lib/get-declaration-kind-description";
-import { isCallableDeclarationKind } from "../../lib/is-callable-declaration-kind";
-import { sortByID } from "../../lib/sort-by-id";
-import { InternalLink } from "../common/InternalLink";
+import getDeclarationKindDescription from "../../lib/get-declaration-kind-description";
+import isCallableDeclarationKind from "../../lib/is-callable-declaration-kind";
+import sortByID from "../../lib/sort-by-id";
+import InternalLink from "../common/InternalLink";
 
-export function PackageIndexClassMembersList({
+const PackageIndexClassMembersList = ({
   members: rawMembers,
 }: {
   members: ClassMemberDeclarations;
-}) {
+}) => {
   const { properties, methods } = rawMembers;
   const members = sortByID([...properties, ...methods]);
   if (!members.length) {
@@ -33,4 +32,6 @@ export function PackageIndexClassMembersList({
       ))}
     </ul>
   );
-}
+};
+
+export default PackageIndexClassMembersList;

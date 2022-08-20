@@ -4,11 +4,11 @@ import { promisify } from "util";
 
 const pipeline = promisify(stream.pipeline);
 
-export async function parseJSONStream<T>({
+const parseJSONStream = async <T>({
   jsonStream,
 }: {
   jsonStream: stream.Readable;
-}): Promise<T> {
+}): Promise<T> => {
   let data;
 
   await pipeline(
@@ -25,4 +25,6 @@ export async function parseJSONStream<T>({
   );
 
   return data as unknown as T;
-}
+};
+
+export default parseJSONStream;

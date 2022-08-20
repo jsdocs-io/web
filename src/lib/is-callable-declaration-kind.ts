@@ -1,10 +1,10 @@
 import { DeclarationKinds } from "@jsdocs-io/extractor";
 
-export function isCallableDeclarationKind({
+const isCallableDeclarationKind = ({
   kind,
 }: {
   kind: DeclarationKinds;
-}): boolean {
+}): boolean => {
   switch (kind) {
     case "FunctionDeclaration":
     case "ClassConstructorDeclaration":
@@ -16,4 +16,6 @@ export function isCallableDeclarationKind({
     default:
       return false;
   }
-}
+};
+
+export default isCallableDeclarationKind;

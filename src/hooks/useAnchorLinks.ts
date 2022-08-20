@@ -1,9 +1,11 @@
 import AnchorJS from "anchor-js";
 import { useEffect } from "react";
 
-export function useAnchorLinks(): void {
+const useAnchorLinks = () => {
   useEffect(() => {
     const anchors = new AnchorJS();
     anchors.add("h2, h3");
   }, []);
-}
+};
+
+export default useAnchorLinks;

@@ -8,7 +8,11 @@ export interface UseSearchHook {
   readonly setSearched: () => void;
 }
 
-export function useSearch(initialQuery: string): UseSearchHook {
+const removeSpaces = (query: string): string => {
+  return query.trim().replace(/\s+/g, " ");
+};
+
+const useSearch = (initialQuery: string): UseSearchHook => {
   const cleanInitialQuery = removeSpaces(initialQuery);
   const [{ rawQuery, cleanQuery, prevQuery }, setQueryState] = useState({
     rawQuery: initialQuery,
@@ -38,8 +42,6 @@ export function useSearch(initialQuery: string): UseSearchHook {
     setQuery,
     setSearched,
   };
-}
+};
 
-function removeSpaces(query: string): string {
-  return query.trim().replace(/\s+/g, " ");
-}
+export default useSearch;

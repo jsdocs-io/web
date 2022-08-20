@@ -1,13 +1,12 @@
 import Highlight, { defaultProps } from "prism-react-renderer";
-import React from "react";
 
-export function SyntaxHighlight({
+const SyntaxHighlight = ({
   code,
   language,
 }: {
   code: string;
   language: string;
-}) {
+}) => {
   return (
     <Highlight
       {...defaultProps}
@@ -31,4 +30,6 @@ export function SyntaxHighlight({
       )}
     </Highlight>
   );
-}
+};
+
+export default SyntaxHighlight;

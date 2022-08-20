@@ -1,7 +1,6 @@
-import React from "react";
-import { InternalLink } from "./InternalLink";
+import InternalLink from "./InternalLink";
 
-export function PackageVersionsLink({
+const PackageVersionsLink = ({
   name,
   title,
   children,
@@ -9,10 +8,12 @@ export function PackageVersionsLink({
   name: string;
   title?: string;
   children: React.ReactNode;
-}) {
+}) => {
   return (
     <InternalLink href={`/package/${name}/versions`} title={title}>
       {children}
     </InternalLink>
   );
-}
+};
+
+export default PackageVersionsLink;

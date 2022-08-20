@@ -1,6 +1,6 @@
 import NextHead from "next/head";
-import { A } from "../components/common/A";
-import { Layout } from "../components/common/Layout";
+import A from "../components/common/A";
+import Layout from "../components/common/Layout";
 import { vercelPrivacyPolicyURL, vercelURL } from "../data/vercel-url";
 
 const PrivacyPolicyPage = () => {

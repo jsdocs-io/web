@@ -1,12 +1,11 @@
 import { TypeAliasDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { InternalLink } from "../common/InternalLink";
+import InternalLink from "../common/InternalLink";
 
-export function PackageIndexTypeAliasesList({
+const PackageIndexTypeAliasesList = ({
   typeAliases,
 }: {
   typeAliases: TypeAliasDeclaration[];
-}) {
+}) => {
   return (
     <ul className="space-y-1">
       {typeAliases.map(({ id, name }) => (
@@ -18,4 +17,6 @@ export function PackageIndexTypeAliasesList({
       ))}
     </ul>
   );
-}
+};
+
+export default PackageIndexTypeAliasesList;

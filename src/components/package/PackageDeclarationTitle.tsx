@@ -1,9 +1,8 @@
 import { DeclarationKinds } from "@jsdocs-io/extractor";
-import React from "react";
-import { getDeclarationKindDescription } from "../../lib/get-declaration-kind-description";
-import { A } from "../common/A";
+import getDeclarationKindDescription from "../../lib/get-declaration-kind-description";
+import A from "../common/A";
 
-export function PackageDeclarationTitle({
+const PackageDeclarationTitle = ({
   id,
   name,
   kind,
@@ -13,7 +12,7 @@ export function PackageDeclarationTitle({
   name: string;
   kind: DeclarationKinds;
   unpkgURL?: string;
-}) {
+}) => {
   const kindDescription = getDeclarationKindDescription({ kind })
     .toLowerCase()
     .replace("constructor", "")
@@ -35,4 +34,6 @@ export function PackageDeclarationTitle({
       )}
     </h3>
   );
-}
+};
+
+export default PackageDeclarationTitle;

@@ -1,12 +1,11 @@
 import { FunctionDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { InternalLink } from "../common/InternalLink";
+import InternalLink from "../common/InternalLink";
 
-export function PackageIndexFunctionsList({
+const PackageIndexFunctionsList = ({
   functions,
 }: {
   functions: FunctionDeclaration[];
-}) {
+}) => {
   return (
     <ul className="space-y-1">
       {functions.map(({ id, name }) => (
@@ -18,4 +17,6 @@ export function PackageIndexFunctionsList({
       ))}
     </ul>
   );
-}
+};
+
+export default PackageIndexFunctionsList;

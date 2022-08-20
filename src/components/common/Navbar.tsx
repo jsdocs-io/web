@@ -1,18 +1,17 @@
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
-import React from "react";
-import { NavbarLinks } from "./NavbarLinks";
-import { NavbarLogo } from "./NavbarLogo";
-import { SearchBar } from "./SearchBar";
+import NavbarLinks from "./NavbarLinks";
+import NavbarLogo from "./NavbarLogo";
+import SearchBar from "./SearchBar";
 
 // Import as dynamic component, otherwise client props may differ
 // from server rendered ones due to the dark mode state.
 const ThemeButton = dynamic(
-  (() => import("./ThemeButton").then(({ ThemeButton }) => ThemeButton)) as any,
+  (() => import("./ThemeButton").then((ThemeButton) => ThemeButton)) as any,
   { ssr: false }
 ) as any;
 
-export function Navbar() {
+const Navbar = () => {
   const router = useRouter();
   const showSearchBar = !["/", "/search"].includes(router.pathname);
 
@@ -41,4 +40,6 @@ export function Navbar() {
       </div>
     </header>
   );
-}
+};
+
+export default Navbar;

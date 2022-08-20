@@ -1,12 +1,11 @@
 import { VariableDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { InternalLink } from "../common/InternalLink";
+import InternalLink from "../common/InternalLink";
 
-export function PackageIndexVariablesList({
+const PackageIndexVariablesList = ({
   variables,
 }: {
   variables: VariableDeclaration[];
-}) {
+}) => {
   return (
     <ul className="space-y-1">
       {variables.map(({ id, name }) => (
@@ -18,4 +17,6 @@ export function PackageIndexVariablesList({
       ))}
     </ul>
   );
-}
+};
+
+export default PackageIndexVariablesList;

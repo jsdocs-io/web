@@ -5,7 +5,7 @@ import { useEffect } from "react";
  * Refresh the location hash to make browsers scroll
  * to the anchor link present in the URL.
  */
-export function useLocationHashRefresh(): void {
+const useLocationHashRefresh = () => {
   const router = useRouter();
 
   useEffect(() => {
@@ -31,4 +31,6 @@ export function useLocationHashRefresh(): void {
       });
     }
   });
-}
+};
+
+export default useLocationHashRefresh;

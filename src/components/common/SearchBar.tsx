@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useHotkeys } from "react-hotkeys-hook";
-import { useSearch } from "../../hooks/useSearch";
+import useSearch from "../../hooks/useSearch";
 
-export function SearchBar({ initialQuery = "" }: { initialQuery?: string }) {
+const SearchBar = ({ initialQuery = "" }: { initialQuery?: string }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useHotkeys("s", (event) => {
@@ -79,4 +79,6 @@ export function SearchBar({ initialQuery = "" }: { initialQuery?: string }) {
       </button>
     </div>
   );
-}
+};
+
+export default SearchBar;

@@ -1,12 +1,11 @@
 import { InterfaceDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageDeclarationSection } from "./PackageDeclarationSection";
+import PackageDeclarationSection from "./PackageDeclarationSection";
 
-export function PackageInterfaceDeclarationSections({
+const PackageInterfaceDeclarationSections = ({
   declaration,
 }: {
   declaration: InterfaceDeclaration;
-}) {
+}) => {
   const hasMembers = Object.values(declaration.members).flat().length > 0;
 
   return (
@@ -38,4 +37,6 @@ export function PackageInterfaceDeclarationSections({
       )}
     </div>
   );
-}
+};
+
+export default PackageInterfaceDeclarationSections;

@@ -1,13 +1,12 @@
 import { ClassDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { InternalLink } from "../common/InternalLink";
-import { PackageIndexClassMembersList } from "./PackageIndexClassMembersList";
+import InternalLink from "../common/InternalLink";
+import PackageIndexClassMembersList from "./PackageIndexClassMembersList";
 
-export function PackageIndexClassesList({
+const PackageIndexClassesList = ({
   classes,
 }: {
   classes: ClassDeclaration[];
-}) {
+}) => {
   return (
     <ul className="space-y-1">
       {classes.map(({ id, name, members }) => (
@@ -25,4 +24,6 @@ export function PackageIndexClassesList({
       ))}
     </ul>
   );
-}
+};
+
+export default PackageIndexClassesList;

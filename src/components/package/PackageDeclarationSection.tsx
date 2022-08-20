@@ -1,14 +1,13 @@
 import { Declaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { CodeBlock } from "../common/CodeBlock";
-import { DocComment } from "../common/DocComment";
-import { PackageDeclarationTitle } from "./PackageDeclarationTitle";
+import CodeBlock from "../common/CodeBlock";
+import DocComment from "../common/DocComment";
+import PackageDeclarationTitle from "./PackageDeclarationTitle";
 
-export function PackageDeclarationSection({
+const PackageDeclarationSection = ({
   declaration,
 }: {
   declaration: Declaration;
-}) {
+}) => {
   const {
     id,
     name,
@@ -38,4 +37,6 @@ export function PackageDeclarationSection({
       </ul>
     </section>
   );
-}
+};
+
+export default PackageDeclarationSection;

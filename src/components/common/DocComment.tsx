@@ -1,10 +1,9 @@
 import * as tsdoc from "@microsoft/tsdoc";
-import React from "react";
-import { A } from "./A";
-import { CodeBlock } from "./CodeBlock";
-import { InlineCode } from "./InlineCode";
-import { InternalLink } from "./InternalLink";
-import { PackageLink } from "./PackageLink";
+import A from "./A";
+import CodeBlock from "./CodeBlock";
+import InlineCode from "./InlineCode";
+import InternalLink from "./InternalLink";
+import PackageLink from "./PackageLink";
 
 interface DocNodeProps {
   readonly node: tsdoc.DocNode;
@@ -17,7 +16,7 @@ interface DocLinkTagProps {
 /**
  * DocComment renders a JSDoc/TSDoc comment (like this one).
  */
-export function DocComment({ doc }: { doc?: string }) {
+const DocComment = ({ doc }: { doc?: string }) => {
   if (!doc) {
     return null;
   }
@@ -98,7 +97,9 @@ export function DocComment({ doc }: { doc?: string }) {
       )}
     </div>
   );
-}
+};
+
+export default DocComment;
 
 function DocInheritDocSection({
   inheritDocTag,

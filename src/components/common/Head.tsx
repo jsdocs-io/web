@@ -1,9 +1,8 @@
 import NextHead from "next/head";
-import React from "react";
 import { darkModeScriptMinified } from "../../data/dark-mode-script";
 import { windowScript } from "../../data/window-script";
 
-export function Head() {
+const Head = () => {
   return (
     <NextHead>
       <meta charSet="utf-8" />
@@ -70,4 +69,6 @@ export function Head() {
       )}
     </NextHead>
   );
-}
+};
+
+export default Head;

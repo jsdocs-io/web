@@ -1,8 +1,7 @@
 import { PackageFile } from "@jsdocs-io/extractor";
-import React from "react";
-import { A } from "../common/A";
+import A from "../common/A";
 
-export function PackageFilesList({ files }: { files: PackageFile[] }) {
+const PackageFilesList = ({ files }: { files: PackageFile[] }) => {
   return (
     <ul className="list-inline">
       {files.map(({ filename, unpkgURL, isIndexFile }) => (
@@ -22,4 +21,6 @@ export function PackageFilesList({ files }: { files: PackageFile[] }) {
       ))}
     </ul>
   );
-}
+};
+
+export default PackageFilesList;

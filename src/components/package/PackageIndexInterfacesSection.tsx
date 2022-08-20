@@ -1,12 +1,11 @@
 import { InterfaceDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageIndexInterfacesList } from "./PackageIndexInterfacesList";
+import PackageIndexInterfacesList from "./PackageIndexInterfacesList";
 
-export function PackageIndexInterfacesSection({
+const PackageIndexInterfacesSection = ({
   interfaces,
 }: {
   interfaces: InterfaceDeclaration[];
-}) {
+}) => {
   if (!interfaces.length) {
     return null;
   }
@@ -18,4 +17,6 @@ export function PackageIndexInterfacesSection({
       <PackageIndexInterfacesList interfaces={interfaces} />
     </section>
   );
-}
+};
+
+export default PackageIndexInterfacesSection;

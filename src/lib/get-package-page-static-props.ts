@@ -1,28 +1,25 @@
 import { GetStaticPropsResult } from "next";
-import {
-  getPackagePageAvailableVersionsProps,
+import getPackagePageAvailableVersionsProps, {
   PackagePagePropsAvailableVersions,
 } from "./get-package-page-available-versions-props";
-import {
-  getPackagePageDocsProps,
+import getPackagePageDocsProps, {
   PackagePagePropsDocs,
 } from "./get-package-page-docs-props";
-import {
-  getPackagePageErrorProps,
+import getPackagePageErrorProps, {
   PackagePagePropsError,
 } from "./get-package-page-error-props";
-import { PackageRouteKind, parsePackageRoute } from "./parse-package-route";
+import parsePackageRoute, { PackageRouteKind } from "./parse-package-route";
 
 export type PackagePageProps =
   | PackagePagePropsDocs
   | PackagePagePropsAvailableVersions
   | PackagePagePropsError;
 
-export async function getPackagePageStaticProps({
+const getPackagePageStaticProps = async ({
   route: rawRoute,
 }: {
   route: string;
-}): Promise<GetStaticPropsResult<PackagePageProps>> {
+}): Promise<GetStaticPropsResult<PackagePageProps>> => {
   const route = parsePackageRoute({ route: rawRoute });
   switch (route.kind) {
     case PackageRouteKind.DocLatestVersion:
@@ -33,4 +30,6 @@ export async function getPackagePageStaticProps({
     case PackageRouteKind.Error:
       return getPackagePageErrorProps();
   }
-}
+};
+
+export default getPackagePageStaticProps;

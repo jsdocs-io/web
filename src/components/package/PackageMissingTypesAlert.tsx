@@ -1,6 +1,4 @@
-import React from "react";
-
-export function PackageMissingTypesAlert() {
+const PackageMissingTypesAlert = () => {
   return (
     <div className="flex justify-center p-4 border-2 border-yellow-500 rounded">
       <p className="mt-0 font-bold">
@@ -8,4 +6,6 @@ export function PackageMissingTypesAlert() {
       </p>
     </div>
   );
-}
+};
+
+export default PackageMissingTypesAlert;

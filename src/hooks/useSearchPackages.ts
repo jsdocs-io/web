@@ -11,17 +11,14 @@ export interface UseSearchPackagesHook {
   readonly error: any;
 }
 
-export function useSearchPackages(): UseSearchPackagesHook {
-  const query = useQuery();
-  const { data: searchResults, error } = useSWR(
-    query ? `${searchAPIEndpoint}?text=${query}` : null,
-    fetcher
-  );
+const fetcher = async (url: string): Promise<SearchResult[]> => {
+  const data = await fetch(url);
+  const json = await data.json();
+  const { objects: searchResults } = json as SearchResults;
+  return searchResults;
+};
 
-  return { query, searchResults, error };
-}
-
-function useQuery(): string | undefined {
+const useQuery = (): string | undefined => {
   const router = useRouter();
   const rawQuery = router.query.query;
 
@@ -35,11 +32,16 @@ function useQuery(): string | undefined {
   }
 
   return query;
-}
+};
 
-async function fetcher(url: string): Promise<SearchResult[]> {
-  const data = await fetch(url);
-  const json = await data.json();
-  const { objects: searchResults } = json as SearchResults;
-  return searchResults;
-}
+const useSearchPackages = (): UseSearchPackagesHook => {
+  const query = useQuery();
+  const { data: searchResults, error } = useSWR(
+    query ? `${searchAPIEndpoint}?text=${query}` : null,
+    fetcher
+  );
+
+  return { query, searchResults, error };
+};
+
+export default useSearchPackages;

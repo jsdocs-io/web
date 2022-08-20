@@ -1,12 +1,12 @@
 import { GetStaticProps } from "next";
 import NextHead from "next/head";
-import { A } from "../components/common/A";
-import { CodeBlock } from "../components/common/CodeBlock";
-import { Layout } from "../components/common/Layout";
+import A from "../components/common/A";
+import CodeBlock from "../components/common/CodeBlock";
+import Layout from "../components/common/Layout";
 import { heroIconsLicense } from "../data/heroicons-license";
 import { modernNormalizeLicense } from "../data/modern-normalize-license";
 import { tailwindCSSLicense } from "../data/tailwind-css-license";
-import { getOSSLibraries, OSSLibrary } from "../lib/get-oss-libraries";
+import getOSSLibraries, { OSSLibrary } from "../lib/get-oss-libraries";
 
 interface CreditsPageProps {
   readonly ossLibraries: OSSLibrary[];

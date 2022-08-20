@@ -1,13 +1,12 @@
 import { NamespaceDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { InternalLink } from "../common/InternalLink";
-import { PackageIndexNamespaceMembersList } from "./PackageIndexNamespaceMembersList";
+import InternalLink from "../common/InternalLink";
+import PackageIndexNamespaceMembersList from "./PackageIndexNamespaceMembersList";
 
-export function PackageIndexNamespacesList({
+const PackageIndexNamespacesList = ({
   namespaces,
 }: {
   namespaces: NamespaceDeclaration[];
-}) {
+}) => {
   return (
     <ul className="space-y-1">
       {namespaces.map(({ id, name, declarations }) => (
@@ -25,4 +24,6 @@ export function PackageIndexNamespacesList({
       ))}
     </ul>
   );
-}
+};
+
+export default PackageIndexNamespacesList;

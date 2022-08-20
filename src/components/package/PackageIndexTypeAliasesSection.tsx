@@ -1,12 +1,11 @@
 import { TypeAliasDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageIndexTypeAliasesList } from "./PackageIndexTypeAliasesList";
+import PackageIndexTypeAliasesList from "./PackageIndexTypeAliasesList";
 
-export function PackageIndexTypeAliasesSection({
+const PackageIndexTypeAliasesSection = ({
   typeAliases,
 }: {
   typeAliases: TypeAliasDeclaration[];
-}) {
+}) => {
   if (!typeAliases.length) {
     return null;
   }
@@ -18,4 +17,6 @@ export function PackageIndexTypeAliasesSection({
       <PackageIndexTypeAliasesList typeAliases={typeAliases} />
     </section>
   );
-}
+};
+
+export default PackageIndexTypeAliasesSection;

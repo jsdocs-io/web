@@ -1,12 +1,11 @@
 import { VariableDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageIndexVariablesList } from "./PackageIndexVariablesList";
+import PackageIndexVariablesList from "./PackageIndexVariablesList";
 
-export function PackageIndexVariablesSection({
+const PackageIndexVariablesSection = ({
   variables,
 }: {
   variables: VariableDeclaration[];
-}) {
+}) => {
   if (!variables.length) {
     return null;
   }
@@ -18,4 +17,6 @@ export function PackageIndexVariablesSection({
       <PackageIndexVariablesList variables={variables} />
     </section>
   );
-}
+};
+
+export default PackageIndexVariablesSection;

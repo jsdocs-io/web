@@ -1,12 +1,11 @@
 import { EnumMemberDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { InternalLink } from "../common/InternalLink";
+import InternalLink from "../common/InternalLink";
 
-export function PackageIndexEnumMembersList({
+const PackageIndexEnumMembersList = ({
   members,
 }: {
   members: EnumMemberDeclaration[];
-}) {
+}) => {
   if (!members.length) {
     return null;
   }
@@ -22,4 +21,6 @@ export function PackageIndexEnumMembersList({
       ))}
     </ul>
   );
-}
+};
+
+export default PackageIndexEnumMembersList;

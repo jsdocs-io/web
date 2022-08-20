@@ -1,14 +1,13 @@
 import { SearchResult } from "query-registry";
-import React from "react";
-import { TimeAgo } from "../../components/common/TimeAgo";
-import { A } from "../common/A";
-import { PackageLink } from "../common/PackageLink";
+import TimeAgo from "../../components/common/TimeAgo";
+import A from "../common/A";
+import PackageLink from "../common/PackageLink";
 
-export default function SearchResults({
+const SearchResults = ({
   searchResults,
 }: {
   searchResults?: SearchResult[];
-}) {
+}) => {
   if (!searchResults) {
     return (
       <p className="mt-0 text-2xl font-bold text-center animate-pulse">
@@ -73,4 +72,6 @@ export default function SearchResults({
       ))}
     </div>
   );
-}
+};
+
+export default SearchResults;

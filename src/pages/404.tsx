@@ -1,5 +1,5 @@
 import NextHead from "next/head";
-import { Layout } from "../components/common/Layout";
+import Layout from "../components/common/Layout";
 
 const Page404 = ({ message = "Page Not Found" }: { message?: string }) => {
   const pageTitle = `${message} - jsDocs.io`;

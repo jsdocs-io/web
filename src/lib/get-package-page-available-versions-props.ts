@@ -1,9 +1,8 @@
 import { pick } from "filter-anything";
 import { GetStaticPropsResult } from "next";
 import { getPackument, Packument } from "query-registry";
-import { cleanObject } from "./clean-object";
-import {
-  getPackagePageErrorProps,
+import cleanObject from "./clean-object";
+import getPackagePageErrorProps, {
   PackagePagePropsError,
 } from "./get-package-page-error-props";
 import { PackagePageKind } from "./package-page-kind";
@@ -21,7 +20,21 @@ export type MinimalPackument = Pick<
   "name" | "gitRepository" | "distTags" | "versionsToTimestamps" | "license"
 >;
 
-export async function getPackagePageAvailableVersionsProps({
+const getMinimalPackument = ({
+  packument,
+}: {
+  packument: Packument;
+}): MinimalPackument => {
+  return pick(packument, [
+    "name",
+    "gitRepository.url",
+    "distTags",
+    "versionsToTimestamps",
+    "license",
+  ]) as MinimalPackument;
+};
+
+const getPackagePageAvailableVersionsProps = async ({
   route,
 }: {
   route: PackageRouteAvailableVersions;
@@ -29,7 +42,7 @@ export async function getPackagePageAvailableVersionsProps({
   GetStaticPropsResult<
     PackagePagePropsAvailableVersions | PackagePagePropsError
   >
-> {
+> => {
   try {
     const { name } = route;
     const packument = await getPackument({ name });
@@ -49,18 +62,6 @@ export async function getPackagePageAvailableVersionsProps({
       revalidate: 10 * minute,
     });
   }
-}
+};
 
-function getMinimalPackument({
-  packument,
-}: {
-  packument: Packument;
-}): MinimalPackument {
-  return pick(packument, [
-    "name",
-    "gitRepository.url",
-    "distTags",
-    "versionsToTimestamps",
-    "license",
-  ]) as MinimalPackument;
-}
+export default getPackagePageAvailableVersionsProps;

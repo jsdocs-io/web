@@ -1,12 +1,11 @@
 import { VariableDeclaration } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageDeclarationSection } from "./PackageDeclarationSection";
+import PackageDeclarationSection from "./PackageDeclarationSection";
 
-export function PackageVariablesSection({
+const PackageVariablesSection = ({
   variables,
 }: {
   variables: VariableDeclaration[];
-}) {
+}) => {
   if (!variables.length) {
     return null;
   }
@@ -25,4 +24,6 @@ export function PackageVariablesSection({
       </div>
     </section>
   );
-}
+};
+
+export default PackageVariablesSection;

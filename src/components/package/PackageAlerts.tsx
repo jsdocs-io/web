@@ -1,10 +1,9 @@
-import React from "react";
-import { isValidLicense } from "../../lib/is-valid-license";
-import { PackageExternalTypesAlert } from "./PackageExternalTypesAlert";
-import { PackageLicenseAlert } from "./PackageLicenseAlert";
-import { PackageMissingTypesAlert } from "./PackageMissingTypesAlert";
+import isValidLicense from "../../lib/is-valid-license";
+import PackageExternalTypesAlert from "./PackageExternalTypesAlert";
+import PackageLicenseAlert from "./PackageLicenseAlert";
+import PackageMissingTypesAlert from "./PackageMissingTypesAlert";
 
-export function PackageAlerts({
+const PackageAlerts = ({
   hasDocs,
   definitelyTypedName,
   license,
@@ -12,7 +11,7 @@ export function PackageAlerts({
   hasDocs: boolean;
   definitelyTypedName?: string;
   license?: string;
-}) {
+}) => {
   if (hasDocs) {
     return null;
   }
@@ -28,4 +27,6 @@ export function PackageAlerts({
   }
 
   return <PackageMissingTypesAlert />;
-}
+};
+
+export default PackageAlerts;

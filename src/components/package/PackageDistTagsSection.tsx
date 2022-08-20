@@ -1,14 +1,13 @@
 import { DistTags } from "query-registry";
-import React from "react";
-import { PackageLink } from "../common/PackageLink";
+import PackageLink from "../common/PackageLink";
 
-export function PackageDistTagsSection({
+const PackageDistTagsSection = ({
   name,
   distTags,
 }: {
   name: string;
   distTags: DistTags;
-}) {
+}) => {
   return (
     <section className="space-y-6">
       <h2 id="package-dist-tags">Tags ({Object.keys(distTags).length})</h2>
@@ -33,4 +32,6 @@ export function PackageDistTagsSection({
       </ul>
     </section>
   );
-}
+};
+
+export default PackageDistTagsSection;

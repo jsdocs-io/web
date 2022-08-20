@@ -1,7 +1,6 @@
-import React from "react";
-import { InternalLink } from "./InternalLink";
+import InternalLink from "./InternalLink";
 
-export function PackageLink({
+const PackageLink = ({
   name,
   version,
   declarationID,
@@ -13,7 +12,7 @@ export function PackageLink({
   declarationID?: string;
   title?: string;
   children: React.ReactNode;
-}) {
+}) => {
   const packageBaseRoute = version
     ? `/package/${name}/v/${version}`
     : `/package/${name}`;
@@ -27,4 +26,6 @@ export function PackageLink({
       {children}
     </InternalLink>
   );
-}
+};
+
+export default PackageLink;

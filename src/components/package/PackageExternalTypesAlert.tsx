@@ -1,11 +1,10 @@
-import React from "react";
-import { PackageLink } from "../common/PackageLink";
+import PackageLink from "../common/PackageLink";
 
-export function PackageExternalTypesAlert({
+const PackageExternalTypesAlert = ({
   definitelyTypedName,
 }: {
   definitelyTypedName: string;
-}) {
+}) => {
   return (
     <div className="flex justify-center p-4 border-2 border-green-600 rounded">
       <p className="mt-0 font-bold">
@@ -17,4 +16,6 @@ export function PackageExternalTypesAlert({
       </p>
     </div>
   );
-}
+};
+
+export default PackageExternalTypesAlert;

@@ -1,7 +1,6 @@
-import React from "react";
-import { PackageLink } from "../common/PackageLink";
+import PackageLink from "../common/PackageLink";
 
-export function PackageNavPackagesList({
+const PackageNavPackagesList = ({
   name,
   definitelyTypedName,
   untypedName,
@@ -9,7 +8,7 @@ export function PackageNavPackagesList({
   name: string;
   definitelyTypedName?: string;
   untypedName?: string;
-}) {
+}) => {
   return (
     <ul className="list-inline">
       <li>
@@ -46,4 +45,6 @@ export function PackageNavPackagesList({
       )}
     </ul>
   );
-}
+};
+
+export default PackageNavPackagesList;

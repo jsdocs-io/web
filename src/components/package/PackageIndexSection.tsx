@@ -1,18 +1,17 @@
 import { ModuleDeclarations } from "@jsdocs-io/extractor";
-import React from "react";
-import { PackageIndexClassesSection } from "./PackageIndexClassesSection";
-import { PackageIndexEnumsSection } from "./PackageIndexEnumsSection";
-import { PackageIndexFunctionsSection } from "./PackageIndexFunctionsSection";
-import { PackageIndexInterfacesSection } from "./PackageIndexInterfacesSection";
-import { PackageIndexNamespacesSection } from "./PackageIndexNamespacesSection";
-import { PackageIndexTypeAliasesSection } from "./PackageIndexTypeAliasesSection";
-import { PackageIndexVariablesSection } from "./PackageIndexVariablesSection";
+import PackageIndexClassesSection from "./PackageIndexClassesSection";
+import PackageIndexEnumsSection from "./PackageIndexEnumsSection";
+import PackageIndexFunctionsSection from "./PackageIndexFunctionsSection";
+import PackageIndexInterfacesSection from "./PackageIndexInterfacesSection";
+import PackageIndexNamespacesSection from "./PackageIndexNamespacesSection";
+import PackageIndexTypeAliasesSection from "./PackageIndexTypeAliasesSection";
+import PackageIndexVariablesSection from "./PackageIndexVariablesSection";
 
-export function PackageIndexSection({
+const PackageIndexSection = ({
   declarations,
 }: {
   declarations: ModuleDeclarations;
-}) {
+}) => {
   const {
     variables,
     functions,
@@ -38,4 +37,6 @@ export function PackageIndexSection({
       </div>
     </section>
   );
-}
+};
+
+export default PackageIndexSection;

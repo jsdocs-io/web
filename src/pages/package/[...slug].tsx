@@ -1,10 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { prerenderPackages } from "../../../config";
-import { PackagePageAvailableVersions } from "../../components/pages/PackagePageAvailableVersions";
-import { PackagePageDocs } from "../../components/pages/PackagePageDocs";
+import PackagePageAvailableVersions from "../../components/pages/PackagePageAvailableVersions";
+import PackagePageDocs from "../../components/pages/PackagePageDocs";
 import { prerenderedPackages } from "../../data/prerendered-packages";
-import {
-  getPackagePageStaticProps,
+import getPackagePageStaticProps, {
   PackagePageProps,
 } from "../../lib/get-package-page-static-props";
 import { PackagePageKind } from "../../lib/package-page-kind";

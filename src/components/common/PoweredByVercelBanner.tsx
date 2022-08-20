@@ -1,7 +1,6 @@
-import React from "react";
 import { vercelURL } from "../../data/vercel-url";
 
-export function PoweredByVercelBanner() {
+const PoweredByVercelBanner = () => {
   return (
     <a href={vercelURL} title="Powered by Vercel" className="block">
       <svg
@@ -21,4 +20,6 @@ export function PoweredByVercelBanner() {
       </svg>
     </a>
   );
-}
+};
+
+export default PoweredByVercelBanner;

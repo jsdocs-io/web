@@ -1,7 +1,7 @@
 import { sanitizeUrl } from "@braintree/sanitize-url";
 import React from "react";
 
-export function A({
+const A = ({
   href: rawHref,
   title,
   children,
@@ -9,7 +9,7 @@ export function A({
   href: string;
   title?: string;
   children: React.ReactNode;
-}) {
+}) => {
   const href = sanitizeUrl(rawHref);
 
   return (
@@ -21,4 +21,6 @@ export function A({
       {children}
     </a>
   );
-}
+};
+
+export default A;

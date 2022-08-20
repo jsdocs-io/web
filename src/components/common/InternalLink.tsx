@@ -1,9 +1,9 @@
 import { sanitizeUrl } from "@braintree/sanitize-url";
 import Link from "next/link";
 import React from "react";
-import { A } from "./A";
+import A from "./A";
 
-export function InternalLink({
+const InternalLink = ({
   href: rawHref,
   title,
   children,
@@ -11,7 +11,7 @@ export function InternalLink({
   href: string;
   title?: string;
   children: React.ReactNode;
-}) {
+}) => {
   const href = sanitizeUrl(rawHref);
   const samePage = href.startsWith("#");
   const hash = href.match(/(#.+)$/)?.[0];
@@ -39,4 +39,6 @@ export function InternalLink({
       </a>
     </Link>
   );
-}
+};
+
+export default InternalLink;
