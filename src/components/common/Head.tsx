@@ -51,7 +51,7 @@ const Head = () => {
 
       {/* Plausible.io analytics */}
       {/* See https://github.com/vercel/next.js/issues/9070#issuecomment-552981178 */}
-      {process.env.NODE_ENV === "production" && process.browser && (
+      {process.env.NODE_ENV === "production" && typeof window !== undefined && (
         <script
           async
           defer
