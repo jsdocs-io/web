@@ -45,7 +45,7 @@ export const exampleOverview = `
 export const exampleOverviewFile = `
 // index.ts
 
-${exampleOverview.trimLeft()}`;
+${exampleOverview.trimStart()}`;
 
 export const exampleDeclarationDoc = `
 /**
@@ -70,7 +70,7 @@ export const exampleDeclarationDoc = `
 export const exampleDeclarationFile = `
 // index.ts
 
-${exampleDeclarationDoc.trimLeft()}
+${exampleDeclarationDoc.trimStart()}
 export function sum(a: number, b: number): number {
     return a + b;
 }`;
@@ -81,10 +81,10 @@ export const exampleDeclarationSignature =
 export const exampleProjectStructure = `
 .
 ├── src
-│   └── index.ts
+│   └── index.ts
 ├── dist
-│   ├── index.js
-│   └── index.d.ts
+│   ├── index.js
+│   └── index.d.ts
 └── package.json
 `;
 
