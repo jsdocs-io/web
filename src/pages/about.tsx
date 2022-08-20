@@ -215,13 +215,13 @@ const BookmarkletsSection = () => {
       <ul>
         <li
           dangerouslySetInnerHTML={{
-            __html: `Redirect: <a href="${redirectBookmarklet}" class="text-blue-700 dark:text-blue-300 hover:underline">jsDocs.io</a>`,
+            __html: `Redirect: <a href="${redirectBookmarklet}" class="text-sky-700 dark:text-sky-300 hover:underline">jsDocs.io</a>`,
           }}
         ></li>
 
         <li
           dangerouslySetInnerHTML={{
-            __html: `New tab: <a href="${newTabBookmarklet}" class="text-blue-700 dark:text-blue-300 hover:underline">jsDocs.io</a>`,
+            __html: `New tab: <a href="${newTabBookmarklet}" class="text-sky-700 dark:text-sky-300 hover:underline">jsDocs.io</a>`,
           }}
         ></li>
       </ul>

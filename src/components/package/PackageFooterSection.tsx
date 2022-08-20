@@ -47,7 +47,7 @@ const PackageFooterSection = ({
 
         <li>
           <button
-            className="text-blue-700 dark:text-blue-300 hover:underline"
+            className="text-sky-700 dark:text-sky-300 hover:underline"
             onClick={scrollToTop}
           >
             Back to top

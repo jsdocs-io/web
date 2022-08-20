@@ -14,7 +14,7 @@ const A = ({
 
   return (
     <a
-      className="text-blue-700 break-words dark:text-blue-300 hover:underline"
+      className="text-sky-700 break-words dark:text-sky-300 hover:underline"
       href={href}
       title={title}
     >
