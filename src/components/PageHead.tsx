@@ -25,7 +25,7 @@ const PageHead = ({
       <OpenGraphTags title={title} description={description} url={url} />
       <TwitterTags title={title} description={description} />
       <Favicon />
-      <PlausibleScript />
+      {process.env.NODE_ENV === "production" && <PlausibleScript />}
     </>
   );
 };
