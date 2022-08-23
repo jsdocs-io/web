@@ -53,6 +53,7 @@
     "bytebuffer",
     "cacache",
     "caniuse",
+    "clsx",
     "cocoapods",
     "codecov",
     "codemod",

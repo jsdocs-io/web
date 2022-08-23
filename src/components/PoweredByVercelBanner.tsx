@@ -1,4 +1,4 @@
-import { vercelURL } from "../../data/vercel-url";
+import { vercelURL } from "../data/vercel-url";
 
 const PoweredByVercelBanner = () => {
   return (

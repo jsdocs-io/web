@@ -1,6 +1,6 @@
 import useAnchorLinks from "../../hooks/useAnchorLinks";
 import useLocationHashRefresh from "../../hooks/useLocationHashRefresh";
-import Footer from "./Footer";
+import Footer from "../Footer";
 import Head from "./Head";
 import Main from "./Main";
 import Navbar from "./Navbar";
