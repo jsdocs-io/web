@@ -68,7 +68,7 @@
     "@types/node": "18.11.9",
     "@types/nprogress": "0.2.0",
     "@types/proper-url-join": "2.1.1",
-    "@types/react": "18.0.17",
+    "@types/react": "18.0.25",
     "@types/semver": "7.3.12",
     "@types/stream-json": "1.7.2",
     "@types/validate-npm-package-name": "4.0.0",
