@@ -1,15 +1,11 @@
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
+import Logo from "../Logo";
 import NavbarLinks from "./NavbarLinks";
-import NavbarLogo from "./NavbarLogo";
 import SearchBar from "./SearchBar";
 
-// Import as dynamic component, otherwise client props may differ
-// from server rendered ones due to the dark mode state.
-const ThemeButton = dynamic(
-  (() => import("./ThemeButton").then((ThemeButton) => ThemeButton)) as any,
-  { ssr: false }
-) as any;
+// ThemeButton must render on client since it depends on dark mode state
+const ThemeButton = dynamic(() => import("../ThemeButton"), { ssr: false });
 
 const Navbar = () => {
   const router = useRouter();
@@ -19,7 +15,7 @@ const Navbar = () => {
     <header className="px-4 py-3 bg-white border-b border-stone-300 dark:bg-stone-900 dark:border-stone-700">
       <div className="flex items-center justify-between">
         <div className="flex items-center shrink-0 p-1 space-x-8">
-          <NavbarLogo showLogoText={!showSearchBar} />
+          <Logo hideText={showSearchBar} />
 
           <div className="hidden lg:block">
             <NavbarLinks />
