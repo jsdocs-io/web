@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import FooterLinks from "./FooterLinks";
-import FooterLogo from "./FooterLogo";
+import Logo from "./Logo";
 import PoweredByVercelBanner from "./PoweredByVercelBanner";
 
 const Footer = () => {
@@ -13,7 +13,7 @@ const Footer = () => {
       )}
     >
       <div className="flex flex-col items-center space-y-4">
-        <FooterLogo />
+        <Logo />
         <FooterLinks />
         <PoweredByVercelBanner />
       </div>
