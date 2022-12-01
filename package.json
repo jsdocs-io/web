@@ -32,7 +32,7 @@
     "anchor-js": "^4.3.1",
     "clean-deep": "^3.4.0",
     "clsx": "^1.2.1",
-    "filter-anything": "^3.0.3",
+    "filter-anything": "^3.0.5",
     "fs-extra": "^10.1.0",
     "minio": "^7.0.32",
     "new-github-issue-url": "^1.0.0",
