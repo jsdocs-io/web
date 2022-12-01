@@ -3066,12 +3066,12 @@ fill-range@^7.0.1:
   dependencies:
     to-regex-range "^5.0.1"
 
-filter-anything@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/filter-anything/-/filter-anything-3.0.3.tgz#9167161a26f4c7314c310bc3a62b5797a27e9bbc"
-  integrity sha512-pigRYCNCMJyC3wCmoti70kmHy3T2WYnRsKaXjG/9RjRRlO1iBw+DiDCywZZaFJ4nQuH9faBvHrVBzZnxWNWhcg==
+filter-anything@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/filter-anything/-/filter-anything-3.0.5.tgz#a29ba2c42645df7ba005816a56db8a0027cf761d"
+  integrity sha512-mZVMtoM9gDcGnNFS8n6N1EyZcfRc4kA0JMUiub2OIQbvZcYlGytXOuftq5NfpoDUh3p06K5tAslLh8tkX7vHxg==
   dependencies:
-    is-what "^4.1.7"
+    is-what "^4.1.8"
     ts-toolbelt "^9.6.0"
 
 filter-obj@^1.1.0:
@@ -3774,10 +3774,10 @@ is-weakref@^1.0.2:
   dependencies:
     call-bind "^1.0.2"
 
-is-what@^4.1.7:
-  version "4.1.7"
-  resolved "https://registry.yarnpkg.com/is-what/-/is-what-4.1.7.tgz#c41dc1d2d2d6a9285c624c2505f61849c8b1f9cc"
-  integrity sha512-DBVOQNiPKnGMxRMLIYSwERAS5MVY1B7xYiGnpgctsOFvVDz9f9PFXXxMcTOHuoqYp4NK9qFYQaIC1NRRxLMpBQ==
+is-what@^4.1.8:
+  version "4.1.8"
+  resolved "https://registry.yarnpkg.com/is-what/-/is-what-4.1.8.tgz#0e2a8807fda30980ddb2571c79db3d209b14cbe4"
+  integrity sha512-yq8gMao5upkPoGEU9LsB2P+K3Kt8Q3fQFCGyNCWOAnJAMzEXVV9drYb0TXr42TTliLLhKIBvulgAXgtLLnwzGA==
 
 isarray@0.0.1:
   version "0.0.1"
