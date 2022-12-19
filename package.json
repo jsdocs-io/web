@@ -46,7 +46,7 @@
     "query-registry": "^2.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hotkeys-hook": "3.4.7",
+    "react-hotkeys-hook": "4.0.4",
     "semver": "^7.3.8",
     "short-time-ago": "^2.0.0",
     "stream-json": "^1.7.4",
