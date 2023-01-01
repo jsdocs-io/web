@@ -65,7 +65,7 @@
     "@types/fs-extra": "9.0.13",
     "@types/jest": "29.2.2",
     "@types/minio": "7.0.14",
-    "@types/node": "18.11.9",
+    "@types/node": "18.11.18",
     "@types/nprogress": "0.2.0",
     "@types/proper-url-join": "2.1.1",
     "@types/react": "18.0.25",
