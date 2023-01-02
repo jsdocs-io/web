@@ -59,4 +59,7 @@ module.exports = withBundleAnalyzer({
 
     return config;
   },
+  images: {
+    unoptimized: true,
+  },
 });
