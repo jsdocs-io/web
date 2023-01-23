@@ -6,7 +6,7 @@
 
 # [jsDocs.io](https://www.jsdocs.io)
 
-[![Build status](https://img.shields.io/github/workflow/status/jsdocs-io/web/CI/main)](https://github.com/jsdocs-io/web/actions?query=workflow%3ACI)
+[![Build status](https://img.shields.io/github/actions/workflow/status/jsdocs-io/web/main.yml?branch=main)](https://github.com/jsdocs-io/web/actions?query=workflow%3ACI)
 [![Coverage](https://img.shields.io/codecov/c/gh/jsdocs-io/web)](https://codecov.io/gh/jsdocs-io/web)
 ![Language](https://img.shields.io/github/languages/top/jsdocs-io/web)
 [![License](https://img.shields.io/github/license/jsdocs-io/web)](https://github.com/jsdocs-io/web/blob/main/LICENSE)
