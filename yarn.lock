@@ -6546,17 +6546,17 @@ ws@^7.3.1:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.9.tgz#54fa7db29f4c7cec68b1ddd3a89de099942bb591"
   integrity sha512-F+P9Jil7UiSKSkppIiD94dN07AwvFixvLIj1Og1Rl9GGMuNipJnV9JzjD6XuqmAeiswGvUmNLjr5cFuXwNS77Q==
 
-xml-formatter@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/xml-formatter/-/xml-formatter-3.2.0.tgz#e07e923414e32476f52f1eef9efb48fa1431d483"
-  integrity sha512-PYROODIUDHz1SDFePg2VThajPOuSmvo/PrYRKARcSc9xxKKs62EN9uar60IIxxknzmOSNDAxlylpw34bQp0g/Q==
+xml-formatter@3.3.2:
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/xml-formatter/-/xml-formatter-3.3.2.tgz#1b12a1cda796ad94821fadcc0237c9f8db7d5169"
+  integrity sha512-ld34F1b7+2UQGNkfsAV4MN3/b7cdUstyMj3XJhzKFasOPtMToVCkqmrNcmrRuSlPxgH1K9tXPkqr75gAT3ix2g==
   dependencies:
-    xml-parser-xo "^4.0.1"
+    xml-parser-xo "^4.0.3"
 
-xml-parser-xo@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/xml-parser-xo/-/xml-parser-xo-4.0.1.tgz#d89d09d0a0e7524f35f654c71274e1b4d0f2f43a"
-  integrity sha512-wJmRjzVZr7D+kYSajd3zqT7tt+y9L2vVWp+s7ARxzPMtk/gZcTY0KB14B801QX2D2wqIQ1d3bV/LgcnwlpKyyg==
+xml-parser-xo@^4.0.3:
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/xml-parser-xo/-/xml-parser-xo-4.0.5.tgz#58de932b1eae1c5864e6ee99a25266d1dd1f257f"
+  integrity sha512-UWXOHMQ4ySxpUiU3S/9KzPOhninlL8SN1xFfWgX9WjgoZWoLKtEeJIEz4jhKtdFsoZBCYjg9rDEP3qfnpiHagQ==
 
 xml2js@^0.4.15:
   version "0.4.23"
