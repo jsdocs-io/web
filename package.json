@@ -33,7 +33,7 @@
     "clean-deep": "^3.4.0",
     "clsx": "^1.2.1",
     "filter-anything": "^3.0.5",
-    "fs-extra": "^11.1.0",
+    "fs-extra": "^11.1.1",
     "minio": "^7.0.33",
     "new-github-issue-url": "^1.0.0",
     "next": "13.1.6",
