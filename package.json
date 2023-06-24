@@ -47,7 +47,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hotkeys-hook": "4.4.0",
-    "semver": "^7.5.0",
+    "semver": "^7.5.2",
     "short-time-ago": "^2.0.0",
     "stream-json": "^1.7.5",
     "swr": "^2.1.5",
