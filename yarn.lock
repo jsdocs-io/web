@@ -1217,12 +1217,12 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
-"@types/minio@7.1.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@types/minio/-/minio-7.1.0.tgz#0526b416f89da77ec5de9e86ecacecc01c68045c"
-  integrity sha512-yUaFE62KI7lhQLH7lQpT1bzDmTOS+8bD7wGN8ySk8teLv9afbL7RIT3tSbeijq6sqeyS9kGpj9Kmp4gHNQJWCw==
+"@types/minio@7.1.1":
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/@types/minio/-/minio-7.1.1.tgz#b4f06fed17c3cca4df02bdf2c95aac65db25c58b"
+  integrity sha512-B7OWB7JwIxVBxypiS3gA96gaK4yo2UknGdqmuQsTccZZ/ABiQ2F3fTe9lZIXL6ZuN23l+mWIC3J4CefKNyWjxA==
   dependencies:
-    "@types/node" "*"
+    minio "*"
 
 "@types/node@*", "@types/node@18.16.3":
   version "18.16.3"
@@ -4557,7 +4557,7 @@ minimist@^1.2.0, minimist@^1.2.6:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.7.tgz#daa1c4d91f507390437c6a8bc01078e7000c4d18"
   integrity sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==
 
-minio@^7.1.1:
+minio@*, minio@^7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/minio/-/minio-7.1.1.tgz#fbfc0c8cde023da262a94401db671d377550f9c9"
   integrity sha512-HBLRFXs1CkNwAkahU+j1ilB9YS/Tmkdc6orpxVW1YN11NlEJyLjarIpBYu/inF+dj+tJIsA8PSKNnRmUNm+9qQ==
