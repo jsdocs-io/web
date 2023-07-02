@@ -64,7 +64,7 @@
     "@types/anchor-js": "5.0.0",
     "@types/fs-extra": "11.0.1",
     "@types/jest": "29.5.1",
-    "@types/minio": "7.1.0",
+    "@types/minio": "7.1.1",
     "@types/node": "18.16.3",
     "@types/nprogress": "0.2.0",
     "@types/proper-url-join": "2.1.1",
