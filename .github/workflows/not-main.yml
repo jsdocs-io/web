@@ -1,15 +1,13 @@
-name: CI for main branch
+name: CI for non-main branches
 
 on:
   push:
-    branches:
+    branches-ignore:
       - "main"
 
 jobs:
-  # See https://stackoverflow.com/a/73624365/16109047
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    if: github.repository == 'jsdocs-io/web' && github.ref == 'refs/heads/main'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
