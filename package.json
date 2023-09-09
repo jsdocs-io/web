@@ -13,6 +13,7 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"dependencies": {
+		"html-minifier": "^4.0.0",
 		"semver": "^7.5.4",
 		"validate-npm-package-name": "^5.0.0"
 	},
@@ -20,6 +21,7 @@
 		"@sveltejs/adapter-auto": "^2.1.0",
 		"@sveltejs/kit": "^1.24.1",
 		"@tailwindcss/typography": "^0.5.10",
+		"@types/html-minifier": "^4.0.2",
 		"@types/semver": "^7.5.1",
 		"@types/validate-npm-package-name": "^4.0.0",
 		"@typescript-eslint/eslint-plugin": "^5.62.0",
