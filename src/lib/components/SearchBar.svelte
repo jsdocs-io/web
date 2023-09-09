@@ -1,5 +1,5 @@
 <script>
-	import BaselineSearch from '$lib/icons/BaselineSearch.svelte';
+	import RoundSearch from '$lib/icons/RoundSearch.svelte';
 </script>
 
 <div class="join">
@@ -8,5 +8,5 @@
 		placeholder="Search npm packages"
 		class="input input-bordered input-lg w-full max-w-xs join-item"
 	/>
-	<button class="btn join-item btn-square btn-lg"><BaselineSearch class="w-6 h-6" /></button>
+	<button class="btn join-item btn-square btn-lg"><RoundSearch class="w-7 h-7" /></button>
 </div>
