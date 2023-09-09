@@ -12,10 +12,16 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write ."
 	},
+	"dependencies": {
+		"semver": "^7.5.4",
+		"validate-npm-package-name": "^5.0.0"
+	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.1.0",
 		"@sveltejs/kit": "^1.24.1",
 		"@tailwindcss/typography": "^0.5.10",
+		"@types/semver": "^7.5.1",
+		"@types/validate-npm-package-name": "^4.0.0",
 		"@typescript-eslint/eslint-plugin": "^5.62.0",
 		"@typescript-eslint/parser": "^5.62.0",
 		"autoprefixer": "^10.4.15",
