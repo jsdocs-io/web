@@ -1,2 +1,5 @@
-<h1 class="text-3xl font-bold underline">Hello world!</h1>
-<button class="btn">Button</button>
+<script lang="ts">
+	import SearchBar from '$lib/components/SearchBar.svelte';
+</script>
+
+<SearchBar />
