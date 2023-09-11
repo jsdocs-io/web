@@ -1,7 +1,10 @@
 <script lang="ts">
+	import AboutLinkButton from '$lib/components/AboutLinkButton.svelte';
 	import FaqLinkButton from '$lib/components/FaqLinkButton.svelte';
 	import GitHubLinkButton from '$lib/components/GitHubLinkButton.svelte';
 	import HomepageLogo from '$lib/components/HomepageLogo.svelte';
+	import PoweredByVercelLinkButton from '$lib/components/PoweredByVercelLinkButton.svelte';
+	import PrivacyLinkButton from '$lib/components/PrivacyLinkButton.svelte';
 	import SearchBar from '$lib/components/SearchBar.svelte';
 	import SearchTip from '$lib/components/SearchTip.svelte';
 	import SponsorLinkButton from '$lib/components/SponsorLinkButton.svelte';
@@ -23,5 +26,13 @@
 		<SearchBar />
 		<SearchTip />
 		<div class="h-4" />
+	</div>
+
+	<div
+		class="absolute inset-x-0 bottom-0 flex flex-wrap items-center justify-center gap-2 overflow-x-scroll p-4 sm:justify-end sm:overflow-x-auto"
+	>
+		<AboutLinkButton />
+		<PrivacyLinkButton />
+		<PoweredByVercelLinkButton />
 	</div>
 </div>
