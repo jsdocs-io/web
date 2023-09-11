@@ -1,3 +1,4 @@
 {
-	"cSpell.ignoreWords": ["daisyui", "jsdocs", "tailwindcss"]
+	"cSpell.ignoreWords": ["daisyui", "jsdocs", "tailwindcss"],
+	"typescript.preferences.importModuleSpecifier": "non-relative"
 }
