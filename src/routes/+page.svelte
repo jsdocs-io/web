@@ -2,21 +2,25 @@
 	import FaqLinkButton from '$lib/components/FaqLinkButton.svelte';
 	import GitHubLinkButton from '$lib/components/GitHubLinkButton.svelte';
 	import SearchBar from '$lib/components/SearchBar.svelte';
-	import SearchTip from '$lib/components/SearchTip.svelte';
 	import SponsorLinkButton from '$lib/components/SponsorLinkButton.svelte';
 	import ThemeButton from '$lib/components/ThemeButton.svelte';
 </script>
 
-<div class="h-screen p-4">
-	<div class="relative flex h-full items-center justify-center">
-		<div class="absolute inset-x-0 top-0 flex items-center justify-end gap-2">
-			<FaqLinkButton />
-			<SponsorLinkButton />
-			<GitHubLinkButton />
-			<ThemeButton />
-		</div>
+<div class="relative flex h-screen items-center justify-center p-4">
+	<div
+		class="absolute inset-x-0 top-0 flex items-center gap-2 overflow-x-scroll p-4 sm:justify-end sm:overflow-x-auto"
+	>
+		<FaqLinkButton />
+		<SponsorLinkButton />
+		<GitHubLinkButton />
+		<ThemeButton />
+	</div>
 
-		<div class="space-y-4">
+	<div class="w-full">
+		<SearchBar />
+	</div>
+
+	<!-- <div class="border">
 			<h1 class="flex items-center justify-center gap-4 text-center text-4xl font-bold">
 				<svg class="h-12 w-12" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
 					><path
@@ -29,6 +33,5 @@
 			<p class="prose text-center text-xl">Automatic documentation for npm packages</p>
 			<SearchBar />
 			<SearchTip />
-		</div>
-	</div>
+		</div> -->
 </div>
