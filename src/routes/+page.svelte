@@ -2,6 +2,7 @@
 	import FaqLinkButton from '$lib/components/FaqLinkButton.svelte';
 	import GitHubLinkButton from '$lib/components/GitHubLinkButton.svelte';
 	import SearchBar from '$lib/components/SearchBar.svelte';
+	import SearchTip from '$lib/components/SearchTip.svelte';
 	import SponsorLinkButton from '$lib/components/SponsorLinkButton.svelte';
 	import ThemeButton from '$lib/components/ThemeButton.svelte';
 </script>
@@ -16,8 +17,9 @@
 		<ThemeButton />
 	</div>
 
-	<div class="w-full">
+	<div class="flex w-full flex-col items-center gap-4">
 		<SearchBar />
+		<SearchTip />
 	</div>
 
 	<!-- <div class="border">
