@@ -3,6 +3,6 @@
 </script>
 
 <a href="/sponsor" class="btn btn-ghost" title="Become a sponsor">
-	<HeartPlusIcon class="w-6 h-6" />
+	<HeartPlusIcon class="h-6 w-6" />
 	Sponsor</a
 >

@@ -3,6 +3,6 @@
 </script>
 
 <a href="https://github.com/jsdocs-io/web" class="btn btn-ghost" title="View on GitHub">
-	<GitHubIcon class="w-6 h-6" />
+	<GitHubIcon class="h-6 w-6" />
 	GitHub</a
 >

@@ -3,6 +3,6 @@
 </script>
 
 <a href="/faq" class="btn btn-ghost" title="Read the FAQ">
-	<BookIcon class="w-6 h-6" />
+	<BookIcon class="h-6 w-6" />
 	FAQ</a
 >
