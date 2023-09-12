@@ -5,6 +5,7 @@
 		"daisyui",
 		"faastjs",
 		"jsdocs",
+		"nprogress",
 		"tailwindcss",
 		"vercel"
 	],

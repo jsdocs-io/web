@@ -8,6 +8,9 @@ dependencies:
   html-minifier:
     specifier: ^4.0.0
     version: 4.0.0
+  nprogress:
+    specifier: ^0.2.0
+    version: 0.2.0
   semver:
     specifier: ^7.5.4
     version: 7.5.4
@@ -28,6 +31,9 @@ devDependencies:
   '@types/html-minifier':
     specifier: ^4.0.2
     version: 4.0.2
+  '@types/nprogress':
+    specifier: ^0.2.0
+    version: 0.2.0
   '@types/semver':
     specifier: ^7.5.1
     version: 7.5.1
@@ -554,6 +560,10 @@ packages:
 
   /@types/node@20.6.0:
     resolution: {integrity: sha512-najjVq5KN2vsH2U/xyh2opaSEz6cZMR2SetLIlxlj08nOcmPOemJmUK2o4kUzfLqfrWE0PIrNeE16XhYDd3nqg==}
+    dev: true
+
+  /@types/nprogress@0.2.0:
+    resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==}
     dev: true
 
   /@types/pug@2.0.6:
@@ -1826,6 +1836,10 @@ packages:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
     dev: true
+
+  /nprogress@0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+    dev: false
 
   /object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
