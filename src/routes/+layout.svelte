@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { navigating } from '$app/stores';
+	import Footer from '$lib/components/Footer.svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
 	import NProgress from 'nprogress';
 	import '../app.css';
 
@@ -13,4 +15,12 @@
 	}
 </script>
 
-<slot />
+<div class="flex h-screen flex-col">
+	<Navbar />
+
+	<div class="grow p-4">
+		<slot />
+	</div>
+
+	<Footer />
+</div>
