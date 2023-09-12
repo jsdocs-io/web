@@ -1,9 +1,18 @@
 <script lang="ts">
-	const packages = ['foo', 'bar', 'baz'];
+	import SearchResult from '$lib/components/SearchResult.svelte';
+	import type { Package } from '$lib/registry/search-packages';
+
+	export let query: string;
+	export let packages: Package[];
 </script>
 
-<ul>
-	{#each packages as p}
-		<li>{p}</li>
-	{/each}
-</ul>
+{#if packages.length > 0}
+	<div class="flex flex-col gap-4">
+		{#each packages as pkg}
+			<SearchResult {query} {pkg} />
+			<div class="divider" />
+		{/each}
+	</div>
+{:else}
+	<p class="text-2xl font-bold">No packages found</p>
+{/if}
