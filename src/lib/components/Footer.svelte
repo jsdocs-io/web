@@ -5,7 +5,7 @@
 </script>
 
 <div
-	class="flex flex-wrap items-center justify-center gap-2 overflow-x-scroll p-4 sm:justify-end sm:overflow-x-auto"
+	class="flex flex-none flex-wrap items-center justify-center gap-2 overflow-x-scroll p-4 sm:justify-end sm:overflow-x-auto"
 >
 	<AboutLinkButton />
 	<PrivacyLinkButton />

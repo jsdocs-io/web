@@ -6,7 +6,7 @@
 	import ThemeButton from '$lib/components/ThemeButton.svelte';
 </script>
 
-<div class="flex items-center justify-between gap-2 overflow-x-auto p-4">
+<div class="flex flex-none items-center justify-between gap-2 overflow-x-auto p-4">
 	<HomepageLinkButton />
 
 	<div class="flex items-center gap-2">
