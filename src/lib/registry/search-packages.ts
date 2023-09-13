@@ -19,7 +19,7 @@ const schema = z.object({
 	)
 });
 
-export const searchPackages = async (query: string) => {
+export const searchPackages = async (fetch: typeof window.fetch, query: string) => {
 	if (!query) {
 		return [];
 	}
