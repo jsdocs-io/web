@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import PackageIcon from '$lib/icons/PackageIcon.svelte';
 </script>
 
