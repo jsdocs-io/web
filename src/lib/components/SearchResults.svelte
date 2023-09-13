@@ -6,14 +6,15 @@
 	export let packages: Package[];
 </script>
 
-{#if packages.length > 0}
-	<div class="w-full max-w-xl">
-		<div class="divider" />
+<div class="w-full max-w-xl">
+	<div class="divider" />
+	{#if packages.length > 0}
 		{#each packages as pkg}
 			<SearchResult {query} {pkg} />
 			<div class="divider" />
 		{/each}
-	</div>
-{:else}
-	<p class="text-2xl font-bold">No packages found</p>
-{/if}
+	{:else}
+		<h3 class="block text-2xl font-bold leading-none">No packages found</h3>
+		<div class="divider" />
+	{/if}
+</div>
