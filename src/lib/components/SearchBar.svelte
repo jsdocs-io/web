@@ -6,7 +6,7 @@
 <div class="join w-full max-w-xl">
 	<input
 		id="search-bar"
-		type="text"
+		type="search"
 		placeholder="Search npm packages"
 		class="input join-item input-bordered input-lg w-full border-base-content"
 	/>
