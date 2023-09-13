@@ -7,7 +7,8 @@
 </script>
 
 {#if packages.length > 0}
-	<div class="flex flex-col gap-4">
+	<div class="w-full max-w-xl">
+		<div class="divider" />
 		{#each packages as pkg}
 			<SearchResult {query} {pkg} />
 			<div class="divider" />
