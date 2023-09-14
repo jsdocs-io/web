@@ -1,8 +1,8 @@
 <script lang="ts">
-	import PackageIcon from '$lib/icons/PackageIcon.svelte';
+	import IconPackage from '~icons/material-symbols/package-2';
 </script>
 
 <a href="/" class="btn btn-ghost" title="Home">
-	<PackageIcon class="h-6 w-6" />
+	<IconPackage class="h-6 w-6" />
 	jsDocs.io</a
 >

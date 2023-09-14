@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { focusSearchBar } from '$lib/actions/focus-search-bar';
-	import SearchIcon from '$lib/icons/SearchIcon.svelte';
+	import IconSearch from '~icons/material-symbols/search';
 
 	export let query: string | undefined = undefined;
 </script>
@@ -17,6 +17,6 @@
 		class="input join-item input-bordered input-lg w-full border-base-content"
 	/>
 	<button class="btn btn-square btn-outline join-item btn-lg" title="Search" type="submit"
-		><SearchIcon class="h-7 w-7" /></button
+		><IconSearch class="h-7 w-7" /></button
 	>
 </form>

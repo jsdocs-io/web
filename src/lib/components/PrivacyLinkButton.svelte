@@ -1,8 +1,8 @@
 <script lang="ts">
-	import PrivacyTipOutlineIcon from '$lib/icons/PrivacyTipOutlineIcon.svelte';
+	import IconPrivacyTipOutline from '~icons/material-symbols/privacy-tip-outline';
 </script>
 
 <a href="/privacy" class="btn btn-ghost" title="Read the privacy policy">
-	<PrivacyTipOutlineIcon class="h-6 w-6" />
+	<IconPrivacyTipOutline class="h-6 w-6" />
 	Privacy</a
 >

@@ -1,14 +1,16 @@
 {
 	"cSpell.ignoreWords": [
-		"Edoardo",
-		"Scibona",
 		"daisyui",
+		"edoardo",
 		"faastjs",
+		"iconify",
 		"jsdocs",
 		"nprogress",
+		"scibona",
+		"sveltekit",
 		"tailwindcss",
-		"vercel",
-		"sveltekit"
+		"unplugin",
+		"vercel"
 	],
 	"typescript.preferences.importModuleSpecifier": "non-relative"
 }

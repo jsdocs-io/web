@@ -1,5 +1,5 @@
 <script lang="ts">
-	import FormatPaintIcon from '$lib/icons/FormatPaintIcon.svelte';
+	import IconFormatPaint from '~icons/material-symbols/format-paint';
 
 	const changeTheme = () => {
 		if (document.documentElement.getAttribute('data-theme') === 'dark') {
@@ -13,6 +13,6 @@
 </script>
 
 <button type="button" class="btn btn-ghost" title="Change theme" on:click={changeTheme}>
-	<FormatPaintIcon class="h-6 w-6" />
+	<IconFormatPaint class="h-6 w-6" />
 	Theme
 </button>

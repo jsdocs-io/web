@@ -1,8 +1,8 @@
 <script lang="ts">
-	import InfoOutlineIcon from '$lib/icons/InfoOutlineIcon.svelte';
+	import IconInfoOutline from '~icons/material-symbols/info-outline';
 </script>
 
 <a href="/about" class="btn btn-ghost" title="Learn more about jsDocs.io">
-	<InfoOutlineIcon class="h-6 w-6" />
+	<IconInfoOutline class="h-6 w-6" />
 	About</a
 >
