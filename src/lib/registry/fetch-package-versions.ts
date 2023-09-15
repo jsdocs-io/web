@@ -1,6 +1,7 @@
+import { REGISTRY_API_URL } from '$env/static/private';
 import { z } from 'zod';
 
-const endpoint = 'https://registry.npmjs.org';
+const endpoint = REGISTRY_API_URL;
 
 const packageVersionsSchema = z
 	.object({

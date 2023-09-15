@@ -1,7 +1,8 @@
+import { PUBLIC_REGISTRY_SEARCH_API_URL } from '$env/static/public';
 import { validatePackageName } from '$lib/registry/validate-package-name';
 import { z } from 'zod';
 
-const endpoint = 'https://registry.npmjs.org/-/v1/search';
+const endpoint = PUBLIC_REGISTRY_SEARCH_API_URL;
 
 const packageResultSchema = z.object({
 	name: z.string(),
