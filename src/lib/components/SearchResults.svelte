@@ -1,9 +1,9 @@
 <script lang="ts">
 	import SearchResult from '$lib/components/SearchResult.svelte';
-	import type { Package } from '$lib/registry/search-packages';
+	import type { PackageResult } from '$lib/registry/search-packages';
 
 	export let query: string;
-	export let packages: Package[];
+	export let packages: PackageResult[];
 </script>
 
 <div class="w-full max-w-xl">

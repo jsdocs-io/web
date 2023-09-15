@@ -3,19 +3,19 @@ import { z } from 'zod';
 
 const endpoint = 'https://registry.npmjs.org/-/v1/search';
 
-const packageSchema = z.object({
+const packageResultSchema = z.object({
 	name: z.string(),
 	version: z.string(),
 	description: z.string().catch(''),
 	keywords: z.array(z.string()).catch([])
 });
 
-export type Package = z.infer<typeof packageSchema>;
+export type PackageResult = z.infer<typeof packageResultSchema>;
 
 const schema = z.object({
 	objects: z.array(
 		z.object({
-			package: packageSchema
+			package: packageResultSchema
 		})
 	)
 });
@@ -23,7 +23,7 @@ const schema = z.object({
 export const searchPackages = async (
 	fetch: typeof window.fetch,
 	query: string
-): Promise<Package[]> => {
+): Promise<PackageResult[]> => {
 	if (!query) {
 		return [];
 	}

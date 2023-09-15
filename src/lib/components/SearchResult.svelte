@@ -2,10 +2,10 @@
 	import KeywordsList from '$lib/components/KeywordsList.svelte';
 	import SearchResultDescription from '$lib/components/SearchResultDescription.svelte';
 	import SearchResultTitle from '$lib/components/SearchResultTitle.svelte';
-	import type { Package } from '$lib/registry/search-packages';
+	import type { PackageResult } from '$lib/registry/search-packages';
 
 	export let query: string;
-	export let pkg: Package;
+	export let pkg: PackageResult;
 
 	$: ({ name, version, description, keywords } = pkg);
 </script>
