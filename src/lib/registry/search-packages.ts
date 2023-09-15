@@ -1,3 +1,4 @@
+import { validatePackageName } from '$lib/registry/validate-package-name';
 import { z } from 'zod';
 
 const endpoint = 'https://registry.npmjs.org/-/v1/search';
@@ -19,12 +20,17 @@ const schema = z.object({
 	)
 });
 
-export const searchPackages = async (fetch: typeof window.fetch, query: string) => {
+export const searchPackages = async (
+	fetch: typeof window.fetch,
+	query: string
+): Promise<Package[]> => {
 	if (!query) {
 		return [];
 	}
 	const response = await fetch(`${endpoint}?text=${query}`);
 	const data = await response.json();
-	const packages = schema.parse(data).objects.map((obj) => obj.package);
-	return packages;
+	return schema
+		.parse(data)
+		.objects.map((obj) => obj.package)
+		.filter((pkg) => validatePackageName(pkg.name));
 };
