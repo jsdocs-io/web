@@ -3,9 +3,7 @@
 
 	export let data: PageData;
 
-	$: ({ name, version } = data);
+	$: ({ dependencies } = data);
 </script>
 
-<h1>Dependencies for package {name} at version {version}</h1>
-
-<pre>{JSON.stringify(data, null, 2)}</pre>
+<pre>{JSON.stringify(dependencies, null, 2)}</pre>
