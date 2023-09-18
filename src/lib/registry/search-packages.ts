@@ -1,5 +1,6 @@
 import { PUBLIC_REGISTRY_SEARCH_API_URL } from '$env/static/public';
-import { validatePackageName } from '$lib/registry/validate-package-name';
+import { isValidPackageName } from '$lib/registry/is-valid-package-name';
+
 import { z } from 'zod';
 
 const endpoint = PUBLIC_REGISTRY_SEARCH_API_URL;
@@ -33,5 +34,5 @@ export const searchPackages = async (
 	return schema
 		.parse(data)
 		.objects.map((obj) => obj.package)
-		.filter((pkg) => validatePackageName(pkg.name));
+		.filter((pkg) => isValidPackageName(pkg.name));
 };

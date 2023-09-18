@@ -1,5 +1,5 @@
 import validate from 'validate-npm-package-name';
 
-export const validatePackageName = (name: string) => {
+export const isValidPackageName = (name: string): boolean => {
 	return validate(name).validForNewPackages;
 };
