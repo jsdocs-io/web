@@ -1,3 +1,5 @@
+import { manifestSchema } from '$lib/registry/manifest';
+import { repositorySchema } from '$lib/registry/repository';
 import { z } from 'zod';
 
 export const packumentSchema = z.object({
@@ -14,14 +16,9 @@ export const packumentSchema = z.object({
 			modified: z.string()
 		})
 		.catchall(z.string()),
+	versions: z.record(manifestSchema),
 	keywords: z.array(z.string()).optional(),
-	repository: z
-		.object({
-			type: z.string(),
-			url: z.string(),
-			directory: z.string().optional()
-		})
-		.optional(),
+	repository: repositorySchema.optional(),
 	license: z.string().optional()
 });
 
