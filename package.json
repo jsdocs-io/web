@@ -14,6 +14,7 @@
 	},
 	"dependencies": {
 		"html-minifier": "^4.0.0",
+		"keyv": "^4.5.3",
 		"nprogress": "^0.2.0",
 		"semver": "^7.5.4",
 		"validate-npm-package-name": "^5.0.0",
