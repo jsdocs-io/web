@@ -128,8 +128,8 @@ devDependencies:
     specifier: 0.2.0
     version: 0.2.0
   '@types/proper-url-join':
-    specifier: 2.1.1
-    version: 2.1.1
+    specifier: 2.1.2
+    version: 2.1.2
   '@types/react':
     specifier: 18.2.7
     version: 18.2.7
@@ -1647,8 +1647,8 @@ packages:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
     dev: true
 
-  /@types/proper-url-join@2.1.1:
-    resolution: {integrity: sha512-OfcRK+o4tTHLwhB07ENYTeKZfzRn4ci4vOalLmdDraCYAcJxJJzvpxo0hLxExRM/QIuGzcF09pNeYol6hiyCXQ==}
+  /@types/proper-url-join@2.1.2:
+    resolution: {integrity: sha512-JeRURa8K0/4IVRd47h7nb+c5FEnCZXps6YcC70ZFKd6bPi7NfK+72wCJlwB6U8TD8abn1962s/YigkOkKsdT/g==}
     dependencies:
       query-string: 6.14.1
     dev: true
