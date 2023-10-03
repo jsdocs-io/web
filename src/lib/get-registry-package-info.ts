@@ -1,11 +1,5 @@
-import {
-  analyzeRegistryPackage,
-  RegistryPackageInfo,
-} from "@jsdocs-io/extractor";
-import {
-  loadRegistryPackageInfo,
-  storeRegistryPackageInfo,
-} from "./registry-package-info-storage";
+import { RegistryPackageInfo } from "@jsdocs-io/extractor";
+import { loadRegistryPackageInfo } from "./registry-package-info-storage";
 
 const getRegistryPackageInfo = async ({
   name,
@@ -19,11 +13,15 @@ const getRegistryPackageInfo = async ({
     return cachedInfo;
   }
 
-  const info = await analyzeRegistryPackage({ name, version });
+  throw new Error(
+    "FIXME: API extraction for new packages is temporarily disabled"
+  );
 
-  await storeRegistryPackageInfo({ name, version, info });
+  // const info = await analyzeRegistryPackage({ name, version });
 
-  return info;
+  // await storeRegistryPackageInfo({ name, version, info });
+
+  // return info;
 };
 
 export default getRegistryPackageInfo;
