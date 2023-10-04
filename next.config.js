@@ -69,6 +69,11 @@ module.exports = withBundleAnalyzer({
         destination: "https://www.currently.unavailable",
         permanent: false,
       },
+      {
+        source: "/package/(.*/versions)",
+        destination: "https://www.currently.unavailable",
+        permanent: false,
+      },
     ];
   },
 });

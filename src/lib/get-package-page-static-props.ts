@@ -1,7 +1,5 @@
 import { GetStaticPropsResult } from "next";
-import getPackagePageAvailableVersionsProps, {
-  PackagePagePropsAvailableVersions,
-} from "./get-package-page-available-versions-props";
+import { PackagePagePropsAvailableVersions } from "./get-package-page-available-versions-props";
 import getPackagePageDocsProps, {
   PackagePagePropsDocs,
 } from "./get-package-page-docs-props";
@@ -29,7 +27,11 @@ const getPackagePageStaticProps = async ({
         revalidate: week,
       };
     case PackageRouteKind.AvailableVersions:
-      return getPackagePageAvailableVersionsProps({ route });
+      return {
+        notFound: true,
+        revalidate: week,
+      };
+    // return getPackagePageAvailableVersionsProps({ route });
     case PackageRouteKind.Error:
       return {
         notFound: true,
