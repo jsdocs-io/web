@@ -3,15 +3,13 @@ import cleanDeep from "clean-deep";
 import { pick } from "filter-anything";
 import { GetStaticPropsResult } from "next";
 import {
+  PackageManifest,
   getPackageManifest,
   getPackument,
-  PackageManifest,
 } from "query-registry";
 import cleanObject from "./clean-object";
 import flattenPackageAPI from "./flatten-package-api";
-import getPackagePageErrorProps, {
-  PackagePagePropsError,
-} from "./get-package-page-error-props";
+import { PackagePagePropsError } from "./get-package-page-error-props";
 import getRegistryPackageInfo from "./get-registry-package-info";
 import { PackagePageKind } from "./package-page-kind";
 import {
@@ -19,7 +17,7 @@ import {
   PackageRouteDocLatestVersion,
   PackageRouteKind,
 } from "./parse-package-route";
-import { day, minute } from "./revalidate-times";
+import { day, hour } from "./revalidate-times";
 
 export interface PackagePagePropsDocs {
   readonly kind: PackagePageKind.Docs;
@@ -164,13 +162,10 @@ const getPackagePageDocsProps = async ({
         route.kind === PackageRouteKind.DocLatestVersion ? day : undefined,
     };
   } catch {
-    return getPackagePageErrorProps({
-      message:
-        route.kind === PackageRouteKind.DocLatestVersion
-          ? "Package Not Found"
-          : "Package Version Not Found",
-      revalidate: 10 * minute,
-    });
+    return {
+      notFound: true,
+      revalidate: hour,
+    };
   }
 };
 

@@ -5,10 +5,9 @@ import getPackagePageAvailableVersionsProps, {
 import getPackagePageDocsProps, {
   PackagePagePropsDocs,
 } from "./get-package-page-docs-props";
-import getPackagePageErrorProps, {
-  PackagePagePropsError,
-} from "./get-package-page-error-props";
+import { PackagePagePropsError } from "./get-package-page-error-props";
 import parsePackageRoute, { PackageRouteKind } from "./parse-package-route";
+import { week } from "./revalidate-times";
 
 export type PackagePageProps =
   | PackagePagePropsDocs
@@ -25,11 +24,22 @@ const getPackagePageStaticProps = async ({
     case PackageRouteKind.DocLatestVersion:
       return getPackagePageDocsProps({ route });
     case PackageRouteKind.DocFixedVersion:
-      return getPackagePageErrorProps();
+      return {
+        notFound: true,
+        revalidate: week,
+      };
     case PackageRouteKind.AvailableVersions:
       return getPackagePageAvailableVersionsProps({ route });
     case PackageRouteKind.Error:
-      return getPackagePageErrorProps();
+      return {
+        notFound: true,
+        revalidate: week,
+      };
+    default:
+      return {
+        notFound: true,
+        revalidate: week,
+      };
   }
 };
 

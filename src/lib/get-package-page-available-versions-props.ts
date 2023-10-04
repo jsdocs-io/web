@@ -2,12 +2,10 @@ import { pick } from "filter-anything";
 import { GetStaticPropsResult } from "next";
 import { getPackument, Packument } from "query-registry";
 import cleanObject from "./clean-object";
-import getPackagePageErrorProps, {
-  PackagePagePropsError,
-} from "./get-package-page-error-props";
+import { PackagePagePropsError } from "./get-package-page-error-props";
 import { PackagePageKind } from "./package-page-kind";
 import { PackageRouteAvailableVersions } from "./parse-package-route";
-import { hour, minute } from "./revalidate-times";
+import { hour } from "./revalidate-times";
 
 export interface PackagePagePropsAvailableVersions {
   readonly kind: PackagePageKind.AvailableVersions;
@@ -57,10 +55,10 @@ const getPackagePageAvailableVersionsProps = async ({
       revalidate: hour,
     };
   } catch {
-    return getPackagePageErrorProps({
-      message: "Package Not Found",
-      revalidate: 10 * minute,
-    });
+    return {
+      notFound: true,
+      revalidate: hour,
+    };
   }
 };
 
