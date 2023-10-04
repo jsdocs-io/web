@@ -62,4 +62,13 @@ module.exports = withBundleAnalyzer({
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: "/package/(.*/v/.*)",
+        destination: "/empty.html",
+        permanent: false,
+      },
+    ];
+  },
 });
