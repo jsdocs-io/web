@@ -23,8 +23,9 @@ const getPackagePageStaticProps = async ({
   const route = parsePackageRoute({ route: rawRoute });
   switch (route.kind) {
     case PackageRouteKind.DocLatestVersion:
-    case PackageRouteKind.DocFixedVersion:
       return getPackagePageDocsProps({ route });
+    case PackageRouteKind.DocFixedVersion:
+      return getPackagePageErrorProps();
     case PackageRouteKind.AvailableVersions:
       return getPackagePageAvailableVersionsProps({ route });
     case PackageRouteKind.Error:
