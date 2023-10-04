@@ -8,7 +8,7 @@ const NavbarLink = ({
   children: React.ReactNode;
 }) => {
   return (
-    <Link href={href}>
+    <Link href={href} legacyBehavior>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a className="block p-2 text-lg font-bold rounded hover:bg-stone-200 dark:hover:bg-stone-700">
         {children}

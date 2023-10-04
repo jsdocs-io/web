@@ -26,7 +26,7 @@ const InternalLink = ({
   }
 
   return (
-    <Link href={href} prefetch={false}>
+    <Link href={href} prefetch={false} legacyBehavior>
       {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
       <a
         className="text-sky-700 break-words dark:text-sky-300 hover:underline"

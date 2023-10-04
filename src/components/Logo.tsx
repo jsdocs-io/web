@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Logo = ({ hideText = false }: { hideText?: boolean }) => {
   return (
-    <Link href="/">
+    <Link href="/" legacyBehavior>
       <a className="flex flex-none items-center space-x-2" title="jsDocs.io">
         <img
           className="h-8 flex-none"

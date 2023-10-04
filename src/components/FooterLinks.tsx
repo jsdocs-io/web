@@ -17,7 +17,7 @@ const FooterLinks = () => {
     <ul className="grid grid-cols-3 gap-2 sm:grid-cols-5 lg:grid-cols-9">
       {links.map(({ href, text }) => (
         <li key={href}>
-          <Link href={href}>
+          <Link href={href} legacyBehavior>
             <a className="block text-center p-2 hover:underline">{text}</a>
           </Link>
         </li>
