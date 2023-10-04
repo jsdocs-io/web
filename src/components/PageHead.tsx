@@ -2,7 +2,6 @@ import CharSetTag from "./CharSetTag";
 import DescriptionTag from "./DescriptionTag";
 import Favicon from "./Favicon";
 import OpenGraphTags from "./OpenGraphTags";
-import PlausibleScript from "./PlausibleScript";
 import TitleTag from "./TitleTag";
 import TwitterTags from "./TwitterTags";
 import ViewportTag from "./ViewportTag";
@@ -25,7 +24,6 @@ const PageHead = ({
       <OpenGraphTags title={title} description={description} url={url} />
       <TwitterTags title={title} description={description} />
       <Favicon />
-      {process.env.NODE_ENV === "production" && <PlausibleScript />}
     </>
   );
 };

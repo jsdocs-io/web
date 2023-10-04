@@ -25,7 +25,6 @@ const PrivacyPolicyPage = () => {
         <article className="space-y-12">
           <IntroSection />
           <FirstPartySection />
-          <AnalyticsSection />
           <HostingSection />
           <LinksToExternalWebsitesSection />
           <ContactInformationSection />
@@ -42,7 +41,7 @@ const IntroSection = () => {
 
       <p>This page contains the privacy policy for jsDocs.io.</p>
 
-      <p>The privacy policy was last updated on April 7, 2021.</p>
+      <p>The privacy policy was last updated on October 4, 2023.</p>
     </section>
   );
 };
@@ -54,31 +53,6 @@ const FirstPartySection = () => {
 
       <p>
         On jsDocs.io we do not directly collect personal data from our visitors.
-      </p>
-    </section>
-  );
-};
-
-const AnalyticsSection = () => {
-  return (
-    <section>
-      <h2>Analytics</h2>
-
-      <p>
-        To measure traffic and usage statistics for jsDocs.io, we use{" "}
-        <A href="https://plausible.io/">Plausible</A>, a privacy-friendly web
-        analytics tool.
-      </p>
-
-      <p>
-        Plausible {"doesn't"} use cookies and {"doesn't"} collect or store
-        personal data.
-      </p>
-
-      <p>
-        To learn more about the data collected by Plausible, you can visit their{" "}
-        <A href="https://plausible.io/data-policy">data policy</A> and{" "}
-        <A href="https://plausible.io/privacy">privacy policy</A> pages.
       </p>
     </section>
   );

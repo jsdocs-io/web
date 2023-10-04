@@ -48,17 +48,6 @@ const Head = () => {
         content="https://www.jsdocs.io/logo-bg.png"
       />
       <meta property="twitter:image:alt" content="jsDocs.io logo" />
-
-      {/* Plausible.io analytics */}
-      {/* See https://github.com/vercel/next.js/issues/9070#issuecomment-552981178 */}
-      {process.env.NODE_ENV === "production" && typeof window !== undefined && (
-        <script
-          async
-          defer
-          data-domain="jsdocs.io"
-          src="https://plausible.io/js/plausible.outbound-links.js"
-        />
-      )}
     </NextHead>
   );
 };
