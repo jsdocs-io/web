@@ -1,7 +1,7 @@
 {
   "functions": {
     "src/pages/**/*": {
-      "maxDuration": 2
+      "maxDuration": 4
     }
   }
 }
