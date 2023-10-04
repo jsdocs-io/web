@@ -66,7 +66,7 @@ module.exports = withBundleAnalyzer({
     return [
       {
         source: "/package/(.*/v/.*)",
-        destination: "/empty.html",
+        destination: "https://www.currently.unavailable",
         permanent: false,
       },
     ];
