@@ -1,8 +1,8 @@
 {
   "functions": {
     "src/pages/**/*": {
-      "memory": 512,
-      "maxDuration": 16
+      "memory": 1024,
+      "maxDuration": 30
     }
   }
 }
