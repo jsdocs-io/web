@@ -33,7 +33,7 @@ const IndexPage = () => {
           <p className="text-center">
             Try with <PackageLink name="faastjs">faastjs</PackageLink>,{" "}
             <PackageLink name="query-registry">query-registry</PackageLink> or{" "}
-            <PackageLink name="@types/prettier">@types/prettier</PackageLink>.
+            <PackageLink name="prettier">prettier</PackageLink>.
           </p>
         </div>
       </Layout>
