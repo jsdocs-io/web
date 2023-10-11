@@ -7,5 +7,5 @@
 		<IconPackage class="h-9 w-9" />
 		jsDocs.io
 	</h1>
-	<p class="text-center text-lg">Automatic docs for npm packages</p>
+	<p class="text-center text-lg">Automatic documentation for npm packages</p>
 </div>
