@@ -1,8 +1,8 @@
 import type { LayoutServerLoad } from './$types';
 
 export const load = (async ({ fetch, params }) => {
-	const { name, version } = params;
-	console.log({ name, version });
+	const { name } = params;
+	console.log({ name });
 
 	// try {
 	// 	const versions = await fetchPackageVersions(fetch, name);
