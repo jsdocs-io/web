@@ -2,10 +2,11 @@
 	import IconDeployedCode from '~icons/material-symbols/deployed-code';
 
 	export let name: string;
+	export let version: string;
 </script>
 
 <a
-	href="https://unpkg.com/{name}/"
+	href="https://unpkg.com/browse/{name}@{version}/"
 	class="btn btn-ghost btn-sm flex-nowrap justify-start normal-case"
 	title="View package contents on unpkg"
 >
