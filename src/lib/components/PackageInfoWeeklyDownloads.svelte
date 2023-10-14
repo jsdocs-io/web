@@ -7,8 +7,8 @@
 
 <div
 	class="btn btn-ghost btn-sm flex-nowrap justify-start normal-case"
-	title="Package weekly downloads"
+	title="Number of weekly downloads for the package"
 >
 	<IconDownload class="h-4 w-4 flex-none" />
-	<span class="truncate">{millify(weeklyDownloads)}</span>
+	<span class="truncate">{millify(weeklyDownloads)} weekly downloads</span>
 </div>
