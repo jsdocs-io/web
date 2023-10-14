@@ -13,8 +13,10 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"dependencies": {
+		"date-fns": "^2.30.0",
 		"html-minifier": "^4.0.0",
 		"keyv": "^4.5.4",
+		"millify": "^6.1.0",
 		"nprogress": "^0.2.0",
 		"semver": "^7.5.4",
 		"url-join": "^5.0.0",
