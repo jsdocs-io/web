@@ -12,13 +12,15 @@
 	};
 
 	$: url = urlCanParse(repository) ? new URL(repository) : undefined;
+	$: providerName = url ? providerNames[url.hostname] ?? url.hostname : '';
+	$: repositoryName = url?.pathname.replace('/', '') ?? '';
 </script>
 
 {#if url}
 	<a
 		href={url.href}
 		class="btn btn-ghost btn-sm flex-nowrap justify-start normal-case"
-		title="View repository on {providerNames[url.hostname] ?? url.hostname}"
+		title="View package repository on {providerName}"
 	>
 		{#if url.hostname === 'github.com'}
 			<IconGitHub class="h-4 w-4 flex-none" />
@@ -27,6 +29,6 @@
 		{:else}
 			<IconGit class="h-4 w-4 flex-none" />
 		{/if}
-		<span class="truncate">{url.pathname.replace('/', '')}</span>
+		<span class="truncate">{repositoryName}</span>
 	</a>
 {/if}
