@@ -7,9 +7,9 @@
 	import PackageInfoWeeklyDownloads from '$lib/components/PackageInfoWeeklyDownloads.svelte';
 
 	export let version: string;
-	export let dependencies: Record<string, string>;
 	export let publishedAt: string;
 	export let license: string;
+	export let dependencies: Record<string, string>;
 	export let weeklyDownloads: number;
 	export let unpackedSize: number;
 </script>
