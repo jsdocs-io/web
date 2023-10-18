@@ -6,7 +6,7 @@ import urlJoin from 'url-join';
 
 const registryApiUrl = REGISTRY_API_URL;
 
-const cache = new Keyv({ namespace: 'packuments' });
+const cache = new Keyv({ namespace: 'package_packument' });
 const ttl = parseInt(REGISTRY_CACHE_TTL, 10);
 
 export const fetchPackument = async (
