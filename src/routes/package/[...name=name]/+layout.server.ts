@@ -41,7 +41,7 @@ export const load = (async ({ fetch, params }) => {
 		version: manifest.version,
 		repository: packageResult?.links.repository,
 		homepage: packageResult?.links.homepage,
-		publishedAt: packument.time[manifest.version],
+		publishedAt: packument.time[manifest.version]!,
 		license: manifest.license,
 		dependencies: manifest.dependencies,
 		weeklyDownloads: packageDownloads?.downloads,
