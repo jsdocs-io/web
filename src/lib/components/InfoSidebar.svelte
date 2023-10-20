@@ -14,7 +14,7 @@
 	export let license: string | undefined;
 	export let dependencies: Record<string, string>;
 	export let weeklyDownloads: number | undefined;
-	export let unpackedSize: number;
+	export let unpackedSize: number | undefined;
 
 	export let updatedAt: string;
 	export let analyzedAt: string | undefined = undefined;

@@ -12,7 +12,7 @@
 	export let license: string | undefined;
 	export let dependencies: Record<string, string>;
 	export let weeklyDownloads: number | undefined;
-	export let unpackedSize: number;
+	export let unpackedSize: number | undefined;
 </script>
 
 <PackageInfoVersion {name} {version} />
@@ -22,4 +22,6 @@
 {#if weeklyDownloads}
 	<PackageInfoWeeklyDownloads {weeklyDownloads} />
 {/if}
-<PackageInfoUnpackedSize {unpackedSize} />
+{#if unpackedSize}
+	<PackageInfoUnpackedSize {unpackedSize} />
+{/if}

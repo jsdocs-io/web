@@ -17,8 +17,8 @@ export const manifestSchema = z.object({
 	devDependencies: z.record(z.string()).catch({}),
 	peerDependencies: z.record(z.string()).catch({}),
 	dist: z.object({
-		fileCount: z.number(),
-		unpackedSize: z.number()
+		fileCount: z.number().optional(),
+		unpackedSize: z.number().optional()
 	})
 });
 
