@@ -15,7 +15,7 @@
 
 <div
 	class="btn btn-ghost btn-sm flex-nowrap justify-start normal-case"
-	title="Time at which the package was published: {publishedAt}"
+	title="Package was published on {publishedAt}"
 >
 	<IconCalendarClock class="h-4 w-4 flex-none" />
 	<time class="truncate" datetime={publishedAt}>Published {prettyPublishedAt}</time>

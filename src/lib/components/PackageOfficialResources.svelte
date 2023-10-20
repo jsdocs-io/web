@@ -4,10 +4,14 @@
 	import PackageOfficialResourcesRepository from '$lib/components/PackageOfficialResourcesRepository.svelte';
 
 	export let name: string;
-	export let repository: string;
-	export let homepage: string;
+	export let repository: string | undefined;
+	export let homepage: string | undefined;
 </script>
 
 <PackageOfficialResourcesNpm {name} />
-<PackageOfficialResourcesRepository {repository} />
-<PackageOfficialResourcesHomepage {homepage} />
+{#if repository}
+	<PackageOfficialResourcesRepository {repository} />
+{/if}
+{#if homepage}
+	<PackageOfficialResourcesHomepage {homepage} />
+{/if}

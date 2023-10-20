@@ -5,7 +5,8 @@
 	export let homepage: string;
 
 	$: url = urlCanParse(homepage) ? new URL(homepage) : undefined;
-	$: prettyHomepage = url?.href.replace('https://', '').replace('http://', '') ?? '';
+	$: prettyHomepage =
+		url?.href.replace('https://', '').replace('http://', '').replace(/\/$/, '') ?? '';
 </script>
 
 {#if url}

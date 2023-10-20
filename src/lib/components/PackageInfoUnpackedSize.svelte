@@ -12,7 +12,7 @@
 
 <div
 	class="btn btn-ghost btn-sm flex-nowrap justify-start normal-case"
-	title="Package size when extracted on disk"
+	title="Package occupies {unpackedSize} bytes on disk"
 >
 	<IconHardDrive class="h-4 w-4 flex-none" />
 	<span class="truncate">{prettySize} unpacked size</span>

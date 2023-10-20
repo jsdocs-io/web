@@ -6,17 +6,20 @@
 	import PackageInfoVersion from '$lib/components/PackageInfoVersion.svelte';
 	import PackageInfoWeeklyDownloads from '$lib/components/PackageInfoWeeklyDownloads.svelte';
 
+	export let name: string;
 	export let version: string;
 	export let publishedAt: string;
-	export let license: string;
+	export let license: string | undefined;
 	export let dependencies: Record<string, string>;
-	export let weeklyDownloads: number;
+	export let weeklyDownloads: number | undefined;
 	export let unpackedSize: number;
 </script>
 
-<PackageInfoVersion {version} />
+<PackageInfoVersion {name} {version} />
 <PackageInfoPublishedAt {publishedAt} />
 <PackageInfoLicense {license} />
-<PackageInfoDependencies {dependencies} />
-<PackageInfoWeeklyDownloads {weeklyDownloads} />
+<PackageInfoDependencies {name} {version} {dependencies} />
+{#if weeklyDownloads}
+	<PackageInfoWeeklyDownloads {weeklyDownloads} />
+{/if}
 <PackageInfoUnpackedSize {unpackedSize} />

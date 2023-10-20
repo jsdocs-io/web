@@ -15,7 +15,7 @@
 
 <div
 	class="btn btn-ghost btn-sm flex-nowrap justify-start normal-case"
-	title="Time at which the package was last analyzed: {updatedAt}"
+	title="Page was rendered on {updatedAt}"
 >
 	<IconUpdate class="h-4 w-4 flex-none" />
 	<time class="truncate" datetime={updatedAt}>Updated {prettyUpdatedAt}</time>

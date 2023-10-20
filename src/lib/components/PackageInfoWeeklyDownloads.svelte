@@ -7,7 +7,7 @@
 
 <div
 	class="btn btn-ghost btn-sm flex-nowrap justify-start normal-case"
-	title="Number of weekly downloads for the package"
+	title="Package has {weeklyDownloads} weekly downloads"
 >
 	<IconDownload class="h-4 w-4 flex-none" />
 	<span class="truncate">{millify(weeklyDownloads)} weekly downloads</span>
