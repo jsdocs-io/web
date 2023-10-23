@@ -101,7 +101,7 @@ const ContactInformationSection = () => {
 
       <p>
         You can reach us by email at{" "}
-        <A href="mailto:info@jsdocs.io">info@jsdocs.io</A>.
+        <A href="mailto:scibona.edoardo@proton.me">scibona.edoardo@proton.me</A>.
       </p>
     </section>
   );

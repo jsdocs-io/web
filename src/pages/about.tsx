@@ -175,7 +175,7 @@ const RemovingAPackageSection = () => {
       <p>
         If you do not want your {"package's"} documentation to be displayed on
         jsDocs.io, please contact us at{" "}
-        <A href="mailto:info@jsdocs.io">info@jsdocs.io</A>.
+        <A href="mailto:scibona.edoardo@proton.me">scibona.edoardo@proton.me</A>.
       </p>
     </section>
   );
@@ -242,7 +242,7 @@ const FeedbackSection = () => {
       <p>
         You can also reach us on Twitter at{" "}
         <A href="https://twitter.com/jsDocs">@jsDocs</A> or by email at{" "}
-        <A href="mailto:info@jsdocs.io">info@jsdocs.io</A>.
+        <A href="mailto:scibona.edoardo@proton.me">scibona.edoardo@proton.me</A>.
       </p>
     </section>
   );
