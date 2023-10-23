@@ -1,10 +1,8 @@
 import { manifestSchema } from '$lib/registry/manifest';
-import { repositorySchema } from '$lib/registry/repository';
 import { z } from 'zod';
 
 export const packumentSchema = z.object({
 	name: z.string(),
-	description: z.string().optional(),
 	'dist-tags': z
 		.object({
 			latest: z.string()
@@ -16,10 +14,7 @@ export const packumentSchema = z.object({
 			modified: z.string()
 		})
 		.catchall(z.string()),
-	versions: z.record(manifestSchema),
-	keywords: z.array(z.string()).optional(),
-	repository: repositorySchema.optional(),
-	license: z.string().optional()
+	versions: z.record(manifestSchema)
 });
 
 export type Packument = z.infer<typeof packumentSchema>;
