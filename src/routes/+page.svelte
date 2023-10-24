@@ -4,7 +4,7 @@
 	import SearchTip from '$lib/components/SearchTip.svelte';
 </script>
 
-<div class="flex h-full flex-col items-center justify-center gap-6">
+<div class="flex grow flex-col items-center justify-center gap-6 p-4">
 	<HomepageLogo />
 	<SearchBar />
 	<SearchTip />

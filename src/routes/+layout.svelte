@@ -15,12 +15,6 @@
 	}
 </script>
 
-<div class="flex h-screen flex-col">
-	<Navbar />
-
-	<div class="grow p-4">
-		<slot />
-	</div>
-
-	<Footer />
-</div>
+<Navbar />
+<slot />
+<Footer />

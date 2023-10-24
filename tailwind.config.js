@@ -2,7 +2,12 @@
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
-		extend: {}
+		extend: {
+			screens: {
+				'3xl': '1600px',
+				'4xl': '1920px'
+			}
+		}
 	},
 	daisyui: {
 		logs: false

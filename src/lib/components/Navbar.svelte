@@ -6,13 +6,17 @@
 	import ThemeButton from '$lib/components/ThemeButton.svelte';
 </script>
 
-<div class="flex flex-none items-center justify-between gap-2 overflow-x-auto p-4">
-	<HomepageLinkButton />
+<div class="flex-none">
+	<div class="mx-auto max-w-screen-4xl">
+		<div class="flex items-center justify-between gap-2 overflow-x-auto p-4">
+			<HomepageLinkButton />
 
-	<div class="flex items-center gap-2">
-		<FaqLinkButton />
-		<SponsorLinkButton />
-		<GitHubLinkButton />
-		<ThemeButton />
+			<div class="flex items-center gap-2">
+				<FaqLinkButton />
+				<SponsorLinkButton />
+				<GitHubLinkButton />
+				<ThemeButton />
+			</div>
+		</div>
 	</div>
 </div>

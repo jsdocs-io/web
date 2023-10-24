@@ -4,10 +4,12 @@
 	import PrivacyLinkButton from '$lib/components/PrivacyLinkButton.svelte';
 </script>
 
-<div
-	class="flex flex-none flex-wrap items-center justify-center gap-2 overflow-x-scroll p-4 sm:justify-end sm:overflow-x-auto"
->
-	<AboutLinkButton />
-	<PrivacyLinkButton />
-	<PoweredByVercelLinkButton />
+<div class="flex-none">
+	<div class="mx-auto max-w-screen-4xl">
+		<div class="flex items-center justify-start gap-2 overflow-x-auto p-4 sm:justify-end">
+			<AboutLinkButton />
+			<PrivacyLinkButton />
+			<PoweredByVercelLinkButton />
+		</div>
+	</div>
 </div>

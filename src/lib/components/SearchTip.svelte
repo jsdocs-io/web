@@ -2,7 +2,7 @@
 	const packages = ['faastjs', 'prettier', '@types/html-minifier'];
 </script>
 
-<p class="text-center">
+<p class="text-center" style="text-wrap: balance;">
 	<span class="font-bold">Tip:</span> Try with packages like
 	<a class="link font-bold" href="/package/{packages[0]}">{packages[0]}</a>,
 	<a class="link font-bold" href="/package/{packages[1]}">{packages[1]}</a> or
