@@ -8,8 +8,7 @@
 	$: ({ query, packages } = data);
 </script>
 
-<div class="h-6" />
-<div class="flex flex-col items-center gap-6">
+<div class="flex grow flex-col items-center gap-6 px-4 py-6">
 	<SearchBar {query} />
 	<SearchResults {query} {packages} />
 </div>
