@@ -7,9 +7,7 @@
 </script>
 
 <div class="flex flex-none justify-center">
-	<div
-		class="flex max-w-screen-4xl grow items-center justify-between gap-2 overflow-x-auto p-4"
-	>
+	<div class="flex max-w-screen-4xl grow items-center justify-between gap-2 overflow-x-auto p-4">
 		<HomepageLinkButton />
 
 		<div class="flex items-center gap-2">
