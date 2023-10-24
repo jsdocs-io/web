@@ -6,7 +6,7 @@
 
 <a
 	href="https://www.npmjs.com/package/{name}"
-	class="btn btn-ghost btn-sm flex-nowrap justify-start normal-case"
+	class="btn btn-ghost btn-sm flex-nowrap justify-start normal-case leading-normal"
 	title="View package on npm"
 >
 	<IconNpm class="h-4 w-4 flex-none" />

@@ -6,7 +6,10 @@
 	$: licenseDescription = `${license ?? 'Custom'} license`;
 </script>
 
-<div class="btn btn-ghost btn-sm flex-nowrap justify-start normal-case" title="Package license">
+<div
+	class="btn btn-ghost btn-sm flex-nowrap justify-start normal-case leading-normal"
+	title="Package license"
+>
 	<IconAccountBalance class="h-4 w-4 flex-none" />
 	<span class="truncate">{licenseDescription}</span>
 </div>
