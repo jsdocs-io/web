@@ -21,7 +21,7 @@
 	export let analysisDuration: number | undefined = undefined;
 </script>
 
-<div class="flex w-96 flex-col gap-2">
+<div class="sticky top-6 hidden w-72 flex-col gap-2 self-start xl:flex">
 	<div class="divider my-1">Official Resources</div>
 	<PackageOfficialResources {name} {repository} {homepage} />
 
