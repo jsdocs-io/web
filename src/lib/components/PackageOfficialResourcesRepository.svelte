@@ -19,7 +19,7 @@
 {#if url}
 	<a
 		href={url.href}
-		class="btn btn-ghost btn-sm flex-nowrap justify-start normal-case leading-normal"
+		class="btn btn-ghost btn-sm flex-nowrap justify-start font-normal normal-case leading-normal"
 		title="View repository on {providerName}"
 	>
 		{#if url.hostname === 'github.com'}
