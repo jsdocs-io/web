@@ -16,7 +16,8 @@
 		"sveltekit",
 		"tailwindcss",
 		"unplugin",
-		"vercel"
+		"vercel",
+		"vite"
 	],
 	"typescript.preferences.importModuleSpecifier": "non-relative"
 }
