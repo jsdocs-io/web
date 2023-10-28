@@ -1,6 +1,7 @@
 <script lang="ts">
 	import DocRoot from '$lib/components/DocRoot.svelte';
 	import InfoSidebar from '$lib/components/InfoSidebar.svelte';
+	import QuickSearch from '$lib/components/QuickSearch.svelte';
 	import TocSidebar from '$lib/components/TocSidebar.svelte';
 	import type { PageData } from './$types';
 
@@ -44,3 +45,5 @@
 		/>
 	</div>
 </div>
+
+<QuickSearch />
