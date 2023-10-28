@@ -1,14 +1,21 @@
 <script lang="ts">
+	import { handleQuickSearchHotkey } from '$lib/actions/handle-quick-search-hotkey';
 	import IconSearch from '~icons/material-symbols/search';
+
+	const openQuickSearch = () => {
+		document.querySelector<HTMLDialogElement>('#quick-search')?.showModal();
+	};
 </script>
 
 <button
 	class="btn btn-outline justify-between text-base font-normal normal-case leading-normal"
 	title="Perform a quick search (Hotkey: F)"
+	on:click={openQuickSearch}
+	use:handleQuickSearchHotkey={openQuickSearch}
 >
 	<div class="flex items-center gap-2">
 		<IconSearch class="h-5 w-5" />
 		Quick search...
 	</div>
-	<span class="badge badge-ghost">F</span>
+	<div class="badge badge-ghost">F</div>
 </button>
