@@ -13,7 +13,7 @@
 	};
 </script>
 
-<dialog id="quick-search" class="modal" on:close={clearQuery}>
+<dialog id="quick-search" class="open:modal" on:close={clearQuery}>
 	<div class="modal-box p-0">
 		<div class="flex items-center border-b border-base-content/50">
 			<div class="flex w-12 flex-none items-center justify-center">
