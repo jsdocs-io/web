@@ -9,8 +9,8 @@
 
 <dialog id="quick-search" class="modal" open>
 	<div class="modal-box p-0">
-		<div class="relative border-b border-base-content/50 py-1">
-			<div class="absolute inset-y-0 left-0 flex w-12 items-center justify-center">
+		<div class="flex items-center border-b border-base-content/50">
+			<div class="flex w-12 flex-none items-center justify-center">
 				<IconSearch class="h-5 w-5" />
 			</div>
 
@@ -19,11 +19,15 @@
 				autofocus
 				type="text"
 				placeholder="Quick search..."
-				class="input w-full rounded-none px-12 placeholder-base-content focus:outline-none"
+				class="input grow rounded-none border-none px-0 placeholder-base-content focus-within:outline-none focus:outline-none"
 			/>
 
-			<div class="absolute inset-y-0 right-0 flex w-12 items-center justify-center">
-				<button class="btn btn-square btn-ghost btn-sm" on:click={closeQuickSearch}>
+			<div class="flex w-12 flex-none items-center justify-center">
+				<button
+					class="btn btn-square btn-ghost btn-sm"
+					on:click={closeQuickSearch}
+					title="Close quick search dialog (Hotkey: Esc)"
+				>
 					<IconClose class="h-5 w-5" />
 				</button>
 			</div>
@@ -33,6 +37,6 @@
 	</div>
 
 	<form method="dialog" class="modal-backdrop">
-		<button>close</button>
+		<button>Close quick search</button>
 	</form>
 </dialog>
