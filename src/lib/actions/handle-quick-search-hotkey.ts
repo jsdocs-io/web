@@ -1,8 +1,9 @@
-export const handleQuickSearchHotkey = (_: HTMLElement, openQuickSearch: () => void) => {
+export const handleQuickSearchHotkey = (_: HTMLElement) => {
 	const handleKeyDown = async (event: KeyboardEvent) => {
-		if (event.key === 'f') {
+		const dialog = document.querySelector<HTMLDialogElement>('#quick-search');
+		if (event.key === 'f' && dialog && !dialog.open) {
 			event.preventDefault();
-			openQuickSearch();
+			dialog.showModal();
 		}
 	};
 

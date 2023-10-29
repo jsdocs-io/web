@@ -3,7 +3,10 @@
 	import IconSearch from '~icons/material-symbols/search';
 
 	const openQuickSearch = () => {
-		document.querySelector<HTMLDialogElement>('#quick-search')?.showModal();
+		const dialog = document.querySelector<HTMLDialogElement>('#quick-search');
+		if (dialog && !dialog.open) {
+			dialog.showModal();
+		}
 	};
 </script>
 
@@ -11,7 +14,7 @@
 	class="btn btn-outline justify-between text-base font-normal normal-case leading-normal"
 	title="Perform a quick search (Hotkey: F)"
 	on:click={openQuickSearch}
-	use:handleQuickSearchHotkey={openQuickSearch}
+	use:handleQuickSearchHotkey
 >
 	<div class="flex items-center gap-2">
 		<IconSearch class="h-5 w-5" />
