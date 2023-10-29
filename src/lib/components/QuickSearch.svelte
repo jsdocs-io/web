@@ -2,10 +2,11 @@
 	import IconClose from '~icons/material-symbols/close';
 	import IconSearch from '~icons/material-symbols/search';
 
+	let dialog: HTMLDialogElement;
 	let query = '';
 
 	const closeQuickSearch = () => {
-		document.querySelector<HTMLDialogElement>('#quick-search')?.close();
+		dialog.close();
 	};
 
 	const clearQuery = () => {
@@ -13,7 +14,7 @@
 	};
 </script>
 
-<dialog id="quick-search" class="open:modal" on:close={clearQuery}>
+<dialog id="quick-search" class="open:modal" on:close={clearQuery} bind:this={dialog}>
 	<div class="modal-box p-0">
 		<div class="flex items-center border-b border-base-content/50">
 			<div class="flex w-12 flex-none items-center justify-center">
