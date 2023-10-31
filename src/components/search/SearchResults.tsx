@@ -37,8 +37,9 @@ const SearchResults = ({
         <div key={name}>
           <PackageLink
             name={name}
-            version={version}
-            title={`${name}@${version}`}
+            title={name}
+            // version={version}
+            // title={`${name}@${version}`}
           >
             <span className="text-xl font-bold break-words hover:underline">
               {name}
