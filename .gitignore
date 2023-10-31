@@ -35,3 +35,12 @@ yarn-error.log*
 
 # tsconfig build info
 tsconfig.tsbuildinfo
+
+# SvelteKit
+.svelte-kit
+
+# Env
+.env
+
+# Vite
+vite.config.ts.timestamp-*
