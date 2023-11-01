@@ -116,8 +116,8 @@ devDependencies:
     specifier: 5.0.0
     version: 5.0.0
   '@types/fs-extra':
-    specifier: 11.0.1
-    version: 11.0.1
+    specifier: 11.0.3
+    version: 11.0.3
   '@types/jest':
     specifier: 29.5.1
     version: 29.5.1
@@ -1610,8 +1610,8 @@ packages:
       '@types/node': 18.16.3
       '@types/responselike': 1.0.0
 
-  /@types/fs-extra@11.0.1:
-    resolution: {integrity: sha512-MxObHvNl4A69ofaTRU8DFqvgzzv8s9yRtaPPm5gud9HDNvpB3GPQFvNuTWAI59B9huVGV5jXYJwbCsmBsOGYWA==}
+  /@types/fs-extra@11.0.3:
+    resolution: {integrity: sha512-sF59BlXtUdzEAL1u0MSvuzWd7PdZvZEtnaVkzX5mjpdWTJ8brG0jUqve3jPCzSzvAKKMHTG8F8o/WMQLtleZdQ==}
     dependencies:
       '@types/jsonfile': 6.1.1
       '@types/node': 18.16.3
