@@ -9,6 +9,14 @@ declare global {
 		// interface PageData {}
 		// interface Platform {}
 	}
+
+	declare namespace svelteHTML {
+		interface HTMLAttributes<T> {
+			'on:arrowup'?: (event: any) => any;
+			'on:arrowdown'?: (event: any) => any;
+			'on:enter'?: (event: any) => any;
+		}
+	}
 }
 
 export {};
