@@ -43,7 +43,7 @@
 						class="link-hover link flex justify-between gap-4"
 						title={declaration.name}
 						on:click={closeQuickSearch}
-						><span class="truncate">{declaration.name}</span> <span>(TODO:)</span></a
+						><span class="truncate">{declaration.name}</span> <span>({declaration.kind})</span></a
 					>
 				</li>
 			{:else}
@@ -53,7 +53,7 @@
 						class="link-hover link flex justify-between gap-4"
 						title={declaration.name}
 						on:click={closeQuickSearch}
-						><span class="truncate">{declaration.name}</span> <span>(TODO:)</span></a
+						><span class="truncate">{declaration.name}</span> <span>({declaration.kind})</span></a
 					>
 				</li>
 			{/if}
