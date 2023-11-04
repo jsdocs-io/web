@@ -1,33 +1,12 @@
 <script lang="ts">
-	const declarations = [
-		{ id: 'analyzeRegistryPackage', name: 'analyzeRegistryPackage' },
-		{ id: 'isClassConstructorDeclaration', name: 'isClassConstructorDeclaration' },
-		{ id: 'isClassDeclaration', name: 'isClassDeclaration' },
-		{ id: 'isClassMethodDeclaration', name: 'isClassMethodDeclaration' },
-		{ id: 'isClassPropertyDeclaration', name: 'isClassPropertyDeclaration' },
-		{ id: 'isEnumDeclaration', name: 'isEnumDeclaration' },
-		{ id: 'isEnumMemberDeclaration', name: 'isEnumMemberDeclaration' },
-		{ id: 'isFunctionDeclaration', name: 'isFunctionDeclaration' },
-		{ id: 'isInterfaceCallSignatureDeclaration', name: 'isInterfaceCallSignatureDeclaration' },
-		{
-			id: 'isInterfaceConstructSignatureDeclaration',
-			name: 'isInterfaceConstructSignatureDeclaration'
-		},
-		{ id: 'isInterfaceDeclaration', name: 'isInterfaceDeclaration' },
-		{ id: 'isInterfaceIndexSignatureDeclaration', name: 'isInterfaceIndexSignatureDeclaration' },
-		{ id: 'isInterfaceMethodDeclaration', name: 'isInterfaceMethodDeclaration' },
-		{ id: 'isInterfacePropertyDeclaration', name: 'isInterfacePropertyDeclaration' },
-		{ id: 'isNamespaceDeclaration', name: 'isNamespaceDeclaration' },
-		{ id: 'isTypeAliasDeclaration', name: 'isTypeAliasDeclaration' },
-		{ id: 'isVariableDeclaration', name: 'isVariableDeclaration' }
-	];
+	import { mockDeclarations } from '$lib/temp/mock-declarations';
 
-	const variables = [...declarations];
-	const functions = [...declarations];
-	const classes = [...declarations];
-	const interfaces = [...declarations];
-	const typeAliases = [...declarations];
-	const namespaces = [...declarations];
+	const variables = [...mockDeclarations];
+	const functions = [...mockDeclarations];
+	const classes = [...mockDeclarations];
+	const interfaces = [...mockDeclarations];
+	const typeAliases = [...mockDeclarations];
+	const namespaces = [...mockDeclarations];
 </script>
 
 <div class="flex flex-col gap-2 overflow-y-auto">

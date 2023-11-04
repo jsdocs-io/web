@@ -1,32 +1,11 @@
 <script lang="ts">
 	import { quickSearchResultsKeyboard } from '$lib/actions/quick-search-results-keyboard';
+	import { mockDeclarations } from '$lib/temp/mock-declarations';
 	import { mod } from '$lib/utils/mod';
 
 	export let closeQuickSearch: () => void;
 
-	const declarations = [
-		{ id: 'analyzeRegistryPackage', name: 'analyzeRegistryPackage' },
-		{ id: 'isClassConstructorDeclaration', name: 'isClassConstructorDeclaration' },
-		{ id: 'isClassDeclaration', name: 'isClassDeclaration' },
-		{ id: 'isClassMethodDeclaration', name: 'isClassMethodDeclaration' },
-		{ id: 'isClassPropertyDeclaration', name: 'isClassPropertyDeclaration' },
-		{ id: 'isEnumDeclaration', name: 'isEnumDeclaration' },
-		{ id: 'isEnumMemberDeclaration', name: 'isEnumMemberDeclaration' },
-		{ id: 'isFunctionDeclaration', name: 'isFunctionDeclaration' },
-		{ id: 'isInterfaceCallSignatureDeclaration', name: 'isInterfaceCallSignatureDeclaration' },
-		{
-			id: 'isInterfaceConstructSignatureDeclaration',
-			name: 'isInterfaceConstructSignatureDeclaration'
-		},
-		{ id: 'isInterfaceDeclaration', name: 'isInterfaceDeclaration' },
-		{ id: 'isInterfaceIndexSignatureDeclaration', name: 'isInterfaceIndexSignatureDeclaration' },
-		{ id: 'isInterfaceMethodDeclaration', name: 'isInterfaceMethodDeclaration' },
-		{ id: 'isInterfacePropertyDeclaration', name: 'isInterfacePropertyDeclaration' },
-		{ id: 'isNamespaceDeclaration', name: 'isNamespaceDeclaration' },
-		{ id: 'isTypeAliasDeclaration', name: 'isTypeAliasDeclaration' },
-		{ id: 'isVariableDeclaration', name: 'isVariableDeclaration' }
-	];
-
+	const declarations = mockDeclarations;
 	let cursor = 0;
 	let selectedResult: HTMLLIElement;
 
