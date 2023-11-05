@@ -2,12 +2,15 @@
 	import { quickSearchResultsKeyboard } from '$lib/actions/quick-search-results-keyboard';
 	import { mockDeclarations } from '$lib/temp/mock-declarations';
 	import { mod } from '$lib/utils/mod';
-
-	export let closeQuickSearch: () => void;
+	import { createEventDispatcher } from 'svelte';
 
 	const declarations = mockDeclarations;
+
+	const dispatch = createEventDispatcher();
+
 	let cursor = 0;
-	let selectedResult: HTMLLIElement;
+	let selectedResult: HTMLLIElement | undefined;
+	let selectedLink: HTMLAnchorElement | undefined;
 
 	const handleArrowUp = () => {
 		cursor = mod(cursor - 1, declarations.length);
@@ -17,7 +20,15 @@
 		cursor = mod(cursor + 1, declarations.length);
 	};
 
-	const handleEnter = () => {};
+	const handleEnter = () => {
+		if (selectedLink) {
+			selectedLink.click();
+		}
+	};
+
+	const handleResultClick = () => {
+		dispatch('resultclick');
+	};
 
 	$: {
 		if (selectedResult) {
@@ -42,7 +53,8 @@
 						href="#{declaration.id}"
 						class="link-hover link flex justify-between gap-4"
 						title={declaration.name}
-						on:click={closeQuickSearch}
+						bind:this={selectedLink}
+						on:click={handleResultClick}
 						><span class="truncate">{declaration.name}</span> <span>({declaration.kind})</span></a
 					>
 				</li>
@@ -52,7 +64,7 @@
 						href="#{declaration.id}"
 						class="link-hover link flex justify-between gap-4"
 						title={declaration.name}
-						on:click={closeQuickSearch}
+						on:click={handleResultClick}
 						><span class="truncate">{declaration.name}</span> <span>({declaration.kind})</span></a
 					>
 				</li>

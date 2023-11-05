@@ -1,5 +1,5 @@
 <script lang="ts">
-	export let query: string;
+	export let query = '';
 </script>
 
 <label for="quick-search-input" class="sr-only">Search for symbols in this package</label>

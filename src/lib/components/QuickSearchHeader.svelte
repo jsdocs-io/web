@@ -1,7 +1,12 @@
 <script lang="ts">
+	import { createEventDispatcher } from 'svelte';
 	import IconClose from '~icons/material-symbols/close';
 
-	export let closeQuickSearch: () => void;
+	const dispatch = createEventDispatcher();
+
+	const handleCloseButtonClick = () => {
+		dispatch('closebuttonclick');
+	};
 </script>
 
 <div class="flex flex-none items-center justify-between">
@@ -9,8 +14,8 @@
 
 	<button
 		class="btn btn-square btn-ghost btn-sm"
-		on:click={closeQuickSearch}
 		title="Close quick search (Hotkey: Esc)"
+		on:click={handleCloseButtonClick}
 	>
 		<IconClose class="h-5 w-5" />
 	</button>
