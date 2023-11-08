@@ -3,7 +3,7 @@ import type { Action } from 'svelte/action';
 export const quickSearchHotkey: Action = () => {
 	const dialog = document.querySelector<HTMLDialogElement>('#quick-search');
 
-	const handleKeyDown = async (event: KeyboardEvent) => {
+	const handleKeyDown = (event: KeyboardEvent) => {
 		if (dialog && !dialog.open && event.key === 'f') {
 			event.preventDefault();
 			dialog.showModal();
