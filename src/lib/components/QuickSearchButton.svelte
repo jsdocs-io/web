@@ -4,6 +4,7 @@
 	import IconSearch from '~icons/material-symbols/search';
 
 	const dialog = getQuickSearchDialog();
+
 	const openQuickSearch = () => {
 		if ($dialog && !$dialog.open) {
 			$dialog.showModal();
