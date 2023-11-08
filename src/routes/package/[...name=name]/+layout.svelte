@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { setQuickSearchDialog } from '$lib/stores/quick-search';
+	import { setQuickSearchStores } from '$lib/stores/quick-search';
 
-	setQuickSearchDialog();
+	setQuickSearchStores();
 </script>
 
 <slot />

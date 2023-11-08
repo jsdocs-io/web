@@ -1,5 +1,7 @@
 <script lang="ts">
-	export let query = '';
+	import { getQuickSearchQuery } from '$lib/stores/quick-search';
+
+	const query = getQuickSearchQuery();
 </script>
 
 <label for="quick-search-input" class="sr-only">Search for symbols in this package</label>
@@ -10,5 +12,5 @@
 	autofocus
 	type="search"
 	class="input input-bordered flex-none border-base-content placeholder-base-content"
-	bind:value={query}
+	bind:value={$query}
 />
