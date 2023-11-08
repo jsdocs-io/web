@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { handleQuickSearchHotkey } from '$lib/actions/handle-quick-search-hotkey';
+	import { quickSearchHotkey } from '$lib/actions/quick-search-hotkey';
 	import { getQuickSearchDialog } from '$lib/stores/quick-search';
 	import IconSearch from '~icons/material-symbols/search';
 
@@ -15,7 +15,7 @@
 	class="btn btn-outline justify-between text-base font-normal normal-case leading-normal"
 	title="Perform a quick search (Hotkey: F)"
 	on:click={openQuickSearch}
-	use:handleQuickSearchHotkey
+	use:quickSearchHotkey
 >
 	<div class="flex items-center gap-2">
 		<IconSearch class="h-5 w-5" />
