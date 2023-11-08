@@ -3,12 +3,15 @@
 	import QuickSearchHeader from '$lib/components/QuickSearchHeader.svelte';
 	import QuickSearchInput from '$lib/components/QuickSearchInput.svelte';
 	import QuickSearchResults from '$lib/components/QuickSearchResults.svelte';
+	import { getQuickSearchDialog } from '$lib/stores/quick-search';
 
-	let dialog: HTMLDialogElement | undefined;
+	const dialog = getQuickSearchDialog();
 	let query = '';
 
 	const closeQuickSearch = () => {
-		dialog?.close();
+		if ($dialog && $dialog.open) {
+			$dialog.close();
+		}
 	};
 
 	const clearQuery = () => {
@@ -16,7 +19,7 @@
 	};
 </script>
 
-<dialog id="quick-search" class="open:modal" on:close={clearQuery} bind:this={dialog}>
+<dialog id="quick-search" class="open:modal" on:close={clearQuery} bind:this={$dialog}>
 	<div class="modal-box">
 		<div class="flex flex-col gap-4">
 			<QuickSearchHeader on:closebuttonclick={closeQuickSearch} />

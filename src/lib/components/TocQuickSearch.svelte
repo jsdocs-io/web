@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { handleQuickSearchHotkey } from '$lib/actions/handle-quick-search-hotkey';
+	import { getQuickSearchDialog } from '$lib/stores/quick-search';
 	import IconSearch from '~icons/material-symbols/search';
 
+	const dialog = getQuickSearchDialog();
 	const openQuickSearch = () => {
-		const dialog = document.querySelector<HTMLDialogElement>('#quick-search');
-		if (dialog && !dialog.open) {
-			dialog.showModal();
+		if ($dialog && !$dialog.open) {
+			$dialog.showModal();
 		}
 	};
 </script>
