@@ -2,7 +2,7 @@ import { getContext, setContext } from 'svelte';
 import { writable, type Writable } from 'svelte/store';
 import { z } from 'zod';
 
-const packageInfoKey = 'package-info';
+const packageInfoKey = Symbol();
 
 const packageInfoSchema = z.object({
 	name: z.string(),

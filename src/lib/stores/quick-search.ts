@@ -1,8 +1,8 @@
 import { getContext, setContext } from 'svelte';
 import { writable, type Writable } from 'svelte/store';
 
-const quickSearchDialogKey = 'quick-search-dialog';
-const quickSearchQueryKey = 'quick-search-query';
+const quickSearchDialogKey = Symbol();
+const quickSearchQueryKey = Symbol();
 
 export const setQuickSearchDialog = () => {
 	setContext(quickSearchDialogKey, writable(undefined));
