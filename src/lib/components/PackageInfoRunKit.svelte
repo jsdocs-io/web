@@ -1,7 +1,9 @@
 <script lang="ts">
+	import { getPackageInfo } from '$lib/stores/package-info';
 	import IconRunKit from '~icons/simple-icons/runkit';
 
-	export let name: string;
+	const packageInfo = getPackageInfo();
+	$: ({ name } = $packageInfo);
 </script>
 
 <a

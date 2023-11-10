@@ -1,7 +1,9 @@
 <script lang="ts">
+	import { getPackageInfo } from '$lib/stores/package-info';
 	import IconNpm from '~icons/simple-icons/npm';
 
-	export let name: string;
+	const packageInfo = getPackageInfo();
+	$: ({ name } = $packageInfo);
 </script>
 
 <a

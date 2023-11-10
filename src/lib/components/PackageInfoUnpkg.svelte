@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { getPackageInfo } from '$lib/stores/package-info';
 	import IconDeployedCode from '~icons/material-symbols/deployed-code';
 
-	export let name: string;
-	export let version: string;
+	const packageInfo = getPackageInfo();
+	$: ({ name, version } = $packageInfo);
 </script>
 
 <a

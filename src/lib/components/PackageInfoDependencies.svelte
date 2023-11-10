@@ -1,10 +1,9 @@
 <script lang="ts">
+	import { getPackageInfo } from '$lib/stores/package-info';
 	import IconLinkedServices from '~icons/material-symbols/linked-services';
 
-	export let name: string;
-	export let version: string;
-	export let dependencies: Record<string, string>;
-
+	const packageInfo = getPackageInfo();
+	$: ({ name, version, dependencies } = $packageInfo);
 	$: dependenciesNumber = Object.keys(dependencies).length;
 	$: dependenciesQuantifier = dependenciesNumber === 1 ? 'dependency' : 'dependencies';
 	$: dependenciesDescription = `${dependenciesNumber} ${dependenciesQuantifier}`;

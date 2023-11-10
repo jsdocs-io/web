@@ -1,17 +1,18 @@
 <script lang="ts">
+	import { getPackageInfo } from '$lib/stores/package-info';
 	import { urlCanParse } from '$lib/utils/url-can-parse';
 	import IconGit from '~icons/simple-icons/git';
 	import IconGitHub from '~icons/simple-icons/github';
 	import IconGitLab from '~icons/simple-icons/gitlab';
-
-	export let repository: string;
 
 	const providerNames: Record<string, string> = {
 		'github.com': 'GitHub',
 		'gitlab.com': 'GitLab'
 	};
 
-	$: url = urlCanParse(repository) ? new URL(repository) : undefined;
+	const packageInfo = getPackageInfo();
+	$: ({ repository } = $packageInfo);
+	$: url = repository && urlCanParse(repository) ? new URL(repository) : undefined;
 	$: providerName = url ? providerNames[url.hostname] ?? url.hostname : '';
 	$: repositoryName = url?.pathname.replace('/', '') ?? '';
 </script>

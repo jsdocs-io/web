@@ -1,11 +1,13 @@
 <script lang="ts">
+	import { getPackageInfo } from '$lib/stores/package-info';
 	import { formatDistanceStrict } from 'date-fns';
 	import { onMount } from 'svelte';
 	import IconCalendarClock from '~icons/material-symbols/calendar-clock';
 
-	export let publishedAt: string;
+	const packageInfo = getPackageInfo();
+	$: ({ publishedAt } = $packageInfo);
+	$: prettyPublishedAt = publishedAt;
 
-	let prettyPublishedAt = publishedAt;
 	onMount(() => {
 		prettyPublishedAt = formatDistanceStrict(new Date(publishedAt), new Date(), {
 			addSuffix: true

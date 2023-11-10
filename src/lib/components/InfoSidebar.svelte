@@ -1,20 +1,19 @@
 <script lang="ts">
-	import PackageExternalResources from '$lib/components/PackageExternalResources.svelte';
-	import PackageInfo from '$lib/components/PackageInfo.svelte';
-	import PackageOfficialResources from '$lib/components/PackageOfficialResources.svelte';
-	import SystemInfo from '$lib/components/SystemInfo.svelte';
-
-	export let name: string;
-	export let version: string;
-
-	export let repository: string | undefined;
-	export let homepage: string | undefined;
-
-	export let publishedAt: string;
-	export let license: string | undefined;
-	export let dependencies: Record<string, string>;
-	export let weeklyDownloads: number | undefined;
-	export let unpackedSize: number | undefined;
+	import PackageInfoBundlephobia from '$lib/components/PackageInfoBundlephobia.svelte';
+	import PackageInfoDependencies from '$lib/components/PackageInfoDependencies.svelte';
+	import PackageInfoHomepage from '$lib/components/PackageInfoHomepage.svelte';
+	import PackageInfoLicense from '$lib/components/PackageInfoLicense.svelte';
+	import PackageInfoNpm from '$lib/components/PackageInfoNpm.svelte';
+	import PackageInfoPublishedAt from '$lib/components/PackageInfoPublishedAt.svelte';
+	import PackageInfoRepository from '$lib/components/PackageInfoRepository.svelte';
+	import PackageInfoRunKit from '$lib/components/PackageInfoRunKit.svelte';
+	import PackageInfoUnpackedSize from '$lib/components/PackageInfoUnpackedSize.svelte';
+	import PackageInfoUnpkg from '$lib/components/PackageInfoUnpkg.svelte';
+	import PackageInfoVersion from '$lib/components/PackageInfoVersion.svelte';
+	import PackageInfoWeeklyDownloads from '$lib/components/PackageInfoWeeklyDownloads.svelte';
+	import SystemInfoAnalysisInfo from '$lib/components/SystemInfoAnalysisInfo.svelte';
+	import SystemInfoBugReport from '$lib/components/SystemInfoBugReport.svelte';
+	import SystemInfoUpdatedAt from '$lib/components/SystemInfoUpdatedAt.svelte';
 
 	export let updatedAt: string;
 	export let analyzedAt: string | undefined = undefined;
@@ -23,22 +22,27 @@
 
 <div class="hidden w-72 flex-col gap-2 self-start xl:flex">
 	<div class="divider my-1">Official Resources</div>
-	<PackageOfficialResources {name} {repository} {homepage} />
+	<PackageInfoNpm />
+	<PackageInfoRepository />
+	<PackageInfoHomepage />
 
 	<div class="divider my-1">Package Info</div>
-	<PackageInfo
-		{name}
-		{version}
-		{publishedAt}
-		{license}
-		{dependencies}
-		{weeklyDownloads}
-		{unpackedSize}
-	/>
+	<PackageInfoVersion />
+	<PackageInfoPublishedAt />
+	<PackageInfoLicense />
+	<PackageInfoDependencies />
+	<PackageInfoWeeklyDownloads />
+	<PackageInfoUnpackedSize />
 
 	<div class="divider my-1">External Resources</div>
-	<PackageExternalResources {name} {version} />
+	<PackageInfoUnpkg />
+	<PackageInfoBundlephobia />
+	<PackageInfoRunKit />
 
 	<div class="divider my-1">System Info</div>
-	<SystemInfo {name} {version} {updatedAt} {analyzedAt} {analysisDuration} />
+	<SystemInfoUpdatedAt {updatedAt} />
+	{#if analyzedAt && analysisDuration}
+		<SystemInfoAnalysisInfo {analyzedAt} {analysisDuration} />
+	{/if}
+	<SystemInfoBugReport />
 </div>

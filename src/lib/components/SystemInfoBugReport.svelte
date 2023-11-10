@@ -1,9 +1,9 @@
 <script lang="ts">
+	import { getPackageInfo } from '$lib/stores/package-info';
 	import IconBugReport from '~icons/material-symbols/bug-report';
 
-	export let name: string;
-	export let version: string;
-
+	const packageInfo = getPackageInfo();
+	$: ({ name, version } = $packageInfo);
 	$: issueUrl = `https://github.com/jsdocs-io/web/issues/new?title=Package+${name}@${version}+has+missing+or+incorrect+documentation&template=package-with-missing-or-incorrect-documentation.md`;
 </script>
 

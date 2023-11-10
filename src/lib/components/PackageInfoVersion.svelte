@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { getPackageInfo } from '$lib/stores/package-info';
 	import IconSell from '~icons/material-symbols/sell';
 
-	export let name: string;
-	export let version: string;
+	const packageInfo = getPackageInfo();
+	$: ({ name, version } = $packageInfo);
 </script>
 
 <a

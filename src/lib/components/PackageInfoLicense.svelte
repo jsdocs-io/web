@@ -1,8 +1,9 @@
 <script lang="ts">
+	import { getPackageInfo } from '$lib/stores/package-info';
 	import IconAccountBalance from '~icons/material-symbols/account-balance';
 
-	export let license: string | undefined;
-
+	const packageInfo = getPackageInfo();
+	$: ({ license } = $packageInfo);
 	$: licenseDescription = `${license ?? 'Custom'} license`;
 </script>
 

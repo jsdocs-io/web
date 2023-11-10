@@ -3,24 +3,15 @@
 	import InfoSidebar from '$lib/components/InfoSidebar.svelte';
 	import QuickSearch from '$lib/components/QuickSearch.svelte';
 	import TocSidebar from '$lib/components/TocSidebar.svelte';
+	import { getPackageInfo } from '$lib/stores/package-info';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
-	$: ({
-		name,
-		version,
-		repository,
-		homepage,
-		publishedAt,
-		license,
-		dependencies,
-		weeklyDownloads,
-		unpackedSize,
-		updatedAt,
-		analyzedAt,
-		analysisDuration
-	} = data);
+	$: ({ updatedAt, analyzedAt, analysisDuration } = data);
+
+	const packageInfo = getPackageInfo();
+	$: $packageInfo = data;
 </script>
 
 <div class="flex grow justify-center">
@@ -29,20 +20,7 @@
 
 		<DocRoot />
 
-		<InfoSidebar
-			{name}
-			{version}
-			{repository}
-			{homepage}
-			{publishedAt}
-			{license}
-			{dependencies}
-			{weeklyDownloads}
-			{unpackedSize}
-			{updatedAt}
-			{analyzedAt}
-			{analysisDuration}
-		/>
+		<InfoSidebar {updatedAt} {analyzedAt} {analysisDuration} />
 	</div>
 </div>
 
