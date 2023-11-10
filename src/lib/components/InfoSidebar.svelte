@@ -15,7 +15,6 @@
 	import SystemInfoBugReport from '$lib/components/SystemInfoBugReport.svelte';
 	import SystemInfoUpdatedAt from '$lib/components/SystemInfoUpdatedAt.svelte';
 
-	export let updatedAt: string;
 	export let analyzedAt: string | undefined = undefined;
 	export let analysisDuration: number | undefined = undefined;
 </script>
@@ -40,7 +39,7 @@
 	<PackageInfoRunKit />
 
 	<div class="divider my-1">System Info</div>
-	<SystemInfoUpdatedAt {updatedAt} />
+	<SystemInfoUpdatedAt />
 	{#if analyzedAt && analysisDuration}
 		<SystemInfoAnalysisInfo {analyzedAt} {analysisDuration} />
 	{/if}

@@ -4,14 +4,17 @@
 	import QuickSearch from '$lib/components/QuickSearch.svelte';
 	import TocSidebar from '$lib/components/TocSidebar.svelte';
 	import { getPackageInfo } from '$lib/stores/package-info';
+	import { getPageInfo } from '$lib/stores/page-info';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
-	$: ({ updatedAt, analyzedAt, analysisDuration } = data);
+	$: ({ analyzedAt, analysisDuration } = data);
 
 	const packageInfo = getPackageInfo();
+	const pageInfo = getPageInfo();
 	$: $packageInfo = data;
+	$: $pageInfo = data;
 </script>
 
 <div class="flex grow justify-center">
@@ -20,7 +23,7 @@
 
 		<DocRoot />
 
-		<InfoSidebar {updatedAt} {analyzedAt} {analysisDuration} />
+		<InfoSidebar {analyzedAt} {analysisDuration} />
 	</div>
 </div>
 

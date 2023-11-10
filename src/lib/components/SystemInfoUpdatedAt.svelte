@@ -1,11 +1,13 @@
 <script lang="ts">
+	import { getPageInfo } from '$lib/stores/page-info';
 	import { formatDistanceStrict } from 'date-fns';
 	import { onMount } from 'svelte';
 	import IconUpdate from '~icons/material-symbols/update';
 
-	export let updatedAt: string;
+	const pageInfo = getPageInfo();
+	$: ({ updatedAt } = $pageInfo);
+	$: prettyUpdatedAt = updatedAt;
 
-	let prettyUpdatedAt = updatedAt;
 	onMount(() => {
 		prettyUpdatedAt = formatDistanceStrict(new Date(updatedAt), new Date(), {
 			addSuffix: true
