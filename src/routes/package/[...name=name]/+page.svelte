@@ -6,11 +6,13 @@
 	import { getPackageApi, setPackageApi } from '$lib/stores/package-api';
 	import { getPackageInfo } from '$lib/stores/package-info';
 	import { getPageInfo } from '$lib/stores/page-info';
+	import { setQuickSearchStores } from '$lib/stores/quick-search';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 
 	setPackageApi();
+	setQuickSearchStores();
 
 	const packageApi = getPackageApi();
 	const packageInfo = getPackageInfo();
