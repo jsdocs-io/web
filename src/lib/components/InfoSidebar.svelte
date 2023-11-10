@@ -11,12 +11,12 @@
 	import PackageInfoUnpkg from '$lib/components/PackageInfoUnpkg.svelte';
 	import PackageInfoVersion from '$lib/components/PackageInfoVersion.svelte';
 	import PackageInfoWeeklyDownloads from '$lib/components/PackageInfoWeeklyDownloads.svelte';
-	import SystemInfoAnalysisInfo from '$lib/components/SystemInfoAnalysisInfo.svelte';
 	import SystemInfoBugReport from '$lib/components/SystemInfoBugReport.svelte';
+	import SystemInfoPackageAnalysis from '$lib/components/SystemInfoPackageAnalysis.svelte';
 	import SystemInfoUpdatedAt from '$lib/components/SystemInfoUpdatedAt.svelte';
+	import { hasPackageApi } from '$lib/stores/package-api';
 
-	export let analyzedAt: string | undefined = undefined;
-	export let analysisDuration: number | undefined = undefined;
+	const showPackageAnalysisInfo = hasPackageApi();
 </script>
 
 <div class="hidden w-72 flex-col gap-2 self-start xl:flex">
@@ -40,8 +40,8 @@
 
 	<div class="divider my-1">System Info</div>
 	<SystemInfoUpdatedAt />
-	{#if analyzedAt && analysisDuration}
-		<SystemInfoAnalysisInfo {analyzedAt} {analysisDuration} />
+	{#if showPackageAnalysisInfo}
+		<SystemInfoPackageAnalysis />
 	{/if}
 	<SystemInfoBugReport />
 </div>
