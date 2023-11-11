@@ -5,6 +5,14 @@ import { z } from 'zod';
 const packageApiKey = Symbol();
 
 const packageApiSchema = z.object({
+	overview: z.string().optional(),
+	declarations: z.array(
+		z.object({
+			id: z.string(),
+			kind: z.enum(['variable', 'function', 'class', 'interface', 'enum', 'type', 'namespace']),
+			name: z.string()
+		})
+	),
 	analyzedAt: z.string(),
 	analysisDuration: z.number()
 });
