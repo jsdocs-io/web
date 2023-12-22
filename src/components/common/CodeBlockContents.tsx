@@ -12,6 +12,7 @@ const CodeBlockContents = ({
   // but preserve other whitespace that may be used for alignment.
   const code = trimNewlines(rawCode);
 
+  //below copyCodeToClipboard function is trigering a onclick event for coping the code. 
   const copyCodeToClipboard = () => {
     navigator.clipboard?.writeText(code);
   };
