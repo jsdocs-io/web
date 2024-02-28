@@ -1,4 +1,4 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "exclude": ["old"]
+	"extends": "astro/tsconfigs/strict",
+	"exclude": ["old"]
 }
