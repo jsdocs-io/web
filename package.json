@@ -13,17 +13,17 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.5.6",
-		"astro": "^4.4.6",
-		"typescript": "^5.3.3"
+		"astro": "^4.4.6"
 	},
 	"devDependencies": {
+		"@astrojs/check": "^0.5.6",
 		"@astrojs/tailwind": "^5.1.0",
 		"@tailwindcss/typography": "^0.5.10",
 		"daisyui": "^4.7.2",
 		"prettier": "^3.2.5",
 		"prettier-plugin-astro": "^0.13.0",
 		"prettier-plugin-tailwindcss": "^0.5.11",
-		"tailwindcss": "^3.4.1"
+		"tailwindcss": "^3.4.1",
+		"typescript": "^5.3.3"
 	}
 }
