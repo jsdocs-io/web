@@ -11,8 +11,8 @@
 		"astro": "astro",
 		"lint": "prettier --check .",
 		"format": "prettier --write .",
-		"test": "vitest src",
-		"test:ci": "vitest run src --coverage --bail 1"
+		"test": "vitest",
+		"test:ci": "vitest run --coverage --bail 1"
 	},
 	"dependencies": {
 		"@jsdocs-io/extractor": "1.0.0-1",
