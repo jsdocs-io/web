@@ -5,11 +5,11 @@ export const prerender = false;
 
 const { slug } = Astro.params;
 if (!slug) {
-	return Astro.redirect("/TODO:");
+	return Astro.redirect("/404");
 }
 const parseSlugResult = parsePackageSlug(slug);
 if (parseSlugResult.isErr()) {
-	return Astro.redirect("/TODO:");
+	return Astro.redirect("/404");
 }
 const { pkg, subpath } = parseSlugResult.value;
 ---
