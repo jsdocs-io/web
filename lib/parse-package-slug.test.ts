@@ -21,6 +21,16 @@ test("invalid scope marker", () => {
 	expect(parsePackageSlug("@").isErr()).toBe(true);
 });
 
+test("multiple at signs", () => {
+	expect(parsePackageSlug("@@@").isErr()).toBe(true);
+});
+
+test("at signs and slashes", () => {
+	expect(parsePackageSlug("/@@/").isErr()).toBe(true);
+	expect(parsePackageSlug("@///").isErr()).toBe(true);
+	expect(parsePackageSlug("@/@/@").isErr()).toBe(true);
+});
+
 test("invalid scoped name", () => {
 	expect(parsePackageSlug("@/bar").isErr()).toBe(true);
 });
