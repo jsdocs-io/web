@@ -21,3 +21,6 @@ pnpm-debug.log*
 
 # Vercel build output
 .vercel/
+
+# Vitest coverage
+coverage/

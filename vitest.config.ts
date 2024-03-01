@@ -2,5 +2,10 @@
 import { getViteConfig } from "astro/config";
 
 export default getViteConfig({
-	test: {},
+	test: {
+		pool: "forks",
+		coverage: {
+			include: ["src/**"],
+		},
+	},
 });

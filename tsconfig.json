@@ -1,4 +1,7 @@
 {
 	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"noUncheckedIndexedAccess": true
+	},
 	"exclude": ["old"]
 }
