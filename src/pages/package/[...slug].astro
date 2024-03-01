@@ -1,7 +1,19 @@
 ---
+import { parsePackageSlug } from "../../../lib/parse-package-slug";
+
 export const prerender = false;
 
 const { slug } = Astro.params;
+if (!slug) {
+	return Astro.redirect("/TODO:");
+}
+const parseSlugResult = parsePackageSlug(slug);
+if (parseSlugResult.isErr()) {
+	return Astro.redirect("/TODO:");
+}
+const { pkg, subpath } = parseSlugResult.value;
 ---
 
 <h1 class="text-3xl font-bold">{slug}</h1>
+<h2>Package: {pkg}</h2>
+<h2>Subpath: {subpath}</h2>
