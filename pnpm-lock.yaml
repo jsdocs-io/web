@@ -6,14 +6,14 @@ settings:
 
 dependencies:
   '@jsdocs-io/extractor':
-    specifier: 1.0.0-1
-    version: 1.0.0-1
+    specifier: 1.0.0-2
+    version: 1.0.0-2
   astro:
     specifier: ^4.4.8
     version: 4.4.8(@types/node@20.11.24)(typescript@5.3.3)
-  neverthrow:
-    specifier: ^6.1.0
-    version: 6.1.0
+  effect:
+    specifier: ^2.4.1
+    version: 2.4.1
   validate-npm-package-name:
     specifier: ^5.0.0
     version: 5.0.0
@@ -667,15 +667,15 @@ packages:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@jsdocs-io/extractor@1.0.0-1:
-    resolution: {integrity: sha512-h5mItDfSKSt5mO1AITfD17njHYCAKCfKgjkEwKLHhhK58e/h/r9Q8ewVfVm7SIS7OJcS0qdvgwZgqsJHNkcuag==}
+  /@jsdocs-io/extractor@1.0.0-2:
+    resolution: {integrity: sha512-EhPli8ohk+fnEiGi6hAiXSxfuOqNfr9YRfXHVfnhVT9qWC5OCL4p/pEZn59cMUHe1K6Y/gzkO+Q0N7VqbQcXlg==}
     engines: {node: '>=20'}
     dependencies:
       '@microsoft/tsdoc': 0.14.2
+      effect: 2.4.1
       execa: 8.0.1
       memoize: 10.0.0
       natural-orderby: 3.0.2
-      neverthrow: 6.1.0
       pathe: 1.1.2
       prettier: 3.2.5
       read-pkg: 9.0.1
@@ -1777,6 +1777,10 @@ packages:
 
   /eastasianwidth@0.2.0:
     resolution: {integrity: sha512-I88TYZWc9XiYHRQ4/3c5rjjfgkjhLyW2luGIheGERbNQ6OY7yTybanSpDXZa8y7VUP9YmDcYa+eyq4ca7iLqWA==}
+
+  /effect@2.4.1:
+    resolution: {integrity: sha512-YsoMB/EGCohGKFyTPYqaFe2B7UCU2MM303dkoowF8DNOdks/4q/00cyhTbBUmM/0FMDoUPmUi/AJ0Aj3E7vO1A==}
+    dev: false
 
   /electron-to-chromium@1.4.689:
     resolution: {integrity: sha512-GatzRKnGPS1go29ep25reM94xxd1Wj8ritU0yRhCJ/tr1Bg8gKnm6R9O/yPOhGQBoLMZ9ezfrpghNaTw97C/PQ==}
@@ -3039,10 +3043,6 @@ packages:
   /natural-orderby@3.0.2:
     resolution: {integrity: sha512-x7ZdOwBxZCEm9MM7+eQCjkrNLrW3rkBKNHVr78zbtqnMGVNlnDi6C/eUEYgxHNrcbu0ymvjzcwIL/6H1iHri9g==}
     engines: {node: '>=18'}
-    dev: false
-
-  /neverthrow@6.1.0:
-    resolution: {integrity: sha512-xNbNjp/6M5vUV+mststgneJN9eJeJCDSYSBTaf3vxgvcKooP+8L0ATFpM8DGfmH7UWKJeoa24Qi33tBP9Ya3zA==}
     dev: false
 
   /nlcst-to-string@3.1.1:
