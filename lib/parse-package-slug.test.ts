@@ -144,6 +144,46 @@ test("valid scoped name with version and subpath", async () => {
 	`);
 });
 
+test("valid bare name with version range and subpath", async () => {
+	await expect(_parsePackageSlug("foo@^1/my/sub/path")).resolves
+		.toMatchInlineSnapshot(`
+		{
+		  "pkg": "foo@^1",
+		  "subpath": "my/sub/path",
+		}
+	`);
+});
+
+test("valid scoped name with version range and subpath", async () => {
+	await expect(_parsePackageSlug("@foo/bar@^1/my/sub/path")).resolves
+		.toMatchInlineSnapshot(`
+		{
+		  "pkg": "@foo/bar@^1",
+		  "subpath": "my/sub/path",
+		}
+	`);
+});
+
+test("valid bare name with tag and subpath", async () => {
+	await expect(_parsePackageSlug("foo@latest/my/sub/path")).resolves
+		.toMatchInlineSnapshot(`
+		{
+		  "pkg": "foo@latest",
+		  "subpath": "my/sub/path",
+		}
+	`);
+});
+
+test("valid scoped name with tag and subpath", async () => {
+	await expect(_parsePackageSlug("@foo/bar@latest/my/sub/path")).resolves
+		.toMatchInlineSnapshot(`
+		{
+		  "pkg": "@foo/bar@latest",
+		  "subpath": "my/sub/path",
+		}
+	`);
+});
+
 test("valid bare name with trailing slash", async () => {
 	await expect(_parsePackageSlug("foo/")).resolves.toMatchInlineSnapshot(`
 		{
