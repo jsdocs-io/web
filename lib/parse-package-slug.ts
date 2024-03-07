@@ -13,6 +13,7 @@ export const parsePackageSlug = (slug: string) =>
 			return Effect.fail(new PackageNameError());
 		}
 		const beforeRest = !!second && !isScopedPackage ? [second] : [];
-		const subpath = [...beforeRest, ...rest].filter(Boolean).join("/") || ".";
+		const rawSubpath = [...beforeRest, ...rest].filter(Boolean).join("/");
+		const subpath = ["", pkgName].includes(rawSubpath) ? "." : rawSubpath;
 		return Effect.succeed({ pkg, subpath });
 	});
