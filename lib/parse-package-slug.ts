@@ -15,5 +15,5 @@ export const parsePackageSlug = (slug: string) =>
 		const beforeRest = !!second && !isScopedPackage ? [second] : [];
 		const rawSubpath = [...beforeRest, ...rest].filter(Boolean).join("/");
 		const subpath = ["", pkgName].includes(rawSubpath) ? "." : rawSubpath;
-		return Effect.succeed({ pkg, subpath });
+		return Effect.succeed({ pkg, pkgName, subpath });
 	});

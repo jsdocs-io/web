@@ -47,6 +47,7 @@ test("valid bare name", async () => {
 	await expect(_parsePackageSlug("foo")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo",
+		  "pkgName": "foo",
 		  "subpath": ".",
 		}
 	`);
@@ -56,6 +57,7 @@ test("valid scoped name", async () => {
 	await expect(_parsePackageSlug("@foo/bar")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar",
+		  "pkgName": "@foo/bar",
 		  "subpath": ".",
 		}
 	`);
@@ -77,6 +79,7 @@ test("valid bare name with version", async () => {
 	await expect(_parsePackageSlug("foo@1.0.0")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo@1.0.0",
+		  "pkgName": "foo",
 		  "subpath": ".",
 		}
 	`);
@@ -87,6 +90,7 @@ test("valid scoped name with version", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar@1.0.0",
+		  "pkgName": "@foo/bar",
 		  "subpath": ".",
 		}
 	`);
@@ -109,6 +113,7 @@ test("valid bare name with subpath", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo",
+		  "pkgName": "foo",
 		  "subpath": "my/sub/path",
 		}
 	`);
@@ -119,6 +124,7 @@ test("valid scoped name with subpath", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar",
+		  "pkgName": "@foo/bar",
 		  "subpath": "my/sub/path",
 		}
 	`);
@@ -128,6 +134,7 @@ test("valid bare name with same name subpath", async () => {
 	await expect(_parsePackageSlug("foo/foo")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo",
+		  "pkgName": "foo",
 		  "subpath": ".",
 		}
 	`);
@@ -138,6 +145,7 @@ test("valid scoped name with same name subpath", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar",
+		  "pkgName": "@foo/bar",
 		  "subpath": ".",
 		}
 	`);
@@ -148,6 +156,7 @@ test("valid bare name with version and subpath", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo@1.0.0",
+		  "pkgName": "foo",
 		  "subpath": "my/sub/path",
 		}
 	`);
@@ -158,6 +167,7 @@ test("valid scoped name with version and subpath", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar@1.0.0",
+		  "pkgName": "@foo/bar",
 		  "subpath": "my/sub/path",
 		}
 	`);
@@ -168,6 +178,7 @@ test("valid bare name with version and same name subpath", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo@1.0.0",
+		  "pkgName": "foo",
 		  "subpath": ".",
 		}
 	`);
@@ -178,6 +189,7 @@ test("valid scoped name with version and same name subpath", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar@1.0.0",
+		  "pkgName": "@foo/bar",
 		  "subpath": ".",
 		}
 	`);
@@ -188,6 +200,7 @@ test("valid bare name with version range and subpath", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo@^1",
+		  "pkgName": "foo",
 		  "subpath": "my/sub/path",
 		}
 	`);
@@ -198,6 +211,7 @@ test("valid scoped name with version range and subpath", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar@^1",
+		  "pkgName": "@foo/bar",
 		  "subpath": "my/sub/path",
 		}
 	`);
@@ -208,6 +222,7 @@ test("valid bare name with tag and subpath", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo@latest",
+		  "pkgName": "foo",
 		  "subpath": "my/sub/path",
 		}
 	`);
@@ -218,6 +233,7 @@ test("valid scoped name with tag and subpath", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar@latest",
+		  "pkgName": "@foo/bar",
 		  "subpath": "my/sub/path",
 		}
 	`);
@@ -227,6 +243,7 @@ test("valid bare name with trailing slash", async () => {
 	await expect(_parsePackageSlug("foo/")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo",
+		  "pkgName": "foo",
 		  "subpath": ".",
 		}
 	`);
@@ -236,6 +253,7 @@ test("valid scoped name with trailing slash", async () => {
 	await expect(_parsePackageSlug("@foo/bar/")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar",
+		  "pkgName": "@foo/bar",
 		  "subpath": ".",
 		}
 	`);
@@ -245,6 +263,7 @@ test("valid bare name with version and trailing slash", async () => {
 	await expect(_parsePackageSlug("foo@1.0.0/")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo@1.0.0",
+		  "pkgName": "foo",
 		  "subpath": ".",
 		}
 	`);
@@ -255,6 +274,7 @@ test("valid scoped name with version and trailing slash", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar@1.0.0",
+		  "pkgName": "@foo/bar",
 		  "subpath": ".",
 		}
 	`);
@@ -264,6 +284,7 @@ test("valid bare name with trailing slashes", async () => {
 	await expect(_parsePackageSlug("foo///")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo",
+		  "pkgName": "foo",
 		  "subpath": ".",
 		}
 	`);
@@ -274,6 +295,7 @@ test("valid scoped name with trailing slashes", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar",
+		  "pkgName": "@foo/bar",
 		  "subpath": ".",
 		}
 	`);
@@ -284,6 +306,7 @@ test("valid bare name with subpath with too much slashes", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo",
+		  "pkgName": "foo",
 		  "subpath": "my/sub/path",
 		}
 	`);
@@ -294,6 +317,7 @@ test("valid scoped name with subpath with too much slashes", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar",
+		  "pkgName": "@foo/bar",
 		  "subpath": "my/sub/path",
 		}
 	`);
@@ -304,6 +328,7 @@ test("wrong scoped name steals subpath", async () => {
 		.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/my",
+		  "pkgName": "@foo/my",
 		  "subpath": "sub/path",
 		}
 	`);
