@@ -2,8 +2,16 @@ import { Effect } from "effect";
 import { expect, test } from "vitest";
 import { parsePackageSlug } from "./parse-package-slug";
 
-const _parsePackageSlug = (slug: string) =>
+const _parsePackageSlug = (slug?: string) =>
 	Effect.runPromise(parsePackageSlug(slug));
+
+test("no slug", async () => {
+	await expect(_parsePackageSlug()).rejects.toThrow();
+});
+
+test("undefined slug", async () => {
+	await expect(_parsePackageSlug(undefined)).rejects.toThrow();
+});
 
 test("empty slug", async () => {
 	await expect(_parsePackageSlug("")).rejects.toThrow();

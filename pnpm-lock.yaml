@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@jsdocs-io/extractor':
-    specifier: 1.0.0-2
-    version: 1.0.0-2
+    specifier: 1.0.0-3
+    version: 1.0.0-3
   astro:
     specifier: ^4.4.8
     version: 4.4.8(@types/node@20.11.24)(typescript@5.3.3)
@@ -667,8 +667,8 @@ packages:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@jsdocs-io/extractor@1.0.0-2:
-    resolution: {integrity: sha512-EhPli8ohk+fnEiGi6hAiXSxfuOqNfr9YRfXHVfnhVT9qWC5OCL4p/pEZn59cMUHe1K6Y/gzkO+Q0N7VqbQcXlg==}
+  /@jsdocs-io/extractor@1.0.0-3:
+    resolution: {integrity: sha512-c3RMpm9m9TlFdesPhRqSuyFfvQKWHVZhSaUxRy48EnOK9rvpmS2uBYVnSqWkcF/UHXSLgyJXwjEkn7h+E2pwig==}
     engines: {node: '>=20'}
     dependencies:
       '@microsoft/tsdoc': 0.14.2

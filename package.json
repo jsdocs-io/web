@@ -15,7 +15,7 @@
 		"test:ci": "vitest run --coverage --bail 1"
 	},
 	"dependencies": {
-		"@jsdocs-io/extractor": "1.0.0-2",
+		"@jsdocs-io/extractor": "1.0.0-3",
 		"astro": "^4.4.8",
 		"effect": "^2.4.1",
 		"validate-npm-package-name": "^5.0.0"
