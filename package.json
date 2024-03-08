@@ -12,7 +12,8 @@
 		"lint": "prettier --check .",
 		"format": "prettier --write .",
 		"test": "vitest",
-		"test:ci": "vitest run --coverage --bail 1"
+		"test:ci": "vitest run --coverage --bail 1",
+		"pre-push": "pnpm i && pnpm lint && pnpm build && pnpm test:ci"
 	},
 	"dependencies": {
 		"@jsdocs-io/extractor": "1.0.0-3",
