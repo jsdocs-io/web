@@ -8,6 +8,9 @@ export const packagePageHandler = (slug = "") =>
 
 export const packagePageHandlerEffect = (slug = "") =>
 	Effect.gen(function* (_) {
+		if (!slug) {
+			return redirect("/");
+		}
 		const { pkg, pkgName, subpath } = yield* _(parsePackageSlug(slug));
 		const resolvedPkg = yield* _(resolvePackage({ pkg, pkgName }));
 		if (pkg !== resolvedPkg) {
