@@ -1,12 +1,20 @@
 ---
+import { packagePageHandler } from "../../../lib/package-page-handler";
+
 export const prerender = false;
 
 const { slug } = Astro.params;
-if (!slug) {
-	return Astro.redirect("/404");
+const out = await packagePageHandler(slug);
+if (out instanceof Response) {
+	return out;
 }
+
+const { pkg, pkgName, subpath } = out;
 ---
 
-<h1 class="text-3xl font-bold">{slug}</h1>
-<!-- <h2>Package: {pkg}</h2>
-<h2>Subpath: {subpath}</h2> -->
+<!-- <h1 class="text-3xl font-bold">{slug}</h1> -->
+<h2>Package: {pkg}</h2>
+<h2>Package name: {pkgName}</h2>
+<h2>Subpath: {subpath}</h2>
+<!-- <h2>API</h2> -->
+<!-- <pre>{JSON.stringify(pkgApi, null, 2)}</pre> -->
