@@ -12,6 +12,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup bun
+        uses: oven-sh/setup-bun@v1
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
