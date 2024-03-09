@@ -11,6 +11,7 @@ import { definitelyTypedName } from "./definitely-typed-name";
 import { isValidLicense } from "./is-valid-license";
 import { packagePagePath } from "./package-page-path";
 import { parsePackageSlug } from "./parse-package-slug";
+import { redirect } from "./redirect";
 
 export const packagePageHandler = (slug = "") =>
 	Effect.runPromise(Effect.scoped(packagePageHandlerEffect(slug)));
@@ -73,6 +74,3 @@ const packagePageHandlerEffect = (slug = "") =>
 			PackageJsonError: () => Effect.succeed(redirect("/500")),
 		}),
 	);
-
-const redirect = (path: string) =>
-	new Response(null, { status: 302, headers: { Location: path } });
