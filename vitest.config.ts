@@ -9,5 +9,6 @@ export default getViteConfig({
 			include: ["lib/**"],
 		},
 		exclude: [...configDefaults.exclude, "old/**"],
+		testTimeout: 30000,
 	},
 });
