@@ -10,5 +10,6 @@ export const resolvePackage = ({ pkg, pkgName }: ResolvePackageOptions) =>
 	Effect.gen(function* (_) {
 		const { path: cwd } = yield* _(workDir);
 		const packages = yield* _(installPackage({ pkg, cwd }));
-		return packages.find((p) => p.startsWith(`${pkgName}@`))!;
+		const id = packages.find((p) => p.startsWith(`${pkgName}@`))!;
+		return { id };
 	});

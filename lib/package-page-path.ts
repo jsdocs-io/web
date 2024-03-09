@@ -1,10 +1,10 @@
-export type PackageSlugPathOptions = {
+export type PackagePagePathOptions = {
 	resolvedPkg: string;
 	subpath: string;
 };
 
-export const packageSlugPath = ({
+export const packagePagePath = ({
 	resolvedPkg,
 	subpath,
-}: PackageSlugPathOptions) =>
+}: PackagePagePathOptions) =>
 	["/package", resolvedPkg, ...(subpath !== "." ? [subpath] : [])].join("/");

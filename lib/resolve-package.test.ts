@@ -47,7 +47,11 @@ test("package version found", async () => {
 			pkg: "@jsdocs-io/extractor@0.4.0",
 			pkgName: "@jsdocs-io/extractor",
 		}),
-	).resolves.toMatchInlineSnapshot(`"@jsdocs-io/extractor@0.4.0"`);
+	).resolves.toMatchInlineSnapshot(`
+		{
+		  "id": "@jsdocs-io/extractor@0.4.0",
+		}
+	`);
 });
 
 test("package range found", async () => {
@@ -56,5 +60,9 @@ test("package range found", async () => {
 			pkg: "@jsdocs-io/extractor@^0",
 			pkgName: "@jsdocs-io/extractor",
 		}),
-	).resolves.toMatchInlineSnapshot(`"@jsdocs-io/extractor@0.4.0"`);
+	).resolves.toMatchInlineSnapshot(`
+		{
+		  "id": "@jsdocs-io/extractor@0.4.0",
+		}
+	`);
 });
