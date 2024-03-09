@@ -18,7 +18,9 @@ export const packagePageHandler = (slug = "") =>
 const packagePageHandlerEffect = (slug = "") =>
 	Effect.gen(function* (_) {
 		// Parse page slug.
+		yield* _(Effect.logInfo({ slug }));
 		const { pkg, pkgName, subpath } = yield* _(parsePackageSlug(slug));
+		yield* _(Effect.logInfo({ pkg, pkgName, subpath }));
 
 		// Install the package to let bun resolve the correct version.
 		const { path: cwd } = yield* _(workDir);
@@ -31,12 +33,16 @@ const packagePageHandlerEffect = (slug = "") =>
 		// Redirect to the resolved package version page if necessary.
 		const resolvedPkg = pkgJson._id;
 		if (pkg !== resolvedPkg) {
+			yield* _(Effect.logInfo({ resolvedPkg }));
 			return redirect(packagePagePath({ resolvedPkg, subpath }));
 		}
 
 		// Check if the package has an SPDX license.
-		if (!isValidLicense(pkgJson.license)) {
-			return { pkgJson, warning: "invalid-license" as const };
+		const { license } = pkgJson;
+		if (!isValidLicense(license)) {
+			const warning = "invalid-license" as const;
+			yield* _(Effect.logWarning({ resolvedPkg, warning, license }));
+			return { pkgJson, warning };
 		}
 
 		// Check if the package has type definitions and if not
@@ -44,17 +50,17 @@ const packagePageHandlerEffect = (slug = "") =>
 		const types = yield* _(Effect.either(packageTypes(pkgJson, subpath)));
 		if (Either.isLeft(types)) {
 			const dtPkgName = definitelyTypedName(pkgName);
-			if (dtPkgName === pkgName) {
-				// Deprecated DefinitelyTyped packages have no types.
-				return { pkgJson, warning: "no-types" as const };
-			}
 			const dtPkgs = yield* _(
 				Effect.either(installPackage({ pkg: dtPkgName, cwd, bunPath })),
 			);
-			if (Either.isLeft(dtPkgs)) {
-				return { pkgJson, warning: "no-types" as const };
+			if (Either.isLeft(dtPkgs) || dtPkgName === pkgName) {
+				const warning = "no-types" as const;
+				yield* _(Effect.logWarning({ resolvedPkg, warning }));
+				return { pkgJson, warning };
 			}
-			return { pkgJson, dtPkgName, warning: "definitely-typed" as const };
+			const info = "definitely-typed" as const;
+			yield* _(Effect.logInfo({ resolvedPkg, info, dtPkgName }));
+			return { pkgJson, info, dtPkgName };
 		}
 
 		//
