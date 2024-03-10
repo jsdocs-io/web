@@ -324,3 +324,34 @@ test("wrong scoped name steals subpath", async () => {
 		}
 	`);
 });
+
+test("invalid git dependencies", async () => {
+	// Git dependencies are supported by bun but not by jsdocs.io.
+	await expect(_parsePackagePageSlug("git+http://github.com/user/repo.git")).rejects.toThrow();
+	await expect(_parsePackagePageSlug("git+https://github.com/user/repo.git")).rejects.toThrow();
+	await expect(_parsePackagePageSlug("git+ssh://github.com/user/repo.git#1.0.0")).rejects.toThrow();
+	await expect(_parsePackagePageSlug("git://github.com:user/repo.git")).rejects.toThrow();
+	await expect(_parsePackagePageSlug("git@github.com:user/repo.git")).rejects.toThrow();
+	await expect(_parsePackagePageSlug("github:user/repo")).rejects.toThrow();
+	await expect(_parsePackagePageSlug("gitlab:user/repo")).rejects.toThrow();
+	await expect(_parsePackagePageSlug("bitbucket:user/repo")).rejects.toThrow();
+});
+
+test("invalid tarball dependencies", async () => {
+	// Tarball dependencies are supported by bun but not by jsdocs.io.
+	await expect(_parsePackagePageSlug("foo@https://example.com/foo.tgz")).rejects.toThrow();
+});
+
+test("invalid path dependencies", async () => {
+	await expect(_parsePackagePageSlug("../some/path")).rejects.toThrow();
+	await expect(_parsePackagePageSlug("./some/path")).rejects.toThrow();
+	await expect(_parsePackagePageSlug("~/some/path")).rejects.toThrow();
+	await expect(_parsePackagePageSlug("/some/path")).rejects.toThrow();
+});
+
+test("invalid file dependencies", async () => {
+	await expect(_parsePackagePageSlug("file:../some/path")).rejects.toThrow();
+	await expect(_parsePackagePageSlug("file:./some/path")).rejects.toThrow();
+	await expect(_parsePackagePageSlug("file:~/some/path")).rejects.toThrow();
+	await expect(_parsePackagePageSlug("file:/some/path")).rejects.toThrow();
+});
