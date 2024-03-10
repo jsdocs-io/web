@@ -1,4 +1,10 @@
-import { installPackage, packageJson, packageTypes, workDir } from "@jsdocs-io/extractor";
+import {
+	extractPackageApiEffect as extractPackageApi,
+	installPackage,
+	packageJson,
+	packageTypes,
+	workDir,
+} from "@jsdocs-io/extractor";
 import { Effect, Either } from "effect";
 import { join } from "pathe";
 import { bunPath } from "./bun-path";
@@ -14,6 +20,7 @@ export const packagePageHandler = (slug = "") =>
 const packagePageHandlerEffect = (slug = "") =>
 	Effect.gen(function* (_) {
 		yield* _(Effect.logInfo(`handle: /package/${slug}`));
+		const startTime = performance.now();
 
 		// Parse package page slug.
 		const parseRes = yield* _(Effect.either(parsePackagePageSlug(slug)));
@@ -60,7 +67,11 @@ const packagePageHandlerEffect = (slug = "") =>
 		const { license } = pkgJson;
 		if (!isValidLicense(license)) {
 			yield* _(Effect.logWarning(`invalid license: ${pkg} (${license})`));
-			return { status: "invalid-license" as const, pkgJson };
+			return {
+				status: "invalid-license" as const,
+				pkgJson,
+				...generatedTimestamp(startTime),
+			};
 		}
 
 		// Check if the package provides type definitions and if not
@@ -75,13 +86,42 @@ const packagePageHandlerEffect = (slug = "") =>
 				Either.isLeft(yield* _(Effect.either(installPackage({ pkg: dtPkgName, cwd, bunPath }))))
 			) {
 				yield* _(Effect.logWarning(`no types: ${pkg}`));
-				return { status: "no-types" as const, pkgJson };
+				return {
+					status: "no-types" as const,
+					pkgJson,
+					...generatedTimestamp(startTime),
+				};
 			} else {
 				// DT package is available.
-				return { status: "definitely-typed" as const, pkgJson, dtPkgName };
+				return {
+					status: "definitely-typed" as const,
+					pkgJson,
+					dtPkgName,
+					...generatedTimestamp(startTime),
+				};
 			}
 		}
 
-		//
-		return { status: "ok" as const, pkgJson };
+		// Extract the package API.
+		const pkgApiRes = yield* _(Effect.either(extractPackageApi({ pkg, subpath, bunPath })));
+		if (Either.isLeft(pkgApiRes)) {
+			yield* _(Effect.logError(pkgApiRes.left));
+			return {
+				status: "no-api" as const,
+				pkgJson,
+				...generatedTimestamp(startTime),
+			};
+		}
+		const pkgApi = pkgApiRes.right;
+		return {
+			status: "with-api" as const,
+			pkgJson,
+			pkgApi,
+			...generatedTimestamp(startTime),
+		};
 	});
+
+const generatedTimestamp = (startTime: number) => ({
+	generatedAt: new Date().toISOString(),
+	generatedIn: Math.round(performance.now() - startTime),
+});
