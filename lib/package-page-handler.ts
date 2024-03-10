@@ -15,7 +15,7 @@ const packagePageHandlerEffect = (slug = "") =>
 	Effect.gen(function* (_) {
 		yield* _(Effect.logInfo(`handle: /package/${slug}`));
 
-		// Parse page slug.
+		// Parse package page slug.
 		const parseRes = yield* _(Effect.either(parsePackagePageSlug(slug)));
 		if (Either.isLeft(parseRes)) {
 			yield* _(Effect.logError(parseRes.left));
