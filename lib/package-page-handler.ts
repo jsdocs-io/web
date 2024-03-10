@@ -5,7 +5,7 @@ import { bunPath } from "./bun-path";
 import { definitelyTypedName } from "./definitely-typed-name";
 import { isValidLicense } from "./is-valid-license";
 import { packagePagePath } from "./package-page-path";
-import { parsePackageSlug } from "./parse-package-slug";
+import { parsePackagePageSlug } from "./parse-package-page-slug";
 import { redirect } from "./redirect";
 
 export const packagePageHandler = (slug = "") =>
@@ -13,57 +13,75 @@ export const packagePageHandler = (slug = "") =>
 
 const packagePageHandlerEffect = (slug = "") =>
 	Effect.gen(function* (_) {
+		yield* _(Effect.logInfo(`handle: /package/${slug}`));
+
 		// Parse page slug.
-		yield* _(Effect.logInfo({ slug }));
-		const { pkg, pkgName, subpath } = yield* _(parsePackageSlug(slug));
-		yield* _(Effect.logInfo({ pkg, pkgName, subpath }));
+		const parseRes = yield* _(Effect.either(parsePackagePageSlug(slug)));
+		if (Either.isLeft(parseRes)) {
+			yield* _(Effect.logError(parseRes.left));
+			return redirect("/404");
+		}
+		const { pkg, pkgName, subpath } = parseRes.right;
+
+		// Get temporary work directory.
+		const workDirRes = yield* _(Effect.either(workDir));
+		if (Either.isLeft(workDirRes)) {
+			yield* _(Effect.logError(workDirRes.left));
+			return redirect("/500");
+		}
+		const { path: cwd } = workDirRes.right;
 
 		// Install the package to let bun resolve the correct version.
-		const { path: cwd } = yield* _(workDir);
-		yield* _(installPackage({ pkg, cwd, bunPath }));
+		// Assume that installation errors are only caused by non existing packages.
+		const installRes = yield* _(Effect.either(installPackage({ pkg, cwd, bunPath })));
+		if (Either.isLeft(installRes)) {
+			yield* _(Effect.logError(installRes.left));
+			return redirect("/404");
+		}
+		const packages = installRes.right;
+
+		// Redirect to the resolved package version page if necessary.
+		const resolvedPkg = packages.find((p) => p.startsWith(`${pkgName}@`))!;
+		if (pkg !== resolvedPkg) {
+			yield* _(Effect.logInfo(`redirect: ${pkg} -> ${resolvedPkg}`));
+			return redirect(packagePagePath({ resolvedPkg, subpath }));
+		}
 
 		// Read `package.json`.
 		const pkgDir = join(cwd, "node_modules", pkgName);
-		const pkgJson = yield* _(packageJson(pkgDir));
-
-		// Redirect to the resolved package version page if necessary.
-		const resolvedPkg = pkgJson._id;
-		if (pkg !== resolvedPkg) {
-			yield* _(Effect.logInfo({ resolvedPkg }));
-			return redirect(packagePagePath({ resolvedPkg, subpath }));
+		const pkgJsonRes = yield* _(Effect.either(packageJson(pkgDir)));
+		if (Either.isLeft(pkgJsonRes)) {
+			yield* _(Effect.logError(pkgJsonRes.left));
+			return redirect("/500");
 		}
+		const pkgJson = pkgJsonRes.right;
 
 		// Check if the package has an SPDX license.
 		const { license } = pkgJson;
 		if (!isValidLicense(license)) {
-			const warning = "invalid-license" as const;
-			yield* _(Effect.logWarning({ resolvedPkg, warning, license }));
-			return { pkgJson, warning };
+			yield* _(Effect.logWarning(`invalid license: ${pkg} (${license})`));
+			return { status: "invalid-license" as const, pkgJson };
 		}
 
-		// Check if the package has type definitions and if not
-		// check if there is a DefinitelyTyped package available.
-		const types = yield* _(Effect.either(packageTypes(pkgJson, subpath)));
-		if (Either.isLeft(types)) {
+		// Check if the package provides type definitions and if not
+		// check if there is an associated DefinitelyTyped (DT) package.
+		const typesRes = yield* _(packageTypes(pkgJson, subpath).pipe(Effect.either));
+		if (Either.isLeft(typesRes)) {
 			const dtPkgName = definitelyTypedName(pkgName);
-			const dtPkgs = yield* _(Effect.either(installPackage({ pkg: dtPkgName, cwd, bunPath })));
-			if (Either.isLeft(dtPkgs) || dtPkgName === pkgName) {
-				const warning = "no-types" as const;
-				yield* _(Effect.logWarning({ resolvedPkg, warning }));
-				return { pkgJson, warning };
+			if (
+				// This DT package is deprecated (exists and has no types).
+				dtPkgName === pkgName ||
+				// DT package not found (failed to install).
+				Either.isLeft(yield* _(Effect.either(installPackage({ pkg: dtPkgName, cwd, bunPath }))))
+			) {
+				yield* _(Effect.logWarning(`no types: ${pkg}`));
+				return { status: "no-types" as const, pkgJson };
+			} else {
+				// DT package is available.
+				return { status: "definitely-typed" as const, pkgJson, dtPkgName };
 			}
-			const info = "definitely-typed" as const;
-			yield* _(Effect.logInfo({ resolvedPkg, info, dtPkgName }));
-			return { pkgJson, info, dtPkgName };
 		}
 
 		//
-		return { pkgJson };
-	}).pipe(
-		Effect.catchTags({
-			PackageNameError: () => Effect.succeed(redirect("/404")),
-			InstallPackageError: () => Effect.succeed(redirect("/404")),
-			WorkDirError: () => Effect.succeed(redirect("/500")),
-			PackageJsonError: () => Effect.succeed(redirect("/500")),
-		}),
-	);
+		return { status: "ok" as const, pkgJson };
+	});
