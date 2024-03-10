@@ -1,7 +1,7 @@
 import { packageName } from "@jsdocs-io/extractor";
 import { Effect } from "effect";
 
-export const parsePackageSlug = (slug = "") =>
+export const parsePackagePageSlug = (slug = "") =>
 	Effect.gen(function* (_) {
 		const [first, second, ...rest] = slug.split("/") as [string, ...string[]];
 		const isScopedPackage = first.startsWith("@") && !!second;
