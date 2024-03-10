@@ -1,9 +1,4 @@
-import {
-	installPackage,
-	packageJson,
-	packageTypes,
-	workDir,
-} from "@jsdocs-io/extractor";
+import { installPackage, packageJson, packageTypes, workDir } from "@jsdocs-io/extractor";
 import { Effect, Either } from "effect";
 import { join } from "pathe";
 import { bunPath } from "./bun-path";
@@ -51,9 +46,7 @@ const packagePageHandlerEffect = (slug = "") =>
 		const types = yield* _(Effect.either(packageTypes(pkgJson, subpath)));
 		if (Either.isLeft(types)) {
 			const dtPkgName = definitelyTypedName(pkgName);
-			const dtPkgs = yield* _(
-				Effect.either(installPackage({ pkg: dtPkgName, cwd, bunPath })),
-			);
+			const dtPkgs = yield* _(Effect.either(installPackage({ pkg: dtPkgName, cwd, bunPath })));
 			if (Either.isLeft(dtPkgs) || dtPkgName === pkgName) {
 				const warning = "no-types" as const;
 				yield* _(Effect.logWarning({ resolvedPkg, warning }));

@@ -2,8 +2,7 @@ import { Effect } from "effect";
 import { expect, test } from "vitest";
 import { parsePackageSlug } from "./parse-package-slug";
 
-const _parsePackageSlug = (slug?: string) =>
-	Effect.runPromise(parsePackageSlug(slug));
+const _parsePackageSlug = (slug?: string) => Effect.runPromise(parsePackageSlug(slug));
 
 test("no slug", async () => {
 	await expect(_parsePackageSlug()).rejects.toThrow();
@@ -94,8 +93,7 @@ test("valid bare name with version", async () => {
 });
 
 test("valid scoped name with version", async () => {
-	await expect(_parsePackageSlug("@foo/bar@1.0.0")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("@foo/bar@1.0.0")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar@1.0.0",
 		  "pkgName": "@foo/bar",
@@ -117,8 +115,7 @@ test("invalid scoped name with subpath", async () => {
 });
 
 test("valid bare name with subpath", async () => {
-	await expect(_parsePackageSlug("foo/my/sub/path")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("foo/my/sub/path")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo",
 		  "pkgName": "foo",
@@ -128,8 +125,7 @@ test("valid bare name with subpath", async () => {
 });
 
 test("valid scoped name with subpath", async () => {
-	await expect(_parsePackageSlug("@foo/bar/my/sub/path")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("@foo/bar/my/sub/path")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar",
 		  "pkgName": "@foo/bar",
@@ -149,8 +145,7 @@ test("valid bare name with same name subpath", async () => {
 });
 
 test("valid scoped name with same name subpath", async () => {
-	await expect(_parsePackageSlug("@foo/bar/@foo/bar")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("@foo/bar/@foo/bar")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar",
 		  "pkgName": "@foo/bar",
@@ -160,8 +155,7 @@ test("valid scoped name with same name subpath", async () => {
 });
 
 test("valid bare name with version and subpath", async () => {
-	await expect(_parsePackageSlug("foo@1.0.0/my/sub/path")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("foo@1.0.0/my/sub/path")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo@1.0.0",
 		  "pkgName": "foo",
@@ -171,8 +165,7 @@ test("valid bare name with version and subpath", async () => {
 });
 
 test("valid scoped name with version and subpath", async () => {
-	await expect(_parsePackageSlug("@foo/bar@1.0.0/my/sub/path")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("@foo/bar@1.0.0/my/sub/path")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar@1.0.0",
 		  "pkgName": "@foo/bar",
@@ -182,8 +175,7 @@ test("valid scoped name with version and subpath", async () => {
 });
 
 test("valid bare name with version and same name subpath", async () => {
-	await expect(_parsePackageSlug("foo@1.0.0/foo")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("foo@1.0.0/foo")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo@1.0.0",
 		  "pkgName": "foo",
@@ -193,8 +185,7 @@ test("valid bare name with version and same name subpath", async () => {
 });
 
 test("valid scoped name with version and same name subpath", async () => {
-	await expect(_parsePackageSlug("@foo/bar@1.0.0/@foo/bar")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("@foo/bar@1.0.0/@foo/bar")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar@1.0.0",
 		  "pkgName": "@foo/bar",
@@ -204,8 +195,7 @@ test("valid scoped name with version and same name subpath", async () => {
 });
 
 test("valid bare name with version range and subpath", async () => {
-	await expect(_parsePackageSlug("foo@^1/my/sub/path")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("foo@^1/my/sub/path")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo@^1",
 		  "pkgName": "foo",
@@ -215,8 +205,7 @@ test("valid bare name with version range and subpath", async () => {
 });
 
 test("valid scoped name with version range and subpath", async () => {
-	await expect(_parsePackageSlug("@foo/bar@^1/my/sub/path")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("@foo/bar@^1/my/sub/path")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar@^1",
 		  "pkgName": "@foo/bar",
@@ -226,8 +215,7 @@ test("valid scoped name with version range and subpath", async () => {
 });
 
 test("valid bare name with tag and subpath", async () => {
-	await expect(_parsePackageSlug("foo@latest/my/sub/path")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("foo@latest/my/sub/path")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo@latest",
 		  "pkgName": "foo",
@@ -237,8 +225,7 @@ test("valid bare name with tag and subpath", async () => {
 });
 
 test("valid scoped name with tag and subpath", async () => {
-	await expect(_parsePackageSlug("@foo/bar@latest/my/sub/path")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("@foo/bar@latest/my/sub/path")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar@latest",
 		  "pkgName": "@foo/bar",
@@ -278,8 +265,7 @@ test("valid bare name with version and trailing slash", async () => {
 });
 
 test("valid scoped name with version and trailing slash", async () => {
-	await expect(_parsePackageSlug("@foo/bar@1.0.0/")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("@foo/bar@1.0.0/")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar@1.0.0",
 		  "pkgName": "@foo/bar",
@@ -299,8 +285,7 @@ test("valid bare name with trailing slashes", async () => {
 });
 
 test("valid scoped name with trailing slashes", async () => {
-	await expect(_parsePackageSlug("@foo/bar///")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("@foo/bar///")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar",
 		  "pkgName": "@foo/bar",
@@ -310,8 +295,7 @@ test("valid scoped name with trailing slashes", async () => {
 });
 
 test("valid bare name with subpath with too much slashes", async () => {
-	await expect(_parsePackageSlug("foo//my//sub//path")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("foo//my//sub//path")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "foo",
 		  "pkgName": "foo",
@@ -321,8 +305,7 @@ test("valid bare name with subpath with too much slashes", async () => {
 });
 
 test("valid scoped name with subpath with too much slashes", async () => {
-	await expect(_parsePackageSlug("@foo/bar//my//sub//path")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("@foo/bar//my//sub//path")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/bar",
 		  "pkgName": "@foo/bar",
@@ -332,8 +315,7 @@ test("valid scoped name with subpath with too much slashes", async () => {
 });
 
 test("wrong scoped name steals subpath", async () => {
-	await expect(_parsePackageSlug("@foo/my/sub/path")).resolves
-		.toMatchInlineSnapshot(`
+	await expect(_parsePackageSlug("@foo/my/sub/path")).resolves.toMatchInlineSnapshot(`
 		{
 		  "pkg": "@foo/my",
 		  "pkgName": "@foo/my",
