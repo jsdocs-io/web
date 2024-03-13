@@ -77,7 +77,7 @@ const packagePageHandlerEffect = (slug = "") =>
 
 		// Check if the package provides type definitions and if not
 		// check if there is an associated DefinitelyTyped (DT) package.
-		const typesRes = yield* _(packageTypes(pkgJson, subpath).pipe(Effect.either));
+		const typesRes = yield* _(Effect.either(packageTypes(pkgJson, subpath)));
 		if (Either.isLeft(typesRes)) {
 			const dtPkgName = definitelyTypedName(pkgName);
 			if (
