@@ -5,9 +5,10 @@ import {
 	packageTypes,
 	workDir,
 } from "@jsdocs-io/extractor";
-import { Effect, Either } from "effect";
+import { Effect, Either, Option } from "effect";
 import { join } from "pathe";
 import { bunPath } from "./bun-path";
+import { Db } from "./db";
 import { findDefinitelyTypedPackage } from "./find-definitely-typed-package";
 import { isValidLicense } from "./is-valid-license";
 import { packagePagePath } from "./package-page-path";
@@ -96,6 +97,25 @@ const packagePageHandlerEffect = (slug = "") =>
 			};
 		}
 
+		// Check if the DB already has the package API.
+		const maybeDb = yield* _(Effect.serviceOption(Db));
+		if (Option.isNone(maybeDb)) {
+			yield* _(Effect.logWarning(`no database service`));
+		} else {
+			const db = maybeDb.value;
+			const pkgApiRes = yield* _(Effect.either(db.getPackageApi({ pkg, subpath })));
+			if (Either.isRight(pkgApiRes)) {
+				yield* _(Effect.logInfo(`found in DB: ${pkg}/${subpath}`));
+				const pkgApi = pkgApiRes.right;
+				return {
+					status: "with-api" as const,
+					pkgJson,
+					pkgApi,
+					...generatedTimestamp(startTime),
+				};
+			}
+		}
+
 		// Extract the package API.
 		const pkgApiRes = yield* _(Effect.either(extractPackageApi({ pkg, subpath, bunPath })));
 		if (Either.isLeft(pkgApiRes)) {
@@ -107,6 +127,18 @@ const packagePageHandlerEffect = (slug = "") =>
 			};
 		}
 		const pkgApi = pkgApiRes.right;
+
+		// Store the package API in the DB.
+		if (Option.isSome(maybeDb)) {
+			const db = maybeDb.value;
+			const setDbRes = yield* _(Effect.either(db.setPackageApi({ pkg, subpath, pkgApi })));
+			if (Either.isLeft(setDbRes)) {
+				yield* _(Effect.logError(setDbRes.left));
+			}
+			yield* _(Effect.logInfo(`stored in DB: ${pkg}/${subpath}`));
+		}
+
+		// Return data for rendering.
 		return {
 			status: "with-api" as const,
 			pkgJson,
