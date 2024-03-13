@@ -81,7 +81,7 @@ const packagePageHandlerEffect = (slug = "") =>
 		if (Either.isLeft(typesRes)) {
 			const dtPkgName = definitelyTypedName(pkgName);
 			if (
-				// This is a deprecated DT package (exists and has no types).
+				// This `pkg` is a deprecated DT package (exists and has no types).
 				dtPkgName === pkgName ||
 				// DT package not found (failed to install).
 				Either.isLeft(yield* _(Effect.either(installPackage({ pkg: dtPkgName, cwd, bunPath }))))
