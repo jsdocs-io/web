@@ -8,7 +8,7 @@ import {
 import { Effect, Either } from "effect";
 import { join } from "pathe";
 import { bunPath } from "./bun-path";
-import { definitelyTypedName } from "./definitely-typed-name";
+import { findDefinitelyTypedPackage } from "./find-definitely-typed-package";
 import { isValidLicense } from "./is-valid-license";
 import { packagePagePath } from "./package-page-path";
 import { parsePackagePageSlug } from "./parse-package-page-slug";
@@ -79,28 +79,21 @@ const packagePageHandlerEffect = (slug = "") =>
 		// check if there is an associated DefinitelyTyped (DT) package.
 		const typesRes = yield* _(Effect.either(packageTypes(pkgJson, subpath)));
 		if (Either.isLeft(typesRes)) {
-			const dtPkgName = definitelyTypedName(pkgName);
-			if (
-				// This `pkg` is a deprecated DT package (exists and has no types).
-				dtPkgName === pkgName ||
-				// DT package not found (failed to install).
-				Either.isLeft(yield* _(Effect.either(installPackage({ pkg: dtPkgName, cwd, bunPath }))))
-			) {
+			const dtPkgName = yield* _(findDefinitelyTypedPackage({ pkgName, cwd }));
+			if (!dtPkgName) {
 				yield* _(Effect.logWarning(`no types: ${pkg}`));
 				return {
 					status: "no-types" as const,
 					pkgJson,
 					...generatedTimestamp(startTime),
 				};
-			} else {
-				// DT package is available.
-				return {
-					status: "definitely-typed" as const,
-					pkgJson,
-					dtPkgName,
-					...generatedTimestamp(startTime),
-				};
 			}
+			return {
+				status: "definitely-typed" as const,
+				pkgJson,
+				dtPkgName,
+				...generatedTimestamp(startTime),
+			};
 		}
 
 		// Extract the package API.
