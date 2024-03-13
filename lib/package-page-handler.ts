@@ -13,6 +13,7 @@ import { isValidLicense } from "./is-valid-license";
 import { packagePagePath } from "./package-page-path";
 import { parsePackagePageSlug } from "./parse-package-page-slug";
 import { redirect } from "./redirect";
+import { resolvePackage } from "./resolve-package";
 
 export const packagePageHandler = (slug = "") =>
 	Effect.runPromise(Effect.scoped(packagePageHandlerEffect(slug)));
@@ -48,7 +49,7 @@ const packagePageHandlerEffect = (slug = "") =>
 		const packages = installRes.right;
 
 		// Redirect to the resolved package version page if necessary.
-		const resolvedPkg = packages.find((p) => p.startsWith(`${pkgName}@`))!;
+		const resolvedPkg = resolvePackage({ pkgName, packages });
 		if (pkg !== resolvedPkg) {
 			yield* _(Effect.logInfo(`redirect: ${pkg} -> ${resolvedPkg}`));
 			return redirect(packagePagePath({ resolvedPkg, subpath }));

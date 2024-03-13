@@ -1,15 +1,9 @@
-import { installPackage, workDir } from "@jsdocs-io/extractor";
-import { Effect } from "effect";
-
 export type ResolvePackageOptions = {
-	pkg: string;
 	pkgName: string;
+	packages: string[];
 };
 
-export const resolvePackage = ({ pkg, pkgName }: ResolvePackageOptions) =>
-	Effect.gen(function* (_) {
-		const { path: cwd } = yield* _(workDir);
-		const packages = yield* _(installPackage({ pkg, cwd }));
-		const id = packages.find((p) => p.startsWith(`${pkgName}@`))!;
-		return { id };
-	});
+export const resolvePackage = ({ pkgName, packages }: ResolvePackageOptions) =>
+	// For the given package name (e.g., `foo`), find the corresponding installed
+	// version ID (e.g., `foo@1.0.0`) in the list of installed packages.
+	packages.find((p) => p.startsWith(`${pkgName}@`))!;
