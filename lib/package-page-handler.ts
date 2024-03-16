@@ -1,6 +1,7 @@
 import {
+	PackageManager,
+	bunPackageManager,
 	extractPackageApiEffect as extractPackageApi,
-	installPackage,
 	packageJson,
 	packageTypes,
 	workDir,
@@ -17,7 +18,11 @@ import { redirect } from "./redirect";
 import { resolvePackage } from "./resolve-package";
 
 export const packagePageHandler = (slug = "") =>
-	Effect.runPromise(Effect.scoped(packagePageHandlerEffect(slug)));
+	packagePageHandlerEffect(slug).pipe(
+		Effect.scoped,
+		Effect.provideService(PackageManager, bunPackageManager(bunPath)),
+		Effect.runPromise,
+	);
 
 const packagePageHandlerEffect = (slug = "") =>
 	Effect.gen(function* (_) {
@@ -42,7 +47,8 @@ const packagePageHandlerEffect = (slug = "") =>
 
 		// Install the package to let bun resolve the correct version.
 		// Assume that installation errors are only caused by non existing packages.
-		const installRes = yield* _(Effect.either(installPackage({ pkg, cwd, bunPath })));
+		const pm = yield* _(PackageManager);
+		const installRes = yield* _(Effect.either(pm.installPackage({ pkg, cwd })));
 		if (Either.isLeft(installRes)) {
 			yield* _(Effect.logError(installRes.left));
 			return redirect("/404");

@@ -1,3 +1,4 @@
+import { PackageManager, bunPackageManager } from "@jsdocs-io/extractor";
 import { Effect } from "effect";
 import { temporaryDirectoryTask } from "tempy";
 import { expect, test } from "vitest";
@@ -7,7 +8,10 @@ import {
 } from "./find-definitely-typed-package";
 
 const _findDefinitelyTypedPackage = (opts: FindDefinitelyTypedPackageOptions) =>
-	Effect.runPromise(findDefinitelyTypedPackage(opts));
+	findDefinitelyTypedPackage(opts).pipe(
+		Effect.provideService(PackageManager, bunPackageManager()),
+		Effect.runPromise,
+	);
 
 test("deprecated DT package", async () => {
 	await temporaryDirectoryTask(async (cwd) => {
