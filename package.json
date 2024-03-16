@@ -16,20 +16,20 @@
 		"pre-push": "pnpm i && pnpm lint && pnpm build && pnpm test:ci"
 	},
 	"dependencies": {
-		"@jsdocs-io/extractor": "1.0.0-4",
-		"astro": "^4.5.0",
-		"effect": "^2.4.3",
+		"@jsdocs-io/extractor": "1.0.0-5",
+		"astro": "^4.5.5",
+		"effect": "^2.4.7",
 		"pathe": "^1.1.2",
 		"validate-npm-package-name": "^5.0.0"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.5.7",
+		"@astrojs/check": "^0.5.9",
 		"@astrojs/tailwind": "^5.1.0",
 		"@astrojs/vercel": "^7.3.6",
 		"@tailwindcss/typography": "^0.5.10",
-		"@types/node": "^20.11.25",
+		"@types/node": "^20.11.28",
 		"@types/validate-npm-package-name": "^4.0.2",
-		"@vitest/coverage-v8": "^1.3.1",
+		"@vitest/coverage-v8": "^1.4.0",
 		"daisyui": "^4.7.3",
 		"prettier": "^3.2.5",
 		"prettier-plugin-astro": "^0.13.0",
@@ -37,6 +37,6 @@
 		"tailwindcss": "^3.4.1",
 		"tempy": "^3.1.0",
 		"typescript": "^5.4.2",
-		"vitest": "^1.3.1"
+		"vitest": "^1.4.0"
 	}
 }
