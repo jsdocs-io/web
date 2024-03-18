@@ -1,8 +1,8 @@
 import type { PackageApi } from "@jsdocs-io/extractor";
 import { Context, Data, Effect } from "effect";
 
-export class DbGetError extends Data.TaggedError("DbGetError") {}
-export class DbSetError extends Data.TaggedError("DbSetError") {}
+export class DbGetError extends Data.TaggedError("DbGetError")<{ readonly cause?: unknown }> {}
+export class DbSetError extends Data.TaggedError("DbSetError")<{ readonly cause?: unknown }> {}
 
 export type GetPackageApiOptions = {
 	pkg: string;
