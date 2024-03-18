@@ -8,7 +8,6 @@ import {
 } from "@jsdocs-io/extractor";
 import { Effect, Either, Option } from "effect";
 import { join } from "pathe";
-import { bunPath } from "./bun-path";
 import { Db } from "./db";
 import { findDefinitelyTypedPackage } from "./find-definitely-typed-package";
 import { isValidLicense } from "./is-valid-license";
@@ -16,11 +15,12 @@ import { packagePagePath } from "./package-page-path";
 import { parsePackagePageSlug } from "./parse-package-page-slug";
 import { redirect } from "./redirect";
 import { resolvePackage } from "./resolve-package";
+import { serverEnv } from "./server-env";
 
 export const packagePageHandler = (slug = "") =>
 	packagePageHandlerEffect(slug).pipe(
 		Effect.scoped,
-		Effect.provideService(PackageManager, bunPackageManager(bunPath)),
+		Effect.provideService(PackageManager, bunPackageManager(serverEnv.BUN_PATH)),
 		Effect.runPromise,
 	);
 
@@ -123,7 +123,7 @@ const packagePageHandlerEffect = (slug = "") =>
 		}
 
 		// Extract the package API.
-		const pkgApiRes = yield* _(Effect.either(extractPackageApi({ pkg, subpath, bunPath })));
+		const pkgApiRes = yield* _(Effect.either(extractPackageApi({ pkg, subpath })));
 		if (Either.isLeft(pkgApiRes)) {
 			yield* _(Effect.logError(pkgApiRes.left));
 			return {
