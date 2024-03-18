@@ -1,7 +1,7 @@
 export type PackagePagePathOptions = {
-	resolvedPkg: string;
+	pkg: string;
 	subpath: string;
 };
 
-export const packagePagePath = ({ resolvedPkg, subpath }: PackagePagePathOptions) =>
-	["/package", resolvedPkg, ...(subpath !== "." ? [subpath] : [])].join("/");
+export const packagePagePath = ({ pkg, subpath }: PackagePagePathOptions) =>
+	["/package", pkg, ...(subpath !== "." ? [subpath] : [])].join("/");

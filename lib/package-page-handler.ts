@@ -59,7 +59,7 @@ const packagePageHandlerEffect = (slug = "") =>
 		const resolvedPkg = resolvePackage({ pkgName, packages });
 		if (pkg !== resolvedPkg) {
 			yield* _(Effect.logInfo(`redirect: ${pkg} -> ${resolvedPkg}`));
-			return redirect(packagePagePath({ resolvedPkg, subpath }));
+			return redirect(packagePagePath({ pkg: resolvedPkg, subpath }));
 		}
 
 		// Read `package.json`.
