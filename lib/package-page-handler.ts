@@ -8,6 +8,7 @@ import {
 } from "@jsdocs-io/extractor";
 import { Effect, Either, Option } from "effect";
 import { join } from "pathe";
+import { bucket } from "./bucket";
 import { Db } from "./db";
 import { findDefinitelyTypedPackage } from "./find-definitely-typed-package";
 import { isValidLicense } from "./is-valid-license";
@@ -19,8 +20,9 @@ import { serverEnv } from "./server-env";
 
 export const packagePageHandler = (slug = "") =>
 	packagePageHandlerEffect(slug).pipe(
-		Effect.scoped,
 		Effect.provideService(PackageManager, bunPackageManager(serverEnv.BUN_PATH)),
+		Effect.provideService(Db, bucket),
+		Effect.scoped,
 		Effect.runPromise,
 	);
 
