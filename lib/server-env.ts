@@ -15,7 +15,7 @@ const serverEnvSchema = z.object({
 	CF_ACCOUNT_ID: z.string().default(""),
 	CF_ACCESS_KEY_ID: z.string().default(""),
 	CF_SECRET_ACCESS_KEY: z.string().default(""),
-	CF_BUCKET_NAME: z.string(),
+	CF_BUCKET_NAME: z.string().default(""),
 });
 
 export type ServerEnv = z.infer<typeof serverEnvSchema>;
