@@ -8,12 +8,12 @@ import {
 } from "@jsdocs-io/extractor";
 import { Effect, Either, Option } from "effect";
 import { join } from "pathe";
-import { bucket } from "./bucket";
 import { Db } from "./db";
 import { findDefinitelyTypedPackage } from "./find-definitely-typed-package";
 import { isValidLicense } from "./is-valid-license";
 import { packagePagePath } from "./package-page-path";
 import { parsePackagePageSlug } from "./parse-package-page-slug";
+import { r2Bucket } from "./r2-bucket";
 import { redirect } from "./redirect";
 import { resolvePackage } from "./resolve-package";
 import { serverEnv } from "./server-env";
@@ -21,7 +21,7 @@ import { serverEnv } from "./server-env";
 export const packagePageHandler = (slug = "") =>
 	packagePageHandlerEffect(slug).pipe(
 		Effect.provideService(PackageManager, bunPackageManager(serverEnv.BUN_PATH)),
-		Effect.provideService(Db, bucket),
+		Effect.provideService(Db, r2Bucket),
 		Effect.scoped,
 		Effect.runPromise,
 	);

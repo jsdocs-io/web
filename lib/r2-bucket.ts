@@ -15,7 +15,7 @@ const s3Client = new S3Client({
 	},
 });
 
-export const bucket = Db.of({
+export const r2Bucket = Db.of({
 	getPackageApi: ({ pkg, subpath }) =>
 		Effect.tryPromise({
 			try: async () => {
