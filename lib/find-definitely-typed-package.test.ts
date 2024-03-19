@@ -1,4 +1,4 @@
-import { PackageManager, bunPackageManager } from "@jsdocs-io/extractor";
+import { InstallPackageError, PackageManager } from "@jsdocs-io/extractor";
 import { Effect } from "effect";
 import { temporaryDirectoryTask } from "tempy";
 import { expect, test } from "vitest";
@@ -9,7 +9,18 @@ import {
 
 const _findDefinitelyTypedPackage = (opts: FindDefinitelyTypedPackageOptions) =>
 	findDefinitelyTypedPackage(opts).pipe(
-		Effect.provideService(PackageManager, bunPackageManager()),
+		Effect.provideService(
+			PackageManager,
+			PackageManager.of({
+				installPackage: ({ pkg }) =>
+					Effect.gen(function* (_) {
+						if (pkg === "@types/jsdocs-io__not-found") {
+							yield* _(new InstallPackageError({ cause: "not found" }));
+						}
+						return [pkg];
+					}),
+			}),
+		),
 		Effect.runPromise,
 	);
 
