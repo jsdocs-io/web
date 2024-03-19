@@ -7,9 +7,9 @@ import process from "node:process";
 export default defineConfig({
 	output: "hybrid",
 	adapter: vercel({
-		// During the build process on Vercel, a `bun` binary is already available.
-		// Including it in the build output copies it to Node.js serverless functions
-		// making it available at the absolute path `/var/task/bun1/bun`.
+		// During Vercel builds, a `bun` binary is already available at `/bun1/bun`.
+		// Copying it to the build output makes it available at `/var/task/bun1/bun`
+		// inside the deployed Node.js serverless functions.
 		includeFiles: process.env.VERCEL ? ["/bun1/bun"] : [],
 	}),
 	integrations: [tailwind()],
