@@ -2,10 +2,7 @@ import { z } from "zod";
 
 const serverEnvSchema = z.object({
 	// Vercel platform.
-	VERCEL: z
-		.string()
-		.optional()
-		.transform((value) => Boolean(value)),
+	VERCEL: z.coerce.boolean().default(false),
 
 	// Bun package manager.
 	// See `astro.config.mjs` for Vercel path explanation.
