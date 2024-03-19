@@ -1,10 +1,7 @@
-import {
-	// GetObjectCommand,
-	PutObjectCommand,
-	S3Client,
-} from "@aws-sdk/client-s3";
-import Zip from "adm-zip";
+import { GetObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import type { PackageApi } from "@jsdocs-io/extractor";
 import { Effect } from "effect";
+import { compressSync, decompressSync, strFromU8, strToU8 } from "fflate";
 import { Db, DbGetError, DbSetError } from "./db";
 import { packagePagePath } from "./package-page-path";
 import { serverEnv } from "./server-env";
@@ -20,26 +17,31 @@ const s3Client = new S3Client({
 
 export const bucket = Db.of({
 	getPackageApi: ({ pkg, subpath }) =>
-		Effect.gen(function* (_) {
-			yield* _(
-				new DbGetError({
-					cause: new Error("Not implemented"),
-				}),
-			);
-			return {} as any;
+		Effect.tryPromise({
+			try: async () => {
+				const response = await s3Client.send(
+					new GetObjectCommand({
+						Bucket: serverEnv.CF_BUCKET_NAME,
+						Key: `${packagePagePath({ pkg, subpath })}.gz`,
+					}),
+				);
+				const body = await response.Body!.transformToByteArray();
+				const pkgApiJson = strFromU8(decompressSync(body));
+				const pkgApi = JSON.parse(pkgApiJson) as PackageApi;
+				return pkgApi;
+			},
+			catch: (e) => new DbGetError({ cause: e }),
 		}),
 	setPackageApi: ({ pkg, subpath, pkgApi }) =>
 		Effect.tryPromise({
 			try: async () => {
 				const pkgApiJson = JSON.stringify(pkgApi);
-				const zip = new Zip();
-				zip.addFile("package-api.json", Buffer.from(pkgApiJson, "utf8"));
-				const buffer = zip.toBuffer();
+				const pkgApiCompressed = compressSync(strToU8(pkgApiJson));
 				await s3Client.send(
 					new PutObjectCommand({
 						Bucket: serverEnv.CF_BUCKET_NAME,
-						Key: `${packagePagePath({ pkg, subpath })}.zip`,
-						Body: buffer,
+						Key: `${packagePagePath({ pkg, subpath })}.gz`,
+						Body: pkgApiCompressed,
 					}),
 				);
 			},

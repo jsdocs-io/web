@@ -19,9 +19,9 @@
 	"dependencies": {
 		"@aws-sdk/client-s3": "^3.535.0",
 		"@jsdocs-io/extractor": "1.0.0-5",
-		"adm-zip": "^0.5.12",
 		"astro": "^4.5.5",
 		"effect": "^2.4.7",
+		"fflate": "^0.8.2",
 		"pathe": "^1.1.2",
 		"validate-npm-package-name": "^5.0.0",
 		"zod": "^3.22.4"
@@ -31,7 +31,6 @@
 		"@astrojs/tailwind": "^5.1.0",
 		"@astrojs/vercel": "^7.3.6",
 		"@tailwindcss/typography": "^0.5.10",
-		"@types/adm-zip": "^0.5.5",
 		"@types/node": "^20.11.28",
 		"@types/validate-npm-package-name": "^4.0.2",
 		"@vitest/coverage-v8": "^1.4.0",
