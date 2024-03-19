@@ -8,7 +8,8 @@ const serverEnvSchema = z.object({
 		.transform((value) => Boolean(value)),
 
 	// Bun package manager.
-	BUN_PATH: z.string().default("bun"),
+	// See `astro.config.mjs` for Vercel path explanation.
+	BUN_PATH: z.string().default(import.meta.env.VERCEL ? "/var/task/bun1/bun" : "bun"),
 
 	// Cloudflare R2 bucket.
 	CF_ACCOUNT_ID: z.string().default(""),
