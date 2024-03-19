@@ -18,6 +18,7 @@ export type SetPackageApiOptions = {
 export class Db extends Context.Tag("Db")<
 	Db,
 	{
+		readonly name: string;
 		readonly getPackageApi: (opts: GetPackageApiOptions) => Effect.Effect<PackageApi, DbGetError>;
 		readonly setPackageApi: (opts: SetPackageApiOptions) => Effect.Effect<void, DbSetError>;
 	}

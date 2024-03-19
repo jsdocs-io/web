@@ -6,6 +6,7 @@ import { packagePagePath } from "./package-page-path";
 const db = new Map<string, PackageApi>();
 
 export const memDb = Db.of({
+	name: "mem-db",
 	getPackageApi: ({ pkg, subpath }) =>
 		Effect.gen(function* (_) {
 			const pkgApi = db.get(packagePagePath({ pkg, subpath }));
