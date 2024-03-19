@@ -108,12 +108,12 @@ const packagePageHandlerEffect = (slug = "") =>
 
 		// Check if the DB already has the package API.
 		const db = yield* _(Db);
-		yield* _(Effect.logInfo(`using DB: ${db.name}`));
+		yield* _(Effect.logInfo(`using db: ${db.name}`));
 		const getPkgApiRes = yield* _(Effect.either(db.getPackageApi({ pkg, subpath })));
 		if (Either.isLeft(getPkgApiRes)) {
 			yield* _(Effect.logWarning(getPkgApiRes.left));
 		} else {
-			yield* _(Effect.logInfo(`got package API for: ${pkg}/${subpath}`));
+			yield* _(Effect.logInfo(`db has package api for: ${pkg}/${subpath}`));
 			const pkgApi = getPkgApiRes.right;
 			return {
 				status: "with-api" as const,
@@ -140,7 +140,7 @@ const packagePageHandlerEffect = (slug = "") =>
 		if (Either.isLeft(setPkgApiRes)) {
 			yield* _(Effect.logError(setPkgApiRes.left));
 		} else {
-			yield* _(Effect.logInfo(`set package API for: ${pkg}/${subpath}`));
+			yield* _(Effect.logInfo(`db set package api for: ${pkg}/${subpath}`));
 		}
 
 		// Return data for rendering.
