@@ -37,12 +37,12 @@ export const r2Bucket = Db.of({
 		Effect.tryPromise({
 			try: async () => {
 				const pkgApiJson = JSON.stringify(pkgApi);
-				const pkgApiCompressed = compressSync(strToU8(pkgApiJson));
+				const pkgApiGz = compressSync(strToU8(pkgApiJson));
 				await s3Client.send(
 					new PutObjectCommand({
 						Bucket: serverEnv.CF_BUCKET_NAME,
 						Key: `${packagePagePath({ pkg, subpath })}.gz`,
-						Body: pkgApiCompressed,
+						Body: pkgApiGz,
 					}),
 				);
 			},
