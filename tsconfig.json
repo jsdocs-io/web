@@ -1,7 +1,8 @@
 {
 	"extends": "astro/tsconfigs/strict",
 	"compilerOptions": {
-		"noUncheckedIndexedAccess": true
+		"noUncheckedIndexedAccess": true,
+		"types": ["unplugin-icons/types/astro"]
 	},
 	"exclude": ["old", "coverage"]
 }

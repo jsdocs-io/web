@@ -1,4 +1,6 @@
 import tailwind from "@astrojs/tailwind";
+import Icons from "unplugin-icons/vite";
+
 import vercel from "@astrojs/vercel/serverless";
 import { defineConfig } from "astro/config";
 import process from "node:process";
@@ -13,4 +15,7 @@ export default defineConfig({
 		includeFiles: process.env.VERCEL ? ["/bun1/bun"] : [],
 	}),
 	integrations: [tailwind()],
+	vite: {
+		plugins: [Icons({ compiler: "astro" })],
+	},
 });
