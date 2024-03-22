@@ -1,0 +1,21 @@
+---
+import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import DefinitelyTypedAlert from "./DefinitelyTypedAlert.astro";
+import InvalidLicenseAlert from "./InvalidLicenseAlert.astro";
+import NoApiAlert from "./NoApiAlert.astro";
+import NoTypesAlert from "./NoTypesAlert.astro";
+
+type Props = PackagePageHandlerProps;
+
+const props = Astro.props;
+const { status, pkgId, subpath, pkgJson } = props;
+---
+
+{status === "invalid-license" && <InvalidLicenseAlert pkgJson={pkgJson} />}
+{status === "no-types" && <NoTypesAlert pkgJson={pkgJson} subpath={subpath} />}
+{
+	status === "definitely-typed" && (
+		<DefinitelyTypedAlert pkgJson={pkgJson} dtPkgName={props.dtPkgName} />
+	)
+}
+{status === "no-api" && <NoApiAlert pkgId={pkgId} />}

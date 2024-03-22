@@ -1,0 +1,30 @@
+---
+import type { NormalizedPackageJson } from "read-pkg";
+import LucideTriangleAlert from "~icons/lucide/triangle-alert";
+
+type Props = {
+	pkgJson: NormalizedPackageJson;
+	subpath: string;
+};
+
+const {
+	pkgJson: { _id },
+	subpath,
+} = Astro.props;
+---
+
+<div role="alert" class="alert alert-warning">
+	<LucideTriangleAlert class="h-6 w-6" />
+	{
+		subpath === "." ? (
+			<span>
+				Documentation is unavailable because package {_id} doesn't export type definitions.
+			</span>
+		) : (
+			<span>
+				Documentation is unavailable because package {_id} doesn't export type definitions at
+				subpath `{subpath}`.
+			</span>
+		)
+	}
+</div>

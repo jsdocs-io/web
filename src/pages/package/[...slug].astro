@@ -1,16 +1,28 @@
 ---
+import { SEO } from "astro-seo";
 import { packagePageHandler } from "../../../lib/package-page-handler";
+import PackagePageAlerts from "../../components/PackagePageAlerts.astro";
 
 export const prerender = false;
 
 const { slug } = Astro.params;
-const out = await packagePageHandler(slug);
-if (out instanceof Response) {
-	return out;
+const handlerResult = await packagePageHandler(slug);
+if (handlerResult instanceof Response) {
+	return handlerResult;
 }
+const props = handlerResult;
+const { pkgId } = props;
 ---
 
-<!-- <h1 class="text-3xl font-bold">{slug}</h1> --><!-- <h2>Package: {pkg}</h2>
-<h2>Package name: {pkgName}</h2>
-<h2>Subpath: {subpath}</h2> --><!-- <h2>API</h2> -->
-<pre>{JSON.stringify(out, null, 2)}</pre>
+<html lang="en">
+	<head>
+		<SEO
+			title={`${pkgId} - jsDocs.io`}
+			description={`Documentation for npm package ${pkgId} on jsDocs.io`}
+		/>
+	</head>
+	<body>
+		<PackagePageAlerts {...props} />
+		<h1>{pkgId}</h1>
+	</body>
+</html>

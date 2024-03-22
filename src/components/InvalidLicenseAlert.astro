@@ -1,0 +1,25 @@
+---
+import type { NormalizedPackageJson } from "read-pkg";
+import LucideTriangleAlert from "~icons/lucide/triangle-alert";
+
+type Props = {
+	pkgJson: NormalizedPackageJson;
+};
+
+const {
+	pkgJson: { _id, license },
+} = Astro.props;
+---
+
+<div role="alert" class="alert alert-warning">
+	<LucideTriangleAlert class="h-6 w-6" />
+	{
+		license ? (
+			<span>
+				Documentation is unavailable because package {_id} has a proprietary license ({license}).
+			</span>
+		) : (
+			<span>Documentation is unavailable because package {_id} has no license.</span>
+		)
+	}
+</div>

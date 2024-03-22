@@ -1,0 +1,24 @@
+---
+import type { NormalizedPackageJson } from "read-pkg";
+import LucidePackageCheck from "~icons/lucide/package-check";
+
+type Props = {
+	pkgJson: NormalizedPackageJson;
+	dtPkgName: string;
+};
+
+const {
+	pkgJson: { _id },
+	dtPkgName,
+} = Astro.props;
+---
+
+<div role="alert" class="alert alert-info">
+	<LucidePackageCheck class="h-6 w-6" />
+	<span
+		>Type definitions for {_id} are available in the <a class="link" href={`/package/${dtPkgName}`}>
+			{dtPkgName}</a
+		> package.</span
+	>
+	<a href={`/package/${dtPkgName}`} class="btn btn-sm">See documentation</a>
+</div>

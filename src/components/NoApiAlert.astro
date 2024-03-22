@@ -1,0 +1,16 @@
+---
+import LucideCircleX from "~icons/lucide/circle-x";
+
+type Props = {
+	pkgId: string;
+};
+
+const { pkgId } = Astro.props;
+---
+
+<div role="alert" class="alert alert-error">
+	<LucideCircleX class="h-6 w-6" />
+	<span>
+		Documentation is unavailable because API extraction failed for package {pkgId}.
+	</span>
+</div>
