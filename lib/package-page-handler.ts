@@ -60,9 +60,10 @@ const packagePageHandlerEffect = (slug = "") =>
 
 		// Redirect to the resolved package version page if necessary.
 		const resolvedPkg = resolvePackage({ pkgName, packages });
+		const pkgId = packageId({ pkg: resolvedPkg, subpath });
 		if (pkg !== resolvedPkg) {
 			yield* _(Effect.logInfo(`redirect: ${pkg} -> ${resolvedPkg}`));
-			return redirect(`/package/${packageId({ pkg: resolvedPkg, subpath })}`);
+			return redirect(`/package/${pkgId}`);
 		}
 
 		// Read `package.json`.
@@ -80,6 +81,7 @@ const packagePageHandlerEffect = (slug = "") =>
 			yield* _(Effect.logWarning(`invalid license: ${pkg} (${license})`));
 			return {
 				status: "invalid-license" as const,
+				pkgId,
 				pkgJson,
 				...generatedTimestamp(startTime),
 			};
@@ -94,12 +96,14 @@ const packagePageHandlerEffect = (slug = "") =>
 				yield* _(Effect.logWarning(`no types: ${pkg}`));
 				return {
 					status: "no-types" as const,
+					pkgId,
 					pkgJson,
 					...generatedTimestamp(startTime),
 				};
 			}
 			return {
 				status: "definitely-typed" as const,
+				pkgId,
 				pkgJson,
 				dtPkgName,
 				...generatedTimestamp(startTime),
@@ -117,6 +121,7 @@ const packagePageHandlerEffect = (slug = "") =>
 			const pkgApi = getPkgApiRes.right;
 			return {
 				status: "with-api" as const,
+				pkgId,
 				pkgJson,
 				pkgApi,
 				...generatedTimestamp(startTime),
@@ -129,6 +134,7 @@ const packagePageHandlerEffect = (slug = "") =>
 			yield* _(Effect.logError(pkgApiRes.left));
 			return {
 				status: "no-api" as const,
+				pkgId,
 				pkgJson,
 				...generatedTimestamp(startTime),
 			};
@@ -146,6 +152,7 @@ const packagePageHandlerEffect = (slug = "") =>
 		// Return data for rendering.
 		return {
 			status: "with-api" as const,
+			pkgId,
 			pkgJson,
 			pkgApi,
 			...generatedTimestamp(startTime),
