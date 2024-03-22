@@ -12,7 +12,7 @@ import { Db } from "./db";
 import { findDefinitelyTypedPackage } from "./find-definitely-typed-package";
 import { isValidLicense } from "./is-valid-license";
 import { memDb } from "./mem-db";
-import { packagePagePath } from "./package-page-path";
+import { packageId } from "./package-id";
 import { parsePackagePageSlug } from "./parse-package-page-slug";
 import { r2Bucket } from "./r2-bucket";
 import { redirect } from "./redirect";
@@ -62,7 +62,7 @@ const packagePageHandlerEffect = (slug = "") =>
 		const resolvedPkg = resolvePackage({ pkgName, packages });
 		if (pkg !== resolvedPkg) {
 			yield* _(Effect.logInfo(`redirect: ${pkg} -> ${resolvedPkg}`));
-			return redirect(packagePagePath({ pkg: resolvedPkg, subpath }));
+			return redirect(`/package/${packageId({ pkg: resolvedPkg, subpath })}`);
 		}
 
 		// Read `package.json`.

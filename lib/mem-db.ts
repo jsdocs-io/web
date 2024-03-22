@@ -1,7 +1,7 @@
 import type { PackageApi } from "@jsdocs-io/extractor";
 import { Effect } from "effect";
 import { Db, DbGetError } from "./db";
-import { packagePagePath } from "./package-page-path";
+import { packageId } from "./package-id";
 
 const db = new Map<string, PackageApi>();
 
@@ -9,7 +9,7 @@ export const memDb = Db.of({
 	name: "mem-db",
 	getPackageApi: ({ pkg, subpath }) =>
 		Effect.gen(function* (_) {
-			const pkgApi = db.get(packagePagePath({ pkg, subpath }));
+			const pkgApi = db.get(packageId({ pkg, subpath }));
 			if (!pkgApi) {
 				return yield* _(new DbGetError({ cause: "not found" }));
 			}
@@ -17,6 +17,6 @@ export const memDb = Db.of({
 		}),
 	setPackageApi: ({ pkg, subpath, pkgApi }) =>
 		Effect.gen(function* (_) {
-			db.set(packagePagePath({ pkg, subpath }), pkgApi);
+			db.set(packageId({ pkg, subpath }), pkgApi);
 		}),
 });

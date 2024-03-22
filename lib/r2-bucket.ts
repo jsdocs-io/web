@@ -3,7 +3,7 @@ import type { PackageApi } from "@jsdocs-io/extractor";
 import { Effect } from "effect";
 import { compressSync, decompressSync, strFromU8, strToU8 } from "fflate";
 import { Db, DbGetError, DbSetError } from "./db";
-import { packagePagePath } from "./package-page-path";
+import { packageId } from "./package-id";
 import { serverEnv } from "./server-env";
 
 const s3Client = new S3Client({
@@ -23,7 +23,7 @@ export const r2Bucket = Db.of({
 				const response = await s3Client.send(
 					new GetObjectCommand({
 						Bucket: serverEnv.CF_BUCKET_NAME,
-						Key: `${packagePagePath({ pkg, subpath })}.gz`,
+						Key: `${packageId({ pkg, subpath })}.gz`,
 					}),
 				);
 				const body = await response.Body!.transformToByteArray();
@@ -41,7 +41,7 @@ export const r2Bucket = Db.of({
 				await s3Client.send(
 					new PutObjectCommand({
 						Bucket: serverEnv.CF_BUCKET_NAME,
-						Key: `${packagePagePath({ pkg, subpath })}.gz`,
+						Key: `${packageId({ pkg, subpath })}.gz`,
 						Body: pkgApiGz,
 					}),
 				);
