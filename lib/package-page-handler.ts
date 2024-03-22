@@ -19,6 +19,9 @@ import { redirect } from "./redirect";
 import { resolvePackage } from "./resolve-package";
 import { serverEnv } from "./server-env";
 
+export type PackagePageHandlerReturn = Awaited<ReturnType<typeof packagePageHandler>>;
+export type PackagePageHandlerProps = Exclude<PackagePageHandlerReturn, Response>;
+
 export const packagePageHandler = (slug = "") =>
 	packagePageHandlerEffect(slug).pipe(
 		Effect.provideService(PackageManager, bunPackageManager(serverEnv.BUN_PATH)),
