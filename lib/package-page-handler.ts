@@ -82,6 +82,7 @@ const packagePageHandlerEffect = (slug = "") =>
 			return {
 				status: "invalid-license" as const,
 				pkgId,
+				subpath,
 				pkgJson,
 				...generatedTimestamp(startTime),
 			};
@@ -97,6 +98,7 @@ const packagePageHandlerEffect = (slug = "") =>
 				return {
 					status: "no-types" as const,
 					pkgId,
+					subpath,
 					pkgJson,
 					...generatedTimestamp(startTime),
 				};
@@ -104,6 +106,7 @@ const packagePageHandlerEffect = (slug = "") =>
 			return {
 				status: "definitely-typed" as const,
 				pkgId,
+				subpath,
 				pkgJson,
 				dtPkgName,
 				...generatedTimestamp(startTime),
@@ -122,6 +125,7 @@ const packagePageHandlerEffect = (slug = "") =>
 			return {
 				status: "with-api" as const,
 				pkgId,
+				subpath,
 				pkgJson,
 				pkgApi,
 				...generatedTimestamp(startTime),
@@ -135,6 +139,7 @@ const packagePageHandlerEffect = (slug = "") =>
 			return {
 				status: "no-api" as const,
 				pkgId,
+				subpath,
 				pkgJson,
 				...generatedTimestamp(startTime),
 			};
@@ -153,6 +158,7 @@ const packagePageHandlerEffect = (slug = "") =>
 		return {
 			status: "with-api" as const,
 			pkgId,
+			subpath,
 			pkgJson,
 			pkgApi,
 			...generatedTimestamp(startTime),
