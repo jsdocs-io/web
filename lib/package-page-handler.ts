@@ -94,7 +94,7 @@ const packagePageHandlerEffect = (slug = "") =>
 		if (Either.isLeft(typesRes)) {
 			const dtPkgName = yield* _(findDefinitelyTypedPackage({ pkgName, cwd }));
 			if (!dtPkgName) {
-				yield* _(Effect.logWarning(`no types: ${pkg}`));
+				yield* _(Effect.logWarning(`no types: ${pkgId}`));
 				return {
 					status: "no-types" as const,
 					pkgId,
@@ -120,7 +120,7 @@ const packagePageHandlerEffect = (slug = "") =>
 		if (Either.isLeft(getPkgApiRes)) {
 			yield* _(Effect.logWarning(getPkgApiRes.left));
 		} else {
-			yield* _(Effect.logInfo(`db has package api for: ${pkg}/${subpath}`));
+			yield* _(Effect.logInfo(`db has package api for: ${pkgId}`));
 			const pkgApi = getPkgApiRes.right;
 			return {
 				status: "with-api" as const,
@@ -151,7 +151,7 @@ const packagePageHandlerEffect = (slug = "") =>
 		if (Either.isLeft(setPkgApiRes)) {
 			yield* _(Effect.logError(setPkgApiRes.left));
 		} else {
-			yield* _(Effect.logInfo(`db set package api for: ${pkg}/${subpath}`));
+			yield* _(Effect.logInfo(`db set package api for: ${pkgId}`));
 		}
 
 		// Return data for rendering.
