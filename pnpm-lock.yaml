@@ -11,6 +11,9 @@ dependencies:
   '@jsdocs-io/extractor':
     specifier: 1.0.0-5
     version: 1.0.0-5
+  anchor-js:
+    specifier: ^5.0.0
+    version: 5.0.0
   astro:
     specifier: ^4.5.9
     version: 4.5.9(@types/node@20.11.30)(typescript@5.4.3)
@@ -58,6 +61,9 @@ devDependencies:
   '@total-typescript/shoehorn':
     specifier: ^0.1.2
     version: 0.1.2
+  '@types/anchor-js':
+    specifier: ^5.0.3
+    version: 5.0.3
   '@types/node':
     specifier: ^20.11.30
     version: 20.11.30
@@ -2234,6 +2240,10 @@ packages:
       path-browserify: 1.0.1
     dev: false
 
+  /@types/anchor-js@5.0.3:
+    resolution: {integrity: sha512-aN5ADCuTfoXEHo0pe2AYI+ED5oroL1qLFn7VkZNRPVOIZcAxQCxG+BJkIe3hSMAv1Tvs0m7R3hpz2F5CVWFCAQ==}
+    dev: true
+
   /@types/babel__core@7.20.5:
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
     dependencies:
@@ -2526,6 +2536,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /anchor-js@5.0.0:
+    resolution: {integrity: sha512-2bOqCsBIXAYhjAN3iI4QevoAJtB2gRWAiY9P3P7CVW8lIjA3Dl6ldhDlWeeQvCHif+V5vIndfLOag/5I8tzTzA==}
+    dev: false
 
   /ansi-align@3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}

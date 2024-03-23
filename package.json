@@ -19,6 +19,7 @@
 	"dependencies": {
 		"@aws-sdk/client-s3": "^3.540.0",
 		"@jsdocs-io/extractor": "1.0.0-5",
+		"anchor-js": "^5.0.0",
 		"astro": "^4.5.9",
 		"astro-seo": "^0.8.3",
 		"effect": "^2.4.11",
@@ -36,6 +37,7 @@
 		"@smithy/util-stream": "^2.2.0",
 		"@tailwindcss/typography": "^0.5.10",
 		"@total-typescript/shoehorn": "^0.1.2",
+		"@types/anchor-js": "^5.0.3",
 		"@types/node": "^20.11.30",
 		"@types/validate-npm-package-name": "^4.0.2",
 		"@vitest/coverage-v8": "^1.4.0",

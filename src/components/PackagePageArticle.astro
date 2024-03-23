@@ -1,0 +1,28 @@
+---
+import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+
+type Props = PackagePageHandlerProps;
+
+const props = Astro.props;
+const { status, pkgId, subpath, pkgJson } = props;
+const overview = (status === "with-api" && props.pkgApi.overview) || pkgJson.description;
+---
+
+<article class="prose">
+	<h2>{pkgId}</h2>
+	{
+		overview && (
+			<>
+				<h2 id="overview">Overview</h2> <p>{overview}</p>
+			</>
+		)
+	}
+
+	{
+		status === "with-api" && (
+			<>
+				<h2 id="api">API</h2>
+			</>
+		)
+	}
+</article>

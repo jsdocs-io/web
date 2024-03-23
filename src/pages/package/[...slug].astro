@@ -2,6 +2,7 @@
 import { SEO } from "astro-seo";
 import { packagePageHandler } from "../../../lib/package-page-handler";
 import PackagePageAlerts from "../../components/PackagePageAlerts.astro";
+import PackagePageArticle from "../../components/PackagePageArticle.astro";
 
 export const prerender = false;
 
@@ -25,6 +26,14 @@ const { pkgId } = props;
 	</head>
 	<body>
 		<PackagePageAlerts {...props} />
-		<h1>{pkgId}</h1>
+		<PackagePageArticle {...props} />
+		<script>
+			import AnchorJS from "anchor-js";
+
+			const anchors = new AnchorJS();
+			document.addEventListener("DOMContentLoaded", () => {
+				anchors.add();
+			});
+		</script>
 	</body>
 </html>
