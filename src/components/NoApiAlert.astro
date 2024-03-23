@@ -8,8 +8,8 @@ type Props = {
 const { pkgId } = Astro.props;
 ---
 
-<div role="alert" class="alert alert-error">
-	<LucideCircleX class="h-6 w-6" />
+<div role="alert" class="alert">
+	<LucideCircleX class="h-6 w-6 text-error" />
 	<span>
 		Documentation is unavailable because API extraction failed for package {pkgId}.
 	</span>
