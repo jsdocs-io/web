@@ -1,0 +1,15 @@
+---
+import { DocNodeTransforms, type DocParagraph as _DocParagraph } from "@microsoft/tsdoc";
+import DocNodeContainer from "./DocNodeContainer.astro";
+
+type Props = {
+	paragraph: _DocParagraph;
+};
+
+const { paragraph } = Astro.props;
+const contents = DocNodeTransforms.trimSpacesInParagraph(paragraph);
+---
+
+<p>
+	<DocNodeContainer container={contents} />
+</p>

@@ -1,0 +1,13 @@
+---
+import type { DocEscapedText as _DocEscapedText } from "@microsoft/tsdoc";
+
+type Props = {
+	escapedText: _DocEscapedText;
+};
+
+const {
+	escapedText: { decodedText },
+} = Astro.props;
+---
+
+<>{decodedText}</>

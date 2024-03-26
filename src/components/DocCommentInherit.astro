@@ -1,0 +1,18 @@
+---
+import { sanitizeUrl } from "@braintree/sanitize-url";
+import { DocDeclarationReference } from "@microsoft/tsdoc";
+import { resolveDeclarationReference } from "../../lib/resolve-declaration-reference";
+
+type Props = {
+	ref: DocDeclarationReference;
+};
+
+const { ref } = Astro.props;
+const { pkgName, declarationId } = resolveDeclarationReference(ref);
+const url = sanitizeUrl(pkgName ? `/package/${pkgName}#${declarationId}` : `#${declarationId}`);
+const text = pkgName ? `${pkgName}#${declarationId}` : declarationId;
+---
+
+<p>
+	See documentation for <a href={url}>{text}</a>.
+</p>

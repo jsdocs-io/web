@@ -1,0 +1,13 @@
+---
+import { type DocCodeSpan as _DocCodeSpan } from "@microsoft/tsdoc";
+
+type Props = {
+	codeSpan: _DocCodeSpan;
+};
+
+const {
+	codeSpan: { code },
+} = Astro.props;
+---
+
+<code>{code}</code>

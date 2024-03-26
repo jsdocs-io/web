@@ -1,0 +1,14 @@
+---
+import { sanitizeUrl } from "@braintree/sanitize-url";
+import { DocLinkTag as _DocLinkTag } from "@microsoft/tsdoc";
+
+type Props = {
+	linkTag: _DocLinkTag;
+};
+
+const { linkTag } = Astro.props;
+const url = sanitizeUrl(linkTag.urlDestination!);
+const text = linkTag.linkText || url;
+---
+
+<a href={url}>{text}</a>

@@ -1,0 +1,19 @@
+---
+import { sanitizeUrl } from "@braintree/sanitize-url";
+import { DocLinkTag as _DocLinkTag } from "@microsoft/tsdoc";
+import { resolveDeclarationReference } from "../../lib/resolve-declaration-reference";
+
+type Props = {
+	linkTag: _DocLinkTag;
+};
+
+const { linkTag } = Astro.props;
+
+// DocLinkTagInternal links to a declaration in some package,
+// which may be a different package from the one containing the link.
+const { pkgName, declarationId } = resolveDeclarationReference(linkTag.codeDestination!);
+const url = sanitizeUrl(pkgName ? `/package/${pkgName}#${declarationId}` : `#${declarationId}`);
+const text = linkTag.linkText || (pkgName ? `${pkgName}#${declarationId}` : declarationId);
+---
+
+<a href={url}>{text}</a>

@@ -1,0 +1,14 @@
+---
+import type { DocLinkTag as _DocLinkTag } from "@microsoft/tsdoc";
+import DocLinkTagExternal from "./DocLinkTagExternal.astro";
+import DocLinkTagInternal from "./DocLinkTagInternal.astro";
+
+type Props = {
+	linkTag: _DocLinkTag;
+};
+
+const { linkTag } = Astro.props;
+---
+
+{linkTag.urlDestination && <DocLinkTagExternal linkTag={linkTag} />}
+{linkTag.codeDestination && <DocLinkTagInternal linkTag={linkTag} />}

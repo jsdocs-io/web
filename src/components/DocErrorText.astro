@@ -1,0 +1,13 @@
+---
+import type { DocErrorText as _DocErrorText } from "@microsoft/tsdoc";
+
+type Props = {
+	errorText: _DocErrorText;
+};
+
+const {
+	errorText: { text },
+} = Astro.props;
+---
+
+<>{text}</>

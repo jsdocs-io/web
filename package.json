@@ -18,7 +18,9 @@
 	},
 	"dependencies": {
 		"@aws-sdk/client-s3": "^3.540.0",
+		"@braintree/sanitize-url": "^7.0.1",
 		"@jsdocs-io/extractor": "1.0.0-5",
+		"@microsoft/tsdoc": "^0.14.2",
 		"anchor-js": "^5.0.0",
 		"astro": "^4.5.9",
 		"astro-seo": "^0.8.3",
@@ -26,6 +28,7 @@
 		"fflate": "^0.8.2",
 		"pathe": "^1.1.2",
 		"read-pkg": "^9.0.1",
+		"trim-newlines": "^5.0.0",
 		"validate-npm-package-name": "^5.0.0",
 		"zod": "^3.22.4"
 	},

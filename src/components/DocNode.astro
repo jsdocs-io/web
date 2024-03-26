@@ -1,0 +1,36 @@
+---
+import {
+	type DocCodeSpan as _DocCodeSpan,
+	type DocErrorText as _DocErrorText,
+	type DocEscapedText as _DocEscapedText,
+	type DocFencedCode as _DocFencedCode,
+	type DocLinkTag as _DocLinkTag,
+	type DocNode as _DocNode,
+	type DocParagraph as _DocParagraph,
+	type DocPlainText as _DocPlainText,
+} from "@microsoft/tsdoc";
+import DocCodeSpan from "./DocCodeSpan.astro";
+import DocErrorText from "./DocErrorText.astro";
+import DocEscapedText from "./DocEscapedText.astro";
+import DocFencedCode from "./DocFencedCode.astro";
+import DocLinkTag from "./DocLinkTag.astro";
+import DocParagraph from "./DocParagraph.astro";
+import DocPlainText from "./DocPlainText.astro";
+import DocSoftBreak from "./DocSoftBreak.astro";
+
+type Props = {
+	node: _DocNode;
+};
+
+const { node } = Astro.props;
+const { kind } = node;
+---
+
+{kind === "ErrorText" && <DocErrorText errorText={node as _DocErrorText} />}
+{kind === "EscapedText" && <DocEscapedText escapedText={node as _DocEscapedText} />}
+{kind === "CodeSpan" && <DocCodeSpan codeSpan={node as _DocCodeSpan} />}
+{kind === "FencedCode" && <DocFencedCode fencedCode={node as _DocFencedCode} />}
+{kind === "LinkTag" && <DocLinkTag linkTag={node as _DocLinkTag} />}
+{kind === "Paragraph" && <DocParagraph paragraph={node as _DocParagraph} />}
+{kind === "PlainText" && <DocPlainText plainText={node as _DocPlainText} />}
+{kind === "SoftBreak" && <DocSoftBreak />}

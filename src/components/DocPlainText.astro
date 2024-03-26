@@ -1,0 +1,13 @@
+---
+import type { DocPlainText as _DocPlainText } from "@microsoft/tsdoc";
+
+type Props = {
+	plainText: _DocPlainText;
+};
+
+const {
+	plainText: { text },
+} = Astro.props;
+---
+
+<>{text}</>

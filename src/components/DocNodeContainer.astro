@@ -1,0 +1,12 @@
+---
+import type { DocNodeContainer as _DocNodeContainer } from "@microsoft/tsdoc";
+import DocNode from "./DocNode.astro";
+
+type Props = {
+	container: _DocNodeContainer;
+};
+
+const { container } = Astro.props;
+---
+
+{container.nodes.map((node) => <DocNode node={node} />)}

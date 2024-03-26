@@ -1,0 +1,131 @@
+---
+import { parseDocComment } from "@jsdocs-io/extractor";
+import { StandardTags } from "@microsoft/tsdoc";
+import DocCommentInherit from "./DocCommentInherit.astro";
+import DocNodeContainer from "./DocNodeContainer.astro";
+
+type Props = {
+	doc: string;
+};
+
+const { doc } = Astro.props;
+const {
+	summarySection,
+	params: { blocks: paramsBlocks },
+	returnsBlock,
+	remarksBlock,
+	customBlocks,
+	seeBlocks,
+	modifierTagSet,
+	deprecatedBlock,
+	inheritDocTag,
+} = parseDocComment(doc);
+const throwsBlocks = customBlocks.filter(
+	(block) =>
+		// Throws blocks are defined by the `@throws` tag.
+		block.blockTag.tagNameWithUpperCase === StandardTags.throws.tagNameWithUpperCase,
+);
+const exampleBlocks = customBlocks.filter(
+	(block) =>
+		// Example blocks are defined by the `@example` tag.
+		block.blockTag.tagNameWithUpperCase === StandardTags.example.tagNameWithUpperCase,
+);
+const modifierTags = modifierTagSet.nodes.filter(
+	(tag) =>
+		// Do not display the `@packageDocumentation` tag.
+		![StandardTags.packageDocumentation.tagNameWithUpperCase].includes(tag.tagNameWithUpperCase),
+);
+---
+
+{
+	inheritDocTag?.declarationReference && (
+		<DocCommentInherit ref={inheritDocTag.declarationReference} />
+	)
+}
+
+{summarySection && <DocNodeContainer container={summarySection} />}
+
+{
+	paramsBlocks.map(({ parameterName, content }) => (
+		<>
+			<h4>Parameter {parameterName}</h4>
+			<DocNodeContainer container={content} />
+		</>
+	))
+}
+
+{
+	returnsBlock && (
+		<>
+			<h4>Returns</h4>
+			<DocNodeContainer container={returnsBlock.content} />
+		</>
+	)
+}
+
+{
+	throwsBlocks.map(({ content }) => (
+		<>
+			<h4>Throws</h4>
+			<DocNodeContainer container={content} />
+		</>
+	))
+}
+
+{
+	remarksBlock && (
+		<>
+			<h4>Remarks</h4>
+			<DocNodeContainer container={remarksBlock.content} />
+		</>
+	)
+}
+
+{
+	exampleBlocks.map(({ content }) => (
+		<>
+			<h4>Example</h4>
+			<DocNodeContainer container={content} />
+		</>
+	))
+}
+
+{
+	seeBlocks.length > 0 && (
+		<>
+			<h4>See also</h4>
+			<ul>
+				{seeBlocks.map(({ content }) => (
+					<li>
+						<DocNodeContainer container={content} />
+					</li>
+				))}
+			</ul>
+		</>
+	)
+}
+
+{
+	modifierTags.length > 0 && (
+		<>
+			<h4>Modifiers</h4>
+			<p>
+				{modifierTags.map(({ tagName }, i) => (
+					<>
+						<code>{tagName}</code>
+						{i < modifierTags.length - 1 && ", "}
+					</>
+				))}
+			</p>
+		</>
+	)
+}
+
+{
+	deprecatedBlock && (
+		<>
+			<h4>Deprecated</h4>
+			<DocNodeContainer container={deprecatedBlock.content} />
+		</>
+	)
+}

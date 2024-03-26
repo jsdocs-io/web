@@ -8,9 +8,15 @@ dependencies:
   '@aws-sdk/client-s3':
     specifier: ^3.540.0
     version: 3.540.0
+  '@braintree/sanitize-url':
+    specifier: ^7.0.1
+    version: 7.0.1
   '@jsdocs-io/extractor':
     specifier: 1.0.0-5
     version: 1.0.0-5
+  '@microsoft/tsdoc':
+    specifier: ^0.14.2
+    version: 0.14.2
   anchor-js:
     specifier: ^5.0.0
     version: 5.0.0
@@ -32,6 +38,9 @@ dependencies:
   read-pkg:
     specifier: ^9.0.1
     version: 9.0.1
+  trim-newlines:
+    specifier: ^5.0.0
+    version: 5.0.0
   validate-npm-package-name:
     specifier: ^5.0.0
     version: 5.0.0
@@ -1109,6 +1118,10 @@ packages:
   /@bcoe/v8-coverage@0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
+
+  /@braintree/sanitize-url@7.0.1:
+    resolution: {integrity: sha512-URg8UM6lfC9ZYqFipItRSxYJdgpU5d2Z4KnjsJ+rj6tgAmGme7E+PQNCiud8g0HDaZKMovu2qjfa0f5Ge0Vlsg==}
+    dev: false
 
   /@emmetio/abbreviation@2.3.3:
     resolution: {integrity: sha512-mgv58UrU3rh4YgbE/TzgLQwJ3pFsHHhCLqY20aJq+9comytTXUDNGG/SMtSeMJdkpxgXSXunBGLD8Boka3JyVA==}
@@ -5722,6 +5735,11 @@ packages:
 
   /trim-lines@3.0.1:
     resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
+
+  /trim-newlines@5.0.0:
+    resolution: {integrity: sha512-kstfs+hgwmdsOadN3KgA+C68wPJwnZq4DN6WMDCvZapDWEF34W2TyPKN2v2+BJnZgIz5QOfxFeldLyYvdgRAwg==}
+    engines: {node: '>=14.16'}
+    dev: false
 
   /trough@2.2.0:
     resolution: {integrity: sha512-tmMpK00BjZiUyVyvrBK7knerNgmgvcV/KLVyuma/SC+TQN167GrMRciANTz09+k3zW8L8t60jWO1GpfkZdjTaw==}
