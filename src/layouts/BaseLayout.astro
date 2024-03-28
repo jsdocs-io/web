@@ -1,0 +1,22 @@
+---
+import "../styles/shiki.css";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<slot name="head" />
+	</head>
+	<body>
+		<slot />
+		<script>
+			import AnchorJS from "anchor-js";
+
+			const anchors = new AnchorJS();
+			document.addEventListener("DOMContentLoaded", () => {
+				anchors.add("h2, h3");
+			});
+		</script>
+	</body>
+</html>

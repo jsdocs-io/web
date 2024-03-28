@@ -3,7 +3,7 @@ import { SEO } from "astro-seo";
 import { packagePageHandler } from "../../../lib/package-page-handler";
 import PackagePageAlerts from "../../components/PackagePageAlerts.astro";
 import PackagePageArticle from "../../components/PackagePageArticle.astro";
-import "../../styles/shiki.css";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export const prerender = false;
 
@@ -16,25 +16,13 @@ const props = handlerResult;
 const { pkgId } = props;
 ---
 
-<html lang="en">
-	<head>
-		<SEO
-			title={`${pkgId} - jsDocs.io`}
-			description={`Documentation for npm package ${pkgId} on jsDocs.io`}
-		/>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	</head>
-	<body>
-		<PackagePageAlerts {...props} />
-		<PackagePageArticle {...props} />
-		<script>
-			import AnchorJS from "anchor-js";
+<BaseLayout>
+	<SEO
+		slot="head"
+		title={`${pkgId} - jsDocs.io`}
+		description={`Documentation for npm package ${pkgId} on jsDocs.io`}
+	/>
 
-			const anchors = new AnchorJS();
-			document.addEventListener("DOMContentLoaded", () => {
-				anchors.add("h2, h3");
-			});
-		</script>
-	</body>
-</html>
+	<PackagePageAlerts {...props} />
+	<PackagePageArticle {...props} />
+</BaseLayout>
