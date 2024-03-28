@@ -1,5 +1,6 @@
 ---
 import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import PackageBadge from "./PackageBadge.astro";
 import PackageDependencies from "./PackageDependencies.astro";
 import PackageOverview from "./PackageOverview.astro";
 
@@ -23,4 +24,5 @@ const { status, pkgJson } = props;
 	}
 
 	<PackageDependencies pkgJson={pkgJson} />
+	<PackageBadge name={pkgJson.name} />
 </article>

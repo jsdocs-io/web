@@ -1,0 +1,48 @@
+---
+import { codeToHtml } from "../../lib/highlighter";
+
+type Props = {
+	name: string;
+};
+
+const { name } = Astro.props;
+const badgeUrl = "https://img.shields.io/badge/jsDocs.io-reference-blue";
+const pkgUrl = `https://www.jsdocs.io/package/${name}`;
+const altText = "jsDocs.io";
+const markdownBadge = `[![${altText}](${badgeUrl})](${pkgUrl})`;
+const markdownBadgeHtml = codeToHtml({ code: markdownBadge, language: "markdown" });
+const htmlBadge = `<a href="${pkgUrl}"><img src="${badgeUrl}" alt="${altText}"></a>`;
+const htmlBadgeHtml = codeToHtml({ code: htmlBadge, language: "html" });
+---
+
+<h2 id="package-badge">Badge</h2>
+
+<img src="/badge.svg" alt="jsDocs.io badge" />
+
+<p>
+	To add a badge like the one displayed above to your package's README, use the code snippets
+	available below. You can also create a custom badge on <a href="https://shields.io/">Shields.io</a
+	> linking to <code>{pkgUrl}</code>.
+</p>
+
+<button id="copy-markdown-badge" class="btn btn-outline btn-sm" data-snippet={markdownBadge}
+	>Copy Markdown badge</button
+>
+<Fragment set:html={markdownBadgeHtml} />
+
+<button id="copy-html-badge" class="btn btn-outline btn-sm" data-snippet={htmlBadge}
+	>Copy HTML badge</button
+>
+<Fragment set:html={htmlBadgeHtml} />
+
+<script>
+	const copyMarkdownBadge = document.getElementById("copy-markdown-badge")!;
+	copyMarkdownBadge.addEventListener("click", () => {
+		navigator.clipboard.writeText(copyMarkdownBadge.dataset.snippet!);
+	});
+
+	const copyHtmlBadge = document.getElementById("copy-html-badge")!;
+	copyHtmlBadge.addEventListener("click", () => {
+		navigator.clipboard.writeText(copyHtmlBadge.dataset.snippet!);
+	});
+</script>
