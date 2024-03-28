@@ -1,22 +1,17 @@
 ---
 import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import PackageOverview from "./PackageOverview.astro";
 
 type Props = PackagePageHandlerProps;
 
 const props = Astro.props;
-const { status, pkgId, subpath, pkgJson } = props;
-const overview = (status === "with-api" && props.pkgApi.overview) || pkgJson.description;
+const { status, pkgId } = props;
 ---
 
-<article class="prose">
-	<h2>{pkgId}</h2>
-	{
-		overview && (
-			<>
-				<h2 id="overview">Overview</h2> <p>{overview}</p>
-			</>
-		)
-	}
+<article class="prose prose-h1:text-3xl">
+	<h1>{pkgId}</h1>
+
+	<PackageOverview {...props} />
 
 	{
 		status === "with-api" && (

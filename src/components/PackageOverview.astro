@@ -1,0 +1,16 @@
+---
+import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import DocComment from "./DocComment.astro";
+
+type Props = PackagePageHandlerProps;
+
+const props = Astro.props;
+const { status, pkgJson } = props;
+const overview =
+	status === "with-api" && props.pkgApi.overview ? props.pkgApi.overview
+	: pkgJson.description ? `/** ${pkgJson.description} */`
+	: `/** Overview not available. */`;
+---
+
+<h2 id="package-overview">Overview</h2>
+<DocComment doc={overview} />
