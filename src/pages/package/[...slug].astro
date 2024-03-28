@@ -14,13 +14,34 @@ if (handlerResult instanceof Response) {
 }
 const props = handlerResult;
 const { pkgId } = props;
+const title = `${pkgId} - jsDocs.io`;
+const description = `Documentation for npm package ${pkgId} on jsDocs.io`;
 ---
 
 <BaseLayout>
 	<SEO
 		slot="head"
-		title={`${pkgId} - jsDocs.io`}
-		description={`Documentation for npm package ${pkgId} on jsDocs.io`}
+		title={title}
+		description={description}
+		openGraph={{
+			basic: {
+				title: description,
+				type: "website",
+				image: "https://jsdocs.io/TODO:.png",
+			},
+			image: {
+				alt: description,
+			},
+		}}
+		twitter={{
+			card: "summary_large_image",
+			title: description,
+			description: description,
+			image: "https://jsdocs.io/TODO:.png",
+			imageAlt: description,
+			site: "@jsDocs",
+			creator: "@jsDocs",
+		}}
 	/>
 
 	<PackagePageAlerts {...props} />
