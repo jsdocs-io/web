@@ -1,18 +1,20 @@
 ---
 import type { DocFencedCode as _DocFencedCode } from "@microsoft/tsdoc";
 import { trimNewlines } from "trim-newlines";
+import { codeToHtml } from "../../lib/highlighter";
 
 type Props = {
 	fencedCode: _DocFencedCode;
 };
 
 const {
-	fencedCode: { code },
+	fencedCode: { code, language },
 } = Astro.props;
 
 // Trim newlines to prevent rendering empty space surrounding content
 // but preserve other whitespace that may be used for alignment.
 const trimmedCode = trimNewlines(code);
+const html = codeToHtml({ code: trimmedCode, language });
 ---
 
-<pre><code>{trimmedCode}</code></pre>
+<Fragment set:html={html} />
