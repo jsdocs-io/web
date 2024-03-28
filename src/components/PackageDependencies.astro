@@ -1,0 +1,57 @@
+---
+import type { NormalizedPackageJson } from "read-pkg";
+
+type Props = {
+	pkgJson: NormalizedPackageJson;
+};
+
+const { pkgJson } = Astro.props;
+const deps = Object.keys(pkgJson.dependencies ?? {}).sort((a, b) => a.localeCompare(b));
+const devDeps = Object.keys(pkgJson.devDependencies ?? {}).sort((a, b) => a.localeCompare(b));
+const peerDeps = Object.keys(pkgJson.peerDependencies ?? {}).sort((a, b) => a.localeCompare(b));
+---
+
+{/* Always show information about production and dev dependencies even if there are none. */}
+<h2 id="package-dependencies">Dependencies ({deps.length})</h2>
+{
+	deps.length > 0 ?
+		<ul>
+			{deps.map((dep) => (
+				<li>
+					<a href={`/package/${dep}`}>{dep}</a>
+				</li>
+			))}
+		</ul>
+	:	<p>No dependencies.</p>
+}
+
+<h2 id="package-dev-dependencies">Dev dependencies ({devDeps.length})</h2>
+{
+	devDeps.length > 0 ?
+		<ul>
+			{devDeps.map((dep) => (
+				<li>
+					<a href={`/package/${dep}`}>{dep}</a>
+				</li>
+			))}
+		</ul>
+	:	<p>No dev dependencies.</p>
+}
+
+{/* Do not show peer dependencies if there are none. */}
+{
+	peerDeps.length > 0 && (
+		<>
+			<h2 id="package-peer-dependencies">Peer dependencies ({peerDeps.length})</h2>
+			<ul>
+				{peerDeps.map((dep) => (
+					<li>
+						<a class="link" href={`/package/${dep}`}>
+							{dep}
+						</a>
+					</li>
+				))}
+			</ul>
+		</>
+	)
+}
