@@ -1,15 +1,16 @@
 ---
 import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import PackageDependencies from "./PackageDependencies.astro";
 import PackageOverview from "./PackageOverview.astro";
 
 type Props = PackagePageHandlerProps;
 
 const props = Astro.props;
-const { status, pkgId } = props;
+const { status, pkgJson } = props;
 ---
 
-<article class="prose prose-h1:text-3xl">
-	<h1>{pkgId}</h1>
+<article class="prose max-w-[100ch] prose-h1:text-3xl">
+	<h1>{pkgJson._id}</h1>
 
 	<PackageOverview {...props} />
 
@@ -20,4 +21,6 @@ const { status, pkgId } = props;
 			</>
 		)
 	}
+
+	<PackageDependencies pkgJson={pkgJson} />
 </article>
