@@ -16,15 +16,13 @@ const {
 <div role="alert" class="alert">
 	<LucideTriangleAlert class="h-6 w-6 text-warning" />
 	{
-		subpath === "." ? (
+		subpath === "." ?
 			<span>
 				Documentation is unavailable because package {_id} doesn't export type definitions.
 			</span>
-		) : (
-			<span>
+		:	<span>
 				Documentation is unavailable because package {_id} doesn't export type definitions at
 				subpath `{subpath}`.
 			</span>
-		)
 	}
 </div>

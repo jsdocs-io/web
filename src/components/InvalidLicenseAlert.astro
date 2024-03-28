@@ -14,12 +14,10 @@ const {
 <div role="alert" class="alert">
 	<LucideTriangleAlert class="h-6 w-6 text-warning" />
 	{
-		license ? (
+		license ?
 			<span>
 				Documentation is unavailable because package {_id} has a proprietary license ({license}).
 			</span>
-		) : (
-			<span>Documentation is unavailable because package {_id} has no license.</span>
-		)
+		:	<span>Documentation is unavailable because package {_id} has no license.</span>
 	}
 </div>
