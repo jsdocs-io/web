@@ -48,7 +48,7 @@ const modifierTags = modifierTagSet.nodes.filter(
 {
 	paramsBlocks.map(({ parameterName, content }) => (
 		<>
-			<h4>Parameter {parameterName}</h4>
+			<strong>Parameter {parameterName}</strong>
 			<DocNodeContainer container={content} />
 		</>
 	))
@@ -57,7 +57,7 @@ const modifierTags = modifierTagSet.nodes.filter(
 {
 	returnsBlock && (
 		<>
-			<h4>Returns</h4>
+			<strong>Returns</strong>
 			<DocNodeContainer container={returnsBlock.content} />
 		</>
 	)
@@ -66,7 +66,7 @@ const modifierTags = modifierTagSet.nodes.filter(
 {
 	throwsBlocks.map(({ content }) => (
 		<>
-			<h4>Throws</h4>
+			<strong>Throws</strong>
 			<DocNodeContainer container={content} />
 		</>
 	))
@@ -75,7 +75,7 @@ const modifierTags = modifierTagSet.nodes.filter(
 {
 	remarksBlock && (
 		<>
-			<h4>Remarks</h4>
+			<strong>Remarks</strong>
 			<DocNodeContainer container={remarksBlock.content} />
 		</>
 	)
@@ -84,7 +84,7 @@ const modifierTags = modifierTagSet.nodes.filter(
 {
 	exampleBlocks.map(({ content }) => (
 		<>
-			<h4>Example</h4>
+			<strong>Example</strong>
 			<DocNodeContainer container={content} />
 		</>
 	))
@@ -93,7 +93,7 @@ const modifierTags = modifierTagSet.nodes.filter(
 {
 	seeBlocks.length > 0 && (
 		<>
-			<h4>See also</h4>
+			<strong>See also</strong>
 			<ul>
 				{seeBlocks.map(({ content }) => (
 					<li>
@@ -108,7 +108,7 @@ const modifierTags = modifierTagSet.nodes.filter(
 {
 	modifierTags.length > 0 && (
 		<>
-			<h4>Modifiers</h4>
+			<strong>Modifiers</strong>
 			<p>
 				{modifierTags.map(({ tagName }, i) => (
 					<>
@@ -124,7 +124,7 @@ const modifierTags = modifierTagSet.nodes.filter(
 {
 	deprecatedBlock && (
 		<>
-			<h4>Deprecated</h4>
+			<strong>Deprecated</strong>
 			<DocNodeContainer container={deprecatedBlock.content} />
 		</>
 	)
