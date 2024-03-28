@@ -9,7 +9,7 @@ const props = Astro.props;
 const { status, pkgJson } = props;
 ---
 
-<article class="prose max-w-[100ch] prose-h1:text-3xl">
+<article class="prose w-full max-w-[100ch] prose-h1:text-3xl">
 	<h1>{pkgJson._id}</h1>
 
 	<PackageOverview {...props} />
