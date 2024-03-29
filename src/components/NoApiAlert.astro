@@ -1,9 +1,8 @@
 ---
 import LucideCircleX from "~icons/lucide/circle-x";
+import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
 
-type Props = {
-	pkgId: string;
-};
+type Props = PackagePageHandlerProps & { status: "no-api" };
 
 const { pkgId } = Astro.props;
 ---

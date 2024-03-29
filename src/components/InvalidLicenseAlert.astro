@@ -1,10 +1,8 @@
 ---
-import type { NormalizedPackageJson } from "read-pkg";
 import LucideTriangleAlert from "~icons/lucide/triangle-alert";
+import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
 
-type Props = {
-	pkgJson: NormalizedPackageJson;
-};
+type Props = PackagePageHandlerProps & { status: "invalid-license" };
 
 const {
 	pkgJson: { _id, license },

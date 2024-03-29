@@ -1,11 +1,8 @@
 ---
-import type { NormalizedPackageJson } from "read-pkg";
 import LucideTriangleAlert from "~icons/lucide/triangle-alert";
+import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
 
-type Props = {
-	pkgJson: NormalizedPackageJson;
-	subpath: string;
-};
+type Props = PackagePageHandlerProps & { status: "no-types" };
 
 const {
 	pkgJson: { _id },

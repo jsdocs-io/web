@@ -1,11 +1,8 @@
 ---
-import type { NormalizedPackageJson } from "read-pkg";
 import LucidePackageCheck from "~icons/lucide/package-check";
+import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
 
-type Props = {
-	pkgJson: NormalizedPackageJson;
-	dtPkgName: string;
-};
+type Props = PackagePageHandlerProps & { status: "definitely-typed" };
 
 const {
 	pkgJson: { _id },

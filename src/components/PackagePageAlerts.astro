@@ -8,14 +8,10 @@ import NoTypesAlert from "./NoTypesAlert.astro";
 type Props = PackagePageHandlerProps;
 
 const props = Astro.props;
-const { status, pkgId, subpath, pkgJson } = props;
+const { status } = props;
 ---
 
-{status === "invalid-license" && <InvalidLicenseAlert pkgJson={pkgJson} />}
-{status === "no-types" && <NoTypesAlert pkgJson={pkgJson} subpath={subpath} />}
-{
-	status === "definitely-typed" && (
-		<DefinitelyTypedAlert pkgJson={pkgJson} dtPkgName={props.dtPkgName} />
-	)
-}
-{status === "no-api" && <NoApiAlert pkgId={pkgId} />}
+{status === "invalid-license" && <InvalidLicenseAlert {...props} />}
+{status === "no-types" && <NoTypesAlert {...props} />}
+{status === "definitely-typed" && <DefinitelyTypedAlert {...props} />}
+{status === "no-api" && <NoApiAlert {...props} />}
