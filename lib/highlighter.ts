@@ -5,6 +5,7 @@ import javascript from "shiki/langs/javascript.mjs";
 import json from "shiki/langs/json.mjs";
 import jsx from "shiki/langs/jsx.mjs";
 import markdown from "shiki/langs/markdown.mjs";
+import shellscript from "shiki/langs/shellscript.mjs";
 import tsx from "shiki/langs/tsx.mjs";
 import typescript from "shiki/langs/typescript.mjs";
 import yaml from "shiki/langs/yaml.mjs";
@@ -13,6 +14,7 @@ import githubLight from "shiki/themes/github-light.mjs";
 import getWasm from "shiki/wasm";
 
 const supportedLanguages = [
+	"bash",
 	"css",
 	"html",
 	"javascript",
@@ -21,15 +23,19 @@ const supportedLanguages = [
 	"jsx",
 	"markdown",
 	"md",
+	"sh",
+	"shell",
+	"shellscript",
 	"ts",
 	"tsx",
 	"typescript",
 	"yaml",
 	"yml",
+	"zsh",
 ];
 
 const highlighter = await getHighlighterCore({
-	langs: [css, html, javascript, json, jsx, markdown, tsx, typescript, yaml],
+	langs: [css, html, javascript, json, jsx, markdown, shellscript, tsx, typescript, yaml],
 	themes: [githubLight, githubDark],
 	loadWasm: getWasm,
 });
