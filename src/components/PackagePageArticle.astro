@@ -1,5 +1,6 @@
 ---
 import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import PackageApi from "./PackageApi.astro";
 import PackageBadge from "./PackageBadge.astro";
 import PackageDependencies from "./PackageDependencies.astro";
 import PackageOverview from "./PackageOverview.astro";
@@ -15,13 +16,7 @@ const { status, pkgJson } = props;
 
 	<PackageOverview {...props} />
 
-	{
-		status === "with-api" && (
-			<>
-				<h2 id="api">API</h2>
-			</>
-		)
-	}
+	{status === "with-api" && <PackageApi {...props} />}
 
 	<PackageDependencies {pkgJson} />
 	<PackageBadge name={pkgJson.name} />

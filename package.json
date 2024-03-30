@@ -30,6 +30,7 @@
 		"read-pkg": "^9.0.1",
 		"shiki": "^1.2.1",
 		"trim-newlines": "^5.0.0",
+		"url-join": "^5.0.0",
 		"validate-npm-package-name": "^5.0.0",
 		"zod": "^3.22.4"
 	},
