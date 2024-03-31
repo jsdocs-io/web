@@ -1,12 +1,43 @@
 ---
+import { SEO } from "astro-seo";
 import "../styles/shiki.css";
+
+type Props = {
+	title: string;
+	description: string;
+};
+
+const { title, description } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<slot name="head" />
+		<SEO
+			slot="head"
+			{title}
+			{description}
+			openGraph={{
+				basic: {
+					title: description,
+					type: "website",
+					image: "https://jsdocs.io/TODO:.png",
+				},
+				image: {
+					alt: description,
+				},
+			}}
+			twitter={{
+				card: "summary_large_image",
+				title: description,
+				description: description,
+				image: "https://jsdocs.io/TODO:.png",
+				imageAlt: description,
+				site: "@jsDocs",
+				creator: "@jsDocs",
+			}}
+		/>
 	</head>
 	<body>
 		<slot />

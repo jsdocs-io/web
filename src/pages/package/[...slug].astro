@@ -1,5 +1,4 @@
 ---
-import { SEO } from "astro-seo";
 import { packagePageHandler } from "../../../lib/package-page-handler";
 import PackagePageAlerts from "../../components/PackagePageAlerts.astro";
 import PackagePageArticle from "../../components/PackagePageArticle.astro";
@@ -18,32 +17,7 @@ const title = `${pkgId} - jsDocs.io`;
 const description = `Documentation for npm package ${pkgId} on jsDocs.io`;
 ---
 
-<BaseLayout>
-	<SEO
-		slot="head"
-		{title}
-		{description}
-		openGraph={{
-			basic: {
-				title: description,
-				type: "website",
-				image: "https://jsdocs.io/TODO:.png",
-			},
-			image: {
-				alt: description,
-			},
-		}}
-		twitter={{
-			card: "summary_large_image",
-			title: description,
-			description: description,
-			image: "https://jsdocs.io/TODO:.png",
-			imageAlt: description,
-			site: "@jsDocs",
-			creator: "@jsDocs",
-		}}
-	/>
-
+<BaseLayout {title} {description}>
 	<div class="flex flex-col items-center">
 		<PackagePageAlerts {...props} />
 		<PackagePageArticle {...props} />
