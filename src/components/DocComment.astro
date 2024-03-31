@@ -32,8 +32,11 @@ const exampleBlocks = customBlocks.filter(
 );
 const modifierTags = modifierTagSet.nodes.filter(
 	(tag) =>
-		// Do not display the `@packageDocumentation` tag.
-		![StandardTags.packageDocumentation.tagNameWithUpperCase].includes(tag.tagNameWithUpperCase),
+		// Do not display the `@public` and `@packageDocumentation` tags.
+		![
+			StandardTags.packageDocumentation.tagNameWithUpperCase,
+			StandardTags.public.tagNameWithUpperCase,
+		].includes(tag.tagNameWithUpperCase),
 );
 ---
 
