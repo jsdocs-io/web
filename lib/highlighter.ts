@@ -34,6 +34,10 @@ const supportedLanguages = [
 	"zsh",
 ];
 
+// Replace light theme white background with light gray to show the
+// code block area and not have code "floating" on the white page background.
+githubLight.colors!["editor.background"] = "#f7f7f7";
+
 const highlighter = await getHighlighterCore({
 	langs: [css, html, javascript, json, jsx, markdown, shellscript, tsx, typescript, yaml],
 	themes: [githubLight, githubDark],
