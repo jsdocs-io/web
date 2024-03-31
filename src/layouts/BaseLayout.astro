@@ -10,13 +10,6 @@ import "../styles/shiki.css";
 	</head>
 	<body>
 		<slot />
-		<script>
-			import AnchorJS from "anchor-js";
-
-			const anchors = new AnchorJS();
-			document.addEventListener("DOMContentLoaded", () => {
-				anchors.add("h2, h3");
-			});
-		</script>
+		<script src="../scripts/add-anchor-links.ts"></script>
 	</body>
 </html>
