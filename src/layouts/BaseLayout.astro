@@ -17,6 +17,7 @@ const { title, description } = Astro.props;
 		<SEO
 			slot="head"
 			{title}
+			titleTemplate="%s - jsDocs.io"
 			{description}
 			openGraph={{
 				basic: {
