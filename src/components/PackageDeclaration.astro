@@ -1,0 +1,32 @@
+---
+import type { AllExtractedDeclaration } from "@jsdocs-io/extractor";
+import { codeToHtml } from "../../lib/highlighter";
+import { shortId } from "../../lib/short-id";
+import { shortKind } from "../../lib/short-kind";
+import type { UnpkgUrlFn } from "../../lib/unpkg-url";
+import DocComment from "./DocComment.astro";
+
+type Props = {
+	declaration: AllExtractedDeclaration;
+	unpkgUrl: UnpkgUrlFn;
+};
+
+const props = Astro.props;
+const { declaration, unpkgUrl } = props;
+---
+
+<h3 id={shortId(declaration.id)}>
+	{shortKind(declaration.kind)}
+	<a href={unpkgUrl(declaration)}>{declaration.name}</a>
+</h3>
+
+<Fragment set:html={codeToHtml({ code: declaration.signature, language: "typescript" })} />
+
+{
+	declaration.docs.map((doc, i) => (
+		<>
+			{i > 0 && <hr />}
+			<DocComment {doc} />
+		</>
+	))
+}

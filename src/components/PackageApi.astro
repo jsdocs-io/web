@@ -1,53 +1,14 @@
 ---
-import { codeToHtml } from "../../lib/highlighter";
 import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
-import { shortId } from "../../lib/short-id";
-import { resolveUnpkgPackages, unpkgUrl } from "../../lib/unpkg-url";
-import DocComment from "./DocComment.astro";
+import { makeUnpkgUrl } from "../../lib/unpkg-url";
+import PackageDeclarations from "./PackageDeclarations.astro";
 
 type Props = PackagePageHandlerProps & { status: "with-api" };
 
-const props = Astro.props;
-const { pkgApi } = props;
-const resolvedUnpkgPkgs = resolveUnpkgPackages(pkgApi.packages);
-const variables = pkgApi.declarations.filter(({ kind }) => kind === "variable");
-const functions = pkgApi.declarations.filter(({ kind }) => kind === "function");
+const {
+	pkgApi: { declarations, packages },
+} = Astro.props;
+const unpkgUrl = makeUnpkgUrl(packages);
 ---
 
-{
-	variables.length > 0 && (
-		<>
-			<h2 id="package-variables">Variables</h2>
-			{variables.map((decl) => (
-				<>
-					<h3 id={shortId(decl.id)}>
-						variable <a href={unpkgUrl(decl, resolvedUnpkgPkgs)}>{decl.name}</a>
-					</h3>
-					<Fragment set:html={codeToHtml({ code: decl.signature, language: "typescript" })} />
-					{decl.docs.map((doc) => (
-						<DocComment {doc} />
-					))}
-				</>
-			))}
-		</>
-	)
-}
-
-{
-	functions.length > 0 && (
-		<>
-			<h2 id="package-functions">Functions</h2>
-			{functions.map((decl) => (
-				<>
-					<h3 id={shortId(decl.id)}>
-						function <a href={unpkgUrl(decl, resolvedUnpkgPkgs)}>{decl.name}</a>
-					</h3>
-					<Fragment set:html={codeToHtml({ code: decl.signature, language: "typescript" })} />
-					{decl.docs.map((doc) => (
-						<DocComment {doc} />
-					))}
-				</>
-			))}
-		</>
-	)
-}
+<PackageDeclarations containerName="package" {declarations} {unpkgUrl} />
