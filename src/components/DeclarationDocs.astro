@@ -1,0 +1,19 @@
+---
+import type { AllExtractedDeclaration } from "@jsdocs-io/extractor";
+import DocComment from "./DocComment.astro";
+
+type Props = {
+	declaration: AllExtractedDeclaration;
+};
+
+const { declaration } = Astro.props;
+---
+
+{
+	declaration.docs.map((doc, i) => (
+		<>
+			{i > 0 && <hr />}
+			<DocComment {doc} />
+		</>
+	))
+}
