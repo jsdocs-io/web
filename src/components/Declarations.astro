@@ -11,7 +11,7 @@ import type {
 } from "@jsdocs-io/extractor";
 import { shortId } from "../../lib/short-id";
 import { type UnpkgUrlFn } from "../../lib/unpkg-url";
-import PackageDeclaration from "./PackageDeclaration.astro";
+import Declaration from "./Declaration.astro";
 
 type Props = {
 	containerName: string;
@@ -34,7 +34,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 		<>
 			<h2 id={`${containerName}-variables`}>Variables</h2>
 			{variables.map((declaration) => (
-				<PackageDeclaration {declaration} {unpkgUrl} />
+				<Declaration {declaration} {unpkgUrl} />
 			))}
 		</>
 	)
@@ -45,7 +45,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 		<>
 			<h2 id={`${containerName}-functions`}>Functions</h2>
 			{functions.map((declaration) => (
-				<PackageDeclaration {declaration} {unpkgUrl} />
+				<Declaration {declaration} {unpkgUrl} />
 			))}
 		</>
 	)
@@ -57,19 +57,19 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<h2 id={`${containerName}-classes`}>Classes</h2>
 			{classes.map((declaration) => (
 				<>
-					<PackageDeclaration {declaration} {unpkgUrl} />
+					<Declaration {declaration} {unpkgUrl} />
 					{(declaration.constructors.length > 0 ||
 						declaration.properties.length > 0 ||
 						declaration.methods.length > 0) && (
 						<div class="border-l border-l-base-content/20 pl-6">
 							{declaration.constructors.map((declaration) => (
-								<PackageDeclaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} />
 							))}
 							{declaration.properties.map((declaration) => (
-								<PackageDeclaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} />
 							))}
 							{declaration.methods.map((declaration) => (
-								<PackageDeclaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} />
 							))}
 						</div>
 					)}
@@ -85,7 +85,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<h2 id={`${containerName}-interfaces`}>Interfaces</h2>
 			{interfaces.map((declaration) => (
 				<>
-					<PackageDeclaration {declaration} {unpkgUrl} />
+					<Declaration {declaration} {unpkgUrl} />
 					{(declaration.properties.length > 0 ||
 						declaration.methods.length > 0 ||
 						declaration.constructSignatures.length > 0 ||
@@ -95,25 +95,25 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 						declaration.setAccessors.length > 0) && (
 						<div class="border-l border-l-base-content/20 pl-6">
 							{declaration.properties.map((declaration) => (
-								<PackageDeclaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} />
 							))}
 							{declaration.methods.map((declaration) => (
-								<PackageDeclaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} />
 							))}
 							{declaration.constructSignatures.map((declaration) => (
-								<PackageDeclaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} />
 							))}
 							{declaration.callSignatures.map((declaration) => (
-								<PackageDeclaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} />
 							))}
 							{declaration.indexSignatures.map((declaration) => (
-								<PackageDeclaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} />
 							))}
 							{declaration.getAccessors.map((declaration) => (
-								<PackageDeclaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} />
 							))}
 							{declaration.setAccessors.map((declaration) => (
-								<PackageDeclaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} />
 							))}
 						</div>
 					)}
@@ -129,11 +129,11 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<h2 id={`${containerName}-enums`}>Enums</h2>
 			{enums.map((declaration) => (
 				<>
-					<PackageDeclaration {declaration} {unpkgUrl} />
+					<Declaration {declaration} {unpkgUrl} />
 					{declaration.members.length > 0 && (
 						<div class="border-l border-l-base-content/20 pl-6">
 							{declaration.members.map((declaration) => (
-								<PackageDeclaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} />
 							))}
 						</div>
 					)}
@@ -148,7 +148,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 		<>
 			<h2 id={`${containerName}-types`}>Types</h2>
 			{types.map((declaration) => (
-				<PackageDeclaration {declaration} {unpkgUrl} />
+				<Declaration {declaration} {unpkgUrl} />
 			))}
 		</>
 	)
@@ -160,7 +160,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<h2 id={`${containerName}-namespaces`}>Namespaces</h2>
 			{namespaces.map((declaration) => (
 				<>
-					<PackageDeclaration {declaration} {unpkgUrl} />
+					<Declaration {declaration} {unpkgUrl} />
 					{declaration.declarations.length > 0 && (
 						<div class="border-l border-l-base-content/20 pl-6">
 							<Astro.self
