@@ -17,7 +17,9 @@ const { declaration, unpkgUrl } = props;
 
 <h3 id={shortId(declaration.id)}>
 	{shortKind(declaration.kind)}
-	<a href={unpkgUrl(declaration)}>{declaration.name}</a>
+	<a class="font-semibold text-primary no-underline hover:underline" href={unpkgUrl(declaration)}
+		>{declaration.name}</a
+	>
 </h3>
 
 <Fragment set:html={codeToHtml({ code: declaration.signature, language: "typescript" })} />
