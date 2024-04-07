@@ -1,9 +1,9 @@
 ---
 import type { AllExtractedDeclaration } from "@jsdocs-io/extractor";
-import { codeToHtml } from "../../lib/highlighter";
 import { shortId } from "../../lib/short-id";
 import { shortKind } from "../../lib/short-kind";
 import type { UnpkgUrlFn } from "../../lib/unpkg-url";
+import DeclarationSignature from "./DeclarationSignature.astro";
 import DocComment from "./DocComment.astro";
 
 type Props = {
@@ -33,7 +33,7 @@ const [kind, name] =
 	>
 </h3>
 
-<Fragment set:html={codeToHtml({ code: declaration.signature, language: "typescript" })} />
+<DeclarationSignature {declaration} />
 
 {
 	declaration.docs.map((doc, i) => (
