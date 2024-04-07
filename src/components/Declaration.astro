@@ -1,9 +1,8 @@
 ---
 import type { AllExtractedDeclaration } from "@jsdocs-io/extractor";
-import { shortId } from "../../lib/short-id";
-import { shortKind } from "../../lib/short-kind";
 import type { UnpkgUrlFn } from "../../lib/unpkg-url";
 import DeclarationSignature from "./DeclarationSignature.astro";
+import DeclarationTitle from "./DeclarationTitle.astro";
 import DocComment from "./DocComment.astro";
 
 type Props = {
@@ -12,27 +11,10 @@ type Props = {
 };
 
 const props = Astro.props;
-const { declaration, unpkgUrl } = props;
-const id = shortId(declaration.id);
-const anonymousDeclarations = [
-	"constructor",
-	"call-signature",
-	"construct-signature",
-	"index-signature",
-];
-const [kind, name] =
-	anonymousDeclarations.includes(declaration.name) ?
-		["", declaration.name.replace("-", " ")]
-	:	[shortKind(declaration.kind), declaration.name];
+const { declaration } = props;
 ---
 
-<h3 {id}>
-	{kind}
-	<a class="font-semibold text-primary no-underline hover:underline" href={unpkgUrl(declaration)}
-		>{name}</a
-	>
-</h3>
-
+<DeclarationTitle {...props} />
 <DeclarationSignature {declaration} />
 
 {
