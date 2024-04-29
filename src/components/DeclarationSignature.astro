@@ -1,13 +1,13 @@
 ---
 import type { AllExtractedDeclaration } from "@jsdocs-io/extractor";
-import { codeToHtml } from "../../lib/highlighter";
+import { declarationSignature } from "../../lib/declaration-signature";
 
 type Props = {
 	declaration: AllExtractedDeclaration;
 };
 
-const props = Astro.props;
-const { declaration } = props;
+const { declaration } = Astro.props;
+const signatureHtml = declarationSignature(declaration);
 ---
 
-<Fragment set:html={codeToHtml({ code: declaration.signature, language: "typescript" })} />
+<Fragment set:html={signatureHtml} />

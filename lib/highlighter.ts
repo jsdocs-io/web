@@ -38,7 +38,7 @@ const supportedLanguages = [
 // code block area and not have code "floating" on the white page background.
 githubLight.colors!["editor.background"] = "#f7f7f7";
 
-const highlighter = await getHighlighterCore({
+export const highlighter = await getHighlighterCore({
 	langs: [css, html, javascript, json, jsx, markdown, shellscript, tsx, typescript, yaml],
 	themes: [githubLight, githubDark],
 	loadWasm: getWasm,
