@@ -5,6 +5,7 @@ export type UnpkgUrlFn = ReturnType<typeof makeUnpkgUrl>;
 
 export const makeUnpkgUrl = (packages: string[]) => {
 	const resolvedUnpkgPackages = packages.map((id) => ({
+		// Replace package names with resolved IDs (e.g., `/foo/` -> `/foo@1.0.0/`)
 		pattern: `/${id.slice(0, id.lastIndexOf("@"))}/`,
 		replacement: `/${id}/`,
 	}));
