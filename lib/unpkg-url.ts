@@ -9,7 +9,7 @@ export const makeUnpkgUrl = (packages: string[]) => {
 		pattern: `/${id.slice(0, id.lastIndexOf("@"))}/`,
 		replacement: `/${id}/`,
 	}));
-	return (declaration: AllExtractedDeclaration) => {
+	return (declaration: AllExtractedDeclaration): string => {
 		// Generate URLs like https://unpkg.com/browse/foo@1.0.0/index.d.ts#L99
 		const { pattern, replacement } = resolvedUnpkgPackages.find(({ pattern }) =>
 			declaration.file.startsWith(pattern),
