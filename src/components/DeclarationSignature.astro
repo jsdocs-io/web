@@ -1,13 +1,15 @@
 ---
 import type { AllExtractedDeclaration } from "@jsdocs-io/extractor";
-import { declarationSignature } from "../../lib/declaration-signature";
+import { declarationSignatureHtml } from "../../lib/declaration-signature-html";
+import type { DeclarationUrlFn } from "../../lib/declaration-url";
 
 type Props = {
 	declaration: AllExtractedDeclaration;
+	declarationUrl: DeclarationUrlFn;
 };
 
-const { declaration } = Astro.props;
-const signatureHtml = declarationSignature(declaration);
+const { declaration, declarationUrl } = Astro.props;
+const signatureHtml = declarationSignatureHtml(declaration, declarationUrl);
 ---
 
 <Fragment set:html={signatureHtml} />

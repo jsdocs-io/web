@@ -1,5 +1,6 @@
 ---
 import type { AllExtractedDeclaration } from "@jsdocs-io/extractor";
+import type { DeclarationUrlFn } from "../../lib/declaration-url";
 import type { UnpkgUrlFn } from "../../lib/unpkg-url";
 import DeclarationDocs from "./DeclarationDocs.astro";
 import DeclarationSignature from "./DeclarationSignature.astro";
@@ -8,12 +9,12 @@ import DeclarationTitle from "./DeclarationTitle.astro";
 type Props = {
 	declaration: AllExtractedDeclaration;
 	unpkgUrl: UnpkgUrlFn;
+	declarationUrl: DeclarationUrlFn;
 };
 
-const props = Astro.props;
-const { declaration } = props;
+const { declaration, unpkgUrl, declarationUrl } = Astro.props;
 ---
 
-<DeclarationTitle {...props} />
-<DeclarationSignature {declaration} />
+<DeclarationTitle {declaration} {unpkgUrl} />
+<DeclarationSignature {declaration} {declarationUrl} />
 <DeclarationDocs {declaration} />

@@ -1,14 +1,15 @@
 ---
 import type {
-	ExtractedClass,
-	ExtractedDeclaration,
-	ExtractedEnum,
-	ExtractedFunction,
-	ExtractedInterface,
-	ExtractedNamespace,
-	ExtractedTypeAlias,
-	ExtractedVariable,
+ExtractedClass,
+ExtractedDeclaration,
+ExtractedEnum,
+ExtractedFunction,
+ExtractedInterface,
+ExtractedNamespace,
+ExtractedTypeAlias,
+ExtractedVariable,
 } from "@jsdocs-io/extractor";
+import type { DeclarationUrlFn } from "../../lib/declaration-url";
 import { shortId } from "../../lib/short-id";
 import { type UnpkgUrlFn } from "../../lib/unpkg-url";
 import Declaration from "./Declaration.astro";
@@ -17,9 +18,10 @@ type Props = {
 	containerName: string;
 	declarations: ExtractedDeclaration[];
 	unpkgUrl: UnpkgUrlFn;
+	declarationUrl: DeclarationUrlFn;
 };
 
-const { containerName, declarations, unpkgUrl } = Astro.props;
+const { containerName, declarations, unpkgUrl, declarationUrl } = Astro.props;
 const variables = declarations.filter((d): d is ExtractedVariable => d.kind === "variable");
 const functions = declarations.filter((d): d is ExtractedFunction => d.kind === "function");
 const classes = declarations.filter((d): d is ExtractedClass => d.kind === "class");
@@ -34,7 +36,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 		<>
 			<h2 id={`${containerName}-variables`}>Variables</h2>
 			{variables.map((declaration) => (
-				<Declaration {declaration} {unpkgUrl} />
+				<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 			))}
 		</>
 	)
@@ -45,7 +47,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 		<>
 			<h2 id={`${containerName}-functions`}>Functions</h2>
 			{functions.map((declaration) => (
-				<Declaration {declaration} {unpkgUrl} />
+				<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 			))}
 		</>
 	)
@@ -57,19 +59,19 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<h2 id={`${containerName}-classes`}>Classes</h2>
 			{classes.map((declaration) => (
 				<>
-					<Declaration {declaration} {unpkgUrl} />
+					<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 					{(declaration.constructors.length > 0 ||
 						declaration.properties.length > 0 ||
 						declaration.methods.length > 0) && (
 						<div class="border-l border-l-base-content/20 pl-6">
 							{declaration.constructors.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 							))}
 							{declaration.properties.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 							))}
 							{declaration.methods.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 							))}
 						</div>
 					)}
@@ -85,7 +87,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<h2 id={`${containerName}-interfaces`}>Interfaces</h2>
 			{interfaces.map((declaration) => (
 				<>
-					<Declaration {declaration} {unpkgUrl} />
+					<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 					{(declaration.properties.length > 0 ||
 						declaration.methods.length > 0 ||
 						declaration.constructSignatures.length > 0 ||
@@ -95,25 +97,25 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 						declaration.setAccessors.length > 0) && (
 						<div class="border-l border-l-base-content/20 pl-6">
 							{declaration.properties.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 							))}
 							{declaration.methods.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 							))}
 							{declaration.constructSignatures.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 							))}
 							{declaration.callSignatures.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 							))}
 							{declaration.indexSignatures.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 							))}
 							{declaration.getAccessors.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 							))}
 							{declaration.setAccessors.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 							))}
 						</div>
 					)}
@@ -129,11 +131,11 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<h2 id={`${containerName}-enums`}>Enums</h2>
 			{enums.map((declaration) => (
 				<>
-					<Declaration {declaration} {unpkgUrl} />
+					<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 					{declaration.members.length > 0 && (
 						<div class="border-l border-l-base-content/20 pl-6">
 							{declaration.members.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} />
+								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 							))}
 						</div>
 					)}
@@ -148,7 +150,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 		<>
 			<h2 id={`${containerName}-types`}>Types</h2>
 			{types.map((declaration) => (
-				<Declaration {declaration} {unpkgUrl} />
+				<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 			))}
 		</>
 	)
@@ -160,13 +162,14 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<h2 id={`${containerName}-namespaces`}>Namespaces</h2>
 			{namespaces.map((declaration) => (
 				<>
-					<Declaration {declaration} {unpkgUrl} />
+					<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 					{declaration.declarations.length > 0 && (
 						<div class="border-l border-l-base-content/20 pl-6">
 							<Astro.self
 								containerName={shortId(declaration.id)}
 								declarations={declaration.declarations}
 								{unpkgUrl}
+								{declarationUrl}
 							/>
 						</div>
 					)}

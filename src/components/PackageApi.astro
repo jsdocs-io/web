@@ -1,4 +1,5 @@
 ---
+import { makeDeclarationUrl } from "../../lib/declaration-url";
 import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
 import { makeUnpkgUrl } from "../../lib/unpkg-url";
 import Declarations from "./Declarations.astro";
@@ -9,6 +10,7 @@ const {
 	pkgApi: { declarations, packages },
 } = Astro.props;
 const unpkgUrl = makeUnpkgUrl(packages);
+const declarationUrl = makeDeclarationUrl(declarations);
 ---
 
-<Declarations containerName="package" {declarations} {unpkgUrl} />
+<Declarations containerName="package" {declarations} {unpkgUrl} {declarationUrl} />
