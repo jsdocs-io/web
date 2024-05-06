@@ -1,7 +1,7 @@
 ---
 import type { DocFencedCode as _DocFencedCode } from "@microsoft/tsdoc";
 import { trimNewlines } from "trim-newlines";
-import { codeToHtml } from "../../lib/highlighter";
+import { codeToHtml, highlighterLanguages } from "../../lib/highlighter";
 
 type Props = {
 	fencedCode: _DocFencedCode;
@@ -14,7 +14,20 @@ const {
 // Trim newlines to prevent rendering empty space surrounding content
 // but preserve other whitespace that may be used for alignment.
 const trimmedCode = trimNewlines(code);
-const html = codeToHtml({ code: trimmedCode, language });
+
+// Render code to highlighted HTML if the language is supported
+// and the snippet is not too long to prevent creating too many `span` elements.
+const html =
+	highlighterLanguages.has(language) && trimmedCode.length <= 1500 ?
+		codeToHtml({ code: trimmedCode, language })
+	:	undefined;
 ---
 
-<Fragment set:html={html} />
+{
+	html ?
+		<Fragment set:html={html} />
+	:	<>
+			{/* prettier-ignore */}
+			<pre class="shiki" style="background-color:#f7f7f7;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code>{trimmedCode}</code></pre>
+		</>
+}

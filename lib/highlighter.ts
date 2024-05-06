@@ -13,7 +13,7 @@ import githubDark from "shiki/themes/github-dark.mjs";
 import githubLight from "shiki/themes/github-light.mjs";
 import getWasm from "shiki/wasm";
 
-const supportedLanguages = [
+export const highlighterLanguages = new Set([
 	"bash",
 	"css",
 	"html",
@@ -32,7 +32,7 @@ const supportedLanguages = [
 	"yaml",
 	"yml",
 	"zsh",
-];
+]);
 
 // Replace light theme white background with light gray to show the
 // code block area and not have code "floating" on the white page background.
@@ -51,7 +51,7 @@ export type CodeToHtmlOptions = {
 
 export const codeToHtml = ({ code, language }: CodeToHtmlOptions) => {
 	const langLower = language.toLowerCase();
-	const lang = supportedLanguages.includes(langLower) ? langLower : "text";
+	const lang = highlighterLanguages.has(langLower) ? langLower : "text";
 	return highlighter.codeToHtml(code, {
 		lang,
 		themes: { light: "github-light", dark: "github-dark" },
