@@ -9,7 +9,17 @@ type Props = {
 };
 
 const { declaration, declarationUrl } = Astro.props;
-const signatureHtml = declarationSignatureHtml(declaration, declarationUrl);
+const signatureHtml =
+	declaration.signature.length <= 2000 ?
+		declarationSignatureHtml(declaration, declarationUrl)
+	:	undefined;
 ---
 
-<Fragment set:html={signatureHtml} />
+{
+	signatureHtml ?
+		<Fragment set:html={signatureHtml} />
+	:	<>
+			{/* prettier-ignore */}
+			<pre class="shiki" style="background-color:#f7f7f7;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code>{declaration.signature}</code></pre>
+		</>
+}
