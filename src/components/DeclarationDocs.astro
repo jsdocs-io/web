@@ -7,10 +7,11 @@ type Props = {
 };
 
 const { declaration } = Astro.props;
+const docs = [...new Set(declaration.docs)];
 ---
 
 {
-	declaration.docs.map((doc, i) => (
+	docs.map((doc, i) => (
 		<>
 			{i > 0 && <hr />}
 			<DocComment {doc} />
