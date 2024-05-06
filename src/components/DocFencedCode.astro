@@ -17,15 +17,15 @@ const trimmedCode = trimNewlines(code);
 
 // Render code to highlighted HTML if the language is supported
 // and the snippet is not too long to prevent creating too many `span` elements.
-const html =
-	highlighterLanguages.has(language) && trimmedCode.length <= 1500 ?
+const codeHtml =
+	highlighterLanguages.has(language) && trimmedCode.length <= 2000 ?
 		codeToHtml({ code: trimmedCode, language })
 	:	undefined;
 ---
 
 {
-	html ?
-		<Fragment set:html={html} />
+	codeHtml ?
+		<Fragment set:html={codeHtml} />
 	:	<>
 			{/* prettier-ignore */}
 			<pre class="shiki" style="background-color:#f7f7f7;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code>{trimmedCode}</code></pre>
