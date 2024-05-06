@@ -10,11 +10,11 @@ export const makeUnpkgUrl = (packages: string[]) => {
 		replacement: `/${id}/`,
 	}));
 	return (declaration: AllExtractedDeclaration): string => {
-		// Generate URLs like https://unpkg.com/browse/foo@1.0.0/index.d.ts#L99
-		const { pattern, replacement } = resolvedUnpkgPackages.find(({ pattern }) =>
-			declaration.file.startsWith(pattern),
-		)!;
-		const resolvedFile = declaration.file.replace(pattern, replacement);
+		// Generate URLs like https://unpkg.com/browse/foo@1.0.0/index.d.ts#L99.
+		// Note: if the declaration comes from the TS `lib.d.ts` files (e.g, `console`), `res` will be `undefined`.
+		const res = resolvedUnpkgPackages.find(({ pattern }) => declaration.file.startsWith(pattern));
+		const resolvedFile =
+			res ? declaration.file.replace(res.pattern, res.replacement) : declaration.file;
 		return urlJoin("https://unpkg.com/browse", resolvedFile, `#L${declaration.line}`);
 	};
 };
