@@ -57,10 +57,6 @@ const prepareSignature = (declaration: AllExtractedDeclaration) => {
 			return { signature, isWrapped: false };
 		}
 		case "function": {
-			if (signature.startsWith("{")) {
-				// Return overloaded functions signature as-is.
-				return { signature, isWrapped: false };
-			}
 			return {
 				// Temporarily wrap functions in an interface for correct highlighting.
 				signature: ["interface I {", signature, "}"].join("\n"),
