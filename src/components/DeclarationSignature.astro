@@ -10,7 +10,7 @@ type Props = {
 
 const { declaration, declarationUrl } = Astro.props;
 const signatureHtml =
-	declaration.signature.length <= 2000 ?
+	declaration.signature.length <= 4000 ?
 		declarationSignatureHtml(declaration, declarationUrl)
 	:	undefined;
 ---
