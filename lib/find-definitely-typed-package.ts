@@ -8,14 +8,14 @@ export type FindDefinitelyTypedPackageOptions = {
 };
 
 export const findDefinitelyTypedPackage = ({ pkgName, cwd }: FindDefinitelyTypedPackageOptions) =>
-	Effect.gen(function* (_) {
+	Effect.gen(function* () {
 		const dtPkgName = definitelyTypedName(pkgName);
-		const pm = yield* _(PackageManager);
+		const pm = yield* PackageManager;
 		if (
 			// This is already a DT package which is deprecated (exists and has no types).
 			dtPkgName === pkgName ||
 			// DT package not found (failed to install).
-			Either.isLeft(yield* _(Effect.either(pm.installPackage({ pkg: dtPkgName, cwd }))))
+			Either.isLeft(yield* Effect.either(pm.installPackage({ pkg: dtPkgName, cwd })))
 		) {
 			return undefined;
 		}

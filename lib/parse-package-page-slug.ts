@@ -8,16 +8,16 @@ export class ForbiddenPackageNameError extends Data.TaggedError("ForbiddenPackag
 export class ForbiddenProtocolError extends Data.TaggedError("ForbiddenProtocolError") {}
 
 export const parsePackagePageSlug = (slug = "") =>
-	Effect.gen(function* (_) {
+	Effect.gen(function* () {
 		const [first, second, ...rest] = slug.split("/") as [string, ...string[]];
 		const isScopedPackage = first.startsWith("@") && !!second;
 		const pkg = isScopedPackage ? `${first}/${second}` : first;
 		if (forbiddenProtocols.some((p) => pkg.endsWith(`@${p}`))) {
-			return yield* _(new ForbiddenProtocolError());
+			return yield* new ForbiddenProtocolError();
 		}
-		const pkgName = yield* _(packageName(pkg));
+		const pkgName = yield* packageName(pkg);
 		if (forbiddenNames.includes(pkgName)) {
-			return yield* _(new ForbiddenPackageNameError());
+			return yield* new ForbiddenPackageNameError();
 		}
 		const beforeRest = !!second && !isScopedPackage ? [second] : [];
 		const rawSubpath = [...beforeRest, ...rest].filter(Boolean).join("/");

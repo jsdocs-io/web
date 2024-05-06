@@ -8,15 +8,15 @@ const db = new Map<string, PackageApi>();
 export const memDb = Db.of({
 	name: "mem-db",
 	getPackageApi: ({ pkg, subpath }) =>
-		Effect.gen(function* (_) {
+		Effect.gen(function* () {
 			const pkgApi = db.get(packageId({ pkg, subpath }));
 			if (!pkgApi) {
-				return yield* _(new DbGetError({ cause: "not found" }));
+				return yield* new DbGetError({ cause: "not found" });
 			}
 			return pkgApi;
 		}),
 	setPackageApi: ({ pkg, subpath, pkgApi }) =>
-		Effect.gen(function* (_) {
+		Effect.gen(function* () {
 			db.set(packageId({ pkg, subpath }), pkgApi);
 		}),
 });

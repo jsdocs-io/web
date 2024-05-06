@@ -13,9 +13,9 @@ const _findDefinitelyTypedPackage = (opts: FindDefinitelyTypedPackageOptions) =>
 			PackageManager,
 			PackageManager.of({
 				installPackage: ({ pkg }) =>
-					Effect.gen(function* (_) {
+					Effect.gen(function* () {
 						if (pkg === "@types/jsdocs-io__not-found") {
-							yield* _(new InstallPackageError({ cause: "not found" }));
+							yield* new InstallPackageError({ cause: "not found" });
 						}
 						return [pkg];
 					}),
