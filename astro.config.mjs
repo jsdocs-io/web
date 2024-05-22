@@ -1,9 +1,8 @@
 import tailwind from "@astrojs/tailwind";
-import Icons from "unplugin-icons/vite";
-
 import vercel from "@astrojs/vercel/serverless";
 import { defineConfig } from "astro/config";
 import process from "node:process";
+import Icons from "unplugin-icons/vite";
 
 // https://astro.build/config
 export default defineConfig({
