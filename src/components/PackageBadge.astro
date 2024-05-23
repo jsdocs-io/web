@@ -1,5 +1,5 @@
 ---
-import { codeToHtml } from "../../lib/highlighter";
+import JsDocsIoBadge from "./JsDocsIoBadge.astro";
 
 type Props = {
 	name: string;
@@ -10,71 +10,27 @@ const badgeUrl = "https://img.shields.io/badge/jsDocs.io-reference-blue";
 const pkgUrl = `https://www.jsdocs.io/package/${name}`;
 const altText = "jsDocs.io";
 const markdownBadge = `[![${altText}](${badgeUrl})](${pkgUrl})`;
-const markdownBadgeHtml = codeToHtml({ code: markdownBadge, language: "markdown" });
 const htmlBadge = `<a href="${pkgUrl}"><img src="${badgeUrl}" alt="${altText}"></a>`;
-const htmlBadgeHtml = codeToHtml({ code: htmlBadge, language: "html" });
 ---
 
 <h2 id="package-badge">Badge</h2>
 
-<svg
-	xmlns="http://www.w3.org/2000/svg"
-	xmlns:xlink="http://www.w3.org/1999/xlink"
-	width="122"
-	height="20"
-	role="img"
-	aria-label="jsDocs.io: reference"
-	><title>jsDocs.io: reference</title><linearGradient id="s" x2="0" y2="100%"
-		><stop offset="0" stop-color="#bbb" stop-opacity=".1"></stop><stop offset="1" stop-opacity=".1"
-		></stop></linearGradient
-	><clipPath id="r"><rect width="122" height="20" rx="3" fill="#fff"></rect></clipPath><g
-		clip-path="url(#r)"
-		><rect width="59" height="20" fill="#555"></rect><rect
-			x="59"
-			width="63"
-			height="20"
-			fill="#007ec6"></rect><rect width="122" height="20" fill="url(#s)"></rect></g
-	><g
-		fill="#fff"
-		text-anchor="middle"
-		font-family="Verdana,Geneva,DejaVu Sans,sans-serif"
-		text-rendering="geometricPrecision"
-		font-size="110"
-		><text
-			aria-hidden="true"
-			x="305"
-			y="150"
-			fill="#010101"
-			fill-opacity=".3"
-			transform="scale(.1)"
-			textLength="490">jsDocs.io</text
-		><text x="305" y="140" transform="scale(.1)" fill="#fff" textLength="490">jsDocs.io</text><text
-			aria-hidden="true"
-			x="895"
-			y="150"
-			fill="#010101"
-			fill-opacity=".3"
-			transform="scale(.1)"
-			textLength="530">reference</text
-		><text x="895" y="140" transform="scale(.1)" fill="#fff" textLength="530">reference</text></g
-	></svg
->
+<JsDocsIoBadge />
 
 <p>
-	To add a badge like the one displayed above to your package's README, use the code snippets
+	To add a badge like the one displayed above to your package's README, you can copy the snippets
 	available below. You can also create a custom badge on <a href="https://shields.io/">Shields.io</a
-	> linking to <code>{pkgUrl}</code>.
+	> by linking to <code>{pkgUrl}</code>.
 </p>
 
-<button id="copy-markdown-badge" class="btn btn-outline btn-sm" data-snippet={markdownBadge}
-	>Copy Markdown badge</button
->
-<Fragment set:html={markdownBadgeHtml} />
-
-<button id="copy-html-badge" class="btn btn-outline btn-sm" data-snippet={htmlBadge}
-	>Copy HTML badge</button
->
-<Fragment set:html={htmlBadgeHtml} />
+<div class="flex items-center gap-2">
+	<button id="copy-markdown-badge" class="btn btn-outline btn-sm" data-snippet={markdownBadge}
+		>Copy Markdown badge</button
+	>
+	<button id="copy-html-badge" class="btn btn-outline btn-sm" data-snippet={htmlBadge}
+		>Copy HTML badge</button
+	>
+</div>
 
 <script>
 	const copyMarkdownBadge = document.getElementById("copy-markdown-badge")!;
