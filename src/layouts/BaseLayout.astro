@@ -10,6 +10,9 @@ type Props = {
 };
 
 const { title, description } = Astro.props;
+
+// Prevent title from being `jsDocs.io - jsDocs.io` on the homepage.
+const titleTemplate = title !== "jsDocs.io" ? "%s - jsDocs.io" : undefined;
 ---
 
 <html lang="en">
@@ -20,7 +23,7 @@ const { title, description } = Astro.props;
 		<SEO
 			slot="head"
 			{title}
-			titleTemplate="%s - jsDocs.io"
+			{titleTemplate}
 			{description}
 			openGraph={{
 				basic: {
