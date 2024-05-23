@@ -1,6 +1,7 @@
 import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
 import { defineConfig } from "astro/config";
+import { execSync } from "node:child_process";
 import process from "node:process";
 import Icons from "unplugin-icons/vite";
 
@@ -16,5 +17,8 @@ export default defineConfig({
 	integrations: [tailwind()],
 	vite: {
 		plugins: [Icons({ compiler: "astro" })],
+		define: {
+			_GIT_COMMIT: JSON.stringify(execSync("git rev-parse HEAD").toString().trim()),
+		},
 	},
 });

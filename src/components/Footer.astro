@@ -1,0 +1,55 @@
+---
+import LucidePackageSearch from "~icons/lucide/package-search";
+import VercelBanner from "./VercelBanner.astro";
+
+declare global {
+	// See `astro.config.mjs` for definition.
+	const _GIT_COMMIT: string;
+}
+
+const gitCommit = _GIT_COMMIT;
+const gitCommitShort = gitCommit.slice(0, 7);
+const githubCommitUrl = `https://github.com/jsdocs-io/web/commit/${gitCommit}`;
+---
+
+<footer class="footer border-t border-base-content/20 bg-base-200 p-10 text-base-content">
+	<aside>
+		<a href="/" class="link-hover link flex items-center gap-2 text-xl font-bold">
+			<LucidePackageSearch class="size-8" />
+			jsDocs.io
+		</a>
+		<p>
+			Created by <a href="https://www.edoardoscibona.com" class="link-hover link font-bold"
+				>Edoardo Scibona</a
+			>
+			<br />
+			<span class="text-xs">
+				Commit: <a href={githubCommitUrl} class="link-hover link">
+					{gitCommitShort}
+				</a>
+			</span>
+		</p>
+		<VercelBanner />
+	</aside>
+
+	<nav>
+		<h6 class="footer-title">Links</h6>
+		<a href="/" class="link-hover link">Home</a>
+		<a href="/about" class="link-hover link">About</a>
+		<a href="/donate" class="link-hover link">Donate or sponsor</a>
+		<a href="/guide" class="link-hover link">Guide for developers</a>
+		<a href="https://github.com/jsdocs-io/web/issues" class="link-hover link">Report an issue</a>
+	</nav>
+
+	<nav>
+		<h6 class="footer-title">Social</h6>
+		<a href="https://github.com/jsdocs-io/web" class="link-hover link">GitHub</a>
+		<a href="https://x.com/jsDocs" class="link-hover link">X (Twitter)</a>
+	</nav>
+
+	<nav>
+		<h6 class="footer-title">Legal</h6>
+		<a href="/privacy" class="link-hover link">Privacy policy</a>
+		<a href="/licenses" class="link-hover link">Software licenses</a>
+	</nav>
+</footer>
