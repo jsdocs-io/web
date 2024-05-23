@@ -5,25 +5,27 @@ import LucidePackageSearch from "~icons/lucide/package-search";
 import LucideSearch from "~icons/lucide/search";
 ---
 
-<header class="flex items-center gap-2 border-b border-base-content/20 p-2">
-	<a class="hidden sm:btn sm:btn-ghost sm:btn-sm" href="/">
-		<LucidePackageSearch class="size-4" />
+<header
+	class="flex items-center gap-2 border-b border-base-content/20 bg-base-200 p-2 text-base-content"
+>
+	<a class="hidden sm:btn sm:btn-ghost" href="/">
+		<LucidePackageSearch class="size-6" />
 		jsDocs.io
 	</a>
 
-	<label class="input input-sm input-bordered flex grow items-center gap-2">
+	<label class="input input-bordered flex grow items-center gap-2">
 		<LucideSearch class="size-4" />
 		<input type="text" class="grow" placeholder="Search packages" />
-		<kbd class="hidden sm:kbd sm:kbd-xs">s</kbd>
+		<kbd class="hidden sm:kbd sm:kbd-sm">s</kbd>
 	</label>
 
-	<a class="hidden sm:btn sm:btn-ghost sm:btn-sm" href="/sponsor">
-		<LucideHeart class="size-4" />
-		Sponsor
+	<a class="hidden sm:btn sm:btn-ghost" href="/donate">
+		<LucideHeart class="size-6" />
+		Donate
 	</a>
 
-	<a class="hidden sm:btn sm:btn-ghost sm:btn-sm" href="/about">
-		<LucideInfo class="size-4" />
+	<a class="hidden sm:btn sm:btn-ghost" href="/about">
+		<LucideInfo class="size-6" />
 		About
 	</a>
 </header>
