@@ -1,16 +1,11 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 
+const title = "jsDocs.io";
+const description =
+	"jsDocs.io is an open source documentation host for Javascript and Typescript packages published on npm";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout {title} {description}>
+	<p>TODO:</p>
+</BaseLayout>
