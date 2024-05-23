@@ -5,17 +5,13 @@ import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
 type Props = PackagePageHandlerProps & { status: "invalid-license" };
 
 const {
-	pkgJson: { _id, license },
+	pkgJson: { _id },
 } = Astro.props;
 ---
 
-<div role="alert" class="alert">
-	<LucideTriangleAlert class="h-6 w-6 text-warning" />
-	{
-		license ?
-			<span>
-				Documentation is unavailable because package {_id} has a proprietary license ({license}).
-			</span>
-		:	<span>Documentation is unavailable because package {_id} has no license.</span>
-	}
+<div role="alert" class="alert text-balance">
+	<LucideTriangleAlert class="size-6" />
+	<span
+		>Documentation is unavailable because package {_id} is unlicensed or has a proprietary license.</span
+	>
 </div>

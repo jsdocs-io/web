@@ -7,9 +7,7 @@ type Props = PackagePageHandlerProps & { status: "no-api" };
 const { pkgId } = Astro.props;
 ---
 
-<div role="alert" class="alert">
-	<LucideCircleX class="h-6 w-6 text-error" />
-	<span>
-		Documentation is unavailable because API extraction failed for package {pkgId}.
-	</span>
+<div role="alert" class="alert text-balance">
+	<LucideCircleX class="size-6" />
+	<span>Documentation is unavailable because API extraction failed for package {pkgId}.</span>
 </div>
