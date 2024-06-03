@@ -1,17 +1,63 @@
 ---
+import LucideCircleX from "~icons/lucide/circle-x";
+import LucidePackageCheck from "~icons/lucide/package-check";
+import LucideTriangleAlert from "~icons/lucide/triangle-alert";
 import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
-import DefinitelyTypedAlert from "./DefinitelyTypedAlert.astro";
-import InvalidLicenseAlert from "./InvalidLicenseAlert.astro";
-import NoApiAlert from "./NoApiAlert.astro";
-import NoTypesAlert from "./NoTypesAlert.astro";
 
 type Props = PackagePageHandlerProps;
 
-const props = Astro.props;
-const { status } = props;
+const { status, pkgId } = Astro.props;
 ---
 
-{status === "invalid-license" && <InvalidLicenseAlert {...props} />}
-{status === "no-types" && <NoTypesAlert {...props} />}
-{status === "definitely-typed" && <DefinitelyTypedAlert {...props} />}
-{status === "no-api" && <NoApiAlert {...props} />}
+{
+	["invalid-license", "no-types", "definitely-typed", "no-api"].includes(status) && (
+		<div class="flex justify-center">
+			<div role="alert" class="alert w-fit text-balance">
+				{status === "invalid-license" && (
+					<>
+						<LucideTriangleAlert class="size-6" />
+						<span>
+							Documentation is unavailable because package {pkgId} is unlicensed or has a
+							proprietary license.
+						</span>
+					</>
+				)}
+
+				{status === "no-types" && (
+					<>
+						<LucideTriangleAlert class="size-6" />
+						<span>
+							Documentation is unavailable because package {pkgId} doesn't export type definitions
+							at this subpath.
+						</span>
+					</>
+				)}
+
+				{status === "definitely-typed" && (
+					<>
+						<LucidePackageCheck class="size-6" />
+						<span>
+							Type definitions for {pkgId} are available in the{" "}
+							<a class="link-hover link font-bold" href={`/package/${Astro.props.dtPkgName}`}>
+								{Astro.props.dtPkgName}
+							</a>{" "}
+							package.
+						</span>
+						<a href={`/package/${Astro.props.dtPkgName}`} class="btn btn-outline btn-sm">
+							See documentation
+						</a>
+					</>
+				)}
+
+				{status === "no-api" && (
+					<>
+						<LucideCircleX class="size-6" />
+						<span>
+							Documentation is unavailable because API extraction failed for package {pkgId}.
+						</span>
+					</>
+				)}
+			</div>
+		</div>
+	)
+}
