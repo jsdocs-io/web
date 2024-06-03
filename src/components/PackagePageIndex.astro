@@ -1,0 +1,43 @@
+---
+import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import PackagePageIndexDeclarations from "./PackagePageIndexDeclarations.astro";
+import QuickSearch from "./QuickSearch.astro";
+
+type Props = PackagePageHandlerProps;
+
+const props = Astro.props;
+const { status, pkgJson } = props;
+
+const hasPeerDeps = Object.keys(pkgJson.peerDependencies ?? {}).length > 0;
+---
+
+<div class="flex flex-col gap-6">
+	<QuickSearch />
+
+	{/* Overview. */}
+	<a href="#package-overview" class="link-hover link font-bold">Overview</a>
+
+	{/* Declarations. */}
+	{
+		status === "with-api" && (
+			<PackagePageIndexDeclarations
+				containerName="package"
+				declarations={props.pkgApi.declarations}
+			/>
+		)
+	}
+
+	{/* Dependencies. */}
+	<a href="#package-dependencies" class="link-hover link font-bold">Dependencies</a>
+	<a href="#package-dev-dependencies" class="link-hover link font-bold">Dev dependencies</a>
+	{
+		hasPeerDeps && (
+			<a href="#package-peer-dependencies" class="link-hover link font-bold">
+				Peer dependencies
+			</a>
+		)
+	}
+
+	{/* Badge. */}
+	<a href="#package-badge" class="link-hover link font-bold">Badge</a>
+</div>

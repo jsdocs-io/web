@@ -1,0 +1,247 @@
+---
+import type {
+	ExtractedClass,
+	ExtractedDeclaration,
+	ExtractedEnum,
+	ExtractedFunction,
+	ExtractedInterface,
+	ExtractedNamespace,
+	ExtractedTypeAlias,
+	ExtractedVariable,
+} from "@jsdocs-io/extractor";
+import { shortId } from "../../lib/short-id";
+
+type Props = {
+	containerName: string;
+	declarations: ExtractedDeclaration[];
+};
+
+const { containerName, declarations } = Astro.props;
+const variables = declarations.filter((d): d is ExtractedVariable => d.kind === "variable");
+const functions = declarations.filter((d): d is ExtractedFunction => d.kind === "function");
+const classes = declarations.filter((d): d is ExtractedClass => d.kind === "class");
+const interfaces = declarations.filter((d): d is ExtractedInterface => d.kind === "interface");
+const enums = declarations.filter((d): d is ExtractedEnum => d.kind === "enum");
+const types = declarations.filter((d): d is ExtractedTypeAlias => d.kind === "type");
+const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind === "namespace");
+---
+
+{
+	variables.length > 0 && (
+		<div class="flex flex-col gap-2">
+			<a href={`#${containerName}-variables`} class="link-hover link font-bold">
+				Variables
+			</a>
+			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+				{variables.map((declaration) => (
+					<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+						{declaration.name}
+					</a>
+				))}
+			</div>
+		</div>
+	)
+}
+
+{
+	functions.length > 0 && (
+		<div class="flex flex-col gap-2">
+			<a href={`#${containerName}-functions`} class="link-hover link font-bold">
+				Functions
+			</a>
+			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+				{functions.map((declaration) => (
+					<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+						{declaration.name}()
+					</a>
+				))}
+			</div>
+		</div>
+	)
+}
+
+{
+	classes.length > 0 && (
+		<div class="flex flex-col gap-2">
+			<a href={`#${containerName}-classes`} class="link-hover link font-bold">
+				Classes
+			</a>
+			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+				{classes.map((declaration) => (
+					<details>
+						<summary class="truncate">
+							<a href={`#${shortId(declaration.id)}`} class="link-hover link">
+								{declaration.name}
+							</a>
+						</summary>
+						{(declaration.constructors.length > 0 ||
+							declaration.properties.length > 0 ||
+							declaration.methods.length > 0) && (
+							<div class="my-2 flex flex-col gap-1 border-l border-l-base-content/20 pl-4">
+								{declaration.constructors.map((declaration) => (
+									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+										{declaration.name}()
+									</a>
+								))}
+								{declaration.properties.map((declaration) => (
+									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+										{declaration.name}
+									</a>
+								))}
+								{declaration.methods.map((declaration) => (
+									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+										{declaration.name}()
+									</a>
+								))}
+							</div>
+						)}
+					</details>
+				))}
+			</div>
+		</div>
+	)
+}
+
+{
+	interfaces.length > 0 && (
+		<div class="flex flex-col gap-2">
+			<a href={`#${containerName}-interfaces`} class="link-hover link font-bold">
+				Interfaces
+			</a>
+			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+				{interfaces.map((declaration) => (
+					<details>
+						<summary class="truncate">
+							<a href={`#${shortId(declaration.id)}`} class="link-hover link">
+								{declaration.name}
+							</a>
+						</summary>
+						{(declaration.properties.length > 0 ||
+							declaration.methods.length > 0 ||
+							declaration.constructSignatures.length > 0 ||
+							declaration.callSignatures.length > 0 ||
+							declaration.indexSignatures.length > 0 ||
+							declaration.getAccessors.length > 0 ||
+							declaration.setAccessors.length > 0) && (
+							<div class="my-2 flex flex-col gap-1 border-l border-l-base-content/20 pl-4">
+								{declaration.properties.map((declaration) => (
+									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+										{declaration.name}
+									</a>
+								))}
+								{declaration.methods.map((declaration) => (
+									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+										{declaration.name}()
+									</a>
+								))}
+								{declaration.constructSignatures.map((declaration) => (
+									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+										{declaration.name}
+									</a>
+								))}
+								{declaration.callSignatures.map((declaration) => (
+									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+										{declaration.name}
+									</a>
+								))}
+								{declaration.indexSignatures.map((declaration) => (
+									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+										{declaration.name}
+									</a>
+								))}
+								{declaration.getAccessors.map((declaration) => (
+									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+										{declaration.name}
+									</a>
+								))}
+								{declaration.setAccessors.map((declaration) => (
+									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+										{declaration.name}
+									</a>
+								))}
+							</div>
+						)}
+					</details>
+				))}
+			</div>
+		</div>
+	)
+}
+
+{
+	enums.length > 0 && (
+		<div class="flex flex-col gap-2">
+			<a href={`#${containerName}-enums`} class="link-hover link font-bold">
+				Enums
+			</a>
+			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+				{enums.map((declaration) => (
+					<details>
+						<summary class="truncate">
+							<a href={`#${shortId(declaration.id)}`} class="link-hover link">
+								{declaration.name}
+							</a>
+						</summary>
+						{declaration.members.length > 0 && (
+							<div class="my-2 flex flex-col gap-1 border-l border-l-base-content/20 pl-4">
+								{declaration.members.map((declaration) => (
+									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+										{declaration.name}
+									</a>
+								))}
+							</div>
+						)}
+					</details>
+				))}
+			</div>
+		</div>
+	)
+}
+
+{
+	types.length > 0 && (
+		<div class="flex flex-col gap-2">
+			<a href={`#${containerName}-types`} class="link-hover link font-bold">
+				Types
+			</a>
+			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+				{types.map((declaration) => (
+					<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+						{declaration.name}
+					</a>
+				))}
+			</div>
+		</div>
+	)
+}
+
+{
+	namespaces.length > 0 && (
+		<div class="flex flex-col gap-2">
+			<a href={`#${containerName}-namespaces`} class="link-hover link font-bold">
+				Namespaces
+			</a>
+			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+				{namespaces.map((declaration) => (
+					<details>
+						<summary class="truncate">
+							<a href={`#${shortId(declaration.id)}`} class="link-hover link">
+								{declaration.name}
+							</a>
+						</summary>
+						{declaration.declarations.length > 0 && (
+							<div class="my-2 flex flex-col gap-1 border-l border-l-base-content/20 pl-4">
+								{declaration.declarations.map((declaration) => (
+									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
+										{declaration.name}
+										{declaration.kind === "function" ? "()" : ""}
+									</a>
+								))}
+							</div>
+						)}
+					</details>
+				))}
+			</div>
+		</div>
+	)
+}
