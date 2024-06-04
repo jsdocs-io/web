@@ -4,10 +4,9 @@ import DocComment from "./DocComment.astro";
 
 type Props = PackagePageHandlerProps;
 
-const props = Astro.props;
-const { status, pkgJson } = props;
+const { status, pkgJson } = Astro.props;
 const overview =
-	status === "with-api" && props.pkgApi.overview ? props.pkgApi.overview
+	status === "with-api" && Astro.props.pkgApi.overview ? Astro.props.pkgApi.overview
 	: pkgJson.description ? `/** ${pkgJson.description} */`
 	: `/** Overview not available. */`;
 ---
