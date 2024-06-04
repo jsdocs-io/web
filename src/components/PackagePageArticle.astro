@@ -12,7 +12,7 @@ type Props = PackagePageHandlerProps;
 const { status, pkgJson } = Astro.props;
 ---
 
-<article class="prose w-full max-w-[100ch]">
+<article class="prose max-w-[100ch]">
 	<PackageTitle {pkgJson} />
 	<PackageInfoBadges {pkgJson} />
 	<PackageOverview {...Astro.props} />
