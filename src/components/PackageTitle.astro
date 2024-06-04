@@ -1,0 +1,14 @@
+---
+import type { NormalizedPackageJson } from "read-pkg";
+
+type Props = {
+	pkgJson: NormalizedPackageJson;
+};
+
+const {
+	pkgJson: { name },
+} = Astro.props;
+---
+
+{/* Align vertically with the QuickSearch button. */}
+<h1 class="my-0 flex min-h-12 items-center">{name}</h1>
