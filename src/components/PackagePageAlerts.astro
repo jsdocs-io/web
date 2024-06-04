@@ -11,7 +11,7 @@ const { status, pkgId } = Astro.props;
 
 {
 	["invalid-license", "no-types", "definitely-typed", "no-api"].includes(status) && (
-		<div class="flex justify-center">
+		<div class="col-span-full flex justify-center">
 			<div role="alert" class="alert text-balance lg:w-fit">
 				{status === "invalid-license" && (
 					<>
