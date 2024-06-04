@@ -1,0 +1,55 @@
+---
+import hostedGitInfo from "hosted-git-info";
+import type { NormalizedPackageJson } from "read-pkg";
+import GgNpm from "~icons/gg/npm";
+import LucideScale from "~icons/lucide/scale";
+import MdiGit from "~icons/mdi/git";
+import SimpleIconsUnpkg from "~icons/simple-icons/unpkg";
+
+type Props = {
+	pkgJson: NormalizedPackageJson;
+};
+
+const {
+	pkgJson: { name, version, license, repository },
+} = Astro.props;
+
+const gitInfo = hostedGitInfo.fromUrl(repository?.url ?? "");
+const gitUrl = gitInfo?.browse();
+const gitShortcut = gitInfo?.shortcut();
+---
+
+{/* Align vertically with the Overview link in the package index. */}
+<div class="not-prose mt-6 flex flex-wrap items-center gap-2">
+	<a
+		href={`https://www.npmjs.com/package/${name}/v/${version}`}
+		title="View on npm"
+		class="btn btn-outline btn-sm"
+	>
+		<GgNpm class="size-4" />
+		{version}
+	</a>
+
+	{
+		gitUrl && (
+			<a href={gitUrl} title="View repository" class="btn btn-outline btn-sm">
+				<MdiGit class="size-4" />
+				{gitShortcut ?? "Repository"}
+			</a>
+		)
+	}
+
+	<a
+		href={`https://unpkg.com/browse/${name}@${version}/`}
+		title="View on unpkg"
+		class="btn btn-outline btn-sm"
+	>
+		<SimpleIconsUnpkg class="size-4" />
+		unpkg
+	</a>
+
+	<div class="btn btn-outline no-animation btn-sm pointer-events-none">
+		<LucideScale class="size-4" />
+		{license}
+	</div>
+</div>

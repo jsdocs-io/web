@@ -35,6 +35,9 @@ importers:
       fflate:
         specifier: ^0.8.2
         version: 0.8.2
+      hosted-git-info:
+        specifier: ^7.0.2
+        version: 7.0.2
       pathe:
         specifier: ^1.1.2
         version: 1.1.2
@@ -81,6 +84,9 @@ importers:
       '@types/anchor-js':
         specifier: ^5.0.3
         version: 5.0.3
+      '@types/hosted-git-info':
+        specifier: ^3.0.5
+        version: 3.0.5
       '@types/node':
         specifier: ^20.14.1
         version: 20.14.1
@@ -1302,6 +1308,9 @@ packages:
 
   '@types/hast@3.0.4':
     resolution: {integrity: sha512-WPs+bbQw5aCj+x6laNGWLH3wviHtoCv/P3+otBhbOhJgG8qtpdAMlTCxLtsTWA7LH1Oh/bFCHsBn0TPS5m30EQ==}
+
+  '@types/hosted-git-info@3.0.5':
+    resolution: {integrity: sha512-Dmngh7U003cOHPhKGyA7LWqrnvcTyILNgNPmNCxlx7j8MIi54iBliiT8XqVLIQ3GchoOjVAyBzNJVyuaJjqokg==}
 
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
@@ -5122,6 +5131,8 @@ snapshots:
   '@types/hast@3.0.4':
     dependencies:
       '@types/unist': 3.0.2
+
+  '@types/hosted-git-info@3.0.5': {}
 
   '@types/mdast@4.0.4':
     dependencies:
