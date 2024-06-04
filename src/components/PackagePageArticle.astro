@@ -3,21 +3,20 @@ import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
 import PackageApi from "./PackageApi.astro";
 import PackageBadge from "./PackageBadge.astro";
 import PackageDependencies from "./PackageDependencies.astro";
+import PackageInfoBadges from "./PackageInfoBadges.astro";
 import PackageOverview from "./PackageOverview.astro";
+import PackageTitle from "./PackageTitle.astro";
 
 type Props = PackagePageHandlerProps;
 
-const props = Astro.props;
-const { status, pkgJson } = props;
+const { status, pkgJson } = Astro.props;
 ---
 
-<article class="prose w-full max-w-[100ch] prose-h1:text-3xl">
-	<h1>{pkgJson._id}</h1>
-
-	<PackageOverview {...props} />
-
-	{status === "with-api" && <PackageApi {...props} />}
-
+<article class="prose w-full max-w-[100ch]">
+	<PackageTitle {pkgJson} />
+	<PackageInfoBadges {pkgJson} />
+	<PackageOverview {...Astro.props} />
+	{status === "with-api" && <PackageApi {...Astro.props} />}
 	<PackageDependencies {pkgJson} />
 	<PackageBadge name={pkgJson.name} />
 </article>
