@@ -32,6 +32,9 @@ importers:
       astro-seo:
         specifier: ^0.8.4
         version: 0.8.4(prettier-plugin-astro@0.14.0)(prettier@3.3.0)(typescript@5.4.5)
+      date-fns:
+        specifier: ^3.6.0
+        version: 3.6.0
       effect:
         specifier: ^3.2.8
         version: 3.2.8
@@ -41,6 +44,9 @@ importers:
       hosted-git-info:
         specifier: ^7.0.2
         version: 7.0.2
+      new-github-issue-url:
+        specifier: ^1.0.0
+        version: 1.0.0
       pathe:
         specifier: ^1.1.2
         version: 1.1.2
@@ -1716,6 +1722,9 @@ packages:
     resolution: {integrity: sha512-obT9CUbQdW6eoHwSeT5VwaRrWlwrM4OT5qlfdJ0oQlSIEYhwnEl2+L2fwu5PioLbitwuMdYC2X8I1cyy8Pf6LQ==}
     engines: {node: '>=16.9.0'}
 
+  date-fns@3.6.0:
+    resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
+
   debug@4.3.5:
     resolution: {integrity: sha512-pt0bNEmneDIvdL1Xsd9oDQ/wrQRkXDT4AUWlNZNPKvW5x/jyO9VFXkJUP07vQ2upmw5PlaITaPKc31jK13V+jg==}
     engines: {node: '>=6.0'}
@@ -2481,6 +2490,10 @@ packages:
   natural-orderby@3.0.2:
     resolution: {integrity: sha512-x7ZdOwBxZCEm9MM7+eQCjkrNLrW3rkBKNHVr78zbtqnMGVNlnDi6C/eUEYgxHNrcbu0ymvjzcwIL/6H1iHri9g==}
     engines: {node: '>=18'}
+
+  new-github-issue-url@1.0.0:
+    resolution: {integrity: sha512-wa9jlUFg3v6S3ddijQiB18SY4u9eJYcUe5sHa+6SB8m1UUbtX+H/bBglxOLnhhF1zIHuhWXnKBAa8kBeKRIozQ==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   nise@5.1.9:
     resolution: {integrity: sha512-qOnoujW4SV6e40dYxJOb3uvuoPHtmLzIk4TFo+j0jPJoC+5Z9xja5qH5JZobEPsa8+YYphMrOSwnrshEhG2qww==}
@@ -5659,6 +5672,8 @@ snapshots:
     transitivePeerDependencies:
       - postcss
 
+  date-fns@3.6.0: {}
+
   debug@4.3.5:
     dependencies:
       ms: 2.1.2
@@ -6625,6 +6640,8 @@ snapshots:
   nanoid@3.3.7: {}
 
   natural-orderby@3.0.2: {}
+
+  new-github-issue-url@1.0.0: {}
 
   nise@5.1.9:
     dependencies:
