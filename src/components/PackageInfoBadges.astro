@@ -24,7 +24,7 @@ const gitShortcut = gitInfo?.shortcut();
 	<a
 		href={`https://www.npmjs.com/package/${name}/v/${version}`}
 		title="View on npm"
-		class="btn btn-outline btn-sm"
+		class="btn btn-outline btn-sm border-base-content/50"
 	>
 		<GgNpm class="size-4" />
 		{version}
@@ -32,7 +32,11 @@ const gitShortcut = gitInfo?.shortcut();
 
 	{
 		gitUrl && (
-			<a href={gitUrl} title="View repository" class="btn btn-outline btn-sm">
+			<a
+				href={gitUrl}
+				title="View repository"
+				class="btn btn-outline btn-sm border-base-content/50"
+			>
 				<MdiGit class="size-4" />
 				{gitShortcut ?? "Repository"}
 			</a>
@@ -42,13 +46,13 @@ const gitShortcut = gitInfo?.shortcut();
 	<a
 		href={`https://unpkg.com/browse/${name}@${version}/`}
 		title="View on unpkg"
-		class="btn btn-outline btn-sm"
+		class="btn btn-outline btn-sm border-base-content/50"
 	>
 		<SimpleIconsUnpkg class="size-4" />
 		unpkg
 	</a>
 
-	<div class="btn btn-outline no-animation btn-sm pointer-events-none">
+	<div class="btn btn-outline no-animation btn-sm pointer-events-none border-base-content/50">
 		<LucideScale class="size-4" />
 		{license}
 	</div>
