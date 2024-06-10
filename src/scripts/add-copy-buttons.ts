@@ -15,11 +15,11 @@ document.querySelectorAll("pre.shiki").forEach((pre) => {
 		"group-hover:opacity-100",
 		"group-focus:opacity-100",
 	);
-	pre.appendChild(copyBtn);
 	copyBtn.addEventListener("click", async () => {
 		const text = pre.querySelector("code")!.innerText;
 		await navigator.clipboard.writeText(text);
 		copyBtn.innerText = "Copied";
 		setTimeout(() => (copyBtn.innerText = "Copy"), 1000);
 	});
+	pre.appendChild(copyBtn);
 });
