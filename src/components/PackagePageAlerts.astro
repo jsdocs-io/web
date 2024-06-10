@@ -11,52 +11,50 @@ const { status, pkgId } = Astro.props;
 
 {
 	["invalid-license", "no-types", "definitely-typed", "no-api"].includes(status) && (
-		<div class="col-span-full flex justify-center">
-			<div role="alert" class="alert text-balance lg:w-fit">
-				{status === "invalid-license" && (
-					<>
-						<LucideTriangleAlert class="size-6" />
-						<span>
-							Documentation is unavailable because package {pkgId} is unlicensed or has a
-							proprietary license.
-						</span>
-					</>
-				)}
+		<div role="alert" class="alert col-span-full justify-self-center text-balance lg:w-fit">
+			{status === "invalid-license" && (
+				<>
+					<LucideTriangleAlert class="size-6" />
+					<span>
+						Documentation is unavailable because package {pkgId} is unlicensed or has a proprietary
+						license.
+					</span>
+				</>
+			)}
 
-				{status === "no-types" && (
-					<>
-						<LucideTriangleAlert class="size-6" />
-						<span>
-							Documentation is unavailable because package {pkgId} doesn't export type definitions.
-						</span>
-					</>
-				)}
+			{status === "no-types" && (
+				<>
+					<LucideTriangleAlert class="size-6" />
+					<span>
+						Documentation is unavailable because package {pkgId} doesn't export type definitions.
+					</span>
+				</>
+			)}
 
-				{status === "definitely-typed" && (
-					<>
-						<LucidePackageCheck class="size-6" />
-						<span>
-							Type definitions for {pkgId} are available in the{" "}
-							<a class="link-hover link font-bold" href={`/package/${Astro.props.dtPkgName}`}>
-								{Astro.props.dtPkgName}
-							</a>{" "}
-							package.
-						</span>
-						<a href={`/package/${Astro.props.dtPkgName}`} class="btn btn-outline btn-sm">
-							See documentation
-						</a>
-					</>
-				)}
+			{status === "definitely-typed" && (
+				<>
+					<LucidePackageCheck class="size-6" />
+					<span>
+						Type definitions for {pkgId} are available in the{" "}
+						<a class="link-hover link font-bold" href={`/package/${Astro.props.dtPkgName}`}>
+							{Astro.props.dtPkgName}
+						</a>{" "}
+						package.
+					</span>
+					<a href={`/package/${Astro.props.dtPkgName}`} class="btn btn-outline btn-sm">
+						See documentation
+					</a>
+				</>
+			)}
 
-				{status === "no-api" && (
-					<>
-						<LucideCircleX class="size-6" />
-						<span>
-							Documentation is unavailable because API extraction failed for package {pkgId}.
-						</span>
-					</>
-				)}
-			</div>
+			{status === "no-api" && (
+				<>
+					<LucideCircleX class="size-6" />
+					<span>
+						Documentation is unavailable because API extraction failed for package {pkgId}.
+					</span>
+				</>
+			)}
 		</div>
 	)
 }
