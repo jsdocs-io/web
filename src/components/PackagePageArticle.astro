@@ -13,12 +13,14 @@ type Props = PackagePageHandlerProps;
 const { status, pkgJson } = Astro.props;
 ---
 
-<article class="prose max-w-[100ch] break-words">
-	<PackageTitle {pkgJson} />
-	<PackageInfoBadges {pkgJson} />
-	<PackageOverview {...Astro.props} />
-	{status === "with-api" && <PackageApi {...Astro.props} />}
-	<PackageDependencies {pkgJson} />
-	<PackageBadge name={pkgJson.name} />
-	<PackageAbout {...Astro.props} />
-</article>
+<main id="main-content">
+	<article class="prose max-w-[100ch] break-words">
+		<PackageTitle {pkgJson} />
+		<PackageInfoBadges {pkgJson} />
+		<PackageOverview {...Astro.props} />
+		{status === "with-api" && <PackageApi {...Astro.props} />}
+		<PackageDependencies {pkgJson} />
+		<PackageBadge name={pkgJson.name} />
+		<PackageAbout {...Astro.props} />
+	</article>
+</main>
