@@ -17,10 +17,12 @@
 		"pre-push": "pnpm i && pnpm lint && pnpm build && pnpm test:ci"
 	},
 	"dependencies": {
+		"@astrojs/alpinejs": "^0.4.0",
 		"@aws-sdk/client-s3": "^3.598.0",
 		"@braintree/sanitize-url": "^7.0.2",
 		"@jsdocs-io/extractor": "1.0.0-8",
 		"@microsoft/tsdoc": "^0.15.0",
+		"alpinejs": "^3.14.1",
 		"anchor-js": "^5.0.0",
 		"astro": "^4.10.3",
 		"astro-seo": "^0.8.4",
@@ -45,6 +47,7 @@
 		"@smithy/util-stream": "^3.0.2",
 		"@tailwindcss/typography": "^0.5.13",
 		"@total-typescript/shoehorn": "^0.1.2",
+		"@types/alpinejs": "^3.13.10",
 		"@types/anchor-js": "^5.0.3",
 		"@types/hosted-git-info": "^3.0.5",
 		"@types/node": "^20.14.2",

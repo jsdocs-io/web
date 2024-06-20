@@ -1,3 +1,4 @@
+import alpinejs from "@astrojs/alpinejs";
 import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
 import { defineConfig } from "astro/config";
@@ -14,7 +15,7 @@ export default defineConfig({
 		// inside the deployed Node.js serverless functions.
 		includeFiles: process.env.VERCEL ? ["/bun1/bun"] : [],
 	}),
-	integrations: [tailwind()],
+	integrations: [alpinejs(), tailwind()],
 	vite: {
 		plugins: [Icons({ compiler: "astro" })],
 		define: {
