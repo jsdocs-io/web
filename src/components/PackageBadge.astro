@@ -32,7 +32,6 @@ const htmlBadge = `<a href="${pkgUrl}"><img src="${badgeUrl}" alt="${altText}"><
 	<button
 		x-data={`{ badge: '${htmlBadge}' }`}
 		class="btn btn-outline btn-sm"
-		@click="navigator.clipboard.writeText(badge)"
-		class="btn btn-outline btn-sm">Copy HTML badge</button
+		@click="navigator.clipboard.writeText(badge)">Copy HTML badge</button
 	>
 </div>
