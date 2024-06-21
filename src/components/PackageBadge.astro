@@ -24,22 +24,15 @@ const htmlBadge = `<a href="${pkgUrl}"><img src="${badgeUrl}" alt="${altText}"><
 </p>
 
 <div class="flex flex-wrap items-center gap-2">
-	<button id="copy-markdown-badge" class="btn btn-outline btn-sm" data-snippet={markdownBadge}
-		>Copy Markdown badge</button
+	<button
+		x-data={`{ badge: '${markdownBadge}' }`}
+		class="btn btn-outline btn-sm"
+		@click="navigator.clipboard.writeText(badge)">Copy Markdown badge</button
 	>
-	<button id="copy-html-badge" class="btn btn-outline btn-sm" data-snippet={htmlBadge}
-		>Copy HTML badge</button
+	<button
+		x-data={`{ badge: '${htmlBadge}' }`}
+		class="btn btn-outline btn-sm"
+		@click="navigator.clipboard.writeText(badge)"
+		class="btn btn-outline btn-sm">Copy HTML badge</button
 	>
 </div>
-
-<script>
-	const copyMarkdownBadge = document.getElementById("copy-markdown-badge")!;
-	copyMarkdownBadge.addEventListener("click", () => {
-		navigator.clipboard.writeText(copyMarkdownBadge.dataset.snippet!);
-	});
-
-	const copyHtmlBadge = document.getElementById("copy-html-badge")!;
-	copyHtmlBadge.addEventListener("click", () => {
-		navigator.clipboard.writeText(copyHtmlBadge.dataset.snippet!);
-	});
-</script>
