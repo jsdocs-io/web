@@ -1,5 +1,4 @@
 ---
-import { formatDistanceStrict } from "date-fns";
 import newGitHubIssueURL from "new-github-issue-url";
 import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
 
@@ -17,20 +16,23 @@ const issueUrl = newGitHubIssueURL({
 <h2 id="package-about">About</h2>
 
 <p>
-	Page generated <time title={generatedAt} datetime={generatedAt}
-		>{formatDistanceStrict(new Date(generatedAt), new Date(), { addSuffix: true })}</time
-	> in {generatedIn}ms.
+	Page generated <time
+		x-data={`{ generatedAt: "${generatedAt}" }`}
+		x-text="formatDistanceStrict(new Date(generatedAt), new Date(), { addSuffix: true })"
+		title={generatedAt}
+		datetime={generatedAt}></time> in {generatedIn}ms.
 
 	{
 		status === "with-api" && (
 			<>
 				<br />
 				Package <code>{pkgId}</code> analyzed{" "}
-				<time title={Astro.props.pkgApi.analyzedAt} datetime={Astro.props.pkgApi.analyzedAt}>
-					{formatDistanceStrict(new Date(Astro.props.pkgApi.analyzedAt), new Date(), {
-						addSuffix: true,
-					})}
-				</time>{" "}
+				<time
+					x-data={`{ analyzedAt: "${Astro.props.pkgApi.analyzedAt}" }`}
+					x-text="formatDistanceStrict(new Date(analyzedAt), new Date(), { addSuffix: true })"
+					title={Astro.props.pkgApi.analyzedAt}
+					datetime={Astro.props.pkgApi.analyzedAt}
+				/>{" "}
 				in {Astro.props.pkgApi.analyzedIn}ms.
 			</>
 		)
@@ -39,3 +41,8 @@ const issueUrl = newGitHubIssueURL({
 	<br />
 	Missing or incorrect documentation? <a href={issueUrl}>Open an issue for this package.</a>
 </p>
+
+<script>
+	import { formatDistanceStrict } from "date-fns";
+	window.formatDistanceStrict = formatDistanceStrict;
+</script>
