@@ -9,7 +9,7 @@ const { status, pkgJson } = Astro.props;
 const hasPeerDeps = Object.keys(pkgJson.peerDependencies ?? {}).length > 0;
 ---
 
-<div class="flex flex-col gap-6">
+<aside class="flex flex-col gap-6">
 	<QuickSearch />
 
 	{/* Overview. */}
@@ -41,4 +41,4 @@ const hasPeerDeps = Object.keys(pkgJson.peerDependencies ?? {}).length > 0;
 
 	{/* About. */}
 	<a href="#package-about" class="link-hover link font-bold">About</a>
-</div>
+</aside>
