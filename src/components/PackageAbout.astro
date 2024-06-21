@@ -17,7 +17,7 @@ const issueUrl = newGitHubIssueURL({
 
 <p>
 	Page generated <time
-		x-data={`{ generatedAt: "${generatedAt}" }`}
+		x-data={`{ generatedAt: '${generatedAt}' }`}
 		x-text="formatDistanceStrict(new Date(generatedAt), new Date(), { addSuffix: true })"
 		title={generatedAt}
 		datetime={generatedAt}></time> in {generatedIn}ms.
@@ -28,7 +28,7 @@ const issueUrl = newGitHubIssueURL({
 				<br />
 				Package <code>{pkgId}</code> analyzed{" "}
 				<time
-					x-data={`{ analyzedAt: "${Astro.props.pkgApi.analyzedAt}" }`}
+					x-data={`{ analyzedAt: '${Astro.props.pkgApi.analyzedAt}' }`}
 					x-text="formatDistanceStrict(new Date(analyzedAt), new Date(), { addSuffix: true })"
 					title={Astro.props.pkgApi.analyzedAt}
 					datetime={Astro.props.pkgApi.analyzedAt}
