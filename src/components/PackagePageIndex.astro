@@ -5,9 +5,7 @@ import QuickSearch from "./QuickSearch.astro";
 
 type Props = PackagePageHandlerProps;
 
-const props = Astro.props;
-const { status, pkgJson } = props;
-
+const { status, pkgJson } = Astro.props;
 const hasPeerDeps = Object.keys(pkgJson.peerDependencies ?? {}).length > 0;
 ---
 
@@ -22,7 +20,7 @@ const hasPeerDeps = Object.keys(pkgJson.peerDependencies ?? {}).length > 0;
 		status === "with-api" && (
 			<PackagePageIndexDeclarations
 				containerName="package"
-				declarations={props.pkgApi.declarations}
+				declarations={Astro.props.pkgApi.declarations}
 			/>
 		)
 	}
