@@ -13,7 +13,6 @@ type Props = {
 const {
 	pkgJson: { name, version, license, repository },
 } = Astro.props;
-
 const gitInfo = hostedGitInfo.fromUrl(repository?.url ?? "");
 const gitUrl = gitInfo?.browse();
 const gitShortcut = gitInfo?.shortcut();
