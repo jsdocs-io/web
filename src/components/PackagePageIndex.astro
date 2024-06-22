@@ -1,7 +1,6 @@
 ---
 import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
 import PackagePageIndexDeclarations from "./PackagePageIndexDeclarations.astro";
-import QuickSearch from "./QuickSearch.astro";
 
 type Props = PackagePageHandlerProps;
 
@@ -9,9 +8,7 @@ const { status, pkgJson } = Astro.props;
 const hasPeerDeps = Object.keys(pkgJson.peerDependencies ?? {}).length > 0;
 ---
 
-<aside class="flex flex-col gap-6">
-	<QuickSearch />
-
+<div class="flex flex-col gap-6 overflow-y-auto">
 	{/* Overview. */}
 	<a href="#package-overview" class="link-hover link font-bold">Overview</a>
 
@@ -41,4 +38,4 @@ const hasPeerDeps = Object.keys(pkgJson.peerDependencies ?? {}).length > 0;
 
 	{/* About. */}
 	<a href="#package-about" class="link-hover link font-bold">About</a>
-</aside>
+</div>
