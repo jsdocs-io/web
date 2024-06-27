@@ -46,9 +46,7 @@ const peerDeps = Object.keys(pkgJson.peerDependencies ?? {}).sort((a, b) => a.lo
 			<ul>
 				{peerDeps.map((dep) => (
 					<li>
-						<a class="link" href={`/package/${dep}`}>
-							{dep}
-						</a>
+						<a href={`/package/${dep}`}>{dep}</a>
 					</li>
 				))}
 			</ul>
