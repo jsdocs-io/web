@@ -15,7 +15,7 @@ export default defineConfig({
 		// inside the deployed Node.js serverless functions.
 		includeFiles: process.env.VERCEL ? ["/bun1/bun"] : [],
 	}),
-	integrations: [alpinejs(), tailwind()],
+	integrations: [alpinejs({ entrypoint: "/src/scripts/alpine" }), tailwind()],
 	vite: {
 		plugins: [Icons({ compiler: "astro" })],
 		define: {
