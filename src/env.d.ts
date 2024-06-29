@@ -3,5 +3,4 @@
 
 interface Window {
 	Alpine: import("alpinejs").Alpine;
-	formatDistanceStrict: typeof import("date-fns").formatDistanceStrict;
 }

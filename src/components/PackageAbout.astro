@@ -4,7 +4,7 @@ import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
 
 type Props = PackagePageHandlerProps;
 
-const { status, pkgId, subpath, generatedAt, generatedIn } = Astro.props;
+const { status, pkgId, generatedAt, generatedIn } = Astro.props;
 const issueUrl = newGitHubIssueURL({
 	repoUrl: "https://github.com/jsdocs-io/web",
 	template: "package-with-missing-or-incorrect-documentation.md",
@@ -16,8 +16,8 @@ const issueUrl = newGitHubIssueURL({
 
 <p>
 	Page generated <time
-		x-data={`{ generatedAt: '${generatedAt}' }`}
-		x-text="formatDistanceStrict(new Date(generatedAt), new Date(), { addSuffix: true })"
+		x-data={`timeAgo('${generatedAt}')`}
+		x-text="text"
 		title={generatedAt}
 		datetime={generatedAt}></time> in {generatedIn}ms.
 
@@ -27,8 +27,8 @@ const issueUrl = newGitHubIssueURL({
 				<br />
 				Package <code>{pkgId}</code> analyzed{" "}
 				<time
-					x-data={`{ analyzedAt: '${Astro.props.pkgApi.analyzedAt}' }`}
-					x-text="formatDistanceStrict(new Date(analyzedAt), new Date(), { addSuffix: true })"
+					x-data={`timeAgo('${Astro.props.pkgApi.analyzedAt}')`}
+					x-text="text"
 					title={Astro.props.pkgApi.analyzedAt}
 					datetime={Astro.props.pkgApi.analyzedAt}
 				/>{" "}
@@ -40,8 +40,3 @@ const issueUrl = newGitHubIssueURL({
 	<br />
 	Missing or incorrect documentation? <a href={issueUrl}>Open an issue for this package.</a>
 </p>
-
-<script>
-	import { formatDistanceStrict } from "date-fns";
-	window.formatDistanceStrict = formatDistanceStrict;
-</script>
