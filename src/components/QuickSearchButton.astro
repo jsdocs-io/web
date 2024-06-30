@@ -2,7 +2,7 @@
 import LucideFileSearch from "~icons/lucide/file-search";
 ---
 
-<button class="btn btn-outline w-full justify-between">
+<button x-data class="btn btn-outline w-full justify-between" @click="$store.quickSearch.open()">
 	<div class="flex items-center gap-2">
 		<LucideFileSearch class="size-6" />
 		Quick search

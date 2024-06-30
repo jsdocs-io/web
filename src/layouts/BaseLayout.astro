@@ -3,6 +3,7 @@ import { SEO } from "astro-seo";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import "../styles/shiki.css";
+import QuickSearch from "../components/QuickSearch.astro";
 
 type Props = {
 	title: string;
@@ -56,6 +57,8 @@ const titleTemplate = title !== "jsDocs.io" ? "%s - jsDocs.io" : undefined;
 			</div>
 			<Footer />
 		</div>
+
+		<QuickSearch />
 
 		<script src="../scripts/add-anchor-links.ts"></script>
 		<script src="../scripts/add-copy-buttons.ts"></script>
