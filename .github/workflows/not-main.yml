@@ -36,4 +36,4 @@ jobs:
         run: pnpm build
 
       - name: CodeCov
-        uses: codecov/codecov-action@v4.3.1
+        uses: codecov/codecov-action@v4.5.0
