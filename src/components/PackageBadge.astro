@@ -26,12 +26,12 @@ const htmlBadge = `<a href="${pkgUrl}"><img src="${badgeUrl}" alt="${altText}"><
 <div class="flex flex-wrap items-center gap-2">
 	<button
 		x-data={`{ badge: '${markdownBadge}' }`}
-		class="btn btn-outline btn-sm"
+		class="btn btn-outline btn-sm border-base-content/50"
 		@click="navigator.clipboard.writeText(badge)">Copy Markdown badge</button
 	>
 	<button
 		x-data={`{ badge: '${htmlBadge}' }`}
-		class="btn btn-outline btn-sm"
+		class="btn btn-outline btn-sm border-base-content/50"
 		@click="navigator.clipboard.writeText(badge)">Copy HTML badge</button
 	>
 </div>
