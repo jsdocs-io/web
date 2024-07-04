@@ -58,7 +58,7 @@ const titleTemplate = title !== "jsDocs.io" ? "%s - jsDocs.io" : undefined;
 			<Footer />
 		</div>
 
-		<QuickSearch />
+		<slot name="modals" />
 
 		<script src="../scripts/add-anchor-links.ts"></script>
 		<script src="../scripts/add-copy-buttons.ts"></script>
