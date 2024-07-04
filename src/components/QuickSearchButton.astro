@@ -2,10 +2,18 @@
 import LucideFileSearch from "~icons/lucide/file-search";
 ---
 
-<button x-data class="btn btn-outline w-full justify-between" @click="$store.quickSearch.open()">
+<button
+	x-data
+	class="btn btn-outline w-full justify-between border-base-content/50"
+	@click="$store.quickSearch.open()"
+	@keydown.ctrl.k.window.prevent="$store.quickSearch.open()"
+>
 	<div class="flex items-center gap-2">
 		<LucideFileSearch class="size-6" />
-		Quick search
+		Quick search &hellip;
 	</div>
-	<kbd class="kbd kbd-sm font-normal text-base-content">f</kbd>
+	<kbd>
+		<kbd class="hidden font-normal text-base-content lg:kbd lg:kbd-sm">Ctrl</kbd>
+		<kbd class="hidden font-normal text-base-content lg:kbd lg:kbd-sm">K</kbd>
+	</kbd>
 </button>
