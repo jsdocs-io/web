@@ -2,11 +2,21 @@
 
 ---
 
-<dialog x-data id="quick-search" class="open:modal" @close="$store.quickSearch.close()">
+<dialog
+	x-data
+	id="quick-search"
+	class="open:modal open:modal-bottom open:md:modal-middle"
+	@close="$store.quickSearch.close()"
+>
 	<div class="modal-box">
-		<h3 class="text-lg font-bold">Hello!</h3>
+		<form method="dialog">
+			<button class="btn btn-circle btn-ghost btn-sm absolute right-2 top-2">✕</button>
+		</form>
+
+		<h3 class="text-lg font-bold">Quick search</h3>
 		<p class="py-4">Press ESC key or click outside to close</p>
 	</div>
+
 	<form method="dialog" class="modal-backdrop">
 		<button>Close quick search</button>
 	</form>
