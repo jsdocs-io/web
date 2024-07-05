@@ -3,20 +3,45 @@
 ---
 
 <dialog
-	x-data
+	x-data="quickSearch()"
 	id="quick-search"
 	class="open:modal open:modal-bottom open:md:modal-middle"
-	@close="$store.quickSearch.close()"
+	@close="close()"
+	open
 >
 	<div class="modal-box">
+		{/* Close button. */}
 		<form method="dialog">
 			<button class="btn btn-circle btn-ghost btn-sm absolute right-2 top-2">✕</button>
 		</form>
 
+		{/* Title. */}
 		<h3 class="text-lg font-bold">Quick search</h3>
-		<p class="py-4">Press ESC key or click outside to close</p>
+
+		{/* Search input. */}
+		<label for="quick-search-input" class="sr-only">Search for symbols in this package</label>
+		<input
+			autofocus
+			id="quick-search-input"
+			type="search"
+			class="input input-bordered w-full"
+			x-model="query"
+			@keydown.up.prevent="prevResult()"
+			@keydown.down.prevent="nextResult()"
+			@keydown.enter.prevent="useResult()"
+		/>
+
+		{/* Search results. */}
+		<ul class="mt-4 h-64 overflow-hidden overflow-y-auto" x-ref="quickSearchResults">
+			<template x-for="(result, i) in results">
+				<li :class="{ 'bg-red-400': i === cursor }">
+					<a href="" x-text="result"></a>
+				</li>
+			</template>
+		</ul>
 	</div>
 
+	{/* Clickable backdrop to close modal. */}
 	<form method="dialog" class="modal-backdrop">
 		<button>Close quick search</button>
 	</form>

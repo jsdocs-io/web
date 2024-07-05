@@ -3,10 +3,10 @@ import LucideFileSearch from "~icons/lucide/file-search";
 ---
 
 <button
-	x-data
+	x-data="quickSearchOpener()"
 	class="btn btn-outline w-full justify-between border-base-content/50"
-	@click="$store.quickSearch.open()"
-	@keydown.ctrl.k.window.prevent="$store.quickSearch.open()"
+	@click="open()"
+	@keydown.ctrl.k.window.prevent="open()"
 >
 	<div class="flex items-center gap-2">
 		<LucideFileSearch class="size-6" />
