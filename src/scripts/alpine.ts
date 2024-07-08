@@ -39,11 +39,9 @@ const quickSearchOpener = (Alpine: Alpine) => {
 };
 
 type QuickSearch = {
-	$refs: {
-		quickSearchResults: HTMLUListElement;
-	};
 	$watch(target: string, callback: () => void): void;
 	dialog: HTMLDialogElement | undefined;
+	list: HTMLUListElement | undefined;
 	query: string;
 	declarations: number[];
 	cursor: number;
@@ -62,6 +60,7 @@ const quickSearch = (Alpine: Alpine) => {
 		() =>
 			({
 				dialog: undefined,
+				list: undefined,
 				query: "",
 				declarations: Array.from({ length: 100 }, (_, i) => i + 1),
 				cursor: 0,
@@ -73,6 +72,7 @@ const quickSearch = (Alpine: Alpine) => {
 				},
 				init() {
 					this.dialog = (document.querySelector("#quick-search") ?? undefined) as any;
+					this.list = (document.querySelector("#quick-search-results") ?? undefined) as any;
 					this.$watch("query", () => {
 						this.cursor = 0;
 					});
@@ -81,10 +81,8 @@ const quickSearch = (Alpine: Alpine) => {
 					});
 				},
 				close() {
-					if (this.dialog) {
-						this.dialog.close();
-						this.query = "";
-					}
+					this.dialog?.close();
+					this.query = "";
 				},
 				prevResult() {
 					this.cursor = mod(this.cursor - 1, this.results.length);
@@ -96,9 +94,7 @@ const quickSearch = (Alpine: Alpine) => {
 					console.log("useResult");
 				},
 				focusResult() {
-					this.$refs.quickSearchResults.children[this.cursor + 1]?.scrollIntoView({
-						block: "nearest",
-					});
+					this.list?.children[this.cursor + 1]?.scrollIntoView({ block: "nearest" });
 				},
 			}) as QuickSearch,
 	);

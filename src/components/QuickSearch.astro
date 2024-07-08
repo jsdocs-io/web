@@ -32,7 +32,7 @@
 		/>
 
 		{/* Search results. */}
-		<ul class="mt-4 h-64 overflow-hidden overflow-y-auto" x-ref="quickSearchResults">
+		<ul id="quick-search-results" class="mt-4 h-64 overflow-hidden overflow-y-auto">
 			<template x-for="(result, i) in results">
 				<li :class="{ 'bg-red-400': i === cursor }">
 					<a href="" x-text="result"></a>
