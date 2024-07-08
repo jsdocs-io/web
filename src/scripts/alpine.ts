@@ -43,8 +43,8 @@ type QuickSearch = {
 	dialog: HTMLDialogElement | undefined;
 	list: HTMLUListElement | undefined;
 	query: string;
-	declarations: number[];
 	cursor: number;
+	declarations: number[];
 	results: number[];
 	init(): void;
 	close(): void;
@@ -62,8 +62,8 @@ const quickSearch = (Alpine: Alpine) => {
 				dialog: undefined,
 				list: undefined,
 				query: "",
-				declarations: Array.from({ length: 100 }, (_, i) => i + 1),
 				cursor: 0,
+				declarations: Array.from({ length: 100 }, (_, i) => i + 1),
 				get results() {
 					if (!this.query) {
 						return this.declarations;
