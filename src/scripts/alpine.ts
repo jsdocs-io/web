@@ -83,6 +83,7 @@ const quickSearch = (Alpine: Alpine) => {
 				init() {
 					this.dialog = (document.querySelector("#quick-search") ?? undefined) as any;
 					this.list = (document.querySelector("#quick-search-results") ?? undefined) as any;
+					const collator = new Intl.Collator("en");
 					this.declarations = [
 						...(document.querySelectorAll(
 							"h3[data-declaration]",
@@ -94,7 +95,7 @@ const quickSearch = (Alpine: Alpine) => {
 							kind: node.dataset.kind ?? "",
 							name: node.dataset.name ?? "",
 						}))
-						.sort((a, b) => a.headingId.localeCompare(b.headingId));
+						.sort((a, b) => collator.compare(a.headingId, b.headingId));
 					this.fuse = new Fuse(this.declarations, { keys: ["headingId"] });
 					this.$watch("query", () => {
 						this.cursor = 0;
