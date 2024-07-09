@@ -37,9 +37,9 @@
 			class="mt-4 h-64 overflow-hidden overflow-y-auto"
 			x-show="results.length > 0"
 		>
-			<template x-for="(result, i) in results">
+			<template x-for="(result, i) in results" :key="result.declarationId">
 				<li :class="{ 'bg-red-400': i === cursor }">
-					<a href="" x-text="result"></a>
+					<a href="" x-text="result.headingId"></a>
 				</li>
 			</template>
 		</ul>

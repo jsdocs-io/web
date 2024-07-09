@@ -1,5 +1,6 @@
 import type { Alpine } from "alpinejs";
 import { formatDistanceStrict } from "date-fns";
+import Fuse from "fuse.js/basic";
 import { mod } from "../../lib/mod";
 
 export default (Alpine: Alpine) => {
@@ -44,14 +45,22 @@ type QuickSearch = {
 	list: HTMLUListElement | undefined;
 	query: string;
 	cursor: number;
-	declarations: number[];
-	results: number[];
+	fuse: Fuse<QuickSearchDeclaration>;
+	declarations: QuickSearchDeclaration[];
+	results: QuickSearchDeclaration[];
 	init(): void;
 	close(): void;
 	prevResult(): void;
 	nextResult(): void;
 	useResult(): void;
 	focusResult(): void;
+};
+
+type QuickSearchDeclaration = {
+	headingId: string;
+	declarationId: string;
+	kind: string;
+	name: string;
 };
 
 const quickSearch = (Alpine: Alpine) => {
@@ -63,16 +72,30 @@ const quickSearch = (Alpine: Alpine) => {
 				list: undefined,
 				query: "",
 				cursor: 0,
-				declarations: Array.from({ length: 100 }, (_, i) => i + 1),
+				fuse: new Fuse([] as QuickSearchDeclaration[]),
+				declarations: [] as QuickSearchDeclaration[],
 				get results() {
 					if (!this.query) {
 						return this.declarations;
 					}
-					return this.declarations.filter((declaration) => declaration > Number(this.query));
+					return this.fuse.search(this.query).map((result) => result.item);
 				},
 				init() {
 					this.dialog = (document.querySelector("#quick-search") ?? undefined) as any;
 					this.list = (document.querySelector("#quick-search-results") ?? undefined) as any;
+					this.declarations = [
+						...(document.querySelectorAll(
+							"h3[data-declaration]",
+						) as NodeListOf<HTMLHeadingElement>),
+					]
+						.map((node) => ({
+							headingId: node.id,
+							declarationId: node.dataset.declaration ?? "",
+							kind: node.dataset.kind ?? "",
+							name: node.dataset.name ?? "",
+						}))
+						.sort((a, b) => a.headingId.localeCompare(b.headingId));
+					this.fuse = new Fuse(this.declarations, { keys: ["headingId"] });
 					this.$watch("query", () => {
 						this.cursor = 0;
 					});
