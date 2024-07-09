@@ -25,7 +25,7 @@
 			id="quick-search-input"
 			type="search"
 			class="input input-bordered w-full"
-			x-model="query"
+			x-model.debounce.100ms="query"
 			@keydown.up.prevent="prevResult()"
 			@keydown.down.prevent="nextResult()"
 			@keydown.enter.prevent="useResult()"
