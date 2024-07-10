@@ -38,8 +38,16 @@
 			x-show="results.length > 0"
 		>
 			<template x-for="(result, i) in results" :key="result.declarationId">
-				<li :class="{ 'bg-red-400': i === cursor }">
-					<a href="" x-text="result.headingId"></a>
+				<li>
+					<a
+						class="flex items-center justify-between gap-4 rounded px-2 py-1 hover:bg-neutral"
+						:class="i === cursor && 'bg-neutral'"
+						:href="`#${result.headingId}`"
+						@click="close()"
+					>
+						<span class="truncate" x-text="result.headingId"></span>
+						<span class="opacity-60" x-text="`(${result.kind})`"></span>
+					</a>
 				</li>
 			</template>
 		</ul>
