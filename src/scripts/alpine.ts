@@ -1,7 +1,9 @@
+import type { AllExtractedDeclarationKind } from "@jsdocs-io/extractor";
 import type { Alpine } from "alpinejs";
 import { formatDistanceStrict } from "date-fns";
 import Fuse from "fuse.js/basic";
 import { mod } from "../../lib/mod";
+import { shortKind } from "../../lib/short-kind";
 
 export default (Alpine: Alpine) => {
 	timeAgo(Alpine);
@@ -60,7 +62,6 @@ type QuickSearchDeclaration = {
 	headingId: string;
 	declarationId: string;
 	kind: string;
-	name: string;
 };
 
 const quickSearch = (Alpine: Alpine) => {
@@ -91,9 +92,8 @@ const quickSearch = (Alpine: Alpine) => {
 					]
 						.map((node) => ({
 							headingId: node.id,
-							declarationId: node.dataset.declaration ?? "",
-							kind: node.dataset.kind ?? "",
-							name: node.dataset.name ?? "",
+							declarationId: node.dataset.declaration!,
+							kind: shortKind(node.dataset.kind as AllExtractedDeclarationKind),
 						}))
 						.sort((a, b) => collator.compare(a.headingId, b.headingId));
 					this.fuse = new Fuse(this.declarations, { keys: ["headingId", "kind"] });
