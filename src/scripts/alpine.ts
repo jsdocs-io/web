@@ -96,7 +96,7 @@ const quickSearch = (Alpine: Alpine) => {
 							name: node.dataset.name ?? "",
 						}))
 						.sort((a, b) => collator.compare(a.headingId, b.headingId));
-					this.fuse = new Fuse(this.declarations, { keys: ["headingId"] });
+					this.fuse = new Fuse(this.declarations, { keys: ["headingId", "kind"] });
 					this.$watch("query", () => {
 						this.cursor = 0;
 					});
