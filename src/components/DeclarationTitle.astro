@@ -11,20 +11,20 @@ type Props = {
 
 const { declaration, unpkgUrl } = Astro.props;
 const id = shortId(declaration.id);
-const anonymousDeclarations = [
+const anonymousDeclarations = new Set([
 	"constructor",
 	"call-signature",
 	"construct-signature",
 	"index-signature",
-];
-const [kind, name] =
-	anonymousDeclarations.includes(declaration.name) ?
-		["", declaration.name.replace("-", " ")]
-	:	[shortKind(declaration.kind), declaration.name];
+]);
+const [name, kind] =
+	anonymousDeclarations.has(declaration.name) ?
+		[declaration.name.replace("-", " ")]
+	:	[declaration.name, shortKind(declaration.kind)];
 const url = unpkgUrl(declaration);
 ---
 
-<h3 {id} data-declaration={declaration.id} data-kind={kind}>
-	{kind}
+<h3 {id} data-declaration={declaration.id} data-kind={declaration.kind}>
+	{kind && <span>{kind}</span>}
 	<a class="link-hover link font-semibold text-primary" href={url}>{name}</a>
 </h3>
