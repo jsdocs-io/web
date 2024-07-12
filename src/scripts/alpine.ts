@@ -21,6 +21,7 @@ type QuickSearchOpener = {
 	dialog: HTMLDialogElement | undefined;
 	init(): void;
 	open(): void;
+	cmdSymbol(): string;
 };
 
 const quickSearchOpener = (Alpine: Alpine) => {
@@ -36,6 +37,9 @@ const quickSearchOpener = (Alpine: Alpine) => {
 					if (this.dialog && !this.dialog.open) {
 						this.dialog.showModal();
 					}
+				},
+				cmdSymbol(): string {
+					return navigator.userAgent.includes("Mac") ? "⌘" : "Ctrl";
 				},
 			}) as QuickSearchOpener,
 	);
