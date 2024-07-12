@@ -1,14 +1,14 @@
 ---
 import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
 import PackagePageIndex from "./PackagePageIndex.astro";
-import QuickSearchButton from "./QuickSearchButton.astro";
+import QuickSearchOpener from "./QuickSearchOpener.astro";
 
 type Props = PackagePageHandlerProps;
 ---
 
 {/* Make sidebar sticky on scroll and center it with 1.5rem above and below when full height. */}
 <aside class="flex flex-col md:sticky md:top-6 md:max-h-[calc(100dvh-3rem)] md:self-start">
-	<QuickSearchButton />
+	<QuickSearchOpener />
 	<div class="divider flex-none"></div>
 	<PackagePageIndex {...Astro.props} />
 
