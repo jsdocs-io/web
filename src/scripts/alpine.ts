@@ -119,7 +119,11 @@ const quickSearch = (Alpine: Alpine) => {
 					this.cursor = mod(this.cursor + 1, this.results.length);
 				},
 				useResult() {
-					console.log("useResult");
+					const headingId = this.results[this.cursor]?.headingId;
+					if (headingId) {
+						window.location.hash = headingId;
+						this.close();
+					}
 				},
 				focusResult() {
 					this.list?.children[this.cursor + 1]?.scrollIntoView({ block: "nearest" });
