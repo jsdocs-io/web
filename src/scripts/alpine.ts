@@ -83,7 +83,7 @@ const quickSearch = (Alpine: Alpine) => {
 					if (!this.query) {
 						return this.declarations;
 					}
-					return this.fuse.search(this.query).map((result) => result.item);
+					return this.fuse.search(this.query).map(({ item }) => item);
 				},
 				init() {
 					this.dialog = (document.querySelector("#quick-search") ?? undefined) as any;
