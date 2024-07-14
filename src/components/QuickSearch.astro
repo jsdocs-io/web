@@ -18,7 +18,7 @@
 			autofocus
 			id="quick-search-input"
 			type="search"
-			class="input input-bordered w-full"
+			class="input input-bordered mt-2 w-full"
 			autocomplete="off"
 			x-model.debounce.100ms="query"
 			@keydown.up.prevent="prevResult()"
@@ -26,29 +26,34 @@
 			@keydown.enter.prevent="useResult()"
 		/>
 
-		{/* Search results. */}
-		<ul
-			id="quick-search-results"
-			class="mt-4 h-64 overflow-hidden overflow-y-auto"
-			x-show="results.length > 0"
-		>
-			<template x-for="(result, i) in results" :key="result.declarationId">
-				<li>
-					<a
-						class="flex items-center justify-between gap-4 rounded px-2 py-1 hover:bg-neutral"
-						:class="i === cursor && 'bg-neutral'"
-						:href="`#${result.headingId}`"
-						@click="close()"
-					>
-						<span class="truncate" x-text="result.headingId"></span>
-						<span class="opacity-60" x-text="`(${result.kind})`"></span>
-					</a>
-				</li>
-			</template>
-		</ul>
+		{/* Search results container. */}
+		<div class="mt-4 h-64 overflow-hidden overflow-y-auto">
+			{/* Search results. */}
+			<ul id="quick-search-results" x-show="results.length > 0">
+				<template x-for="(result, i) in results" :key="result.declarationId">
+					<li>
+						<a
+							class="flex items-center justify-between gap-4 rounded px-2 py-1 hover:bg-base-content hover:text-base-300"
+							:class="i === cursor && 'bg-base-content text-base-300'"
+							:href="`#${result.headingId}`"
+							@click="close()"
+						>
+							<span class="truncate" x-text="result.headingId"></span>
+							<span class="opacity-70" x-text="`(${result.kind})`"></span>
+						</a>
+					</li>
+				</template>
+			</ul>
 
-		{/* No search results. */}
-		<p x-show="results.length === 0">No results.</p>
+			{/* No search results. */}
+			<div
+				class="flex items-center justify-between gap-4 rounded bg-base-content px-2 py-1 text-base-300"
+				x-show="results.length === 0"
+			>
+				<span class="truncate">No results</span>
+				<span class="opacity-70">¯\_(ツ)_/¯</span>
+			</div>
+		</div>
 	</div>
 
 	{/* Clickable backdrop to close modal. */}
