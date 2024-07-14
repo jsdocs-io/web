@@ -19,6 +19,7 @@ const timeAgo = (Alpine: Alpine) => {
 
 type QuickSearchOpener = {
 	dialog: HTMLDialogElement | undefined;
+	list: HTMLUListElement | undefined;
 	init(): void;
 	open(): void;
 	cmdSymbol(): string;
@@ -32,10 +33,12 @@ const quickSearchOpener = (Alpine: Alpine) => {
 				dialog: undefined,
 				init() {
 					this.dialog = (document.querySelector("#quick-search") ?? undefined) as any;
+					this.list = (document.querySelector("#quick-search-results") ?? undefined) as any;
 				},
 				open() {
 					if (this.dialog && !this.dialog.open) {
 						this.dialog.showModal();
+						this.list?.children[1]?.scrollIntoView({ block: "nearest" });
 					}
 				},
 				cmdSymbol(): string {
@@ -109,8 +112,9 @@ const quickSearch = (Alpine: Alpine) => {
 					});
 				},
 				close() {
-					this.dialog?.close();
 					this.query = "";
+					this.cursor = 0;
+					this.dialog?.close();
 				},
 				prevResult() {
 					this.cursor = mod(this.cursor - 1, this.results.length);
