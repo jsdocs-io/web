@@ -2,13 +2,8 @@
 
 ---
 
-<dialog
-	x-data="quickSearch()"
-	id="quick-search"
-	class="open:modal open:modal-bottom open:md:modal-middle"
-	@close="close()"
->
-	<div class="modal-box">
+<dialog x-data="quickSearch()" id="quick-search" class="modal-bottom open:modal" @close="close()">
+	<div class="modal-box lg:max-w-5xl">
 		{/* Close button. */}
 		<form method="dialog">
 			<button class="btn btn-circle btn-ghost btn-sm absolute right-2 top-2">✕</button>
