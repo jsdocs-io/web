@@ -115,7 +115,7 @@ const modifierTags = modifierTagSet.nodes.filter(
 			<p>
 				{modifierTags.map(({ tagName }, i) => (
 					<>
-						<code>{tagName}</code>
+						<code class="text-nowrap">{tagName}</code>
 						{i < modifierTags.length - 1 && ", "}
 					</>
 				))}

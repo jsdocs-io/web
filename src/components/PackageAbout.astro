@@ -25,7 +25,7 @@ const issueUrl = newGitHubIssueURL({
 		status === "with-api" && (
 			<>
 				<br />
-				Package <code>{pkgId}</code> analyzed{" "}
+				Package <code class="text-nowrap">{pkgId}</code> analyzed{" "}
 				<time
 					x-data={`timeAgo('${Astro.props.pkgApi.analyzedAt}')`}
 					x-text="text"
