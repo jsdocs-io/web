@@ -1,5 +1,6 @@
 import type { AllExtractedDeclaration } from "@jsdocs-io/extractor";
 import type { DeclarationUrlFn } from "./declaration-url";
+import { domPurify } from "./dom-purify";
 import { highlighter } from "./highlighter";
 
 export const declarationSignatureHtml = (
@@ -7,7 +8,7 @@ export const declarationSignatureHtml = (
 	declarationUrl: DeclarationUrlFn,
 ) => {
 	const { signature, isWrapped } = prepareSignature(declaration);
-	return highlighter.codeToHtml(signature, {
+	const html = highlighter.codeToHtml(signature, {
 		mergeWhitespaces: false,
 		lang: "typescript",
 		themes: { light: "github-light", dark: "github-dark" },
@@ -42,6 +43,7 @@ export const declarationSignatureHtml = (
 			},
 		],
 	});
+	return domPurify.sanitize(html);
 };
 
 const prepareSignature = (declaration: AllExtractedDeclaration) => {

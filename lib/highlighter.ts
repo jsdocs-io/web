@@ -1,4 +1,4 @@
-import { getHighlighterCore } from "shiki/core";
+import { createHighlighterCore } from "shiki/core";
 import css from "shiki/langs/css.mjs";
 import html from "shiki/langs/html.mjs";
 import javascript from "shiki/langs/javascript.mjs";
@@ -12,6 +12,7 @@ import yaml from "shiki/langs/yaml.mjs";
 import githubDark from "shiki/themes/github-dark.mjs";
 import githubLight from "shiki/themes/github-light.mjs";
 import getWasm from "shiki/wasm";
+import { domPurify } from "./dom-purify";
 
 export const highlighterLanguages = new Set([
 	"bash",
@@ -38,7 +39,7 @@ export const highlighterLanguages = new Set([
 // code block area and not have code "floating" on the white page background.
 githubLight.colors!["editor.background"] = "#f7f7f7";
 
-export const highlighter = await getHighlighterCore({
+export const highlighter = await createHighlighterCore({
 	langs: [css, html, javascript, json, jsx, markdown, shellscript, tsx, typescript, yaml],
 	themes: [githubLight, githubDark],
 	loadWasm: getWasm,
@@ -52,8 +53,9 @@ export type CodeToHtmlOptions = {
 export const codeToHtml = ({ code, language }: CodeToHtmlOptions) => {
 	const langLower = language.toLowerCase();
 	const lang = highlighterLanguages.has(langLower) ? langLower : "text";
-	return highlighter.codeToHtml(code, {
+	const html = highlighter.codeToHtml(code, {
 		lang,
 		themes: { light: "github-light", dark: "github-dark" },
 	});
+	return domPurify.sanitize(html);
 };
