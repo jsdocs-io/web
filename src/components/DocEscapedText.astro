@@ -1,5 +1,6 @@
 ---
 import type { DocEscapedText as _DocEscapedText } from "@microsoft/tsdoc";
+import { mdToHtml } from "../../lib/md-to-html";
 
 type Props = {
 	escapedText: _DocEscapedText;
@@ -8,6 +9,7 @@ type Props = {
 const {
 	escapedText: { decodedText },
 } = Astro.props;
+const html = await mdToHtml(decodedText);
 ---
 
-<>{decodedText}</>
+<Fragment set:html={html} />

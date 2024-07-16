@@ -1,5 +1,6 @@
 ---
 import type { DocPlainText as _DocPlainText } from "@microsoft/tsdoc";
+import { mdToHtml } from "../../lib/md-to-html";
 
 type Props = {
 	plainText: _DocPlainText;
@@ -8,6 +9,7 @@ type Props = {
 const {
 	plainText: { text },
 } = Astro.props;
+const html = await mdToHtml(text);
 ---
 
-<>{text}</>
+<Fragment set:html={html} />

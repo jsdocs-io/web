@@ -1,5 +1,6 @@
 ---
 import type { DocErrorText as _DocErrorText } from "@microsoft/tsdoc";
+import { mdToHtml } from "../../lib/md-to-html";
 
 type Props = {
 	errorText: _DocErrorText;
@@ -8,6 +9,7 @@ type Props = {
 const {
 	errorText: { text },
 } = Astro.props;
+const html = await mdToHtml(text);
 ---
 
-<>{text}</>
+<Fragment set:html={html} />
