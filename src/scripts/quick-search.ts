@@ -3,6 +3,7 @@ import Fuse from "fuse.js/basic";
 import { mod } from "../../lib/mod";
 import { shortKind } from "../../lib/short-kind";
 import { defineComponent } from "./define-component";
+import { isMac } from "./is-mac";
 import { scrollIntoView } from "./scroll-into-view";
 
 export const quickSearchOpener = defineComponent(() => ({
@@ -91,8 +92,4 @@ const findResultsList = (): HTMLUListElement | undefined => {
 
 const findDeclarations = (): HTMLHeadingElement[] => {
 	return [...document.querySelectorAll<HTMLHeadingElement>("h3[data-declaration]")];
-};
-
-const isMac = (): boolean => {
-	return navigator.userAgent.includes("Mac");
 };
