@@ -1,0 +1,68 @@
+---
+
+---
+
+<dialog
+	x-data="packageSearch()"
+	id="package-search"
+	class="modal-bottom open:modal"
+	@close="close()"
+>
+	<div class="modal-box lg:max-w-5xl">
+		{/* Close button. */}
+		<form method="dialog">
+			<button class="btn btn-circle btn-ghost btn-sm absolute right-2 top-2">✕</button>
+		</form>
+
+		{/* Title. */}
+		<h3 class="text-lg font-bold">Search npm packages</h3>
+
+		{/* Search input. */}
+		<label for="package-search-input" class="sr-only">Search packages on npm</label>
+		<input
+			autofocus
+			id="package-search-input"
+			type="search"
+			class="input input-bordered mt-2 w-full"
+			autocomplete="off"
+			x-model.debounce.300ms="query"
+			@keydown.up.prevent="prevResult()"
+			@keydown.down.prevent="nextResult()"
+			@keydown.enter.prevent="useResult()"
+		/>
+
+		{/* Search results container. */}
+		<div class="mt-4 h-64 overflow-hidden overflow-y-auto">
+			{/* Search results. */}
+			<ul id="package-search-results" x-show="results.length > 0">
+				<template x-for="(result, i) in results" :key="result.name">
+					<li>
+						<a
+							class="flex flex-col rounded px-2 py-1 hover:bg-base-content hover:text-base-300"
+							:class="i === cursor && 'bg-base-content text-base-300'"
+							:href="`/package/${result.name}`"
+							@click="close()"
+						>
+							<span class="truncate font-bold" x-text="result.name"></span>
+							<span class="truncate text-sm" x-text="result.description"></span>
+						</a>
+					</li>
+				</template>
+			</ul>
+
+			{/* No search results. */}
+			<div
+				class="flex items-center justify-between gap-4 rounded bg-base-content px-2 py-1 text-base-300"
+				x-show="query.length > 0 && results.length === 0"
+			>
+				<span class="truncate">No results</span>
+				<span class="opacity-70">¯\_(ツ)_/¯</span>
+			</div>
+		</div>
+	</div>
+
+	{/* Clickable backdrop to close modal. */}
+	<form method="dialog" class="modal-backdrop">
+		<button>Close package search</button>
+	</form>
+</dialog>

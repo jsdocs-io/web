@@ -2,6 +2,7 @@
 import { SEO } from "astro-seo";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import PackageSearch from "../components/PackageSearch.astro";
 import "../styles/shiki.css";
 
 type Props = {
@@ -58,8 +59,15 @@ const titleTemplate = title !== "jsDocs.io" ? "%s - jsDocs.io" : undefined;
 		</div>
 
 		<slot name="modals" />
+		<PackageSearch />
 
 		<script src="../scripts/add-anchor-links.ts"></script>
 		<script src="../scripts/add-copy-buttons.ts"></script>
 	</body>
 </html>
+
+<style is:global>
+	[x-cloak] {
+		display: none !important;
+	}
+</style>

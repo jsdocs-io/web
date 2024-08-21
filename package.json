@@ -36,6 +36,7 @@
 		"marked": "^13.0.3",
 		"new-github-issue-url": "^1.0.0",
 		"pathe": "^1.1.2",
+		"query-registry": "^3.0.1",
 		"read-pkg": "^9.0.1",
 		"shiki": "^1.12.1",
 		"trim-newlines": "^5.0.0",

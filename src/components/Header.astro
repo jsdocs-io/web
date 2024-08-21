@@ -2,7 +2,7 @@
 import LucideHeart from "~icons/lucide/heart";
 import LucideInfo from "~icons/lucide/info";
 import LucidePackageSearch from "~icons/lucide/package-search";
-import LucideSearch from "~icons/lucide/search";
+import PackageSearchOpener from "./PackageSearchOpener.astro";
 ---
 
 <header
@@ -13,11 +13,11 @@ import LucideSearch from "~icons/lucide/search";
 		jsDocs.io
 	</a>
 
-	<label class="input input-bordered flex grow items-center gap-2">
-		<LucideSearch class="size-4" />
-		<input type="search" class="grow" placeholder="Search packages" />
-		<kbd class="kbd kbd-sm">s</kbd>
-	</label>
+	<div class="grow lg:w-[28rem] lg:grow-0">
+		<PackageSearchOpener />
+	</div>
+
+	<div class="hidden lg:block lg:grow"></div>
 
 	<a class="hidden md:btn md:btn-ghost" href="/donate">
 		<LucideHeart class="size-6" />
