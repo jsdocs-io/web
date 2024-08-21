@@ -18,6 +18,7 @@
 	},
 	"dependencies": {
 		"@astrojs/alpinejs": "^0.4.0",
+		"@astrojs/node": "^8.3.3",
 		"@aws-sdk/client-s3": "^3.635.0",
 		"@braintree/sanitize-url": "^7.1.0",
 		"@jsdocs-io/extractor": "1.0.0-12",

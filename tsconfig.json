@@ -4,5 +4,5 @@
 		"noUncheckedIndexedAccess": true,
 		"types": ["unplugin-icons/types/astro"]
 	},
-	"exclude": ["old", "coverage"]
+	"exclude": ["old", "coverage", "dist", "node_modules"]
 }
