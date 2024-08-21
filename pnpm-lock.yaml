@@ -68,9 +68,6 @@ importers:
       pathe:
         specifier: ^1.1.2
         version: 1.1.2
-      query-registry:
-        specifier: ^3.0.1
-        version: 3.0.1
       read-pkg:
         specifier: ^9.0.1
         version: 9.0.1
@@ -1802,10 +1799,6 @@ packages:
   decode-named-character-reference@1.0.2:
     resolution: {integrity: sha512-O8x12RzrUF8xyVcY0KJowWsmaJxQbmy0/EtnNtHRpsOcT7dFk5W598coHqBVpmWo1oQQfsCqfCmkZN5DJrZVdg==}
 
-  decode-uri-component@0.4.1:
-    resolution: {integrity: sha512-+8VxcR21HhTy8nOt6jf20w0c9CADrw1O8d+VZ/YzzCt4bJ3uBjw+D1q2osAB8RnpwwaeYBxy0HyKQxD5JBMuuQ==}
-    engines: {node: '>=14.16'}
-
   deep-eql@5.0.2:
     resolution: {integrity: sha512-h5k/5U50IJJFpzfL6nO9jaaumfjO/f2NjK/oYB2Djzm4p9L+3T9qWpZqZ2hAbLPuuYq9wrU08WQyBTL5GbPk5Q==}
     engines: {node: '>=6'}
@@ -1963,10 +1956,6 @@ packages:
   fill-range@7.1.1:
     resolution: {integrity: sha512-YsGpe3WHLK8ZYi4tWDg2Jy3ebRz2rXowDxnld4bkQB00cc/1Zw9AWnC0i9ztDJitivtQvaI9KaLyKrc+hBW0yg==}
     engines: {node: '>=8'}
-
-  filter-obj@5.1.0:
-    resolution: {integrity: sha512-qWeTREPoT7I0bifpPUXtxkZJ1XJzxWtfoWWkdVGqa+eCr3SHW/Ocp89o8vLvbUuQnadybJpjOKu4V+RwO6sGng==}
-    engines: {node: '>=14.16'}
 
   find-up-simple@1.0.0:
     resolution: {integrity: sha512-q7Us7kcjj2VMePAa02hDAF6d+MzsdsAWEwYyOpwUtlerRBkOEPBCRZrAV4XfcSN8fHAgaD0hP7miwoay6DCprw==}
@@ -2984,23 +2973,11 @@ packages:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
     engines: {node: '>=6'}
 
-  query-registry@3.0.1:
-    resolution: {integrity: sha512-M9RxRITi2mHMVPU5zysNjctUT8bAPx6ltEXo/ir9+qmiM47Y7f0Ir3+OxUO5OjYAWdicBQRew7RtHtqUXydqlg==}
-    engines: {node: '>=20'}
-
-  query-string@9.1.0:
-    resolution: {integrity: sha512-t6dqMECpCkqfyv2FfwVS1xcB6lgXW/0XZSaKdsCNGYkqMO76AFiJEg4vINzoDKcZa6MS7JX+OHIjwh06K5vczw==}
-    engines: {node: '>=18'}
-
   querystringify@2.2.0:
     resolution: {integrity: sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==}
 
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
-
-  quick-lru@7.0.0:
-    resolution: {integrity: sha512-MX8gB7cVYTrYcFfAnfLlhRd0+Toyl8yX8uBx1MrX7K0jegiz9TumwOK27ldXrgDlHRdVi+MqU9Ssw6dr4BNreg==}
-    engines: {node: '>=18'}
 
   read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
@@ -3205,10 +3182,6 @@ packages:
 
   spdx-license-ids@3.0.18:
     resolution: {integrity: sha512-xxRs31BqRYHwiMzudOrpSiHtZ8i/GeionCBDSilhYRj+9gIcI8wCZTlXZKu9vZIVqViP3dcp9qE5G6AlIaD+TQ==}
-
-  split-on-first@3.0.0:
-    resolution: {integrity: sha512-qxQJTx2ryR0Dw0ITYyekNQWpz6f8dGd7vffGNflQQ3Iqj9NJ6qiZ7ELpZsJ/QBhIVAiDfXdag3+Gp8RvWa62AA==}
-    engines: {node: '>=12'}
 
   sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
@@ -3925,10 +3898,6 @@ packages:
   yoctocolors@2.1.1:
     resolution: {integrity: sha512-GQHQqAopRhwU8Kt1DDM8NjibDXHC8eoh1erhGAJPEyveY9qqVeXvVikNKrDz69sHowPMorbPUrH/mx8c50eiBQ==}
     engines: {node: '>=18'}
-
-  zod-package-json@1.0.3:
-    resolution: {integrity: sha512-Mb6GzuRyUEl8X+6V6xzHbd4XV0au/4gOYrYP+CAfHL32uPmGswES+v2YqonZiW1NZWVA3jkssCKSU2knonm/aQ==}
-    engines: {node: '>=20'}
 
   zod-to-json-schema@3.23.2:
     resolution: {integrity: sha512-uSt90Gzc/tUfyNqxnjlfBs8W6WSGpNBv0rVsNxP/BVSMHMKGdthPYff4xtCHYloJGM0CFxFsb3NbC0eqPhfImw==}
@@ -6192,8 +6161,6 @@ snapshots:
     dependencies:
       character-entities: 2.0.2
 
-  decode-uri-component@0.4.1: {}
-
   deep-eql@5.0.2: {}
 
   delayed-stream@1.0.0: {}
@@ -6365,8 +6332,6 @@ snapshots:
   fill-range@7.1.1:
     dependencies:
       to-regex-range: 5.0.1
-
-  filter-obj@5.1.0: {}
 
   find-up-simple@1.0.0: {}
 
@@ -7504,26 +7469,9 @@ snapshots:
 
   punycode@2.3.1: {}
 
-  query-registry@3.0.1:
-    dependencies:
-      query-string: 9.1.0
-      quick-lru: 7.0.0
-      url-join: 5.0.0
-      validate-npm-package-name: 5.0.1
-      zod: 3.23.8
-      zod-package-json: 1.0.3
-
-  query-string@9.1.0:
-    dependencies:
-      decode-uri-component: 0.4.1
-      filter-obj: 5.1.0
-      split-on-first: 3.0.0
-
   querystringify@2.2.0: {}
 
   queue-microtask@1.2.3: {}
-
-  quick-lru@7.0.0: {}
 
   read-cache@1.0.0:
     dependencies:
@@ -7825,8 +7773,6 @@ snapshots:
       spdx-license-ids: 3.0.18
 
   spdx-license-ids@3.0.18: {}
-
-  split-on-first@3.0.0: {}
 
   sprintf-js@1.0.3: {}
 
@@ -8509,10 +8455,6 @@ snapshots:
   yocto-queue@1.1.1: {}
 
   yoctocolors@2.1.1: {}
-
-  zod-package-json@1.0.3:
-    dependencies:
-      zod: 3.23.8
 
   zod-to-json-schema@3.23.2(zod@3.23.8):
     dependencies:

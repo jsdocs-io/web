@@ -1,4 +1,3 @@
-import { searchPackages } from "query-registry";
 import { mod } from "../../lib/mod";
 import { defineComponent } from "./define-component";
 import { isMac } from "./is-mac";
@@ -36,15 +35,9 @@ export const packageSearch = defineComponent(() => ({
 	init() {
 		this.dialog = findDialog();
 		this.resultsList = findResultsList();
-		this.$watch("query", () => {
-			this.cursor = 0;
-		});
 		this.$watch("query", async () => {
-			const { objects } = await searchPackages({ text: this.query });
-			this.results = objects.map(({ package: { name, description } }) => ({
-				name,
-				description: description ?? "Description not available.",
-			}));
+			this.results = await searchPackages(this.query);
+			this.cursor = 0;
 		});
 		this.$watch("cursor", () => {
 			scrollIntoView(this.resultsList, this.cursor);
@@ -76,4 +69,15 @@ const findDialog = (): HTMLDialogElement | undefined => {
 
 const findResultsList = (): HTMLUListElement | undefined => {
 	return document.querySelector<HTMLUListElement>("#package-search-results") ?? undefined;
+};
+
+const searchPackages = async (text: string): Promise<NpmPackage[]> => {
+	const res = await fetch(`https://registry.npmjs.org/-/v1/search?text=${text}`);
+	const json = (await res.json()) as {
+		objects: { package: { name: string; description?: string } }[];
+	};
+	return json.objects.map((result) => ({
+		name: result.package.name,
+		description: result.package.description ?? "Description not available.",
+	}));
 };
