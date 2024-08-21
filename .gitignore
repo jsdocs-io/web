@@ -24,3 +24,6 @@ pnpm-debug.log*
 
 # Vitest coverage
 coverage/
+
+# rollup-plugin-visualizer
+stats.html

@@ -12,3 +12,6 @@ yarn.lock
 
 # Ignore old code
 /old
+
+# rollup-plugin-visualizer
+stats.html
