@@ -160,5 +160,6 @@
 		"webchannel",
 		"websockets",
 		"whitespaces"
-	]
+	],
+	"typescript.tsdk": "node_modules/typescript/lib"
 }
