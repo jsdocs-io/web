@@ -3,7 +3,7 @@ import LucideSearch from "~icons/lucide/search";
 ---
 
 <button
-	x-data="packageSearchOpener()"
+	x-data="dialogOpener('#package-search')"
 	class="btn btn-outline w-full justify-between border-base-content/20"
 	@click="open()"
 	@keydown.ctrl.shift.f.window.prevent="open()"
@@ -14,7 +14,7 @@ import LucideSearch from "~icons/lucide/search";
 		Search npm packages &hellip;
 	</div>
 	<kbd x-cloak>
-		<kbd class="hidden font-normal text-base-content lg:kbd lg:kbd-sm" x-text="cmdSymbol()">⌘</kbd>
+		<kbd class="hidden font-normal text-base-content lg:kbd lg:kbd-sm" x-text="cmdKey"></kbd>
 		<kbd class="hidden font-normal text-base-content lg:kbd lg:kbd-sm">Shift</kbd>
 		<kbd class="hidden font-normal text-base-content lg:kbd lg:kbd-sm">F</kbd>
 	</kbd>

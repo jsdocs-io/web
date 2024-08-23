@@ -3,7 +3,7 @@ import LucideFileSearch from "~icons/lucide/file-search";
 ---
 
 <button
-	x-data="quickSearchOpener()"
+	x-data="dialogOpener('#quick-search')"
 	class="btn btn-outline w-full justify-between border-base-content/50"
 	@click="open()"
 	@keydown.ctrl.k.window.prevent="open()"
@@ -14,7 +14,7 @@ import LucideFileSearch from "~icons/lucide/file-search";
 		Quick search &hellip;
 	</div>
 	<kbd x-cloak>
-		<kbd class="hidden font-normal text-base-content lg:kbd lg:kbd-sm" x-text="cmdSymbol()">⌘</kbd>
+		<kbd class="hidden font-normal text-base-content lg:kbd lg:kbd-sm" x-text="cmdKey"></kbd>
 		<kbd class="hidden font-normal text-base-content lg:kbd lg:kbd-sm">K</kbd>
 	</kbd>
 </button>

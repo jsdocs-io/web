@@ -3,26 +3,7 @@ import Fuse from "fuse.js/basic";
 import { mod } from "../../lib/mod";
 import { shortKind } from "../../lib/short-kind";
 import { defineComponent } from "./define-component";
-import { isMac } from "./is-mac";
 import { scrollIntoView } from "./scroll-into-view";
-
-export const quickSearchOpener = defineComponent(() => ({
-	dialog: undefined as HTMLDialogElement | undefined,
-	resultsList: undefined as HTMLUListElement | undefined,
-	init() {
-		this.dialog = findDialog();
-		this.resultsList = findResultsList();
-	},
-	open() {
-		if (this.dialog && !this.dialog.open) {
-			this.dialog.showModal();
-			scrollIntoView(this.resultsList, 0);
-		}
-	},
-	cmdSymbol(): string {
-		return isMac() ? "⌘" : "Ctrl";
-	},
-}));
 
 type QuickSearchDeclaration = {
 	headingId: string;
