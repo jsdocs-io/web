@@ -13,11 +13,16 @@ export const packageSearch = defineComponent(() => ({
 	query: "",
 	cursor: 0,
 	results: [] as NpmPackage[],
+	controller: new AbortController(),
 	init() {
 		this.dialog = findDialog();
 		this.resultsList = findResultsList();
 		this.$watch("query", async () => {
-			this.results = await searchPackages(this.query);
+			this.controller.abort();
+			this.controller = new AbortController();
+			try {
+				this.results = await searchPackages(this.query, this.controller.signal);
+			} catch {}
 			this.cursor = 0;
 		});
 		this.$watch("cursor", () => {
@@ -52,8 +57,11 @@ const findResultsList = (): HTMLUListElement | undefined => {
 	return document.querySelector<HTMLUListElement>("#package-search-results") ?? undefined;
 };
 
-const searchPackages = async (text: string): Promise<NpmPackage[]> => {
-	const res = await fetch(`https://registry.npmjs.org/-/v1/search?text=${text}`);
+const searchPackages = async (query: string, signal: AbortSignal): Promise<NpmPackage[]> => {
+	if (query.length < 2) {
+		return [];
+	}
+	const res = await fetch(`https://registry.npmjs.org/-/v1/search?text=${query}`, { signal });
 	const json = (await res.json()) as {
 		objects: { package: { name: string; description?: string } }[];
 	};
