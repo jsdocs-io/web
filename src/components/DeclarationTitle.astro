@@ -24,7 +24,17 @@ const [name, kind] =
 const url = unpkgUrl(declaration);
 ---
 
-<h3 {id} data-declaration={declaration.id} data-kind={declaration.kind}>
-	{kind && <span>{kind}</span>}
-	<a class="link-hover link font-semibold text-primary" href={url}>{name}</a>
+<h3
+	{id}
+	data-declaration={declaration.id}
+	data-kind={declaration.kind}
+	class="group flex items-center gap-2"
+>
+	<span>
+		{kind && <span>{kind}</span>}
+		<a class="link-hover link font-semibold text-primary" href={url}>{name}</a>
+	</span>
+	<a href={`#${id}`} class="no-underline opacity-0 group-hover:opacity-100 group-focus:opacity-100"
+		>#</a
+	>
 </h3>

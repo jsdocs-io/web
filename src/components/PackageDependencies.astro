@@ -1,5 +1,6 @@
 ---
 import type { NormalizedPackageJson } from "read-pkg";
+import AnchoredH2 from "./AnchoredH2.astro";
 
 type Props = {
 	pkgJson: NormalizedPackageJson;
@@ -12,7 +13,7 @@ const peerDeps = Object.keys(pkgJson.peerDependencies ?? {}).sort((a, b) => a.lo
 ---
 
 {/* Always show information about production and dev dependencies even if there are none. */}
-<h2 id="package-dependencies">Dependencies ({deps.length})</h2>
+<AnchoredH2 id="package-dependencies">Dependencies ({deps.length})</AnchoredH2>
 {
 	deps.length > 0 ?
 		<ul>
@@ -25,7 +26,7 @@ const peerDeps = Object.keys(pkgJson.peerDependencies ?? {}).sort((a, b) => a.lo
 	:	<p>No dependencies.</p>
 }
 
-<h2 id="package-dev-dependencies">Dev dependencies ({devDeps.length})</h2>
+<AnchoredH2 id="package-dev-dependencies">Dev dependencies ({devDeps.length})</AnchoredH2>
 {
 	devDeps.length > 0 ?
 		<ul>
@@ -42,7 +43,7 @@ const peerDeps = Object.keys(pkgJson.peerDependencies ?? {}).sort((a, b) => a.lo
 {
 	peerDeps.length > 0 && (
 		<>
-			<h2 id="package-peer-dependencies">Peer dependencies ({peerDeps.length})</h2>
+			<AnchoredH2 id="package-peer-dependencies">Peer dependencies ({peerDeps.length})</AnchoredH2>
 			<ul>
 				{peerDeps.map((dep) => (
 					<li>

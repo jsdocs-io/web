@@ -12,6 +12,7 @@ import type {
 import type { DeclarationUrlFn } from "../../lib/declaration-url";
 import { shortId } from "../../lib/short-id";
 import { type UnpkgUrlFn } from "../../lib/unpkg-url";
+import AnchoredH2 from "./AnchoredH2.astro";
 import Declaration from "./Declaration.astro";
 
 type Props = {
@@ -34,7 +35,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 {
 	variables.length > 0 && (
 		<>
-			<h2 id={`${containerName}-variables`}>Variables</h2>
+			<AnchoredH2 id={`${containerName}-variables`}>Variables</AnchoredH2>
 			{variables.map((declaration) => (
 				<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 			))}
@@ -45,7 +46,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 {
 	functions.length > 0 && (
 		<>
-			<h2 id={`${containerName}-functions`}>Functions</h2>
+			<AnchoredH2 id={`${containerName}-functions`}>Functions</AnchoredH2>
 			{functions.map((declaration) => (
 				<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 			))}
@@ -56,7 +57,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 {
 	classes.length > 0 && (
 		<>
-			<h2 id={`${containerName}-classes`}>Classes</h2>
+			<AnchoredH2 id={`${containerName}-classes`}>Classes</AnchoredH2>
 			{classes.map((declaration) => (
 				<>
 					<Declaration {declaration} {unpkgUrl} {declarationUrl} />
@@ -84,7 +85,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 {
 	interfaces.length > 0 && (
 		<>
-			<h2 id={`${containerName}-interfaces`}>Interfaces</h2>
+			<AnchoredH2 id={`${containerName}-interfaces`}>Interfaces</AnchoredH2>
 			{interfaces.map((declaration) => (
 				<>
 					<Declaration {declaration} {unpkgUrl} {declarationUrl} />
@@ -128,7 +129,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 {
 	enums.length > 0 && (
 		<>
-			<h2 id={`${containerName}-enums`}>Enums</h2>
+			<AnchoredH2 id={`${containerName}-enums`}>Enums</AnchoredH2>
 			{enums.map((declaration) => (
 				<>
 					<Declaration {declaration} {unpkgUrl} {declarationUrl} />
@@ -148,7 +149,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 {
 	types.length > 0 && (
 		<>
-			<h2 id={`${containerName}-types`}>Types</h2>
+			<AnchoredH2 id={`${containerName}-types`}>Types</AnchoredH2>
 			{types.map((declaration) => (
 				<Declaration {declaration} {unpkgUrl} {declarationUrl} />
 			))}
@@ -159,7 +160,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 {
 	namespaces.length > 0 && (
 		<>
-			<h2 id={`${containerName}-namespaces`}>Namespaces</h2>
+			<AnchoredH2 id={`${containerName}-namespaces`}>Namespaces</AnchoredH2>
 			{namespaces.map((declaration) => (
 				<>
 					<Declaration {declaration} {unpkgUrl} {declarationUrl} />

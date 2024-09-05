@@ -32,9 +32,6 @@ importers:
       alpinejs:
         specifier: ^3.14.1
         version: 3.14.1
-      anchor-js:
-        specifier: ^5.0.0
-        version: 5.0.0
       astro:
         specifier: ^4.15.3
         version: 4.15.3(@types/node@22.5.4)(rollup@4.21.2)(typescript@5.5.4)
@@ -1353,9 +1350,6 @@ packages:
 
   alpinejs@3.14.1:
     resolution: {integrity: sha512-ICar8UsnRZAYvv/fCNfNeKMXNoXGUfwHrjx7LqXd08zIP95G2d9bAOuaL97re+1mgt/HojqHsfdOLo/A5LuWgQ==}
-
-  anchor-js@5.0.0:
-    resolution: {integrity: sha512-2bOqCsBIXAYhjAN3iI4QevoAJtB2gRWAiY9P3P7CVW8lIjA3Dl6ldhDlWeeQvCHif+V5vIndfLOag/5I8tzTzA==}
 
   ansi-align@3.0.1:
     resolution: {integrity: sha512-IOfwwBF5iczOjp/WeY4YxyjqAFMQoZufdQWDd19SEExbVLNXqvpzSJ/M7Za4/sCPmQ0+GRquoA7bGcINcxew6w==}
@@ -5491,8 +5485,6 @@ snapshots:
   alpinejs@3.14.1:
     dependencies:
       '@vue/reactivity': 3.1.5
-
-  anchor-js@5.0.0: {}
 
   ansi-align@3.0.1:
     dependencies:

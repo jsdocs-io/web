@@ -1,0 +1,14 @@
+---
+type Props = {
+	id: string;
+};
+
+const { id } = Astro.props;
+---
+
+<h2 {id} class="group flex items-center gap-2">
+	<span><slot /></span>
+	<a href={`#${id}`} class="no-underline opacity-0 group-hover:opacity-100 group-focus:opacity-100"
+		>#</a
+	>
+</h2>

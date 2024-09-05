@@ -1,4 +1,5 @@
 ---
+import AnchoredH2 from "./AnchoredH2.astro";
 import JsDocsIoBadge from "./JsDocsIoBadge.astro";
 
 type Props = {
@@ -13,7 +14,7 @@ const markdownBadge = `[![${altText}](${badgeUrl})](${pkgUrl})`;
 const htmlBadge = `<a href="${pkgUrl}"><img src="${badgeUrl}" alt="${altText}"></a>`;
 ---
 
-<h2 id="package-badge">Badge</h2>
+<AnchoredH2 id="package-badge">Badge</AnchoredH2>
 
 <JsDocsIoBadge />
 

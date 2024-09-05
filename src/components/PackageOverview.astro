@@ -1,5 +1,6 @@
 ---
 import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import AnchoredH2 from "./AnchoredH2.astro";
 import DocComment from "./DocComment.astro";
 
 type Props = PackagePageHandlerProps;
@@ -11,5 +12,5 @@ const overview =
 	: `/** Overview not available. */`;
 ---
 
-<h2 id="package-overview">Overview</h2>
+<AnchoredH2 id="package-overview">Overview</AnchoredH2>
 <DocComment doc={overview} />

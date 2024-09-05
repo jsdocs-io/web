@@ -1,6 +1,7 @@
 ---
 import newGitHubIssueURL from "new-github-issue-url";
 import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import AnchoredH2 from "./AnchoredH2.astro";
 
 type Props = PackagePageHandlerProps;
 
@@ -12,7 +13,7 @@ const issueUrl = newGitHubIssueURL({
 });
 ---
 
-<h2 id="package-about">About</h2>
+<AnchoredH2 id="package-about">About</AnchoredH2>
 
 <p>
 	Page generated <time
