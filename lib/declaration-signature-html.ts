@@ -3,6 +3,78 @@ import type { DeclarationUrlFn } from "./declaration-url";
 import { domPurify } from "./dom-purify";
 import { highlighter } from "./highlighter";
 
+const reservedKeywords = new Set([
+	"any",
+	"as",
+	"async",
+	"await",
+	"bigint",
+	"boolean",
+	"break",
+	"case",
+	"catch",
+	"class",
+	"const",
+	"constructor",
+	"continue",
+	"debugger",
+	"declare",
+	"default",
+	"delete",
+	"do",
+	"else",
+	"enum",
+	"export",
+	"extends",
+	"false",
+	"finally",
+	"for",
+	"from",
+	"function",
+	"get",
+	"if",
+	"implements",
+	"import",
+	"in",
+	"instanceof",
+	"interface",
+	"let",
+	"module",
+	"namespace",
+	"never",
+	"new",
+	"null",
+	"number",
+	"object",
+	"of",
+	"package",
+	"private",
+	"protected",
+	"public",
+	"readonly",
+	"require",
+	"return",
+	"set",
+	"static",
+	"string",
+	"super",
+	"switch",
+	"symbol",
+	"this",
+	"throw",
+	"true",
+	"try",
+	"type",
+	"typeof",
+	"undefined",
+	"unknown",
+	"var",
+	"void",
+	"while",
+	"with",
+	"yield",
+]);
+
 export const declarationSignatureHtml = (
 	declaration: AllExtractedDeclaration,
 	declarationUrl: DeclarationUrlFn,
@@ -21,7 +93,7 @@ export const declarationSignatureHtml = (
 					}
 					const text = firstChild.value;
 					const url = declarationUrl(text);
-					if (text === declaration.name || !url) {
+					if (text === declaration.name || !url || reservedKeywords.has(text)) {
 						return;
 					}
 					if (node.properties["style"] === "color:#E36209;--shiki-dark:#FFAB70") {
