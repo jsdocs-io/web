@@ -52,7 +52,7 @@
     "stream-json": "^1.8.0",
     "swr": "^2.2.2",
     "trim-newlines": "4.0.2",
-    "tsx": "^3.12.8",
+    "tsx": "^4.19.1",
     "use-dark-mode": "^2.3.1",
     "validate-npm-package-name": "^5.0.0"
   },
