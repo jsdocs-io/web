@@ -26,8 +26,8 @@
 			class="input input-bordered mt-2 w-full"
 			autocomplete="off"
 			x-model.debounce.300ms="query"
-			@keydown.up.prevent="prevResult()"
-			@keydown.down.prevent="nextResult()"
+			@keydown.up.throttle.10ms.prevent="prevResult()"
+			@keydown.down.throttle.10ms.prevent="nextResult()"
 			@keydown.enter.prevent="useResult()"
 		/>
 
