@@ -10,7 +10,7 @@ import Icons from "unplugin-icons/vite";
 
 // https://astro.build/config
 export default defineConfig({
-	output: "hybrid",
+	output: "static",
 	adapter:
 		process.env.VERCEL ?
 			vercel({
