@@ -1,14 +1,16 @@
 .DS_Store
 node_modules
-/dist
+dist
+coverage
 .env
 .env.*
 !.env.example
 
-# Ignore files for PNPM, NPM and YARN
+# Ignore lock files
 pnpm-lock.yaml
 package-lock.json
 yarn.lock
+bun.lock
 
 # Ignore old code
 /old

@@ -14,7 +14,7 @@
 		"format": "prettier --write .",
 		"test": "vitest",
 		"test:ci": "vitest run --coverage --bail 1",
-		"pre-push": "pnpm i && pnpm lint && pnpm build && pnpm test:ci"
+		"pre-push": "bun --revision && bun i && bun run lint && bun run build && bun run test:ci"
 	},
 	"dependencies": {
 		"@astrojs/alpinejs": "^0.4.5",
@@ -69,10 +69,5 @@
 		"typescript": "^5.8.3",
 		"unplugin-icons": "^22.1.0",
 		"vitest": "^3.1.1"
-	},
-	"pnpm": {
-		"overrides": {
-			"@microsoft/tsdoc": "^0.15.1"
-		}
 	}
 }
