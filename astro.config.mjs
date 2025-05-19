@@ -1,7 +1,7 @@
 import alpinejs from "@astrojs/alpinejs";
 import node from "@astrojs/node";
-import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import { execSync } from "node:child_process";
 import process from "node:process";
@@ -20,9 +20,9 @@ export default defineConfig({
 				includeFiles: ["/bun1/bun"],
 			})
 		:	node({ mode: "standalone" }),
-	integrations: [alpinejs({ entrypoint: "/src/scripts/alpine" }), tailwind()],
+	integrations: [alpinejs({ entrypoint: "/src/scripts/alpine" })],
 	vite: {
-		plugins: [Icons({ compiler: "astro" }), visualizer()],
+		plugins: [tailwindcss(), Icons({ compiler: "astro" }), visualizer()],
 		define: {
 			_GIT_COMMIT: JSON.stringify(execSync("git rev-parse HEAD").toString().trim()),
 		},
