@@ -6,9 +6,9 @@ import PackageSearchOpener from "./PackageSearchOpener.astro";
 ---
 
 <header
-	class="flex w-full items-center gap-2 border-b border-base-content/20 bg-base-200 px-4 py-2 text-base-content sm:px-2"
+	class="border-base-content/20 bg-base-200 text-base-content flex w-full items-center gap-2 border-b px-4 py-2 sm:px-2"
 >
-	<a class="hidden sm:btn sm:btn-ghost" href="/">
+	<a class="sm:btn sm:btn-ghost hidden" href="/">
 		<LucidePackageSearch class="size-6" />
 		jsDocs.io
 	</a>
@@ -19,12 +19,12 @@ import PackageSearchOpener from "./PackageSearchOpener.astro";
 
 	<div class="hidden lg:block lg:grow"></div>
 
-	<a class="hidden md:btn md:btn-ghost" href="/donate">
+	<a class="md:btn md:btn-ghost hidden" href="/donate">
 		<LucideHeart class="size-6" />
 		Donate
 	</a>
 
-	<a class="hidden md:btn md:btn-ghost" href="/about">
+	<a class="md:btn md:btn-ghost hidden" href="/about">
 		<LucideInfo class="size-6" />
 		About
 	</a>

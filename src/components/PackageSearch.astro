@@ -11,7 +11,7 @@
 	<div class="modal-box lg:max-w-5xl">
 		{/* Close button. */}
 		<form method="dialog">
-			<button class="btn btn-circle btn-ghost btn-sm absolute right-2 top-2">✕</button>
+			<button class="btn btn-circle btn-ghost btn-sm absolute top-2 right-2">✕</button>
 		</form>
 
 		{/* Title. */}
@@ -38,7 +38,7 @@
 				<template x-for="(result, i) in results" :key="result.name">
 					<li>
 						<a
-							class="flex flex-col rounded px-2 py-1 hover:bg-base-content hover:text-base-300"
+							class="hover:bg-base-content hover:text-base-300 flex flex-col rounded px-2 py-1"
 							:class="i === cursor && 'bg-base-content text-base-300'"
 							:href="`/package/${result.name}`"
 							@click="close()"
@@ -52,7 +52,7 @@
 
 			{/* No search results. */}
 			<div
-				class="flex items-center justify-between gap-4 rounded bg-base-content px-2 py-1 text-base-300"
+				class="bg-base-content text-base-300 flex items-center justify-between gap-4 rounded px-2 py-1"
 				x-show="query.length > 0 && results.length === 0"
 			>
 				<span class="truncate">No results</span>

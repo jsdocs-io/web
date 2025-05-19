@@ -32,7 +32,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<a href={`#${containerName}-variables`} class="link-hover link font-bold">
 				Variables
 			</a>
-			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+			<div class="border-l-base-content/20 flex flex-col gap-2 border-l pl-4">
 				{variables.map((declaration) => (
 					<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
 						{declaration.name}
@@ -49,7 +49,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<a href={`#${containerName}-functions`} class="link-hover link font-bold">
 				Functions
 			</a>
-			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+			<div class="border-l-base-content/20 flex flex-col gap-2 border-l pl-4">
 				{functions.map((declaration) => (
 					<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
 						{declaration.name}()
@@ -66,7 +66,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<a href={`#${containerName}-classes`} class="link-hover link font-bold">
 				Classes
 			</a>
-			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+			<div class="border-l-base-content/20 flex flex-col gap-2 border-l pl-4">
 				{classes.map((declaration) => (
 					<details>
 						<summary class="truncate">
@@ -77,7 +77,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 						{(declaration.constructors.length > 0 ||
 							declaration.properties.length > 0 ||
 							declaration.methods.length > 0) && (
-							<div class="my-2 flex flex-col gap-1 border-l border-l-base-content/20 pl-4">
+							<div class="border-l-base-content/20 my-2 flex flex-col gap-1 border-l pl-4">
 								{declaration.constructors.map((declaration) => (
 									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
 										{declaration.name}()
@@ -108,7 +108,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<a href={`#${containerName}-interfaces`} class="link-hover link font-bold">
 				Interfaces
 			</a>
-			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+			<div class="border-l-base-content/20 flex flex-col gap-2 border-l pl-4">
 				{interfaces.map((declaration) => (
 					<details>
 						<summary class="truncate">
@@ -123,7 +123,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 							declaration.indexSignatures.length > 0 ||
 							declaration.getAccessors.length > 0 ||
 							declaration.setAccessors.length > 0) && (
-							<div class="my-2 flex flex-col gap-1 border-l border-l-base-content/20 pl-4">
+							<div class="border-l-base-content/20 my-2 flex flex-col gap-1 border-l pl-4">
 								{declaration.properties.map((declaration) => (
 									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
 										{declaration.name}
@@ -174,7 +174,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<a href={`#${containerName}-enums`} class="link-hover link font-bold">
 				Enums
 			</a>
-			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+			<div class="border-l-base-content/20 flex flex-col gap-2 border-l pl-4">
 				{enums.map((declaration) => (
 					<details>
 						<summary class="truncate">
@@ -183,7 +183,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 							</a>
 						</summary>
 						{declaration.members.length > 0 && (
-							<div class="my-2 flex flex-col gap-1 border-l border-l-base-content/20 pl-4">
+							<div class="border-l-base-content/20 my-2 flex flex-col gap-1 border-l pl-4">
 								{declaration.members.map((declaration) => (
 									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
 										{declaration.name}
@@ -204,7 +204,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<a href={`#${containerName}-types`} class="link-hover link font-bold">
 				Types
 			</a>
-			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+			<div class="border-l-base-content/20 flex flex-col gap-2 border-l pl-4">
 				{types.map((declaration) => (
 					<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
 						{declaration.name}
@@ -221,7 +221,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 			<a href={`#${containerName}-namespaces`} class="link-hover link font-bold">
 				Namespaces
 			</a>
-			<div class="flex flex-col gap-2 border-l border-l-base-content/20 pl-4">
+			<div class="border-l-base-content/20 flex flex-col gap-2 border-l pl-4">
 				{namespaces.map((declaration) => (
 					<details>
 						<summary class="truncate">
@@ -230,7 +230,7 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 							</a>
 						</summary>
 						{declaration.declarations.length > 0 && (
-							<div class="my-2 flex flex-col gap-1 border-l border-l-base-content/20 pl-4">
+							<div class="border-l-base-content/20 my-2 flex flex-col gap-1 border-l pl-4">
 								{declaration.declarations.map((declaration) => (
 									<a href={`#${shortId(declaration.id)}`} class="link-hover link truncate">
 										{declaration.name}
