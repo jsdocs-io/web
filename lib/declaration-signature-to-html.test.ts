@@ -108,5 +108,7 @@ test("empty signature", async () => {
 			},
 			(s) => undefined,
 		),
-	).resolves.toMatchInlineSnapshot(`"<pre class="shiki shiki-themes github-light github-dark" style="background-color:#f7f7f7;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"></span></code></pre>"`);
+	).resolves.toMatchInlineSnapshot(
+		`"<pre class="shiki shiki-themes github-light github-dark" style="background-color:#f7f7f7;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"></span></code></pre>"`,
+	);
 });
