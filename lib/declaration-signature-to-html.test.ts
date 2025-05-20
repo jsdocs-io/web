@@ -34,7 +34,9 @@ test("class property", async () => {
 			},
 			(s) => (s === "Bar" ? "bar.ts#L789" : undefined),
 		),
-	).resolves.toMatchInlineSnapshot(`"<pre class="shiki shiki-themes github-light github-dark" style="background-color:#f7f7f7;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">readonly</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><span style="color:#E36209;--shiki-dark:#FFAB70">bar</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><a style="color:#6F42C1;--shiki-dark:#B392F0" href="bar.ts#L789">Bar</a><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span></code></pre>"`);
+	).resolves.toMatchInlineSnapshot(
+		`"<pre class="shiki shiki-themes github-light github-dark" style="background-color:#f7f7f7;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">readonly</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><span style="color:#E36209;--shiki-dark:#FFAB70">bar</span><span style="color:#D73A49;--shiki-dark:#F97583">:</span><span style="color:#24292E;--shiki-dark:#E1E4E8"> </span><a style="color:#6F42C1;--shiki-dark:#B392F0" href="bar.ts#L789">Bar</a><span style="color:#24292E;--shiki-dark:#E1E4E8">;</span></span></code></pre>"`,
+	);
 });
 
 test("don't link from function parameter name", async () => {
