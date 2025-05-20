@@ -97,16 +97,20 @@ export const declarationSignatureToHtml = async (
 		transformers: [
 			{
 				span(node) {
-					// Don't link from parameter names (e.g., don't link from `foo` in `foo: SomeType`).
+					// Don't link from parameter names (e.g., don't link from `foo` in `(foo: Foo) => Bar`).
+					// Valid only for `github-light` and `github-dark` themes.
 					const style = String(node.properties["style"]).toLowerCase();
 					if (style === "color:#e36209;--shiki-dark:#ffab70") return;
 
+					// Skip empty spans; see https://github.com/syntax-tree/hast#element.
 					const firstChild = node.children[0];
 					if (firstChild?.type !== "text") return;
 
+					// Don't link to this same declaration and don't link from reserved keywords.
 					const text = firstChild.value;
 					if (text === declaration.name || reservedKeywords.has(text)) return;
 
+					// Find a declaration to link to.
 					const url = declarationUrl(text);
 					if (!url) return;
 
