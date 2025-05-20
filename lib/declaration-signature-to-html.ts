@@ -98,7 +98,8 @@ export const declarationSignatureToHtml = async (
 			{
 				span(node) {
 					// Don't link from parameter names (e.g., don't link from `foo` in `foo: SomeType`).
-					if (node.properties["style"] === "color:#E36209;--shiki-dark:#FFAB70") return;
+					const style = String(node.properties["style"]).toLowerCase();
+					if (style === "color:#e36209;--shiki-dark:#ffab70") return;
 
 					const firstChild = node.children[0];
 					if (firstChild?.type !== "text") return;
