@@ -1,7 +1,7 @@
 import type { AllExtractedDeclaration } from "@jsdocs-io/extractor";
 import type { DeclarationUrlFn } from "./declaration-url";
 import { domPurify } from "./dom-purify";
-import { highlighter } from "./highlighter";
+import { codeToHtml } from "./shiki.bundle";
 
 const reservedKeywords = new Set([
 	"any",
@@ -75,31 +75,40 @@ const reservedKeywords = new Set([
 	"yield",
 ]);
 
-export const declarationSignatureHtml = (
+export const declarationSignatureToHtml = async (
 	declaration: AllExtractedDeclaration,
 	declarationUrl: DeclarationUrlFn,
-) => {
+): Promise<string> => {
 	const { signature, isWrapped } = prepareSignature(declaration);
-	const html = highlighter.codeToHtml(signature, {
-		mergeWhitespaces: false,
-		lang: "typescript",
+	const html = await codeToHtml(signature, {
+		// Render to highlighted HTML if the signature is not too long,
+		// otherwise render as plain text.
+		lang: declaration.signature.length < 4000 ? "typescript" : "text",
 		themes: { light: "github-light", dark: "github-dark" },
+		colorReplacements: {
+			// Replace the white `editor.background` with light gray to show
+			// the code block area against the white page background.
+			"github-light": {
+				"#ffffff": "#f7f7f7",
+			},
+		},
+		// Prevent whitespace from being collapsed for correct theme coloring.
+		mergeWhitespaces: false,
 		transformers: [
 			{
 				span(node) {
+					// Don't link from parameter names (e.g., don't link from `foo` in `foo: SomeType`).
+					if (node.properties["style"] === "color:#E36209;--shiki-dark:#FFAB70") return;
+
 					const firstChild = node.children[0];
-					if (firstChild?.type !== "text") {
-						return;
-					}
+					if (firstChild?.type !== "text") return;
+
 					const text = firstChild.value;
+					if (text === declaration.name || reservedKeywords.has(text)) return;
+
 					const url = declarationUrl(text);
-					if (text === declaration.name || !url || reservedKeywords.has(text)) {
-						return;
-					}
-					if (node.properties["style"] === "color:#E36209;--shiki-dark:#FFAB70") {
-						// Don't link from parameter names (e.g., don't link from `foo` in `foo: SomeType`).
-						return;
-					}
+					if (!url) return;
+
 					// Link to other declarations found in the signature of this declaration.
 					node.tagName = "a";
 					node.properties["href"] = url;
