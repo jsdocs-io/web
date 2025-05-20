@@ -5,7 +5,7 @@ import { configDefaults } from "vitest/config";
 export default getViteConfig({
 	// @ts-ignore
 	test: {
-		pool: "forks",
+		pool: "threads",
 		coverage: {
 			include: ["lib/**"],
 		},
