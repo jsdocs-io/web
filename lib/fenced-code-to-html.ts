@@ -18,7 +18,7 @@ export const fencedCodeToHtml = async (code: string, language: string): Promise<
 			// Replace the white `editor.background` with light gray to show
 			// the code block area against the white page background.
 			"github-light": {
-				"#ffffff": "#f7f7f7",
+				"#fff": "#f7f7f7",
 			},
 		},
 	});
