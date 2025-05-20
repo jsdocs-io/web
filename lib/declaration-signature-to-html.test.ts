@@ -32,7 +32,7 @@ test("class constructor", async () => {
 				line: 123,
 				signature: "constructor() {}",
 			},
-			(s) => undefined,
+			() => undefined,
 		),
 	).resolves.toMatchInlineSnapshot(
 		`"<pre class="shiki shiki-themes github-light github-dark" style="background-color:#f7f7f7;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"><span style="color:#D73A49;--shiki-dark:#F97583">constructor</span><span style="color:#24292E;--shiki-dark:#E1E4E8">() {}</span></span></code></pre>"`,
@@ -89,7 +89,7 @@ test("signature too long", async () => {
 				line: 123,
 				signature: "a".repeat(4000),
 			},
-			(s) => undefined,
+			() => undefined,
 		),
 	).resolves.toBeDefined();
 });
@@ -106,7 +106,7 @@ test("empty signature", async () => {
 				line: 123,
 				signature: "",
 			},
-			(s) => undefined,
+			() => undefined,
 		),
 	).resolves.toMatchInlineSnapshot(
 		`"<pre class="shiki shiki-themes github-light github-dark" style="background-color:#f7f7f7;--shiki-dark-bg:#24292e;color:#24292e;--shiki-dark:#e1e4e8" tabindex="0"><code><span class="line"></span></code></pre>"`,
