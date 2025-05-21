@@ -1,5 +1,6 @@
 import alpinejs from "@astrojs/alpinejs";
 import node from "@astrojs/node";
+import svelte from "@astrojs/svelte";
 import vercel from "@astrojs/vercel/serverless";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
@@ -20,9 +21,14 @@ export default defineConfig({
 				includeFiles: ["/bun1/bun"],
 			})
 		:	node({ mode: "standalone" }),
-	integrations: [alpinejs({ entrypoint: "/src/scripts/alpine" })],
+	integrations: [alpinejs({ entrypoint: "/src/scripts/alpine" }), svelte()],
 	vite: {
-		plugins: [tailwindcss(), Icons({ compiler: "astro" }), visualizer()],
+		plugins: [
+			tailwindcss(),
+			Icons({ compiler: "svelte" }),
+			Icons({ compiler: "astro" }),
+			visualizer(),
+		],
 		define: {
 			_GIT_COMMIT: JSON.stringify(execSync("git rev-parse HEAD").toString().trim()),
 		},

@@ -1,4 +1,5 @@
 ---
+import Test from "../components/Test.svelte";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "jsDocs.io";
@@ -7,6 +8,7 @@ const description =
 ---
 
 <BaseLayout {title} {description}>
+	<Test msg={"foo"} client:load />
 	<p>Logo and name</p>
 	<p>Automatically generated documentation for typed npm packages.</p>
 	<p>How to use</p>
