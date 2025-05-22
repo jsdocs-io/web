@@ -2,6 +2,7 @@
 import { SEO } from "astro-seo";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import NpmPackageSearch from "../components/NpmPackageSearch.svelte";
 import PackageSearch from "../components/PackageSearch.astro";
 import "../styles/global.css";
 import "../styles/shiki.css";
@@ -62,6 +63,7 @@ const titleTemplate = title !== "jsDocs.io" ? "%s - jsDocs.io" : undefined;
 
 		<slot name="modals" />
 		<PackageSearch />
+		<NpmPackageSearch client:load />
 
 		<script src="../scripts/add-copy-buttons.ts"></script>
 	</body>
