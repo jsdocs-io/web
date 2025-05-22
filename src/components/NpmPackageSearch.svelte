@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { throttle } from "lodash-es";
 	import { resource, useMutationObserver, watch } from "runed";
 	import LucideLoaderCircle from "~icons/lucide/loader-circle";
 	import LucideSearch from "~icons/lucide/search";
@@ -78,7 +79,7 @@
 		}
 	}
 
-	function handleInputKeydown(event: KeyboardEvent) {
+	let handleInputKeydown = throttle((event: KeyboardEvent) => {
 		switch (event.key) {
 			case "ArrowUp":
 				event.preventDefault();
@@ -93,7 +94,7 @@
 				useResult();
 				return;
 		}
-	}
+	}, 25);
 
 	function prevResult() {
 		resultsCursor = mod(resultsCursor - 1, results.current.length);
