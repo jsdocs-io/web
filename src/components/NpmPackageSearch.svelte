@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { resource, useMutationObserver, watch } from "runed";
+	import LucideLoaderCircle from "~icons/lucide/loader-circle";
+	import LucideSearch from "~icons/lucide/search";
 	import LucideX from "~icons/lucide/x";
 	import { mod } from "../../lib/mod";
 	import { scrollIntoView } from "../../lib/scroll-into-view";
@@ -117,58 +119,71 @@
 
 <!-- Remove transition to let search input autofocus; see https://github.com/saadeghi/daisyui/issues/3440 -->
 <dialog bind:this={dialog} class="modal [transition:unset]">
-	<div class="modal-box [transition:unset]">
+	<div class="modal-box max-w-2xl [transition:unset]">
 		<form method="dialog">
 			<button class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2">
 				<LucideX class="size-5" />
 			</button>
 		</form>
 
-		<h3 class="text-lg font-bold">Search npm packages</h3>
+		<div class="grid gap-4">
+			<h3 class="text-lg font-bold">Search npm packages</h3>
 
-		<label for="npm-package-search-input" class="sr-only">Search packages on npm</label>
-		<!-- svelte-ignore a11y_autofocus -->
-		<input
-			id="npm-package-search-input"
-			type="search"
-			autocomplete="off"
-			class="input w-full"
-			bind:value={query}
-			onkeydown={handleInputKeydown}
-			autofocus
-		/>
+			<label class="input w-full text-base">
+				<span class="sr-only">Search packages on npm</span>
 
-		<div class="mt-4 h-64 overflow-hidden overflow-y-auto">
-			{#if results.loading}
-				<div>Searching npm...</div>
-			{:else if results.error}
-				<div>Error searching npm</div>
-			{:else if results.current.length > 0}
-				<ul bind:this={resultsList}>
-					{#each results.current as result, i (result.name)}
-						<li>
-							<a
-								class={[
-									"hover:bg-base-content hover:text-base-300 flex flex-col rounded px-2 py-1",
-									i === resultsCursor && "bg-base-content text-base-300",
-								]}
-								href="/package/{result.name}"
-								onclick={closeDialog}
-							>
-								<span class="truncate font-bold">{result.name}</span>
-								<span class="truncate text-sm">{result.description}</span>
-							</a>
-						</li>
-					{/each}
-				</ul>
-			{:else if results.current.length === 0 && query.length > 0}
-				<div
-					class="bg-base-content text-base-300 flex items-center justify-between gap-4 rounded px-2 py-1"
-				>
-					<span class="truncate">No results</span>
-					<span class="opacity-70">¯\_(ツ)_/¯</span>
-				</div>
-			{/if}
+				{#if results.loading}
+					<LucideLoaderCircle class="size-4 animate-spin" />
+				{:else}
+					<LucideSearch class="size-4" />
+				{/if}
+
+				<!-- svelte-ignore a11y_autofocus -->
+				<input
+					type="search"
+					autocomplete="off"
+					bind:value={query}
+					onkeydown={handleInputKeydown}
+					autofocus
+				/>
+			</label>
+
+			<div class="h-96 overflow-hidden overflow-y-auto">
+				{#if results.loading}
+					<!-- Empty slot to clear area between searches -->
+				{:else if results.error}
+					<div>Error searching npm</div>
+				{:else if results.current.length > 0}
+					<ul bind:this={resultsList}>
+						{#each results.current as result, i (result.name)}
+							<li>
+								<a
+									class={[
+										"flex flex-col rounded px-2 py-1",
+										i === resultsCursor && "bg-primary text-primary-content",
+										i !== resultsCursor && "hover:bg-primary hover:text-primary-content/85",
+									]}
+									href="/package/{result.name}"
+									onclick={closeDialog}
+								>
+									<span class="truncate font-bold">{result.name}</span>
+									<span class="truncate text-sm">{result.description}</span>
+								</a>
+							</li>
+						{/each}
+					</ul>
+				{:else if results.current.length === 0 && query.length > 0}
+					<div
+						class="bg-primary text-primary-content flex items-center justify-between gap-4 rounded px-2 py-1"
+					>
+						<div class="flex flex-col">
+							<span class="truncate font-bold">No results</span>
+							<span class="truncate text-sm">Try another query</span>
+						</div>
+						<span class="opacity-85">¯\_(ツ)_/¯</span>
+					</div>
+				{/if}
+			</div>
 		</div>
 	</div>
 
