@@ -117,7 +117,7 @@
 
 <!-- Remove transition to let search input autofocus; see https://github.com/saadeghi/daisyui/issues/3440 -->
 <dialog bind:this={dialog} class="modal [transition:unset]">
-	<div class="modal-box">
+	<div class="modal-box [transition:unset]">
 		<form method="dialog">
 			<button class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2">
 				<MaterialSymbolsCloseRounded class="size-6" />
