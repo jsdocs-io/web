@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { resource, useMutationObserver, watch } from "runed";
-	import MaterialSymbolsCloseRounded from "~icons/material-symbols/close-rounded";
+	import LucideX from "~icons/lucide/x";
 	import { mod } from "../../lib/mod";
 	import { scrollIntoView } from "../../lib/scroll-into-view";
 
@@ -120,7 +120,7 @@
 	<div class="modal-box [transition:unset]">
 		<form method="dialog">
 			<button class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2">
-				<MaterialSymbolsCloseRounded class="size-6" />
+				<LucideX class="size-5" />
 			</button>
 		</form>
 
