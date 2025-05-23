@@ -149,7 +149,7 @@
 				/>
 			</label>
 
-			<div class="h-96 overflow-hidden overflow-y-auto">
+			<div class="h-96 overflow-y-auto">
 				{#if results.loading}
 					<!-- Empty slot to clear area between searches -->
 				{:else if results.error}
