@@ -4,7 +4,7 @@ import PackagePageAlerts from "../../components/PackagePageAlerts.astro";
 import PackagePageArticle from "../../components/PackagePageArticle.astro";
 import PackagePageSidebar from "../../components/PackagePageSidebar.astro";
 import QuickSearch from "../../components/QuickSearch.astro";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import RootLayout from "../../layouts/RootLayout.astro";
 
 export const prerender = false;
 
@@ -19,7 +19,7 @@ const title = pkgId;
 const description = `Documentation for npm package ${pkgId} on jsDocs.io`;
 ---
 
-<BaseLayout {title} {description}>
+<RootLayout {title} {description}>
 	<div
 		class="grid grid-cols-1 gap-8 md:grid-cols-[12rem_minmax(0,_1fr)] lg:grid-cols-[18rem_minmax(0,_1fr)]"
 	>
@@ -29,4 +29,4 @@ const description = `Documentation for npm package ${pkgId} on jsDocs.io`;
 	</div>
 
 	<QuickSearch slot="modals" />
-</BaseLayout>
+</RootLayout>
