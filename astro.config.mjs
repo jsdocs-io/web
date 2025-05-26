@@ -11,6 +11,7 @@ import Icons from "unplugin-icons/vite";
 
 // https://astro.build/config
 export default defineConfig({
+	site: "https://www.jsdocs.io",
 	output: "static",
 	adapter:
 		process.env.VERCEL ?
