@@ -1,9 +1,7 @@
 ---
-import { SEO } from "astro-seo";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import NpmPackageSearch from "../components/NpmPackageSearch.svelte";
-import PackageSearch from "../components/PackageSearch.astro";
 import "../styles/global.css";
 import "../styles/shiki.css";
 
@@ -12,44 +10,52 @@ type Props = {
 	description: string;
 };
 
-const { title, description } = Astro.props;
-
-// Prevent title from being `jsDocs.io - jsDocs.io` on the homepage.
-const titleTemplate = title !== "jsDocs.io" ? "%s - jsDocs.io" : undefined;
+const { title: t, description } = Astro.props;
+const title = Astro.url.pathname === "/" ? "jsDocs.io" : `${t} - jsDocs.io`;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = new URL("og.jpg", Astro.site); // TODO: add image
+const ogImageAlt = "Social image for jsDocs.io";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<SEO
-			slot="head"
-			{title}
-			{titleTemplate}
-			{description}
-			openGraph={{
-				basic: {
-					title: description,
-					type: "website",
-					image: "https://jsdocs.io/TODO:.png",
-				},
-				image: {
-					alt: description,
-				},
-			}}
-			twitter={{
-				card: "summary_large_image",
-				title: description,
-				description: description,
-				image: "https://jsdocs.io/TODO:.png",
-				imageAlt: description,
-				site: "@jsDocs",
-				creator: "@jsDocs",
-			}}
-		/>
+
+		{/* Favicon */}
+		{/* TODO: other sizes */}
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		{/* Title and description */}
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+
+		{/* Canonical URL */}
+		<link rel="canonical" href={canonicalUrl} />
+
+		{/* OpenGraph */}
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:image" content={ogImageUrl} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="628" />
+		<meta property="og:image:alt" content={ogImageAlt} />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:site_name" content="jsdocs.io" />
+
+		{/* Twitter */}
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageUrl} />
+		<meta name="twitter:image:alt" content={ogImageAlt} />
+		<meta name="twitter:creator" content="@jsDocs" />
 	</head>
+
 	<body>
 		<a href="#main-content" class="sr-only">Skip to main content</a>
 
@@ -62,15 +68,8 @@ const titleTemplate = title !== "jsDocs.io" ? "%s - jsDocs.io" : undefined;
 		</div>
 
 		<slot name="modals" />
-		<PackageSearch />
 		<NpmPackageSearch client:load />
 
 		<script src="../scripts/add-copy-buttons.ts"></script>
 	</body>
 </html>
-
-<style is:global>
-	[x-cloak] {
-		display: none !important;
-	}
-</style>
