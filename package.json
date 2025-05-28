@@ -26,7 +26,6 @@
 		"@microsoft/tsdoc": "^0.15.1",
 		"alpinejs": "^3.14.9",
 		"astro": "^5.8.0",
-		"astro-seo": "^0.8.4",
 		"dompurify": "^3.2.6",
 		"effect": "^3.15.4",
 		"fflate": "^0.8.2",
