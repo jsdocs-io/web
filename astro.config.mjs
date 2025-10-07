@@ -1,3 +1,4 @@
+// @ts-check
 import alpinejs from "@astrojs/alpinejs";
 import node from "@astrojs/node";
 import svelte from "@astrojs/svelte";
