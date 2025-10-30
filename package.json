@@ -6,14 +6,14 @@
 	"scripts": {
 		"dev": "astro dev",
 		"check": "astro check && svelte-check --no-tsconfig",
-		"build": "bun --revision && bun run check && astro build",
+		"build": "node -v && bun --revision && bun run check && astro build",
 		"preview": "astro preview",
 		"astro": "astro",
 		"lint": "prettier --check .",
 		"format": "prettier --write .",
 		"test": "vitest",
 		"test:ci": "vitest run --coverage --bail 1",
-		"pre-push": "bun --revision && bun i && bun run lint && bun run build && bun run test:ci",
+		"pre-push": "node -v && bun --revision && bun i && bun run lint && bun run build && bun run test:ci",
 		"shiki:codegen": "bun run scripts/shiki-codegen.ts"
 	},
 	"dependencies": {
