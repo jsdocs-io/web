@@ -30,6 +30,7 @@
 		"effect": "^3.18.4",
 		"fflate": "^0.8.2",
 		"fuse.js": "^7.1.0",
+		"go-go-try": "^6.2.0",
 		"hosted-git-info": "^9.0.2",
 		"jsdom": "^27.0.1",
 		"lodash-es": "^4.17.21",

@@ -17,6 +17,7 @@
         "effect": "^3.18.4",
         "fflate": "^0.8.2",
         "fuse.js": "^7.1.0",
+        "go-go-try": "^6.2.0",
         "hosted-git-info": "^9.0.2",
         "jsdom": "^27.0.1",
         "lodash-es": "^4.17.21",
@@ -932,6 +933,8 @@
     "glob-parent": ["glob-parent@5.1.2", "", { "dependencies": { "is-glob": "^4.0.1" } }, "sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow=="],
 
     "globals": ["globals@15.15.0", "", {}, "sha512-7ACyT3wmyp3I61S4fG682L0VA2RGD9otkqGJIwNUMF1SWUombIIk+af1unuDYgMm082aHYwD+mzJvv9Iu8dsgg=="],
+
+    "go-go-try": ["go-go-try@6.2.0", "", {}, "sha512-Q1p/HgxdWFkjgjOvBIPf0v5+kCUBSlUMw7p54OmCAdT+F+LujnaE68aFk9z4PL5s/sJvNpe1do9/96JPvoCr6g=="],
 
     "graceful-fs": ["graceful-fs@4.2.11", "", {}, "sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ=="],
 
