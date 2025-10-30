@@ -2,7 +2,7 @@
 import LucideHeart from "~icons/lucide/heart";
 import LucideInfo from "~icons/lucide/info";
 import LucidePackageSearch from "~icons/lucide/package-search";
-import PackageSearchOpener from "./PackageSearchOpener.astro";
+import NpmPackageSearchOpener from "./NpmPackageSearchOpener.svelte";
 ---
 
 <header
@@ -14,7 +14,7 @@ import PackageSearchOpener from "./PackageSearchOpener.astro";
 	</a>
 
 	<div class="grow lg:w-[28rem] lg:grow-0">
-		<PackageSearchOpener />
+		<NpmPackageSearchOpener client:load />
 	</div>
 
 	<div class="hidden lg:block lg:grow"></div>
