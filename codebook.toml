@@ -9,6 +9,7 @@ words = [
     "jsdocs",
     "jsdom",
     "pathe",
+    "pino",
     "prerender",
     "rollup",
     "runed",
