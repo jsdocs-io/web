@@ -65,7 +65,7 @@
 		"@types/lodash-es": "^4.17.12",
 		"@types/node": "^24.10.0",
 		"@types/validate-npm-package-name": "^4.0.2",
-		"@vitest/coverage-v8": "^4.0.7",
+		"@vitest/coverage-v8": "^3",
 		"aws-sdk-client-mock": "^4.1.0",
 		"daisyui": "^5.4.6",
 		"prettier": "^3.6.2",
@@ -80,6 +80,6 @@
 		"tempy": "^3.1.0",
 		"typescript": "^5.9.3",
 		"unplugin-icons": "^22.5.0",
-		"vitest": "^4.0.7"
+		"vitest": "^3"
 	}
 }
