@@ -13,6 +13,19 @@ const serverEnvSchema = z.object({
 	CF_ACCESS_KEY_ID: z.string().default(""),
 	CF_SECRET_ACCESS_KEY: z.string().default(""),
 	CF_BUCKET_NAME: z.string().default(""),
+
+	// Packages not to be analyzed.
+	IGNORED_PACKAGES: z
+		.string()
+		.default("")
+		.transform((csv) => {
+			return new Set(
+				csv
+					.split(",")
+					.map((pkg) => pkg.trim())
+					.filter(Boolean),
+			);
+		}),
 });
 
 export type ServerEnv = z.infer<typeof serverEnvSchema>;
