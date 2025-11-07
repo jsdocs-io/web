@@ -1,8 +1,9 @@
-import { Bun, getPackageJson } from "@jsdocs-io/extractor";
+import { Bun, getPackageJson, getPackageTypes } from "@jsdocs-io/extractor";
 import { goTry } from "go-go-try";
 import { join } from "pathe";
 import { serverEnv } from "../../server-env";
 import { checkLicense } from "../../utils/check-license";
+import { getDTPackageName, isDTPackage } from "../../utils/definitely-typed";
 import { packageId } from "../../utils/package-id";
 import { resolvePackage } from "../../utils/resolve-package";
 import { tempDir } from "../../utils/temp-dir";
@@ -71,33 +72,49 @@ export async function handlePackage(slug: string) {
 		};
 	}
 
-	// TODO:
-	// // Check if the package provides type definitions and if not
-	// // check if there is an associated DefinitelyTyped (DT) package.
-	// const typesRes = yield * Effect.either(packageTypes(pkgJson, subpath));
-	// if (Either.isLeft(typesRes)) {
-	// 	const dtPkgName = yield * findDefinitelyTypedPackage({ pkgName, cwd });
-	// 	if (!dtPkgName) {
-	// 		yield * Effect.logWarning(`no types: ${pkgId}`);
-	// 		return {
-	// 			status: "no-types" as const,
-	// 			pkgId,
-	// 			subpath,
-	// 			pkgJson,
-	// 			generatedAt: generatedAt(),
-	// 			generatedIn: generatedIn(start),
-	// 		};
-	// 	}
-	// 	return {
-	// 		status: "definitely-typed" as const,
-	// 		pkgId,
-	// 		subpath,
-	// 		pkgJson,
-	// 		dtPkgName,
-	// 		generatedAt: generatedAt(),
-	// 		generatedIn: generatedIn(start),
-	// 	};
-	// }
+	// Check if the package provides type definitions and if not
+	// check if there is a corresponding DefinitelyTyped (DT) package.
+	const types = getPackageTypes({ pkgJson, subpath });
+	if (!types) {
+		// A DT package without types is deprecated.
+		if (isDTPackage(pkgName)) {
+			log.warn({ warn: "deprecated DT package" });
+			return {
+				status: "deprecated-dt-pkg" as const,
+				pkgId,
+				subpath,
+				pkgJson,
+				generatedAt: generatedAt(),
+				generatedIn: generatedIn(start),
+			};
+		}
+
+		// Try to install the corresponding DT package to check if it exists.
+		const dtPkgName = getDTPackageName(pkgName);
+		const [bunErr] = await goTry(bun.add(dtPkgName, cwd));
+		if (bunErr !== undefined) {
+			log.warn({ warn: "no-dt-pkg" });
+			return {
+				status: "no-types" as const,
+				pkgId,
+				subpath,
+				pkgJson,
+				generatedAt: generatedAt(),
+				generatedIn: generatedIn(start),
+			};
+		}
+
+		// A DT package exists.
+		return {
+			status: "has-dt-pkg" as const,
+			pkgId,
+			subpath,
+			pkgJson,
+			dtPkgName,
+			generatedAt: generatedAt(),
+			generatedIn: generatedIn(start),
+		};
+	}
 
 	// // Check if the DB already has the package API.
 	// const db = yield * Db;
