@@ -1,6 +1,8 @@
 import { Bun, getPackageJson, getPackageTypes } from "@jsdocs-io/extractor";
 import { goTry } from "go-go-try";
 import { join } from "pathe";
+import { PackageApiMemDb } from "../../db/package-api-mem-db";
+import { PackageApiR2Bucket } from "../../db/package-api-r2-bucket";
 import { serverEnv } from "../../server-env";
 import { checkLicense } from "../../utils/check-license";
 import { getDTPackageName, isDTPackage } from "../../utils/definitely-typed";
@@ -12,6 +14,7 @@ import { redirect } from "../redirect";
 import { parsePackageSlug } from "./parse-package-slug";
 
 const bun = new Bun(serverEnv.BUN_PATH);
+const db = serverEnv.CF_BUCKET_NAME ? new PackageApiR2Bucket() : new PackageApiMemDb();
 
 export interface HandlePackageOutput {}
 
@@ -116,25 +119,23 @@ export async function handlePackage(slug: string) {
 		};
 	}
 
-	// // Check if the DB already has the package API.
-	// const db = yield * Db;
-	// yield * Effect.logInfo(`using db: ${db.name}`);
-	// const getPkgApiRes = yield * Effect.either(db.getPackageApi({ pkg, subpath }));
-	// if (Either.isLeft(getPkgApiRes)) {
-	// 	yield * Effect.logWarning(getPkgApiRes.left);
-	// } else {
-	// 	yield * Effect.logInfo(`db has package api for: ${pkgId}`);
-	// 	const pkgApi = getPkgApiRes.right;
-	// 	return {
-	// 		status: "with-api" as const,
-	// 		pkgId,
-	// 		subpath,
-	// 		pkgJson,
-	// 		pkgApi,
-	// 		generatedAt: generatedAt(),
-	// 		generatedIn: generatedIn(start),
-	// 	};
-	// }
+	// Check if the DB already has the package API.
+	const [dbErr, dbPkgApi] = await goTry(db.getPackageApi(pkgId));
+	if (dbErr !== undefined) {
+		log.warn({ db: db.dbName, warn: dbErr });
+	}
+	if (dbPkgApi) {
+		log.info({ db: db.dbName, pkgId, hasApi: true });
+		return {
+			status: "has-api" as const,
+			pkgId,
+			subpath,
+			pkgJson,
+			pkgApi: dbPkgApi,
+			generatedAt: generatedAt(),
+			generatedIn: generatedIn(start),
+		};
+	}
 
 	// // Extract the package API.
 	// const pkgApiRes = yield * Effect.either(extractPackageApi({ pkg, subpath }));
