@@ -1,4 +1,4 @@
-import { Bun, getPackageJson, getPackageTypes } from "@jsdocs-io/extractor";
+import { Bun, getPackageApi, getPackageJson, getPackageTypes } from "@jsdocs-io/extractor";
 import { goTry } from "go-go-try";
 import { join } from "pathe";
 import { PackageApiMemDb } from "../../db/package-api-mem-db";
@@ -137,20 +137,19 @@ export async function handlePackage(slug: string) {
 		};
 	}
 
-	// // Extract the package API.
-	// const pkgApiRes = yield * Effect.either(extractPackageApi({ pkg, subpath }));
-	// if (Either.isLeft(pkgApiRes)) {
-	// 	yield * Effect.logError(pkgApiRes.left);
-	// 	return {
-	// 		status: "no-api" as const,
-	// 		pkgId,
-	// 		subpath,
-	// 		pkgJson,
-	// 		generatedAt: generatedAt(),
-	// 		generatedIn: generatedIn(start),
-	// 	};
-	// }
-	// const pkgApi = pkgApiRes.right;
+	// Extract the package API.
+	const [pkgApiErr, pkgApi] = await goTry(getPackageApi({ pkg, subpath, bun }));
+	if (pkgApiErr !== undefined) {
+		log.error({ err: pkgApiErr });
+		return {
+			status: "pkg-has-no-api" as const,
+			pkgId,
+			subpath,
+			pkgJson,
+			generatedAt: generatedAt(),
+			generatedIn: generatedIn(start),
+		};
+	}
 
 	// // Store the package API in the DB.
 	// const setPkgApiRes = yield * Effect.either(db.setPackageApi({ pkg, subpath, pkgApi }));
