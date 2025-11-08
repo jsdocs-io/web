@@ -66,7 +66,7 @@ export async function handlePackage(slug: string) {
 	if (licenseErr !== undefined) {
 		log.warn({ warn: licenseErr });
 		return {
-			status: "invalid-license" as const,
+			status: "pkg-has-invalid-license" as const,
 			pkgId,
 			subpath,
 			pkgJson,
@@ -83,7 +83,7 @@ export async function handlePackage(slug: string) {
 		if (isDTPackage(pkgName)) {
 			log.warn({ warn: "deprecated DT package" });
 			return {
-				status: "deprecated-dt-pkg" as const,
+				status: "pkg-is-deprecated-dt-pkg" as const,
 				pkgId,
 				subpath,
 				pkgJson,
@@ -96,9 +96,9 @@ export async function handlePackage(slug: string) {
 		const dtPkgName = getDTPackageName(pkgName);
 		const [bunErr] = await goTry(bun.add(dtPkgName, cwd));
 		if (bunErr !== undefined) {
-			log.warn({ warn: "no-dt-pkg" });
+			log.warn({ warn: "no DT package" });
 			return {
-				status: "no-types" as const,
+				status: "pkg-has-no-types" as const,
 				pkgId,
 				subpath,
 				pkgJson,
@@ -109,7 +109,7 @@ export async function handlePackage(slug: string) {
 
 		// A DT package exists.
 		return {
-			status: "has-dt-pkg" as const,
+			status: "pkg-has-dt-pkg" as const,
 			pkgId,
 			subpath,
 			pkgJson,
@@ -127,7 +127,7 @@ export async function handlePackage(slug: string) {
 	if (dbPkgApi) {
 		log.info({ db: db.dbName, pkgId, hasApi: true });
 		return {
-			status: "has-api" as const,
+			status: "pkg-has-api" as const,
 			pkgId,
 			subpath,
 			pkgJson,
