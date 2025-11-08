@@ -120,12 +120,12 @@ export async function handlePackage(slug: string) {
 	}
 
 	// Check if the DB already has the package API.
-	const [dbErr, dbPkgApi] = await goTry(db.getPackageApi(pkgId));
-	if (dbErr !== undefined) {
-		log.warn({ db: db.dbName, warn: dbErr });
+	const [dbGetErr, dbPkgApi] = await goTry(db.getPackageApi(pkgId));
+	if (dbGetErr !== undefined) {
+		log.warn({ db: db.dbName, warn: dbGetErr });
 	}
 	if (dbPkgApi) {
-		log.info({ db: db.dbName, pkgId, hasApi: true });
+		log.info({ db: db.dbName, pkgId, getPkgApi: true });
 		return {
 			status: "pkg-has-api" as const,
 			pkgId,
@@ -151,24 +151,24 @@ export async function handlePackage(slug: string) {
 		};
 	}
 
-	// // Store the package API in the DB.
-	// const setPkgApiRes = yield * Effect.either(db.setPackageApi({ pkg, subpath, pkgApi }));
-	// if (Either.isLeft(setPkgApiRes)) {
-	// 	yield * Effect.logError(setPkgApiRes.left);
-	// } else {
-	// 	yield * Effect.logInfo(`db set package api for: ${pkgId}`);
-	// }
+	// Store the package API in the DB.
+	const [dbSetErr] = await goTry(db.setPackageApi(pkgId, pkgApi));
+	if (dbSetErr !== undefined) {
+		log.error({ db: db.dbName, pkgId, err: dbSetErr });
+	} else {
+		log.info({ db: db.dbName, pkgId, setPkgApi: true });
+	}
 
-	// // Return data for rendering.
-	// return {
-	// 	status: "with-api" as const,
-	// 	pkgId,
-	// 	subpath,
-	// 	pkgJson,
-	// 	pkgApi,
-	// 	generatedAt: generatedAt(),
-	// 	generatedIn: generatedIn(start),
-	// };
+	// Return data for rendering.
+	return {
+		status: "pkg-has-api" as const,
+		pkgId,
+		subpath,
+		pkgJson,
+		pkgApi,
+		generatedAt: generatedAt(),
+		generatedIn: generatedIn(start),
+	};
 }
 
 function generatedAt(): string {
