@@ -14,6 +14,7 @@ words = [
     "jsdom",
     "pathe",
     "pino",
+    "preact",
     "prerender",
     "rollup",
     "runed",
