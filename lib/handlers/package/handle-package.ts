@@ -1,6 +1,13 @@
-import { Bun, getPackageApi, getPackageJson, getPackageTypes } from "@jsdocs-io/extractor";
+import {
+	Bun,
+	getPackageApi,
+	getPackageJson,
+	getPackageTypes,
+	type PackageApi,
+} from "@jsdocs-io/extractor";
 import { goTry } from "go-go-try";
 import { join } from "pathe";
+import type { NormalizedPackageJson } from "read-pkg";
 import { PackageApiMemDb } from "../../db/package-api-mem-db";
 import { PackageApiR2Bucket } from "../../db/package-api-r2-bucket";
 import { serverEnv } from "../../server-env";
@@ -10,15 +17,40 @@ import { packageId } from "../../utils/package-id";
 import { resolvePackage } from "../../utils/resolve-package";
 import { tempDir } from "../../utils/temp-dir";
 import { getLogger } from "../get-logger";
-import { redirect } from "../redirect";
 import { parsePackageSlug } from "./parse-package-slug";
 
 const bun = new Bun(serverEnv.BUN_PATH);
 const db = serverEnv.CF_BUCKET_NAME ? new PackageApiR2Bucket() : new PackageApiMemDb();
 
-export interface HandlePackageOutput {}
+export interface PackageInfo {
+	pkgId: string;
+	subpath: string;
+	pkgJson: NormalizedPackageJson;
+	generatedAt: string;
+	generatedIn: number;
+}
 
-export async function handlePackage(slug: string) {
+export interface PackageInfoWithDtPackage extends PackageInfo {
+	dtPkgName: string;
+}
+
+export interface PackageInfoWithApi extends PackageInfo {
+	pkgApi: PackageApi;
+}
+
+export type HandlePackageOutput =
+	| { status: "bad-request" }
+	| { status: "not-found" }
+	| { status: "found"; path: string }
+	| { status: "error" }
+	| { status: "pkg-has-invalid-license"; pkgInfo: PackageInfo }
+	| { status: "pkg-is-deprecated-dt-pkg"; pkgInfo: PackageInfo }
+	| { status: "pkg-has-no-types"; pkgInfo: PackageInfo }
+	| { status: "pkg-has-dt-pkg"; pkgInfo: PackageInfoWithDtPackage }
+	| { status: "pkg-has-api"; pkgInfo: PackageInfoWithApi }
+	| { status: "pkg-has-no-api"; pkgInfo: PackageInfo };
+
+export async function handlePackage(slug: string): Promise<HandlePackageOutput> {
 	const log = getLogger("handlePackage");
 	log.info({ path: `/package/${slug}` });
 
@@ -29,7 +61,7 @@ export async function handlePackage(slug: string) {
 	const [slugErr, slugOut] = goTry(() => parsePackageSlug(slug));
 	if (slugErr !== undefined) {
 		log.error({ err: slugErr });
-		return redirect("/404");
+		return { status: "bad-request" };
 	}
 	const { pkg, pkgName, subpath } = slugOut;
 
@@ -42,7 +74,7 @@ export async function handlePackage(slug: string) {
 	const [bunErr, packages] = await goTry(bun.add(pkg, cwd));
 	if (bunErr !== undefined) {
 		log.error({ err: bunErr });
-		return redirect("/404");
+		return { status: "not-found" };
 	}
 
 	// Redirect to the canonical package page if necessary.
@@ -50,7 +82,7 @@ export async function handlePackage(slug: string) {
 	const pkgId = packageId(resolvedPkg, subpath);
 	if (pkg !== resolvedPkg) {
 		log.info({ redirect: `${pkg} -> ${resolvedPkg}` });
-		return redirect(`/package/${pkgId}`);
+		return { status: "found", path: `/package/${pkgId}` };
 	}
 
 	// Read the package's own `package.json`.
@@ -58,7 +90,7 @@ export async function handlePackage(slug: string) {
 	const [pkgJsonErr, pkgJson] = await goTry(getPackageJson(pkgDir));
 	if (pkgJsonErr !== undefined) {
 		log.error({ err: pkgJsonErr });
-		return redirect("/500");
+		return { status: "error" };
 	}
 
 	// Check if the package has an SPDX license.
@@ -66,29 +98,33 @@ export async function handlePackage(slug: string) {
 	if (licenseErr !== undefined) {
 		log.warn({ warn: licenseErr });
 		return {
-			status: "pkg-has-invalid-license" as const,
-			pkgId,
-			subpath,
-			pkgJson,
-			generatedAt: generatedAt(),
-			generatedIn: generatedIn(start),
-		};
-	}
-
-	// Check if the package provides type definitions and if not
-	// check if there is a corresponding DefinitelyTyped (DT) package.
-	const types = getPackageTypes({ pkgJson, subpath });
-	if (!types) {
-		// A DT package without types is deprecated.
-		if (isDTPackage(pkgName)) {
-			log.warn({ warn: "deprecated DT package" });
-			return {
-				status: "pkg-is-deprecated-dt-pkg" as const,
+			status: "pkg-has-invalid-license",
+			pkgInfo: {
 				pkgId,
 				subpath,
 				pkgJson,
 				generatedAt: generatedAt(),
 				generatedIn: generatedIn(start),
+			},
+		};
+	}
+
+	// Check if the package provides type definitions and if not
+	// check if there is a corresponding DefinitelyTyped (DT) package.
+	const [typesErr, types] = goTry(() => getPackageTypes({ pkgJson, subpath }));
+	if (typesErr !== undefined || !types) {
+		// A DT package without types is deprecated.
+		if (isDTPackage(pkgName)) {
+			log.warn({ warn: "deprecated DT package" });
+			return {
+				status: "pkg-is-deprecated-dt-pkg",
+				pkgInfo: {
+					pkgId,
+					subpath,
+					pkgJson,
+					generatedAt: generatedAt(),
+					generatedIn: generatedIn(start),
+				},
 			};
 		}
 
@@ -98,24 +134,28 @@ export async function handlePackage(slug: string) {
 		if (bunErr !== undefined) {
 			log.warn({ warn: "no DT package" });
 			return {
-				status: "pkg-has-no-types" as const,
-				pkgId,
-				subpath,
-				pkgJson,
-				generatedAt: generatedAt(),
-				generatedIn: generatedIn(start),
+				status: "pkg-has-no-types",
+				pkgInfo: {
+					pkgId,
+					subpath,
+					pkgJson,
+					generatedAt: generatedAt(),
+					generatedIn: generatedIn(start),
+				},
 			};
 		}
 
 		// A DT package exists.
 		return {
-			status: "pkg-has-dt-pkg" as const,
-			pkgId,
-			subpath,
-			pkgJson,
-			dtPkgName,
-			generatedAt: generatedAt(),
-			generatedIn: generatedIn(start),
+			status: "pkg-has-dt-pkg",
+			pkgInfo: {
+				pkgId,
+				subpath,
+				pkgJson,
+				dtPkgName,
+				generatedAt: generatedAt(),
+				generatedIn: generatedIn(start),
+			},
 		};
 	}
 
@@ -127,13 +167,15 @@ export async function handlePackage(slug: string) {
 	if (dbPkgApi) {
 		log.info({ db: db.dbName, pkgId, getPkgApi: true });
 		return {
-			status: "pkg-has-api" as const,
-			pkgId,
-			subpath,
-			pkgJson,
-			pkgApi: dbPkgApi,
-			generatedAt: generatedAt(),
-			generatedIn: generatedIn(start),
+			status: "pkg-has-api",
+			pkgInfo: {
+				pkgId,
+				subpath,
+				pkgJson,
+				pkgApi: dbPkgApi,
+				generatedAt: generatedAt(),
+				generatedIn: generatedIn(start),
+			},
 		};
 	}
 
@@ -143,11 +185,13 @@ export async function handlePackage(slug: string) {
 		log.error({ err: pkgApiErr });
 		return {
 			status: "pkg-has-no-api" as const,
-			pkgId,
-			subpath,
-			pkgJson,
-			generatedAt: generatedAt(),
-			generatedIn: generatedIn(start),
+			pkgInfo: {
+				pkgId,
+				subpath,
+				pkgJson,
+				generatedAt: generatedAt(),
+				generatedIn: generatedIn(start),
+			},
 		};
 	}
 
@@ -162,12 +206,14 @@ export async function handlePackage(slug: string) {
 	// Return data for rendering.
 	return {
 		status: "pkg-has-api" as const,
-		pkgId,
-		subpath,
-		pkgJson,
-		pkgApi,
-		generatedAt: generatedAt(),
-		generatedIn: generatedIn(start),
+		pkgInfo: {
+			pkgId,
+			subpath,
+			pkgJson,
+			pkgApi,
+			generatedAt: generatedAt(),
+			generatedIn: generatedIn(start),
+		},
 	};
 }
 
