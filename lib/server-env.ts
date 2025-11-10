@@ -14,6 +14,9 @@ const serverEnvSchema = z.object({
 	CF_SECRET_ACCESS_KEY: z.string().default(""),
 	CF_BUCKET_NAME: z.string().default(""),
 
+	// Pino log level.
+	PINO_LOG_LEVEL: z.string().default("info"),
+
 	// Packages not to be analyzed.
 	IGNORED_PACKAGES: z
 		.string()
