@@ -11,8 +11,8 @@
 		"astro": "astro",
 		"lint": "prettier --check .",
 		"format": "prettier --write .",
-		"test": "vitest",
-		"test:ci": "vitest run --coverage --bail 1",
+		"test": "PINO_LOG_LEVEL=silent vitest",
+		"test:ci": "PINO_LOG_LEVEL=silent vitest run --coverage --bail 1",
 		"pre-push": "node -v && bun --revision && bun i && bun run lint && bun run build && bun run test:ci",
 		"shiki:codegen": "bun run scripts/shiki-codegen.ts"
 	},
