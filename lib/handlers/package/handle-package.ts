@@ -22,6 +22,23 @@ import { parsePackageSlug } from "./parse-package-slug";
 const bun = new Bun(serverEnv.BUN_PATH);
 const db = serverEnv.CF_BUCKET_NAME ? new PackageApiR2Bucket() : new PackageApiMemDb();
 
+export type HandlePackageOutput = HandlePackageError | HandlePackageRedirect | HandlePackageData;
+
+export type HandlePackageError =
+	| { status: "bad-request" }
+	| { status: "not-found" }
+	| { status: "error" };
+
+export type HandlePackageRedirect = { status: "found"; path: string };
+
+export type HandlePackageData =
+	| { status: "pkg-has-invalid-license"; pkgInfo: PackageInfo }
+	| { status: "pkg-is-deprecated-dt-pkg"; pkgInfo: PackageInfo }
+	| { status: "pkg-has-no-types"; pkgInfo: PackageInfo }
+	| { status: "pkg-has-dt-pkg"; pkgInfo: PackageInfoWithDtPackage }
+	| { status: "pkg-has-api"; pkgInfo: PackageInfoWithApi }
+	| { status: "pkg-has-no-api"; pkgInfo: PackageInfo };
+
 export interface PackageInfo {
 	pkgId: string;
 	subpath: string;
@@ -37,18 +54,6 @@ export interface PackageInfoWithDtPackage extends PackageInfo {
 export interface PackageInfoWithApi extends PackageInfo {
 	pkgApi: PackageApi;
 }
-
-export type HandlePackageOutput =
-	| { status: "bad-request" }
-	| { status: "not-found" }
-	| { status: "found"; path: string }
-	| { status: "error" }
-	| { status: "pkg-has-invalid-license"; pkgInfo: PackageInfo }
-	| { status: "pkg-is-deprecated-dt-pkg"; pkgInfo: PackageInfo }
-	| { status: "pkg-has-no-types"; pkgInfo: PackageInfo }
-	| { status: "pkg-has-dt-pkg"; pkgInfo: PackageInfoWithDtPackage }
-	| { status: "pkg-has-api"; pkgInfo: PackageInfoWithApi }
-	| { status: "pkg-has-no-api"; pkgInfo: PackageInfo };
 
 export async function handlePackage(slug: string): Promise<HandlePackageOutput> {
 	const log = getLogger("handlePackage");
