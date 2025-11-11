@@ -26,8 +26,11 @@ export default defineConfig({
 	integrations: [alpinejs({ entrypoint: "/src/scripts/alpine" }), svelte()],
 	vite: {
 		plugins: [
+			// @ts-expect-error
 			tailwindcss(),
+			// @ts-expect-error
 			Icons({ compiler: "svelte" }),
+			// @ts-expect-error
 			Icons({ compiler: "astro" }),
 			visualizer(),
 		],
