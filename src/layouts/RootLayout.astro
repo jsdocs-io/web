@@ -5,13 +5,13 @@ import NpmPackageSearch from "../components/NpmPackageSearch.svelte";
 import "../styles/global.css";
 import "../styles/shiki.css";
 
-type Props = {
+interface Props {
 	title: string;
 	description: string;
-};
+}
 
-const { title: t, description } = Astro.props;
-const title = Astro.url.pathname === "/" ? "jsDocs.io" : `${t} - jsDocs.io`;
+const title = Astro.url.pathname === "/" ? "jsDocs.io" : `${Astro.props.title} - jsDocs.io`;
+const { description } = Astro.props;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const ogImageUrl = new URL("og.jpg", Astro.site); // TODO: add image
 const ogImageAlt = "Social image for jsDocs.io";
