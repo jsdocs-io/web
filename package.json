@@ -52,7 +52,7 @@
 		"@astrojs/check": "^0.9.5",
 		"@astrojs/ts-plugin": "^1.10.5",
 		"@astrojs/vercel": "^9.0.0",
-		"@iconify/json": "^2.2.404",
+		"@iconify-json/lucide": "^1.2.73",
 		"@smithy/util-stream": "^4.5.5",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.1.17",
