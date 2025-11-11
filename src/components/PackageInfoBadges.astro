@@ -1,10 +1,10 @@
 ---
 import hostedGitInfo from "hosted-git-info";
 import type { NormalizedPackageJson } from "read-pkg";
-import GgNpm from "~icons/gg/npm";
+// import GgNpm from "~icons/gg/npm";
 import LucideScale from "~icons/lucide/scale";
-import MdiGit from "~icons/mdi/git";
-import SimpleIconsUnpkg from "~icons/simple-icons/unpkg";
+// import MdiGit from "~icons/mdi/git";
+// import SimpleIconsUnpkg from "~icons/simple-icons/unpkg";
 
 type Props = {
 	pkgJson: NormalizedPackageJson;
@@ -25,7 +25,7 @@ const gitShortcut = gitInfo?.shortcut();
 		title="View on npm"
 		class="btn btn-outline btn-sm border-base-content/50"
 	>
-		<GgNpm class="size-4" />
+		<!-- <GgNpm class="size-4" /> -->
 		{version}
 	</a>
 
@@ -36,7 +36,7 @@ const gitShortcut = gitInfo?.shortcut();
 				title="View repository"
 				class="btn btn-outline btn-sm border-base-content/50"
 			>
-				<MdiGit class="size-4" />
+				<!-- <MdiGit class="size-4" /> -->
 				{gitShortcut ?? "Repository"}
 			</a>
 		)
@@ -47,7 +47,7 @@ const gitShortcut = gitInfo?.shortcut();
 		title="View on unpkg"
 		class="btn btn-outline btn-sm border-base-content/50"
 	>
-		<SimpleIconsUnpkg class="size-4" />
+		<!-- <SimpleIconsUnpkg class="size-4" /> -->
 		unpkg
 	</a>
 
