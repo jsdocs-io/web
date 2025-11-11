@@ -1,12 +1,12 @@
 ---
-import { parseDocComment } from "@jsdocs-io/extractor";
 import { StandardTags } from "@microsoft/tsdoc";
 import DocCommentInherit from "./DocCommentInherit.astro";
 import DocNodeContainer from "./DocNodeContainer.astro";
+import { parseDocComment } from "../../lib/components/parse-doc-comment";
 
-type Props = {
+interface Props {
 	doc: string;
-};
+}
 
 const { doc } = Astro.props;
 const {
