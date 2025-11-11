@@ -20,24 +20,21 @@ const {
 	deprecatedBlock,
 	inheritDocTag,
 } = parseDocComment(doc);
-const throwsBlocks = customBlocks.filter(
-	(block) =>
-		// Throws blocks are defined by the `@throws` tag.
-		block.blockTag.tagNameWithUpperCase === StandardTags.throws.tagNameWithUpperCase,
-);
-const exampleBlocks = customBlocks.filter(
-	(block) =>
-		// Example blocks are defined by the `@example` tag.
-		block.blockTag.tagNameWithUpperCase === StandardTags.example.tagNameWithUpperCase,
-);
-const modifierTags = modifierTagSet.nodes.filter(
-	(tag) =>
-		// Do not display the `@public` and `@packageDocumentation` tags.
-		![
-			StandardTags.packageDocumentation.tagNameWithUpperCase,
-			StandardTags.public.tagNameWithUpperCase,
-		].includes(tag.tagNameWithUpperCase),
-);
+const throwsBlocks = customBlocks.filter((block) => {
+	// Throws blocks are defined by the `@throws` tag.
+	return block.blockTag.tagNameWithUpperCase === StandardTags.throws.tagNameWithUpperCase;
+});
+const exampleBlocks = customBlocks.filter((block) => {
+	// Example blocks are defined by the `@example` tag.
+	return block.blockTag.tagNameWithUpperCase === StandardTags.example.tagNameWithUpperCase;
+});
+const modifierTags = modifierTagSet.nodes.filter((tag) => {
+	// Do not display the `@public` and `@packageDocumentation` tags.
+	return ![
+		StandardTags.packageDocumentation.tagNameWithUpperCase,
+		StandardTags.public.tagNameWithUpperCase,
+	].includes(tag.tagNameWithUpperCase);
+});
 ---
 
 {
