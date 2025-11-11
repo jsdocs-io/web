@@ -12,6 +12,7 @@ words = [
     "iconify",
     "jsdocs",
     "jsdom",
+    "minmax",
     "pathe",
     "pino",
     "preact",
