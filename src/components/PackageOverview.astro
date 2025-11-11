@@ -1,14 +1,14 @@
 ---
-import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import type { HandlePackageData } from "../../lib/handlers/package/handle-package";
 import AnchoredH2 from "./AnchoredH2.astro";
 import DocComment from "./DocComment.astro";
 
-type Props = PackagePageHandlerProps;
+type Props = HandlePackageData;
 
-const { status, pkgJson } = Astro.props;
+const { status, pkgInfo } = Astro.props;
 const overview =
-	status === "with-api" && Astro.props.pkgApi.overview ? Astro.props.pkgApi.overview
-	: pkgJson.description ? `/** ${pkgJson.description} */`
+	status === "pkg-has-api" && pkgInfo.pkgApi.overview ? pkgInfo.pkgApi.overview
+	: pkgInfo.pkgJson.description ? `/** ${pkgInfo.pkgJson.description} */`
 	: `/** Overview not available. */`;
 ---
 

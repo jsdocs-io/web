@@ -1,11 +1,12 @@
 ---
 import newGitHubIssueURL from "new-github-issue-url";
-import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
 import AnchoredH2 from "./AnchoredH2.astro";
+import type { HandlePackageData } from "../../lib/handlers/package/handle-package";
 
-type Props = PackagePageHandlerProps;
+type Props = HandlePackageData;
 
-const { status, pkgId, generatedAt, generatedIn } = Astro.props;
+const { status, pkgInfo } = Astro.props;
+const { pkgId, generatedAt, generatedIn } = pkgInfo;
 const issueUrl = newGitHubIssueURL({
 	repoUrl: "https://github.com/jsdocs-io/web",
 	template: "package-with-missing-or-incorrect-documentation.md",
@@ -23,17 +24,17 @@ const issueUrl = newGitHubIssueURL({
 		datetime={generatedAt}></time> in {generatedIn}ms.
 
 	{
-		status === "with-api" && (
+		status === "pkg-has-api" && (
 			<>
 				<br />
 				Package <code class="text-nowrap">{pkgId}</code> analyzed{" "}
 				<time
-					x-data={`timeAgo('${Astro.props.pkgApi.analyzedAt}')`}
+					x-data={`timeAgo('${pkgInfo.pkgApi.analyzedAt}')`}
 					x-text="text"
-					title={Astro.props.pkgApi.analyzedAt}
-					datetime={Astro.props.pkgApi.analyzedAt}
+					title={pkgInfo.pkgApi.analyzedAt}
+					datetime={pkgInfo.pkgApi.analyzedAt}
 				/>{" "}
-				in {Astro.props.pkgApi.analyzedIn}ms.
+				in {pkgInfo.pkgApi.analyzedIn}ms.
 			</>
 		)
 	}

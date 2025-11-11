@@ -1,9 +1,9 @@
 ---
-import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import type { HandlePackageData } from "../../lib/handlers/package/handle-package";
 import PackagePageIndex from "./PackagePageIndex.astro";
 import QuickSearchOpener from "./QuickSearchOpener.astro";
 
-type Props = PackagePageHandlerProps;
+type Props = HandlePackageData;
 ---
 
 {/* Make sidebar sticky on scroll and center it with 1.5rem above and below when full height. */}

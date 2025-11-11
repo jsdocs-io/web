@@ -1,10 +1,11 @@
 ---
-import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import type { HandlePackageData } from "../../lib/handlers/package/handle-package";
 import PackagePageIndexDeclarations from "./PackagePageIndexDeclarations.astro";
 
-type Props = PackagePageHandlerProps;
+type Props = HandlePackageData;
 
-const { status, pkgJson } = Astro.props;
+const { status, pkgInfo } = Astro.props;
+const { pkgJson } = pkgInfo;
 const hasPeerDeps = Object.keys(pkgJson.peerDependencies ?? {}).length > 0;
 ---
 
@@ -14,10 +15,10 @@ const hasPeerDeps = Object.keys(pkgJson.peerDependencies ?? {}).length > 0;
 
 	{/* Declarations. */}
 	{
-		status === "with-api" && (
+		status === "pkg-has-api" && (
 			<PackagePageIndexDeclarations
 				containerName="package"
-				declarations={Astro.props.pkgApi.declarations}
+				declarations={pkgInfo.pkgApi.declarations}
 			/>
 		)
 	}

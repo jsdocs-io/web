@@ -1,5 +1,5 @@
 ---
-import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import type { HandlePackageData } from "../../lib/handlers/package/handle-package";
 import PackageAbout from "./PackageAbout.astro";
 import PackageApi from "./PackageApi.astro";
 import PackageBadge from "./PackageBadge.astro";
@@ -8,17 +8,18 @@ import PackageInfoBadges from "./PackageInfoBadges.astro";
 import PackageOverview from "./PackageOverview.astro";
 import PackageTitle from "./PackageTitle.astro";
 
-type Props = PackagePageHandlerProps;
+type Props = HandlePackageData;
 
-const { status, pkgJson } = Astro.props;
+const { status, pkgInfo } = Astro.props;
+const { pkgJson } = pkgInfo;
 ---
 
 <main id="main-content">
-	<article class="prose max-w-[100ch] break-words">
+	<article class="prose max-w-[100ch] wrap-break-word">
 		<PackageTitle {pkgJson} />
 		<PackageInfoBadges {pkgJson} />
 		<PackageOverview {...Astro.props} />
-		{status === "with-api" && <PackageApi {...Astro.props} />}
+		{status === "pkg-has-api" && <PackageApi {...pkgInfo} />}
 		<PackageDependencies {pkgJson} />
 		<PackageBadge name={pkgJson.name} />
 		<PackageAbout {...Astro.props} />

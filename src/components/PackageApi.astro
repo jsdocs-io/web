@@ -1,15 +1,15 @@
 ---
 import { makeDeclarationUrl } from "../../lib/declaration-url";
-import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import type { PackageInfoWithApi } from "../../lib/handlers/package/handle-package";
 import { makeUnpkgUrl } from "../../lib/unpkg-url";
 import Declarations from "./Declarations.astro";
 
-type Props = PackagePageHandlerProps & { status: "with-api" };
+type Props = PackageInfoWithApi;
 
 const {
-	pkgApi: { declarations, packages },
+	pkgApi: { declarations, dependencies },
 } = Astro.props;
-const unpkgUrl = makeUnpkgUrl(packages);
+const unpkgUrl = makeUnpkgUrl(dependencies);
 const declarationUrl = makeDeclarationUrl(declarations);
 ---
 

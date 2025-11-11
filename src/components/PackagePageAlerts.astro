@@ -2,47 +2,58 @@
 import LucideCircleX from "~icons/lucide/circle-x";
 import LucidePackageCheck from "~icons/lucide/package-check";
 import LucideTriangleAlert from "~icons/lucide/triangle-alert";
-import type { PackagePageHandlerProps } from "../../lib/package-page-handler";
+import type { HandlePackageData } from "../../lib/handlers/package/handle-package";
 
-type Props = PackagePageHandlerProps;
+type Props = HandlePackageData;
 
-const { status, pkgId } = Astro.props;
+const { status, pkgInfo } = Astro.props;
 ---
 
 {
-	["invalid-license", "no-types", "definitely-typed", "no-api"].includes(status) && (
+	status !== "pkg-has-api" && (
 		<div role="alert" class="alert col-span-full justify-self-center text-balance lg:w-fit">
-			{status === "invalid-license" && (
+			{status === "pkg-has-invalid-license" && (
 				<>
 					<LucideTriangleAlert class="size-6" />
 					<span>
-						Documentation is unavailable because package {pkgId} is unlicensed or has a proprietary
-						license.
+						Documentation is unavailable because package {pkgInfo.pkgId} is unlicensed or has a
+						proprietary license.
 					</span>
 				</>
 			)}
 
-			{status === "no-types" && (
+			{status === "pkg-has-no-types" && (
 				<>
 					<LucideTriangleAlert class="size-6" />
 					<span>
-						Documentation is unavailable because package {pkgId} doesn't export type definitions.
+						Documentation is unavailable because package {pkgInfo.pkgId} doesn't export type
+						definitions.
 					</span>
 				</>
 			)}
 
-			{status === "definitely-typed" && (
+			{status === "pkg-is-deprecated-dt-pkg" && (
+				<>
+					<LucideTriangleAlert class="size-6" />
+					<span>
+						Documentation is unavailable because package {pkgInfo.pkgId} is a deprecated Definitely
+						Typed package.
+					</span>
+				</>
+			)}
+
+			{status === "pkg-has-dt-pkg" && (
 				<>
 					<LucidePackageCheck class="size-6" />
 					<span>
-						Type definitions for {pkgId} are available in the{" "}
-						<a class="link-hover link font-bold" href={`/package/${Astro.props.dtPkgName}`}>
-							{Astro.props.dtPkgName}
+						Type definitions for {pkgInfo.pkgId} are available in the{" "}
+						<a class="link-hover link font-bold" href={`/package/${pkgInfo.dtPkgName}`}>
+							{pkgInfo.dtPkgName}
 						</a>{" "}
 						package.
 					</span>
 					<a
-						href={`/package/${Astro.props.dtPkgName}`}
+						href={`/package/${pkgInfo.dtPkgName}`}
 						class="btn btn-outline btn-sm border-base-content/50"
 					>
 						See documentation
@@ -50,11 +61,11 @@ const { status, pkgId } = Astro.props;
 				</>
 			)}
 
-			{status === "no-api" && (
+			{status === "pkg-has-no-api" && (
 				<>
 					<LucideCircleX class="size-6" />
 					<span>
-						Documentation is unavailable because API extraction failed for package {pkgId}.
+						Documentation is unavailable because API extraction failed for package {pkgInfo.pkgId}.
 					</span>
 				</>
 			)}
