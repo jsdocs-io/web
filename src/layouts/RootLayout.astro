@@ -54,6 +54,14 @@ const ogImageAlt = "Social image for jsDocs.io";
 		<meta name="twitter:image" content={ogImageUrl} />
 		<meta name="twitter:image:alt" content={ogImageAlt} />
 		<meta name="twitter:creator" content="@jsDocs" />
+
+		<script is:inline>
+			document.documentElement.classList.toggle(
+				"dark",
+				localStorage.theme === "dark" ||
+					(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+			);
+		</script>
 	</head>
 
 	<body>
