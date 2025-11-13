@@ -1,5 +1,4 @@
 ---
-import LucidePackageSearch from "~icons/lucide/package-search";
 import VercelBanner from "./VercelBanner.astro";
 
 declare global {
@@ -7,49 +6,33 @@ declare global {
 	const __GIT_COMMIT: string;
 }
 
-const gitCommit = __GIT_COMMIT;
-const gitCommitShort = gitCommit.slice(0, 7);
-const githubCommitUrl = `https://github.com/jsdocs-io/web/commit/${gitCommit}`;
+const commit = __GIT_COMMIT;
+const commitShort = commit.slice(0, 7);
+const ghUrl = `https://github.com/jsdocs-io/web`;
+const ghCommitUrl = `${ghUrl}/commit/${commit}`;
 ---
 
-<footer class="footer border-base-content/20 bg-base-200 text-base-content border-t p-10 *:gap-3">
-	<aside>
-		<a href="/" class="link-hover link flex items-center gap-2 text-xl font-bold">
-			<LucidePackageSearch class="size-8" />
-			jsDocs.io
-		</a>
-		<p>
-			Created by <a href="https://www.edoardoscibona.com" class="link-hover link font-bold"
-				>Edoardo Scibona</a
-			>
-			<br />
-			<span class="text-xs">
-				Commit: <a href={githubCommitUrl} class="link-hover link">
-					{gitCommitShort}
-				</a>
-			</span>
-		</p>
+<footer class="border-t">
+	<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 p-4">
 		<VercelBanner />
-	</aside>
 
-	<nav>
-		<h6 class="footer-title opacity-70">Links</h6>
-		<a href="/" class="link-hover link">Home</a>
-		<a href="/about" class="link-hover link">About</a>
-		<a href="/donate" class="link-hover link">Donate or sponsor</a>
-		<a href="/guide" class="link-hover link">Guide for developers</a>
-		<a href="https://github.com/jsdocs-io/web/issues" class="link-hover link">Report an issue</a>
-	</nav>
+		<nav class="text-muted-foreground text-xs flex flex-col gap-2 md:flex-row md:items-center">
+			<a href={ghCommitUrl} class="underline-offset-4 hover:underline">{commitShort}</a>
+			<a href={ghUrl} class="underline-offset-4 hover:underline">GitHub</a>
+			<a href="/third-party-licenses.txt" class="underline-offset-4 hover:underline">OSS licenses</a
+			>
+			<a href="/privacy" class="underline-offset-4 hover:underline">Privacy policy</a>
+			<a href="/donate" class="underline-offset-4 hover:underline">Donate</a>
+			<a href="/developers" class="underline-offset-4 hover:underline">Developers</a>
+			<a href="/about" class="underline-offset-4 hover:underline">About</a>
 
-	<nav>
-		<h6 class="footer-title opacity-70">Social</h6>
-		<a href="https://github.com/jsdocs-io/web" class="link-hover link">GitHub</a>
-		<a href="https://x.com/jsDocs" class="link-hover link">X (Twitter)</a>
-	</nav>
-
-	<nav>
-		<h6 class="footer-title opacity-70">Legal</h6>
-		<a href="/privacy" class="link-hover link">Privacy policy</a>
-		<a href="/licenses" class="link-hover link">Software licenses</a>
-	</nav>
+			<div class="w-px h-4 bg-border hidden md:block"></div>
+			<div>
+				Made by
+				<a href="https://github.com/velut" class="font-bold underline underline-offset-4"
+					>Edoardo Scibona</a
+				>
+			</div>
+		</nav>
+	</div>
 </footer>
