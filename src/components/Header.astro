@@ -1,31 +1,22 @@
 ---
-import LucideHeart from "~icons/lucide/heart";
-import LucideInfo from "~icons/lucide/info";
-import LucidePackageSearch from "~icons/lucide/package-search";
-import NpmPackageSearchOpener from "./NpmPackageSearchOpener.svelte";
+import ThemeButton from "./ThemeButton.svelte";
+import DonateButton from "./DonateButton.astro";
+import AboutButton from "./AboutButton.astro";
+import JsDocsIoButton from "./JsDocsIoButton.astro";
 ---
 
-<header
-	class="border-base-content/20 bg-base-200 text-base-content flex w-full items-center gap-2 border-b px-4 py-2 sm:px-2"
->
-	<a class="sm:btn sm:btn-ghost hidden" href="/">
-		<LucidePackageSearch class="size-6" />
-		jsDocs.io
-	</a>
+<header class="border-b">
+	<div class="flex items-center justify-between gap-2 p-4">
+		<JsDocsIoButton />
 
-	<div class="grow lg:w-[28rem] lg:grow-0">
-		<NpmPackageSearchOpener client:load />
+		<div class="flex items-center gap-4">
+			<ThemeButton client:load />
+
+			<div class="bg-border h-8 w-px"></div>
+			<DonateButton />
+
+			<div class="bg-border h-8 w-px"></div>
+			<AboutButton />
+		</div>
 	</div>
-
-	<div class="hidden lg:block lg:grow"></div>
-
-	<a class="md:btn md:btn-ghost hidden" href="/donate">
-		<LucideHeart class="size-6" />
-		Donate
-	</a>
-
-	<a class="md:btn md:btn-ghost hidden" href="/about">
-		<LucideInfo class="size-6" />
-		About
-	</a>
 </header>
