@@ -4,8 +4,8 @@
 		"noUncheckedIndexedAccess": true,
 		"noImplicitOverride": true,
 		"plugins": [{ "name": "@astrojs/ts-plugin" }, { "name": "typescript-svelte-plugin" }],
-		"types": ["unplugin-icons/types/astro"]
+		"types": ["unplugin-icons/types/astro", "unplugin-icons/types/svelte"],
 	},
 	"include": [".astro/types.d.ts", "**/*"],
-	"exclude": ["old", "coverage", "dist", "node_modules", "public"]
+	"exclude": ["old", "coverage", "dist", "node_modules", "public"],
 }
