@@ -67,9 +67,9 @@ const ogImageAlt = "Social image for jsDocs.io";
 	<body>
 		<a href="#main-content" class="sr-only">Skip to main content</a>
 
-		<div class="grid min-h-svh auto-cols-fr grid-rows-[auto_1fr_auto] gap-8">
+		<div class="grid min-h-svh grid-rows-[auto_minmax(0,1fr)_auto]">
 			<Header />
-			<div class="justify-self-center px-4 md:px-6">
+			<div>
 				<slot />
 			</div>
 			<Footer />
