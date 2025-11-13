@@ -35,7 +35,7 @@ export default defineConfig({
 			visualizer(),
 		],
 		define: {
-			_GIT_COMMIT: JSON.stringify(execSync("git rev-parse HEAD").toString().trim()),
+			__GIT_COMMIT: JSON.stringify(execSync("git rev-parse HEAD").toString().trim()),
 		},
 	},
 });

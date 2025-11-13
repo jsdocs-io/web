@@ -4,10 +4,10 @@ import VercelBanner from "./VercelBanner.astro";
 
 declare global {
 	// See `astro.config.mjs` for definition.
-	const _GIT_COMMIT: string;
+	const __GIT_COMMIT: string;
 }
 
-const gitCommit = _GIT_COMMIT;
+const gitCommit = __GIT_COMMIT;
 const gitCommitShort = gitCommit.slice(0, 7);
 const githubCommitUrl = `https://github.com/jsdocs-io/web/commit/${gitCommit}`;
 ---
