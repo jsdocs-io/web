@@ -79,8 +79,17 @@ test("definitely typed", async () => {
 });
 
 test("with api", async () => {
-	const res = await handlePackage("short-time-ago@2.0.0");
-	expect(res).toMatchObject({
+	const res1 = await handlePackage("short-time-ago@2.0.0");
+	expect(res1).toMatchObject({
+		status: "pkg-has-api",
+		pkgInfo: {
+			pkgId: "short-time-ago@2.0.0",
+		},
+	});
+
+	// Get from DB.
+	const res2 = await handlePackage("short-time-ago@2.0.0");
+	expect(res2).toMatchObject({
 		status: "pkg-has-api",
 		pkgInfo: {
 			pkgId: "short-time-ago@2.0.0",
