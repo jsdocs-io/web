@@ -10,13 +10,13 @@ import JsDocsIoButton from "./JsDocsIoButton.astro";
 		<JsDocsIoButton />
 
 		<div class="flex items-center gap-4">
+			<div class="hidden md:flex md:items-center md:gap-4">
+				<DonateButton />
+				<AboutButton />
+				<div class="bg-border h-8 w-px"></div>
+			</div>
+
 			<ThemeButton client:load />
-
-			<div class="bg-border h-8 w-px"></div>
-			<DonateButton />
-
-			<div class="bg-border h-8 w-px"></div>
-			<AboutButton />
 		</div>
 	</div>
 </header>
