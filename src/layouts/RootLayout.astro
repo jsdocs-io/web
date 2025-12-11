@@ -76,6 +76,8 @@ const ogImageAlt = "Social image for jsDocs.io";
 		</div>
 
 		<slot name="modals" />
+
+		{/* @ts-expect-error */}
 		<NpmPackageSearch client:load />
 
 		<script src="../scripts/add-copy-buttons.ts"></script>
