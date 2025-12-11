@@ -1,6 +1,6 @@
 import type { AllExtractedDeclarationKind } from "@jsdocs-io/extractor";
 import Fuse from "fuse.js/basic";
-import { mod } from "../../lib/mod";
+import { mod } from "../../lib/client/mod";
 import { shortKind } from "../../lib/short-kind";
 import { defineComponent } from "./define-component";
 import { scrollIntoView } from "./scroll-into-view";
