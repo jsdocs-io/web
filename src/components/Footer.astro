@@ -13,10 +13,10 @@ const ghCommitUrl = `${ghUrl}/commit/${commit}`;
 ---
 
 <footer class="border-t">
-	<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 p-4">
+	<div class="flex flex-col justify-between gap-6 p-4 lg:flex-row lg:items-center">
 		<VercelBanner />
 
-		<nav class="text-muted-foreground text-xs flex flex-col gap-2 md:flex-row md:items-center">
+		<nav class="text-muted-foreground flex flex-col gap-2 text-xs md:flex-row md:items-center">
 			<a href={ghCommitUrl} class="underline-offset-4 hover:underline">{commitShort}</a>
 			<a href={ghUrl} class="underline-offset-4 hover:underline">GitHub</a>
 			<a href="/third-party-licenses.txt" class="underline-offset-4 hover:underline">OSS licenses</a
@@ -26,7 +26,7 @@ const ghCommitUrl = `${ghUrl}/commit/${commit}`;
 			<a href="/developers" class="underline-offset-4 hover:underline">Developers</a>
 			<a href="/about" class="underline-offset-4 hover:underline">About</a>
 
-			<div class="w-px h-4 bg-border hidden md:block"></div>
+			<div class="bg-border hidden h-4 w-px md:block"></div>
 			<div>
 				Made by
 				<a href="https://github.com/velut" class="font-bold underline underline-offset-4"
