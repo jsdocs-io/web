@@ -4,11 +4,17 @@
 	import LucideLoaderCircle from "~icons/lucide/loader-circle";
 	import LucideSearch from "~icons/lucide/search";
 	import LucideX from "~icons/lucide/x";
-	import { mod } from "../../lib/mod";
-	import { scrollIntoView } from "../../lib/scroll-into-view";
+	import { mod } from "../../lib/client/mod";
+	import { scrollIntoView } from "../../lib/client/scroll-into-view";
 
-	type NpmPackage = { name: string; description: string };
-	type NpmSearchResponse = { objects: { package: { name: string; description?: string } }[] };
+	interface NpmPackage {
+		name: string;
+		description: string;
+	}
+
+	interface NpmSearchResponse {
+		objects: { package: { name: string; description?: string } }[];
+	}
 
 	let dialog = $state<HTMLDialogElement>();
 	let resultsList = $state<HTMLUListElement>();
@@ -33,7 +39,7 @@
 	);
 
 	// Track when the dialog is opened or closed.
-	// Workaround as the ToggleEvent is not supported for dialogs in Safari.
+	// Workaround as the ToggleEvent is not supported for dialog in Safari.
 	// See https://developer.mozilla.org/en-US/docs/Web/API/ToggleEvent
 	// and https://github.com/sveltejs/svelte/issues/4723.
 	useMutationObserver(
@@ -119,7 +125,7 @@
 <svelte:window onkeydown={handleWindowKeydown} />
 
 <!-- Remove transition to let search input autofocus; see https://github.com/saadeghi/daisyui/issues/3440 -->
-<dialog bind:this={dialog} class="modal [transition:unset]">
+<dialog id="npm-search-dialog" bind:this={dialog} class="modal [transition:unset]">
 	<div class="modal-box max-w-2xl [transition:unset]">
 		<form method="dialog">
 			<button class="btn btn-sm btn-circle btn-ghost absolute top-2 right-2">
