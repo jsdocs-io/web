@@ -1,9 +1,8 @@
-/// <reference types="vitest" />
+/// <reference types="vitest/config" />
 import { getViteConfig } from "astro/config";
 import { configDefaults, coverageConfigDefaults } from "vitest/config";
 
 export default getViteConfig({
-  // @ts-ignore
   test: {
     pool: "threads",
     coverage: {
