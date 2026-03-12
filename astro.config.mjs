@@ -2,7 +2,7 @@
 import alpinejs from "@astrojs/alpinejs";
 import node from "@astrojs/node";
 import svelte from "@astrojs/svelte";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
 import { execSync } from "node:child_process";
