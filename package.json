@@ -1,8 +1,8 @@
 {
 	"name": "@jsdocs-io/web",
-	"type": "module",
 	"version": "0.0.1",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"dev": "astro dev",
 		"check": "astro check && svelte-check --no-tsconfig",
