@@ -17,15 +17,15 @@
 		"shiki:codegen": "bun run scripts/shiki-codegen.ts"
 	},
 	"dependencies": {
-		"@astrojs/alpinejs": "^0.4.9",
-		"@astrojs/node": "^9.5.1",
-		"@astrojs/svelte": "^7.2.3",
+		"@astrojs/alpinejs": "^0.5.0",
+		"@astrojs/node": "^10.0.1",
+		"@astrojs/svelte": "^8.0.0",
 		"@aws-sdk/client-s3": "^3.948.0",
 		"@braintree/sanitize-url": "^7.1.1",
 		"@jsdocs-io/extractor": "^2.0.0",
 		"@microsoft/tsdoc": "^0.16.0",
 		"alpinejs": "^3.15.2",
-		"astro": "^5.16.5",
+		"astro": "^6.0.4",
 		"dompurify": "^3.3.1",
 		"effect": "^3.19.11",
 		"fflate": "^0.8.2",
@@ -50,9 +50,9 @@
 		"zod": "^4.1.13"
 	},
 	"devDependencies": {
-		"@astrojs/check": "^0.9.6",
-		"@astrojs/ts-plugin": "^1.10.6",
-		"@astrojs/vercel": "^9.0.2",
+		"@astrojs/check": "^0.9.7",
+		"@astrojs/ts-plugin": "^1.10.7",
+		"@astrojs/vercel": "^10.0.0",
 		"@iconify-json/lucide": "^1.2.80",
 		"@smithy/util-stream": "^4.5.6",
 		"@tailwindcss/typography": "^0.5.19",
