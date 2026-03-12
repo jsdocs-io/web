@@ -1,7 +1,5 @@
 {
-	"useTabs": true,
 	"printWidth": 100,
-	"experimentalTernaries": true,
 	"astroAllowShorthand": true,
 	"plugins": [
 		"prettier-plugin-astro",
