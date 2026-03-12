@@ -1,5 +1,5 @@
 /* Generate by @shikijs/codegen */
-import { createSingletonShorthands, createdBundledHighlighter } from "@shikijs/core";
+import { createBundledHighlighter, createSingletonShorthands } from "@shikijs/core";
 import { createJavaScriptRegexEngine } from "@shikijs/engine-javascript";
 import type {
   DynamicImportLanguageRegistration,
@@ -12,6 +12,8 @@ type BundledLanguage =
   | "html"
   | "javascript"
   | "js"
+  | "cjs"
+  | "mjs"
   | "json"
   | "jsx"
   | "markdown"
@@ -24,6 +26,8 @@ type BundledLanguage =
   | "tsx"
   | "typescript"
   | "ts"
+  | "cts"
+  | "mts"
   | "yaml"
   | "yml";
 type BundledTheme = "github-light" | "github-dark";
@@ -34,6 +38,8 @@ const bundledLanguages = {
   html: () => import("@shikijs/langs/html"),
   javascript: () => import("@shikijs/langs/javascript"),
   js: () => import("@shikijs/langs/javascript"),
+  cjs: () => import("@shikijs/langs/javascript"),
+  mjs: () => import("@shikijs/langs/javascript"),
   json: () => import("@shikijs/langs/json"),
   jsx: () => import("@shikijs/langs/jsx"),
   markdown: () => import("@shikijs/langs/markdown"),
@@ -46,6 +52,8 @@ const bundledLanguages = {
   tsx: () => import("@shikijs/langs/tsx"),
   typescript: () => import("@shikijs/langs/typescript"),
   ts: () => import("@shikijs/langs/typescript"),
+  cts: () => import("@shikijs/langs/typescript"),
+  mts: () => import("@shikijs/langs/typescript"),
   yaml: () => import("@shikijs/langs/yaml"),
   yml: () => import("@shikijs/langs/yaml"),
 } as Record<BundledLanguage, DynamicImportLanguageRegistration>;
@@ -55,7 +63,7 @@ const bundledThemes = {
   "github-dark": () => import("@shikijs/themes/github-dark"),
 } as Record<BundledTheme, DynamicImportThemeRegistration>;
 
-const createHighlighter = /* @__PURE__ */ createdBundledHighlighter<BundledLanguage, BundledTheme>({
+const createHighlighter = /* @__PURE__ */ createBundledHighlighter<BundledLanguage, BundledTheme>({
   langs: bundledLanguages,
   themes: bundledThemes,
   engine: () => createJavaScriptRegexEngine(),
