@@ -17,6 +17,7 @@ words = [
     "jsdom",
     "lucide",
     "minmax",
+    "oxlint",
     "pathe",
     "pino",
     "preact",
