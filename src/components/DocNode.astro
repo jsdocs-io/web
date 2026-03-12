@@ -1,13 +1,13 @@
 ---
 import {
-	type DocCodeSpan as _DocCodeSpan,
-	type DocErrorText as _DocErrorText,
-	type DocEscapedText as _DocEscapedText,
-	type DocFencedCode as _DocFencedCode,
-	type DocLinkTag as _DocLinkTag,
-	type DocNode as _DocNode,
-	type DocParagraph as _DocParagraph,
-	type DocPlainText as _DocPlainText,
+  type DocCodeSpan as _DocCodeSpan,
+  type DocErrorText as _DocErrorText,
+  type DocEscapedText as _DocEscapedText,
+  type DocFencedCode as _DocFencedCode,
+  type DocLinkTag as _DocLinkTag,
+  type DocNode as _DocNode,
+  type DocParagraph as _DocParagraph,
+  type DocPlainText as _DocPlainText,
 } from "@microsoft/tsdoc";
 import DocCodeSpan from "./DocCodeSpan.astro";
 import DocErrorText from "./DocErrorText.astro";
@@ -19,7 +19,7 @@ import DocPlainText from "./DocPlainText.astro";
 import DocSoftBreak from "./DocSoftBreak.astro";
 
 type Props = {
-	node: _DocNode;
+  node: _DocNode;
 };
 
 const { node } = Astro.props;

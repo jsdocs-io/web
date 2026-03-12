@@ -15,13 +15,13 @@ const { pkgJson } = pkgInfo;
 ---
 
 <main id="main-content">
-	<article class="prose max-w-[100ch] wrap-break-word">
-		<PackageTitle {pkgJson} />
-		<PackageInfoBadges {pkgJson} />
-		<PackageOverview {...Astro.props} />
-		{status === "pkg-has-api" && <PackageApi {...pkgInfo} />}
-		<PackageDependencies {pkgJson} />
-		<PackageBadge name={pkgJson.name} />
-		<PackageAbout {...Astro.props} />
-	</article>
+  <article class="prose max-w-[100ch] wrap-break-word">
+    <PackageTitle {pkgJson} />
+    <PackageInfoBadges {pkgJson} />
+    <PackageOverview {...Astro.props} />
+    {status === "pkg-has-api" && <PackageApi {...pkgInfo} />}
+    <PackageDependencies {pkgJson} />
+    <PackageBadge name={pkgJson.name} />
+    <PackageAbout {...Astro.props} />
+  </article>
 </main>

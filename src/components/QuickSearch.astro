@@ -3,61 +3,61 @@
 ---
 
 <dialog x-data="quickSearch()" id="quick-search" class="modal-bottom open:modal" @close="close()">
-	<div class="modal-box lg:max-w-5xl">
-		{/* Close button. */}
-		<form method="dialog">
-			<button class="btn btn-circle btn-ghost btn-sm absolute top-2 right-2">✕</button>
-		</form>
+  <div class="modal-box lg:max-w-5xl">
+    {/* Close button. */}
+    <form method="dialog">
+      <button class="btn btn-circle btn-ghost btn-sm absolute top-2 right-2">✕</button>
+    </form>
 
-		{/* Title. */}
-		<h3 class="text-lg font-bold">Quick search</h3>
+    {/* Title. */}
+    <h3 class="text-lg font-bold">Quick search</h3>
 
-		{/* Search input. */}
-		<label for="quick-search-input" class="sr-only">Search for symbols in this package</label>
-		<input
-			autofocus
-			id="quick-search-input"
-			type="search"
-			class="input input-bordered mt-2 w-full"
-			autocomplete="off"
-			x-model.debounce.100ms="query"
-			@keydown.up.throttle.10ms.prevent="prevResult()"
-			@keydown.down.throttle.10ms.prevent="nextResult()"
-			@keydown.enter.prevent="useResult()"
-		/>
+    {/* Search input. */}
+    <label for="quick-search-input" class="sr-only">Search for symbols in this package</label>
+    <input
+      autofocus
+      id="quick-search-input"
+      type="search"
+      class="input input-bordered mt-2 w-full"
+      autocomplete="off"
+      x-model.debounce.100ms="query"
+      @keydown.up.throttle.10ms.prevent="prevResult()"
+      @keydown.down.throttle.10ms.prevent="nextResult()"
+      @keydown.enter.prevent="useResult()"
+    />
 
-		{/* Search results container. */}
-		<div class="mt-4 h-64 overflow-hidden overflow-y-auto">
-			{/* Search results. */}
-			<ul id="quick-search-results" x-show="results.length > 0">
-				<template x-for="(result, i) in results" :key="result.declarationId">
-					<li>
-						<a
-							class="hover:bg-base-content hover:text-base-300 flex items-center justify-between gap-4 rounded px-2 py-1"
-							:class="i === cursor && 'bg-base-content text-base-300'"
-							:href="`#${result.headingId}`"
-							@click="close()"
-						>
-							<span class="truncate" x-text="result.headingId"></span>
-							<span class="opacity-70" x-text="`(${result.kind})`"></span>
-						</a>
-					</li>
-				</template>
-			</ul>
+    {/* Search results container. */}
+    <div class="mt-4 h-64 overflow-hidden overflow-y-auto">
+      {/* Search results. */}
+      <ul id="quick-search-results" x-show="results.length > 0">
+        <template x-for="(result, i) in results" :key="result.declarationId">
+          <li>
+            <a
+              class="hover:bg-base-content hover:text-base-300 flex items-center justify-between gap-4 rounded px-2 py-1"
+              :class="i === cursor && 'bg-base-content text-base-300'"
+              :href="`#${result.headingId}`"
+              @click="close()"
+            >
+              <span class="truncate" x-text="result.headingId"></span>
+              <span class="opacity-70" x-text="`(${result.kind})`"></span>
+            </a>
+          </li>
+        </template>
+      </ul>
 
-			{/* No search results. */}
-			<div
-				class="bg-base-content text-base-300 flex items-center justify-between gap-4 rounded px-2 py-1"
-				x-show="results.length === 0"
-			>
-				<span class="truncate">No results</span>
-				<span class="opacity-70">¯\_(ツ)_/¯</span>
-			</div>
-		</div>
-	</div>
+      {/* No search results. */}
+      <div
+        class="bg-base-content text-base-300 flex items-center justify-between gap-4 rounded px-2 py-1"
+        x-show="results.length === 0"
+      >
+        <span class="truncate">No results</span>
+        <span class="opacity-70">¯\_(ツ)_/¯</span>
+      </div>
+    </div>
+  </div>
 
-	{/* Clickable backdrop to close modal. */}
-	<form method="dialog" class="modal-backdrop">
-		<button>Close quick search</button>
-	</form>
+  {/* Clickable backdrop to close modal. */}
+  <form method="dialog" class="modal-backdrop">
+    <button>Close quick search</button>
+  </form>
 </dialog>

@@ -7,21 +7,21 @@ import ThemeButton from "./ThemeButton.svelte";
 ---
 
 <header class="border-b">
-	<div class="flex items-center justify-between gap-4 p-4">
-		<JsDocsIoButton />
+  <div class="flex items-center justify-between gap-4 p-4">
+    <JsDocsIoButton />
 
-		<div class="flex items-center gap-4">
-			{/* @ts-expect-error */}
-			<NpmPackageSearchButton client:load />
+    <div class="flex items-center gap-4">
+      {/* @ts-expect-error */}
+      <NpmPackageSearchButton client:load />
 
-			<div class="hidden md:flex md:items-center md:gap-4">
-				<div class="bg-border h-8 w-px"></div>
-				<DonateButton />
-				<AboutButton />
-			</div>
+      <div class="hidden md:flex md:items-center md:gap-4">
+        <div class="bg-border h-8 w-px"></div>
+        <DonateButton />
+        <AboutButton />
+      </div>
 
-			<div class="bg-border h-8 w-px"></div>
-			<ThemeButton client:load />
-		</div>
-	</div>
+      <div class="bg-border h-8 w-px"></div>
+      <ThemeButton client:load />
+    </div>
+  </div>
 </header>

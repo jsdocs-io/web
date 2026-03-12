@@ -3,18 +3,18 @@ import LucideFileSearch from "~icons/lucide/file-search";
 ---
 
 <button
-	x-data="dialogOpener('#quick-search')"
-	class="btn btn-outline border-base-content/50 w-full justify-between"
-	@click="open()"
-	@keydown.ctrl.k.window.prevent="open()"
-	@keydown.cmd.k.window.prevent="open()"
+  x-data="dialogOpener('#quick-search')"
+  class="btn btn-outline border-base-content/50 w-full justify-between"
+  @click="open()"
+  @keydown.ctrl.k.window.prevent="open()"
+  @keydown.cmd.k.window.prevent="open()"
 >
-	<div class="flex items-center gap-2">
-		<LucideFileSearch class="size-6" />
-		Quick search &hellip;
-	</div>
-	<kbd x-cloak>
-		<kbd class="text-base-content lg:kbd lg:kbd-sm hidden font-normal" x-text="cmdKey"></kbd>
-		<kbd class="text-base-content lg:kbd lg:kbd-sm hidden font-normal">K</kbd>
-	</kbd>
+  <div class="flex items-center gap-2">
+    <LucideFileSearch class="size-6" />
+    Quick search &hellip;
+  </div>
+  <kbd x-cloak>
+    <kbd class="text-base-content lg:kbd lg:kbd-sm hidden font-normal" x-text="cmdKey"></kbd>
+    <kbd class="text-base-content lg:kbd lg:kbd-sm hidden font-normal">K</kbd>
+  </kbd>
 </button>

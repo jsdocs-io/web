@@ -3,7 +3,7 @@ import AnchoredH2 from "./AnchoredH2.astro";
 import JsDocsIoBadge from "./JsDocsIoBadge.astro";
 
 type Props = {
-	name: string;
+  name: string;
 };
 
 const { name } = Astro.props;
@@ -19,20 +19,20 @@ const htmlBadge = `<a href="${pkgUrl}"><img src="${badgeUrl}" alt="${altText}"><
 <JsDocsIoBadge />
 
 <p>
-	To add a badge like the one displayed above to your package's README, you can copy the snippets
-	available below. You can also create a custom badge on <a href="https://shields.io/">Shields.io</a
-	> by linking to <code class="text-nowrap">{pkgUrl}</code>.
+  To add a badge like the one displayed above to your package's README, you can copy the snippets
+  available below. You can also create a custom badge on <a href="https://shields.io/">Shields.io</a
+  > by linking to <code class="text-nowrap">{pkgUrl}</code>.
 </p>
 
 <div class="flex flex-wrap items-center gap-2">
-	<button
-		x-data={`{ badge: '${markdownBadge}' }`}
-		class="btn btn-outline btn-sm border-base-content/50"
-		@click="navigator.clipboard.writeText(badge)">Copy Markdown badge</button
-	>
-	<button
-		x-data={`{ badge: '${htmlBadge}' }`}
-		class="btn btn-outline btn-sm border-base-content/50"
-		@click="navigator.clipboard.writeText(badge)">Copy HTML badge</button
-	>
+  <button
+    x-data={`{ badge: '${markdownBadge}' }`}
+    class="btn btn-outline btn-sm border-base-content/50"
+    @click="navigator.clipboard.writeText(badge)">Copy Markdown badge</button
+  >
+  <button
+    x-data={`{ badge: '${htmlBadge}' }`}
+    class="btn btn-outline btn-sm border-base-content/50"
+    @click="navigator.clipboard.writeText(badge)">Copy HTML badge</button
+  >
 </div>

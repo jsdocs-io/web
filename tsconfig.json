@@ -1,11 +1,11 @@
 {
-	"extends": "astro/tsconfigs/strict",
-	"compilerOptions": {
-		"noUncheckedIndexedAccess": true,
-		"noImplicitOverride": true,
-		"plugins": [{ "name": "@astrojs/ts-plugin" }, { "name": "typescript-svelte-plugin" }],
-		"types": ["unplugin-icons/types/astro", "unplugin-icons/types/svelte"]
-	},
-	"include": [".astro/types.d.ts", "**/*"],
-	"exclude": ["old", "coverage", "dist", "node_modules", "public"]
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "plugins": [{ "name": "@astrojs/ts-plugin" }, { "name": "typescript-svelte-plugin" }],
+    "types": ["unplugin-icons/types/astro", "unplugin-icons/types/svelte"]
+  },
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["old", "coverage", "dist", "node_modules", "public"]
 }

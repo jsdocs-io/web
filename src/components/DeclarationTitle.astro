@@ -5,36 +5,35 @@ import { shortKind } from "../../lib/short-kind";
 import type { UnpkgUrlFn } from "../../lib/unpkg-url";
 
 type Props = {
-	declaration: AllExtractedDeclaration;
-	unpkgUrl: UnpkgUrlFn;
+  declaration: AllExtractedDeclaration;
+  unpkgUrl: UnpkgUrlFn;
 };
 
 const { declaration, unpkgUrl } = Astro.props;
 const id = shortId(declaration.id);
 const anonymousDeclarations = new Set([
-	"constructor",
-	"call-signature",
-	"construct-signature",
-	"index-signature",
+  "constructor",
+  "call-signature",
+  "construct-signature",
+  "index-signature",
 ]);
-const [name, kind] =
-	anonymousDeclarations.has(declaration.name) ?
-		[declaration.name.replace("-", " ")]
-	:	[declaration.name, shortKind(declaration.kind)];
+const [name, kind] = anonymousDeclarations.has(declaration.name)
+  ? [declaration.name.replace("-", " ")]
+  : [declaration.name, shortKind(declaration.kind)];
 const url = unpkgUrl(declaration);
 ---
 
 <h3
-	{id}
-	data-declaration={declaration.id}
-	data-kind={declaration.kind}
-	class="group flex items-center gap-2"
+  {id}
+  data-declaration={declaration.id}
+  data-kind={declaration.kind}
+  class="group flex items-center gap-2"
 >
-	<span>
-		{kind && <span>{kind}</span>}
-		<a class="link-hover link text-primary font-semibold" href={url}>{name}</a>
-	</span>
-	<a href={`#${id}`} class="no-underline opacity-0 group-hover:opacity-100 group-focus:opacity-100"
-		>#</a
-	>
+  <span>
+    {kind && <span>{kind}</span>}
+    <a class="link-hover link text-primary font-semibold" href={url}>{name}</a>
+  </span>
+  <a href={`#${id}`} class="no-underline opacity-0 group-hover:opacity-100 group-focus:opacity-100"
+    >#</a
+  >
 </h3>

@@ -12,30 +12,29 @@ import Icons from "unplugin-icons/vite";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://www.jsdocs.io",
-	output: "static",
-	adapter:
-		process.env.VERCEL ?
-			vercel({
-				// During Vercel builds, a `bun` binary is already available at `/bun1/bun`.
-				// Copying it to the build output makes it available at `/var/task/bun1/bun`
-				// inside the deployed Node.js serverless functions.
-				includeFiles: ["/bun1/bun"],
-			})
-		:	node({ mode: "standalone" }),
-	integrations: [alpinejs({ entrypoint: "/src/scripts/alpine" }), svelte()],
-	vite: {
-		plugins: [
-			// @ts-expect-error
-			tailwindcss(),
-			// @ts-expect-error
-			Icons({ compiler: "svelte" }),
-			// @ts-expect-error
-			Icons({ compiler: "astro" }),
-			visualizer(),
-		],
-		define: {
-			__GIT_COMMIT: JSON.stringify(execSync("git rev-parse HEAD").toString().trim()),
-		},
-	},
+  site: "https://www.jsdocs.io",
+  output: "static",
+  adapter: process.env.VERCEL
+    ? vercel({
+        // During Vercel builds, a `bun` binary is already available at `/bun1/bun`.
+        // Copying it to the build output makes it available at `/var/task/bun1/bun`
+        // inside the deployed Node.js serverless functions.
+        includeFiles: ["/bun1/bun"],
+      })
+    : node({ mode: "standalone" }),
+  integrations: [alpinejs({ entrypoint: "/src/scripts/alpine" }), svelte()],
+  vite: {
+    plugins: [
+      // @ts-expect-error
+      tailwindcss(),
+      // @ts-expect-error
+      Icons({ compiler: "svelte" }),
+      // @ts-expect-error
+      Icons({ compiler: "astro" }),
+      visualizer(),
+    ],
+    define: {
+      __GIT_COMMIT: JSON.stringify(execSync("git rev-parse HEAD").toString().trim()),
+    },
+  },
 });

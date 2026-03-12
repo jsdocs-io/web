@@ -1,14 +1,14 @@
 {
-	"printWidth": 100,
-	"astroAllowShorthand": true,
-	"plugins": [
-		"prettier-plugin-astro",
-		"prettier-plugin-svelte",
-		"prettier-plugin-tailwindcss",
-		"prettier-plugin-organize-imports"
-	],
-	"overrides": [
-		{ "files": "*.astro", "options": { "parser": "astro" } },
-		{ "files": "*.svelte", "options": { "parser": "svelte" } }
-	]
+  "printWidth": 100,
+  "astroAllowShorthand": true,
+  "plugins": [
+    "prettier-plugin-astro",
+    "prettier-plugin-svelte",
+    "prettier-plugin-tailwindcss",
+    "prettier-plugin-organize-imports"
+  ],
+  "overrides": [
+    { "files": "*.astro", "options": { "parser": "astro" } },
+    { "files": "*.svelte", "options": { "parser": "svelte" } }
+  ]
 }

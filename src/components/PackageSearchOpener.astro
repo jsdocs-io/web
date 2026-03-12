@@ -5,17 +5,17 @@ import LucideSearch from "~icons/lucide/search";
 <!-- @keydown.ctrl.shift.f.window.prevent="open()"
 	@keydown.cmd.shift.f.window.prevent="open()" -->
 <button
-	x-data="dialogOpener('#package-search')"
-	class="btn btn-outline border-base-content/20 w-full justify-between"
-	@click="open()"
+  x-data="dialogOpener('#package-search')"
+  class="btn btn-outline border-base-content/20 w-full justify-between"
+  @click="open()"
 >
-	<div class="text-opacity-20 flex items-center gap-2">
-		<LucideSearch class="size-4" />
-		Search npm packages &hellip;
-	</div>
-	<kbd x-cloak>
-		<kbd class="text-base-content lg:kbd lg:kbd-sm hidden font-normal" x-text="cmdKey"></kbd>
-		<kbd class="text-base-content lg:kbd lg:kbd-sm hidden font-normal">Shift</kbd>
-		<kbd class="text-base-content lg:kbd lg:kbd-sm hidden font-normal">F</kbd>
-	</kbd>
+  <div class="text-opacity-20 flex items-center gap-2">
+    <LucideSearch class="size-4" />
+    Search npm packages &hellip;
+  </div>
+  <kbd x-cloak>
+    <kbd class="text-base-content lg:kbd lg:kbd-sm hidden font-normal" x-text="cmdKey"></kbd>
+    <kbd class="text-base-content lg:kbd lg:kbd-sm hidden font-normal">Shift</kbd>
+    <kbd class="text-base-content lg:kbd lg:kbd-sm hidden font-normal">F</kbd>
+  </kbd>
 </button>

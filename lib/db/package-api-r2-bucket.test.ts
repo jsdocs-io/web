@@ -12,40 +12,40 @@ import { PackageApiR2Bucket } from "./package-api-r2-bucket";
 const s3Mock = mockClient(S3Client);
 
 beforeEach(() => {
-	s3Mock.reset();
+  s3Mock.reset();
 });
 
 test("setPackageApi fail", async () => {
-	s3Mock.on(PutObjectCommand).rejects("test");
-	const db = new PackageApiR2Bucket();
-	const [err] = await goTry(db.setPackageApi("foo", fromAny({ name: "foo" })));
-	expect(err).toBeDefined();
+  s3Mock.on(PutObjectCommand).rejects("test");
+  const db = new PackageApiR2Bucket();
+  const [err] = await goTry(db.setPackageApi("foo", fromAny({ name: "foo" })));
+  expect(err).toBeDefined();
 });
 
 test("setPackageApi success", async () => {
-	s3Mock.on(PutObjectCommand).resolves({});
-	const db = new PackageApiR2Bucket();
-	const [err] = await goTry(db.setPackageApi("foo", fromAny({ name: "foo" })));
-	expect(err).toBeUndefined();
+  s3Mock.on(PutObjectCommand).resolves({});
+  const db = new PackageApiR2Bucket();
+  const [err] = await goTry(db.setPackageApi("foo", fromAny({ name: "foo" })));
+  expect(err).toBeUndefined();
 });
 
 test("getPackageApi fail", async () => {
-	s3Mock.on(GetObjectCommand).rejects("test");
-	const db = new PackageApiR2Bucket();
-	const [err] = await goTry(db.getPackageApi("foo"));
-	expect(err).toBeDefined();
+  s3Mock.on(GetObjectCommand).rejects("test");
+  const db = new PackageApiR2Bucket();
+  const [err] = await goTry(db.getPackageApi("foo"));
+  expect(err).toBeDefined();
 });
 
 test("getPackageApi success", async () => {
-	const pkgApiGz = compressSync(strToU8(JSON.stringify({ name: "foo" })));
-	const stream = new Readable();
-	stream.push(pkgApiGz);
-	stream.push(null);
-	s3Mock.on(GetObjectCommand).resolves({ Body: sdkStreamMixin(stream) });
-	const db = new PackageApiR2Bucket();
-	const [err, pkgApi] = await goTry(db.getPackageApi("foo"));
-	expect(err).toBeUndefined();
-	expect(pkgApi).toMatchInlineSnapshot(`
+  const pkgApiGz = compressSync(strToU8(JSON.stringify({ name: "foo" })));
+  const stream = new Readable();
+  stream.push(pkgApiGz);
+  stream.push(null);
+  s3Mock.on(GetObjectCommand).resolves({ Body: sdkStreamMixin(stream) });
+  const db = new PackageApiR2Bucket();
+  const [err, pkgApi] = await goTry(db.getPackageApi("foo"));
+  expect(err).toBeUndefined();
+  expect(pkgApi).toMatchInlineSnapshot(`
 		{
 		  "name": "foo",
 		}

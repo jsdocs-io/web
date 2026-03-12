@@ -4,7 +4,7 @@ import { quickSearch } from "./quick-search";
 import { timeAgo } from "./time-ago";
 
 export default (Alpine: Alpine) => {
-	Alpine.data("timeAgo", timeAgo);
-	Alpine.data("dialogOpener", dialogOpener);
-	Alpine.data("quickSearch", quickSearch);
+  Alpine.data("timeAgo", timeAgo);
+  Alpine.data("dialogOpener", dialogOpener);
+  Alpine.data("quickSearch", quickSearch);
 };

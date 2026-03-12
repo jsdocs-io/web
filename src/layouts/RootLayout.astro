@@ -6,8 +6,8 @@ import "../styles/global.css";
 import "../styles/shiki.css";
 
 interface Props {
-	title: string;
-	description: string;
+  title: string;
+  description: string;
 }
 
 const title = Astro.url.pathname === "/" ? "jsDocs.io" : `${Astro.props.title} - jsDocs.io`;
@@ -19,67 +19,67 @@ const ogImageAlt = "Social image for jsDocs.io";
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		{/* Favicon */}
-		{/* TODO: other sizes */}
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {/* Favicon */}
+    {/* TODO: other sizes */}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-		{/* Title and description */}
-		<title>{title}</title>
-		<meta name="title" content={title} />
-		<meta name="description" content={description} />
+    {/* Title and description */}
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
 
-		{/* Canonical URL */}
-		<link rel="canonical" href={canonicalUrl} />
+    {/* Canonical URL */}
+    <link rel="canonical" href={canonicalUrl} />
 
-		{/* OpenGraph */}
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:url" content={canonicalUrl} />
-		<meta property="og:image" content={ogImageUrl} />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="628" />
-		<meta property="og:image:alt" content={ogImageAlt} />
-		<meta property="og:locale" content="en_US" />
-		<meta property="og:site_name" content="jsdocs.io" />
+    {/* OpenGraph */}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="628" />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="jsdocs.io" />
 
-		{/* Twitter */}
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={ogImageUrl} />
-		<meta name="twitter:image:alt" content={ogImageAlt} />
-		<meta name="twitter:creator" content="@jsDocs" />
+    {/* Twitter */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+    <meta name="twitter:creator" content="@jsDocs" />
 
-		<script is:inline>
-			document.documentElement.classList.toggle(
-				"dark",
-				localStorage.theme === "dark" ||
-					(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
-			);
-		</script>
-	</head>
+    <script is:inline>
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+      );
+    </script>
+  </head>
 
-	<body>
-		<a href="#main-content" class="sr-only">Skip to main content</a>
+  <body>
+    <a href="#main-content" class="sr-only">Skip to main content</a>
 
-		<div class="grid min-h-svh grid-rows-[auto_minmax(0,1fr)_auto]">
-			<Header />
-			<div>
-				<slot />
-			</div>
-			<Footer />
-		</div>
+    <div class="grid min-h-svh grid-rows-[auto_minmax(0,1fr)_auto]">
+      <Header />
+      <div>
+        <slot />
+      </div>
+      <Footer />
+    </div>
 
-		<slot name="modals" />
+    <slot name="modals" />
 
-		{/* @ts-expect-error */}
-		<NpmPackageSearch client:load />
+    {/* @ts-expect-error */}
+    <NpmPackageSearch client:load />
 
-		<script src="../scripts/add-copy-buttons.ts"></script>
-	</body>
+    <script src="../scripts/add-copy-buttons.ts"></script>
+  </body>
 </html>

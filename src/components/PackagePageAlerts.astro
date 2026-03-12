@@ -10,65 +10,65 @@ const { status, pkgInfo } = Astro.props;
 ---
 
 {
-	status !== "pkg-has-api" && (
-		<div role="alert" class="alert col-span-full justify-self-center text-balance lg:w-fit">
-			{status === "pkg-has-invalid-license" && (
-				<>
-					<LucideTriangleAlert class="size-6" />
-					<span>
-						Documentation is unavailable because package {pkgInfo.pkgId} is unlicensed or has a
-						proprietary license.
-					</span>
-				</>
-			)}
+  status !== "pkg-has-api" && (
+    <div role="alert" class="alert col-span-full justify-self-center text-balance lg:w-fit">
+      {status === "pkg-has-invalid-license" && (
+        <>
+          <LucideTriangleAlert class="size-6" />
+          <span>
+            Documentation is unavailable because package {pkgInfo.pkgId} is unlicensed or has a
+            proprietary license.
+          </span>
+        </>
+      )}
 
-			{status === "pkg-has-no-types" && (
-				<>
-					<LucideTriangleAlert class="size-6" />
-					<span>
-						Documentation is unavailable because package {pkgInfo.pkgId} doesn't export type
-						definitions.
-					</span>
-				</>
-			)}
+      {status === "pkg-has-no-types" && (
+        <>
+          <LucideTriangleAlert class="size-6" />
+          <span>
+            Documentation is unavailable because package {pkgInfo.pkgId} doesn't export type
+            definitions.
+          </span>
+        </>
+      )}
 
-			{status === "pkg-is-deprecated-dt-pkg" && (
-				<>
-					<LucideTriangleAlert class="size-6" />
-					<span>
-						Documentation is unavailable because package {pkgInfo.pkgId} is a deprecated Definitely
-						Typed package.
-					</span>
-				</>
-			)}
+      {status === "pkg-is-deprecated-dt-pkg" && (
+        <>
+          <LucideTriangleAlert class="size-6" />
+          <span>
+            Documentation is unavailable because package {pkgInfo.pkgId} is a deprecated Definitely
+            Typed package.
+          </span>
+        </>
+      )}
 
-			{status === "pkg-has-dt-pkg" && (
-				<>
-					<LucidePackageCheck class="size-6" />
-					<span>
-						Type definitions for {pkgInfo.pkgId} are available in the{" "}
-						<a class="link-hover link font-bold" href={`/package/${pkgInfo.dtPkgName}`}>
-							{pkgInfo.dtPkgName}
-						</a>{" "}
-						package.
-					</span>
-					<a
-						href={`/package/${pkgInfo.dtPkgName}`}
-						class="btn btn-outline btn-sm border-base-content/50"
-					>
-						See documentation
-					</a>
-				</>
-			)}
+      {status === "pkg-has-dt-pkg" && (
+        <>
+          <LucidePackageCheck class="size-6" />
+          <span>
+            Type definitions for {pkgInfo.pkgId} are available in the{" "}
+            <a class="link-hover link font-bold" href={`/package/${pkgInfo.dtPkgName}`}>
+              {pkgInfo.dtPkgName}
+            </a>{" "}
+            package.
+          </span>
+          <a
+            href={`/package/${pkgInfo.dtPkgName}`}
+            class="btn btn-outline btn-sm border-base-content/50"
+          >
+            See documentation
+          </a>
+        </>
+      )}
 
-			{status === "pkg-has-no-api" && (
-				<>
-					<LucideCircleX class="size-6" />
-					<span>
-						Documentation is unavailable because API extraction failed for package {pkgInfo.pkgId}.
-					</span>
-				</>
-			)}
-		</div>
-	)
+      {status === "pkg-has-no-api" && (
+        <>
+          <LucideCircleX class="size-6" />
+          <span>
+            Documentation is unavailable because API extraction failed for package {pkgInfo.pkgId}.
+          </span>
+        </>
+      )}
+    </div>
+  )
 }

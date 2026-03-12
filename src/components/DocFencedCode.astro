@@ -3,11 +3,11 @@ import type { DocFencedCode as _DocFencedCode } from "@microsoft/tsdoc";
 import { fencedCodeToHtml } from "../../lib/fenced-code-to-html";
 
 type Props = {
-	fencedCode: _DocFencedCode;
+  fencedCode: _DocFencedCode;
 };
 
 const {
-	fencedCode: { code, language },
+  fencedCode: { code, language },
 } = Astro.props;
 
 const codeHtml = await fencedCodeToHtml(code, language);

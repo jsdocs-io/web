@@ -2,8 +2,8 @@ import { expect, test } from "vitest";
 import { handlePackage } from "./handle-package";
 
 test("invalid slug", async () => {
-	const res = await handlePackage(".");
-	expect(res).toMatchInlineSnapshot(`
+  const res = await handlePackage(".");
+  expect(res).toMatchInlineSnapshot(`
 		{
 		  "status": "bad-request",
 		}
@@ -11,8 +11,8 @@ test("invalid slug", async () => {
 });
 
 test("package not found", async () => {
-	const res = await handlePackage("@jsdocs-io/not-found");
-	expect(res).toMatchInlineSnapshot(`
+  const res = await handlePackage("@jsdocs-io/not-found");
+  expect(res).toMatchInlineSnapshot(`
 		{
 		  "status": "not-found",
 		}
@@ -20,8 +20,8 @@ test("package not found", async () => {
 });
 
 test("package version not found", async () => {
-	const res = await handlePackage("@jsdocs-io/extractor@9999");
-	expect(res).toMatchInlineSnapshot(`
+  const res = await handlePackage("@jsdocs-io/extractor@9999");
+  expect(res).toMatchInlineSnapshot(`
 		{
 		  "status": "not-found",
 		}
@@ -29,8 +29,8 @@ test("package version not found", async () => {
 });
 
 test("redirect to fixed package version", async () => {
-	const res = await handlePackage("@jsdoc-io/test-pkg-no-repository");
-	expect(res).toMatchInlineSnapshot(`
+  const res = await handlePackage("@jsdoc-io/test-pkg-no-repository");
+  expect(res).toMatchInlineSnapshot(`
 		{
 		  "path": "/package/@jsdoc-io/test-pkg-no-repository@1.0.0",
 		  "status": "found",
@@ -39,60 +39,60 @@ test("redirect to fixed package version", async () => {
 });
 
 test("invalid license", async () => {
-	const res = await handlePackage("unlicensed@0.4.0");
-	expect(res).toMatchObject({
-		status: "pkg-has-invalid-license",
-		pkgInfo: {
-			pkgId: "unlicensed@0.4.0",
-		},
-	});
+  const res = await handlePackage("unlicensed@0.4.0");
+  expect(res).toMatchObject({
+    status: "pkg-has-invalid-license",
+    pkgInfo: {
+      pkgId: "unlicensed@0.4.0",
+    },
+  });
 });
 
 test("deprecated dt package", async () => {
-	const res = await handlePackage("@types/prettier@3.0.0");
-	expect(res).toMatchObject({
-		status: "pkg-is-deprecated-dt-pkg",
-		pkgInfo: {
-			pkgId: "@types/prettier@3.0.0",
-		},
-	});
+  const res = await handlePackage("@types/prettier@3.0.0");
+  expect(res).toMatchObject({
+    status: "pkg-is-deprecated-dt-pkg",
+    pkgInfo: {
+      pkgId: "@types/prettier@3.0.0",
+    },
+  });
 });
 
 test("subpath not found", async () => {
-	const res = await handlePackage("preact@10.20.0/not/found");
-	expect(res).toMatchObject({
-		status: "pkg-has-no-types",
-		pkgInfo: {
-			pkgId: "preact@10.20.0/not/found",
-		},
-	});
+  const res = await handlePackage("preact@10.20.0/not/found");
+  expect(res).toMatchObject({
+    status: "pkg-has-no-types",
+    pkgInfo: {
+      pkgId: "preact@10.20.0/not/found",
+    },
+  });
 });
 
 test("definitely typed", async () => {
-	const res = await handlePackage("react@18.2.0");
-	expect(res).toMatchObject({
-		status: "pkg-has-dt-pkg",
-		pkgInfo: {
-			pkgId: "react@18.2.0",
-		},
-	});
+  const res = await handlePackage("react@18.2.0");
+  expect(res).toMatchObject({
+    status: "pkg-has-dt-pkg",
+    pkgInfo: {
+      pkgId: "react@18.2.0",
+    },
+  });
 });
 
 test("with api", async () => {
-	const res1 = await handlePackage("short-time-ago@2.0.0");
-	expect(res1).toMatchObject({
-		status: "pkg-has-api",
-		pkgInfo: {
-			pkgId: "short-time-ago@2.0.0",
-		},
-	});
+  const res1 = await handlePackage("short-time-ago@2.0.0");
+  expect(res1).toMatchObject({
+    status: "pkg-has-api",
+    pkgInfo: {
+      pkgId: "short-time-ago@2.0.0",
+    },
+  });
 
-	// Get from DB.
-	const res2 = await handlePackage("short-time-ago@2.0.0");
-	expect(res2).toMatchObject({
-		status: "pkg-has-api",
-		pkgInfo: {
-			pkgId: "short-time-ago@2.0.0",
-		},
-	});
+  // Get from DB.
+  const res2 = await handlePackage("short-time-ago@2.0.0");
+  expect(res2).toMatchObject({
+    status: "pkg-has-api",
+    pkgInfo: {
+      pkgId: "short-time-ago@2.0.0",
+    },
+  });
 });

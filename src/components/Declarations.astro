@@ -1,13 +1,13 @@
 ---
 import type {
-	ExtractedClass,
-	ExtractedDeclaration,
-	ExtractedEnum,
-	ExtractedFunction,
-	ExtractedInterface,
-	ExtractedNamespace,
-	ExtractedTypeAlias,
-	ExtractedVariable,
+  ExtractedClass,
+  ExtractedDeclaration,
+  ExtractedEnum,
+  ExtractedFunction,
+  ExtractedInterface,
+  ExtractedNamespace,
+  ExtractedTypeAlias,
+  ExtractedVariable,
 } from "@jsdocs-io/extractor";
 import type { DeclarationUrlFn } from "../../lib/declaration-url";
 import { shortId } from "../../lib/short-id";
@@ -16,10 +16,10 @@ import AnchoredH2 from "./AnchoredH2.astro";
 import Declaration from "./Declaration.astro";
 
 type Props = {
-	containerName: string;
-	declarations: ExtractedDeclaration[];
-	unpkgUrl: UnpkgUrlFn;
-	declarationUrl: DeclarationUrlFn;
+  containerName: string;
+  declarations: ExtractedDeclaration[];
+  unpkgUrl: UnpkgUrlFn;
+  declarationUrl: DeclarationUrlFn;
 };
 
 const { containerName, declarations, unpkgUrl, declarationUrl } = Astro.props;
@@ -33,149 +33,149 @@ const namespaces = declarations.filter((d): d is ExtractedNamespace => d.kind ==
 ---
 
 {
-	variables.length > 0 && (
-		<>
-			<AnchoredH2 id={`${containerName}-variables`}>Variables</AnchoredH2>
-			{variables.map((declaration) => (
-				<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-			))}
-		</>
-	)
+  variables.length > 0 && (
+    <>
+      <AnchoredH2 id={`${containerName}-variables`}>Variables</AnchoredH2>
+      {variables.map((declaration) => (
+        <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+      ))}
+    </>
+  )
 }
 
 {
-	functions.length > 0 && (
-		<>
-			<AnchoredH2 id={`${containerName}-functions`}>Functions</AnchoredH2>
-			{functions.map((declaration) => (
-				<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-			))}
-		</>
-	)
+  functions.length > 0 && (
+    <>
+      <AnchoredH2 id={`${containerName}-functions`}>Functions</AnchoredH2>
+      {functions.map((declaration) => (
+        <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+      ))}
+    </>
+  )
 }
 
 {
-	classes.length > 0 && (
-		<>
-			<AnchoredH2 id={`${containerName}-classes`}>Classes</AnchoredH2>
-			{classes.map((declaration) => (
-				<>
-					<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-					{(declaration.constructors.length > 0 ||
-						declaration.properties.length > 0 ||
-						declaration.methods.length > 0) && (
-						<div class="border-l-base-content/20 border-l pl-6">
-							{declaration.constructors.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-							))}
-							{declaration.properties.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-							))}
-							{declaration.methods.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-							))}
-						</div>
-					)}
-				</>
-			))}
-		</>
-	)
+  classes.length > 0 && (
+    <>
+      <AnchoredH2 id={`${containerName}-classes`}>Classes</AnchoredH2>
+      {classes.map((declaration) => (
+        <>
+          <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+          {(declaration.constructors.length > 0 ||
+            declaration.properties.length > 0 ||
+            declaration.methods.length > 0) && (
+            <div class="border-l-base-content/20 border-l pl-6">
+              {declaration.constructors.map((declaration) => (
+                <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+              ))}
+              {declaration.properties.map((declaration) => (
+                <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+              ))}
+              {declaration.methods.map((declaration) => (
+                <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+              ))}
+            </div>
+          )}
+        </>
+      ))}
+    </>
+  )
 }
 
 {
-	interfaces.length > 0 && (
-		<>
-			<AnchoredH2 id={`${containerName}-interfaces`}>Interfaces</AnchoredH2>
-			{interfaces.map((declaration) => (
-				<>
-					<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-					{(declaration.properties.length > 0 ||
-						declaration.methods.length > 0 ||
-						declaration.constructSignatures.length > 0 ||
-						declaration.callSignatures.length > 0 ||
-						declaration.indexSignatures.length > 0 ||
-						declaration.getAccessors.length > 0 ||
-						declaration.setAccessors.length > 0) && (
-						<div class="border-l-base-content/20 border-l pl-6">
-							{declaration.properties.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-							))}
-							{declaration.methods.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-							))}
-							{declaration.constructSignatures.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-							))}
-							{declaration.callSignatures.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-							))}
-							{declaration.indexSignatures.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-							))}
-							{declaration.getAccessors.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-							))}
-							{declaration.setAccessors.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-							))}
-						</div>
-					)}
-				</>
-			))}
-		</>
-	)
+  interfaces.length > 0 && (
+    <>
+      <AnchoredH2 id={`${containerName}-interfaces`}>Interfaces</AnchoredH2>
+      {interfaces.map((declaration) => (
+        <>
+          <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+          {(declaration.properties.length > 0 ||
+            declaration.methods.length > 0 ||
+            declaration.constructSignatures.length > 0 ||
+            declaration.callSignatures.length > 0 ||
+            declaration.indexSignatures.length > 0 ||
+            declaration.getAccessors.length > 0 ||
+            declaration.setAccessors.length > 0) && (
+            <div class="border-l-base-content/20 border-l pl-6">
+              {declaration.properties.map((declaration) => (
+                <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+              ))}
+              {declaration.methods.map((declaration) => (
+                <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+              ))}
+              {declaration.constructSignatures.map((declaration) => (
+                <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+              ))}
+              {declaration.callSignatures.map((declaration) => (
+                <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+              ))}
+              {declaration.indexSignatures.map((declaration) => (
+                <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+              ))}
+              {declaration.getAccessors.map((declaration) => (
+                <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+              ))}
+              {declaration.setAccessors.map((declaration) => (
+                <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+              ))}
+            </div>
+          )}
+        </>
+      ))}
+    </>
+  )
 }
 
 {
-	enums.length > 0 && (
-		<>
-			<AnchoredH2 id={`${containerName}-enums`}>Enums</AnchoredH2>
-			{enums.map((declaration) => (
-				<>
-					<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-					{declaration.members.length > 0 && (
-						<div class="border-l-base-content/20 border-l pl-6">
-							{declaration.members.map((declaration) => (
-								<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-							))}
-						</div>
-					)}
-				</>
-			))}
-		</>
-	)
+  enums.length > 0 && (
+    <>
+      <AnchoredH2 id={`${containerName}-enums`}>Enums</AnchoredH2>
+      {enums.map((declaration) => (
+        <>
+          <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+          {declaration.members.length > 0 && (
+            <div class="border-l-base-content/20 border-l pl-6">
+              {declaration.members.map((declaration) => (
+                <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+              ))}
+            </div>
+          )}
+        </>
+      ))}
+    </>
+  )
 }
 
 {
-	types.length > 0 && (
-		<>
-			<AnchoredH2 id={`${containerName}-types`}>Types</AnchoredH2>
-			{types.map((declaration) => (
-				<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-			))}
-		</>
-	)
+  types.length > 0 && (
+    <>
+      <AnchoredH2 id={`${containerName}-types`}>Types</AnchoredH2>
+      {types.map((declaration) => (
+        <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+      ))}
+    </>
+  )
 }
 
 {
-	namespaces.length > 0 && (
-		<>
-			<AnchoredH2 id={`${containerName}-namespaces`}>Namespaces</AnchoredH2>
-			{namespaces.map((declaration) => (
-				<>
-					<Declaration {declaration} {unpkgUrl} {declarationUrl} />
-					{declaration.declarations.length > 0 && (
-						<div class="border-l-base-content/20 border-l pl-6">
-							<Astro.self
-								containerName={shortId(declaration.id)}
-								declarations={declaration.declarations}
-								{unpkgUrl}
-								{declarationUrl}
-							/>
-						</div>
-					)}
-				</>
-			))}
-		</>
-	)
+  namespaces.length > 0 && (
+    <>
+      <AnchoredH2 id={`${containerName}-namespaces`}>Namespaces</AnchoredH2>
+      {namespaces.map((declaration) => (
+        <>
+          <Declaration {declaration} {unpkgUrl} {declarationUrl} />
+          {declaration.declarations.length > 0 && (
+            <div class="border-l-base-content/20 border-l pl-6">
+              <Astro.self
+                containerName={shortId(declaration.id)}
+                declarations={declaration.declarations}
+                {unpkgUrl}
+                {declarationUrl}
+              />
+            </div>
+          )}
+        </>
+      ))}
+    </>
+  )
 }

@@ -7,7 +7,7 @@ import Declarations from "./Declarations.astro";
 type Props = PackageInfoWithApi;
 
 const {
-	pkgApi: { declarations, dependencies },
+  pkgApi: { declarations, dependencies },
 } = Astro.props;
 const unpkgUrl = makeUnpkgUrl(dependencies);
 const declarationUrl = makeDeclarationUrl(declarations);

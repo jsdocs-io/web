@@ -5,127 +5,127 @@ import DocNodeContainer from "./DocNodeContainer.astro";
 import { parseDocComment } from "../../lib/components/parse-doc-comment";
 
 interface Props {
-	doc: string;
+  doc: string;
 }
 
 const { doc } = Astro.props;
 const {
-	summarySection,
-	params: { blocks: paramsBlocks },
-	returnsBlock,
-	remarksBlock,
-	customBlocks,
-	seeBlocks,
-	modifierTagSet,
-	deprecatedBlock,
-	inheritDocTag,
+  summarySection,
+  params: { blocks: paramsBlocks },
+  returnsBlock,
+  remarksBlock,
+  customBlocks,
+  seeBlocks,
+  modifierTagSet,
+  deprecatedBlock,
+  inheritDocTag,
 } = parseDocComment(doc);
 const throwsBlocks = customBlocks.filter((block) => {
-	// Throws blocks are defined by the `@throws` tag.
-	return block.blockTag.tagNameWithUpperCase === StandardTags.throws.tagNameWithUpperCase;
+  // Throws blocks are defined by the `@throws` tag.
+  return block.blockTag.tagNameWithUpperCase === StandardTags.throws.tagNameWithUpperCase;
 });
 const exampleBlocks = customBlocks.filter((block) => {
-	// Example blocks are defined by the `@example` tag.
-	return block.blockTag.tagNameWithUpperCase === StandardTags.example.tagNameWithUpperCase;
+  // Example blocks are defined by the `@example` tag.
+  return block.blockTag.tagNameWithUpperCase === StandardTags.example.tagNameWithUpperCase;
 });
 const modifierTags = modifierTagSet.nodes.filter((tag) => {
-	// Do not display the `@public` and `@packageDocumentation` tags.
-	return ![
-		StandardTags.packageDocumentation.tagNameWithUpperCase,
-		StandardTags.public.tagNameWithUpperCase,
-	].includes(tag.tagNameWithUpperCase);
+  // Do not display the `@public` and `@packageDocumentation` tags.
+  return ![
+    StandardTags.packageDocumentation.tagNameWithUpperCase,
+    StandardTags.public.tagNameWithUpperCase,
+  ].includes(tag.tagNameWithUpperCase);
 });
 ---
 
 {
-	inheritDocTag?.declarationReference && (
-		<DocCommentInherit ref={inheritDocTag.declarationReference} />
-	)
+  inheritDocTag?.declarationReference && (
+    <DocCommentInherit ref={inheritDocTag.declarationReference} />
+  )
 }
 
 {summarySection && <DocNodeContainer container={summarySection} />}
 
 {
-	paramsBlocks.map(({ parameterName, content }) => (
-		<>
-			<strong>Parameter {parameterName}</strong>
-			<DocNodeContainer container={content} />
-		</>
-	))
+  paramsBlocks.map(({ parameterName, content }) => (
+    <>
+      <strong>Parameter {parameterName}</strong>
+      <DocNodeContainer container={content} />
+    </>
+  ))
 }
 
 {
-	returnsBlock && (
-		<>
-			<strong>Returns</strong>
-			<DocNodeContainer container={returnsBlock.content} />
-		</>
-	)
+  returnsBlock && (
+    <>
+      <strong>Returns</strong>
+      <DocNodeContainer container={returnsBlock.content} />
+    </>
+  )
 }
 
 {
-	throwsBlocks.map(({ content }) => (
-		<>
-			<strong>Throws</strong>
-			<DocNodeContainer container={content} />
-		</>
-	))
+  throwsBlocks.map(({ content }) => (
+    <>
+      <strong>Throws</strong>
+      <DocNodeContainer container={content} />
+    </>
+  ))
 }
 
 {
-	remarksBlock && (
-		<>
-			<strong>Remarks</strong>
-			<DocNodeContainer container={remarksBlock.content} />
-		</>
-	)
+  remarksBlock && (
+    <>
+      <strong>Remarks</strong>
+      <DocNodeContainer container={remarksBlock.content} />
+    </>
+  )
 }
 
 {
-	exampleBlocks.map(({ content }) => (
-		<>
-			<strong>Example</strong>
-			<DocNodeContainer container={content} />
-		</>
-	))
+  exampleBlocks.map(({ content }) => (
+    <>
+      <strong>Example</strong>
+      <DocNodeContainer container={content} />
+    </>
+  ))
 }
 
 {
-	seeBlocks.length > 0 && (
-		<>
-			<strong>See also</strong>
-			<ul>
-				{seeBlocks.map(({ content }) => (
-					<li>
-						<DocNodeContainer container={content} />
-					</li>
-				))}
-			</ul>
-		</>
-	)
+  seeBlocks.length > 0 && (
+    <>
+      <strong>See also</strong>
+      <ul>
+        {seeBlocks.map(({ content }) => (
+          <li>
+            <DocNodeContainer container={content} />
+          </li>
+        ))}
+      </ul>
+    </>
+  )
 }
 
 {
-	modifierTags.length > 0 && (
-		<>
-			<strong>Modifiers</strong>
-			<p>
-				{modifierTags.map(({ tagName }, i) => (
-					<>
-						<code class="text-nowrap">{tagName}</code>
-						{i < modifierTags.length - 1 && ", "}
-					</>
-				))}
-			</p>
-		</>
-	)
+  modifierTags.length > 0 && (
+    <>
+      <strong>Modifiers</strong>
+      <p>
+        {modifierTags.map(({ tagName }, i) => (
+          <>
+            <code class="text-nowrap">{tagName}</code>
+            {i < modifierTags.length - 1 && ", "}
+          </>
+        ))}
+      </p>
+    </>
+  )
 }
 
 {
-	deprecatedBlock && (
-		<>
-			<strong>Deprecated</strong>
-			<DocNodeContainer container={deprecatedBlock.content} />
-		</>
-	)
+  deprecatedBlock && (
+    <>
+      <strong>Deprecated</strong>
+      <DocNodeContainer container={deprecatedBlock.content} />
+    </>
+  )
 }

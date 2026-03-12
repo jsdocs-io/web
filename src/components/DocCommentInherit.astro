@@ -4,7 +4,7 @@ import { DocDeclarationReference } from "@microsoft/tsdoc";
 import { resolveDeclarationReference } from "../../lib/resolve-declaration-reference";
 
 type Props = {
-	ref: DocDeclarationReference;
+  ref: DocDeclarationReference;
 };
 
 const { ref } = Astro.props;
@@ -14,5 +14,5 @@ const text = pkgName ? `${pkgName}#${declarationId}` : declarationId;
 ---
 
 <p>
-	See documentation for <a href={url}>{text}</a>.
+  See documentation for <a href={url}>{text}</a>.
 </p>

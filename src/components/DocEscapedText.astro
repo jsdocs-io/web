@@ -3,11 +3,11 @@ import type { DocEscapedText as _DocEscapedText } from "@microsoft/tsdoc";
 import { mdToHtml } from "../../lib/md-to-html";
 
 type Props = {
-	escapedText: _DocEscapedText;
+  escapedText: _DocEscapedText;
 };
 
 const {
-	escapedText: { decodedText },
+  escapedText: { decodedText },
 } = Astro.props;
 const html = await mdToHtml(decodedText);
 ---

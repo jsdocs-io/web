@@ -3,11 +3,11 @@ import type { DocPlainText as _DocPlainText } from "@microsoft/tsdoc";
 import { mdToHtml } from "../../lib/md-to-html";
 
 type Props = {
-	plainText: _DocPlainText;
+  plainText: _DocPlainText;
 };
 
 const {
-	plainText: { text },
+  plainText: { text },
 } = Astro.props;
 const html = await mdToHtml(text);
 ---

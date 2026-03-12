@@ -7,9 +7,11 @@ type Props = HandlePackageData;
 
 const { status, pkgInfo } = Astro.props;
 const overview =
-	status === "pkg-has-api" && pkgInfo.pkgApi.overview ? pkgInfo.pkgApi.overview
-	: pkgInfo.pkgJson.description ? `/** ${pkgInfo.pkgJson.description} */`
-	: `/** Overview not available. */`;
+  status === "pkg-has-api" && pkgInfo.pkgApi.overview
+    ? pkgInfo.pkgApi.overview
+    : pkgInfo.pkgJson.description
+      ? `/** ${pkgInfo.pkgJson.description} */`
+      : `/** Overview not available. */`;
 ---
 
 <AnchoredH2 id="package-overview">Overview</AnchoredH2>

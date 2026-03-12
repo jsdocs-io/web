@@ -8,37 +8,37 @@ type Props = HandlePackageData;
 const { status, pkgInfo } = Astro.props;
 const { pkgId, generatedAt, generatedIn } = pkgInfo;
 const issueUrl = newGitHubIssueURL({
-	repoUrl: "https://github.com/jsdocs-io/web",
-	template: "package-with-missing-or-incorrect-documentation.md",
-	title: `Package ${pkgId} has missing or incorrect documentation`,
+  repoUrl: "https://github.com/jsdocs-io/web",
+  template: "package-with-missing-or-incorrect-documentation.md",
+  title: `Package ${pkgId} has missing or incorrect documentation`,
 });
 ---
 
 <AnchoredH2 id="package-about">About</AnchoredH2>
 
 <p>
-	Page generated <time
-		x-data={`timeAgo('${generatedAt}')`}
-		x-text="text"
-		title={generatedAt}
-		datetime={generatedAt}></time> in {generatedIn}ms.
+  Page generated <time
+    x-data={`timeAgo('${generatedAt}')`}
+    x-text="text"
+    title={generatedAt}
+    datetime={generatedAt}></time> in {generatedIn}ms.
 
-	{
-		status === "pkg-has-api" && (
-			<>
-				<br />
-				Package <code class="text-nowrap">{pkgId}</code> analyzed{" "}
-				<time
-					x-data={`timeAgo('${pkgInfo.pkgApi.analyzedAt}')`}
-					x-text="text"
-					title={pkgInfo.pkgApi.analyzedAt}
-					datetime={pkgInfo.pkgApi.analyzedAt}
-				/>{" "}
-				in {pkgInfo.pkgApi.analyzedIn}ms.
-			</>
-		)
-	}
+  {
+    status === "pkg-has-api" && (
+      <>
+        <br />
+        Package <code class="text-nowrap">{pkgId}</code> analyzed{" "}
+        <time
+          x-data={`timeAgo('${pkgInfo.pkgApi.analyzedAt}')`}
+          x-text="text"
+          title={pkgInfo.pkgApi.analyzedAt}
+          datetime={pkgInfo.pkgApi.analyzedAt}
+        />{" "}
+        in {pkgInfo.pkgApi.analyzedIn}ms.
+      </>
+    )
+  }
 
-	<br />
-	Missing or incorrect documentation? <a href={issueUrl}>Open an issue for this package.</a>
+  <br />
+  Missing or incorrect documentation? <a href={issueUrl}>Open an issue for this package.</a>
 </p>
