@@ -1,5 +1,6 @@
 import { goTry } from "go-go-try";
 import { expect, test } from "vitest";
+import { serverEnv } from "../../server-env";
 import { parsePackageSlug } from "./parse-package-slug";
 
 test("empty slug", () => {
@@ -451,4 +452,17 @@ test("invalid file dependencies", () => {
   expect(err2).toBeDefined();
   expect(err3).toBeDefined();
   expect(err4).toBeDefined();
+});
+
+test("ignored packages", () => {
+  serverEnv.IGNORED_PACKAGES.add("foo");
+  serverEnv.IGNORED_PACKAGES.add("@foo/bar");
+  const [err1] = goTry(() => parsePackageSlug("foo"));
+  const [err2] = goTry(() => parsePackageSlug("@foo/bar"));
+  const [err3] = goTry(() => parsePackageSlug("baz"));
+  expect(err1).toBeDefined();
+  expect(err2).toBeDefined();
+  expect(err3).toBeUndefined();
+  serverEnv.IGNORED_PACKAGES.delete("foo");
+  serverEnv.IGNORED_PACKAGES.delete("@foo/bar");
 });
