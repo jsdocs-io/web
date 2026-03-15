@@ -37,17 +37,17 @@ const knownTypes = [
   ["typeof", "https://www.typescriptlang.org/docs/handbook/2/typeof-types.html"],
 ] as const;
 
-export const makeDeclarationUrl = (declarations: ExtractedDeclaration[]) => {
+export function makeDeclarationUrl(declarations: ExtractedDeclaration[]) {
   const nameToUrl = new Map<string, string>(knownTypes);
   addDeclarations(declarations, nameToUrl);
   return (name: string): string | undefined => nameToUrl.get(name);
-};
+}
 
-const addDeclarations = (declarations: ExtractedDeclaration[], nameToUrl: Map<string, string>) => {
+function addDeclarations(declarations: ExtractedDeclaration[], nameToUrl: Map<string, string>) {
   for (const declaration of declarations) {
     if (declaration.kind === "namespace") {
       addDeclarations(declaration.declarations, nameToUrl);
     }
     nameToUrl.set(declaration.name, `#${shortId(declaration.id)}`);
   }
-};
+}

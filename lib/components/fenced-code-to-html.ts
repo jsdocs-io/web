@@ -1,10 +1,10 @@
 import { trimNewlines } from "trim-newlines";
-import { domPurify } from "./dom-purify";
-import { bundledLanguages, codeToHtml } from "./shiki.bundle";
+import { bundledLanguages, codeToHtml } from "../shiki/shiki.bundle";
+import { domPurify } from "../utils/dom-purify";
 
 const languages = new Set(Object.keys(bundledLanguages));
 
-export const fencedCodeToHtml = async (code: string, language: string): Promise<string> => {
+export async function fencedCodeToHtml(code: string, language: string): Promise<string> {
   // Trim newlines to prevent rendering empty space surrounding content
   // but preserve other whitespace that may be used for alignment.
   const trimmedCode = trimNewlines(code);
@@ -23,4 +23,4 @@ export const fencedCodeToHtml = async (code: string, language: string): Promise<
     },
   });
   return domPurify.sanitize(html);
-};
+}

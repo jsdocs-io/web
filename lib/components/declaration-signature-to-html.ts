@@ -1,7 +1,7 @@
 import type { AllExtractedDeclaration } from "@jsdocs-io/extractor";
+import { codeToHtml } from "../shiki/shiki.bundle";
+import { domPurify } from "../utils/dom-purify";
 import type { DeclarationUrlFn } from "./declaration-url";
-import { domPurify } from "./dom-purify";
-import { codeToHtml } from "./shiki.bundle";
 
 const reservedKeywords = new Set([
   "any",
@@ -75,10 +75,10 @@ const reservedKeywords = new Set([
   "yield",
 ]);
 
-export const declarationSignatureToHtml = async (
+export async function declarationSignatureToHtml(
   declaration: AllExtractedDeclaration,
   declarationUrl: DeclarationUrlFn,
-): Promise<string> => {
+): Promise<string> {
   const { signature, isWrapped } = prepareSignature(declaration);
   const html = await codeToHtml(signature, {
     // Render to highlighted HTML if the signature is not too long,
@@ -130,9 +130,9 @@ export const declarationSignatureToHtml = async (
     ],
   });
   return domPurify.sanitize(html);
-};
+}
 
-const prepareSignature = (declaration: AllExtractedDeclaration) => {
+function prepareSignature(declaration: AllExtractedDeclaration) {
   const { kind, signature } = declaration;
   switch (kind) {
     case "variable":
@@ -170,4 +170,4 @@ const prepareSignature = (declaration: AllExtractedDeclaration) => {
       };
     }
   }
-};
+}
