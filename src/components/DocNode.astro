@@ -18,9 +18,9 @@ import DocParagraph from "./DocParagraph.astro";
 import DocPlainText from "./DocPlainText.astro";
 import DocSoftBreak from "./DocSoftBreak.astro";
 
-type Props = {
+interface Props {
   node: _DocNode;
-};
+}
 
 const { node } = Astro.props;
 const { kind } = node;

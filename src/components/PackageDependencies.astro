@@ -2,9 +2,9 @@
 import type { NormalizedPackageJson } from "read-pkg";
 import AnchoredH2 from "./AnchoredH2.astro";
 
-type Props = {
+interface Props {
   pkgJson: NormalizedPackageJson;
-};
+}
 
 const { pkgJson } = Astro.props;
 const deps = Object.keys(pkgJson.dependencies ?? {}).sort((a, b) => a.localeCompare(b));

@@ -3,10 +3,10 @@ import type { AllExtractedDeclaration } from "@jsdocs-io/extractor";
 import { declarationSignatureToHtml } from "../../lib/components/declaration-signature-to-html";
 import type { DeclarationUrlFn } from "../../lib/components/declaration-url";
 
-type Props = {
+interface Props {
   declaration: AllExtractedDeclaration;
   declarationUrl: DeclarationUrlFn;
-};
+}
 
 const { declaration, declarationUrl } = Astro.props;
 

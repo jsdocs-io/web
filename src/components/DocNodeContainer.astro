@@ -2,9 +2,9 @@
 import type { DocNodeContainer as _DocNodeContainer } from "@microsoft/tsdoc";
 import DocNode from "./DocNode.astro";
 
-type Props = {
+interface Props {
   container: _DocNodeContainer;
-};
+}
 
 const { container } = Astro.props;
 ---

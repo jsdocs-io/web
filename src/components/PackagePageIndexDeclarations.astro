@@ -11,10 +11,10 @@ import type {
 } from "@jsdocs-io/extractor";
 import { shortId } from "../../lib/components/short-id";
 
-type Props = {
+interface Props {
   containerName: string;
   declarations: ExtractedDeclaration[];
-};
+}
 
 const { containerName, declarations } = Astro.props;
 const variables = declarations.filter((d): d is ExtractedVariable => d.kind === "variable");

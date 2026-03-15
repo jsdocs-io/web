@@ -2,9 +2,9 @@
 import type { DocErrorText as _DocErrorText } from "@microsoft/tsdoc";
 import { mdToHtml } from "../../lib/components/md-to-html";
 
-type Props = {
+interface Props {
   errorText: _DocErrorText;
-};
+}
 
 const {
   errorText: { text },

@@ -1,9 +1,9 @@
 ---
 import type { NormalizedPackageJson } from "read-pkg";
 
-type Props = {
+interface Props {
   pkgJson: NormalizedPackageJson;
-};
+}
 
 const {
   pkgJson: { name },

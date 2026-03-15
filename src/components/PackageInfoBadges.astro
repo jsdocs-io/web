@@ -6,9 +6,9 @@ import LucideScale from "~icons/lucide/scale";
 // import MdiGit from "~icons/mdi/git";
 // import SimpleIconsUnpkg from "~icons/simple-icons/unpkg";
 
-type Props = {
+interface Props {
   pkgJson: NormalizedPackageJson;
-};
+}
 
 const {
   pkgJson: { name, version, license, repository },

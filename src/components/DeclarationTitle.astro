@@ -4,10 +4,10 @@ import { shortId } from "../../lib/components/short-id";
 import { shortKind } from "../../lib/components/short-kind";
 import type { UnpkgUrlFn } from "../../lib/components/unpkg-url";
 
-type Props = {
+interface Props {
   declaration: AllExtractedDeclaration;
   unpkgUrl: UnpkgUrlFn;
-};
+}
 
 const { declaration, unpkgUrl } = Astro.props;
 const id = shortId(declaration.id);

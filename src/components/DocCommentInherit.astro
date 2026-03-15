@@ -3,9 +3,9 @@ import { sanitizeUrl } from "@braintree/sanitize-url";
 import { DocDeclarationReference } from "@microsoft/tsdoc";
 import { resolveDeclarationReference } from "../../lib/components/resolve-declaration-reference";
 
-type Props = {
+interface Props {
   ref: DocDeclarationReference;
-};
+}
 
 const { ref } = Astro.props;
 const { pkgName, declarationId } = resolveDeclarationReference(ref);

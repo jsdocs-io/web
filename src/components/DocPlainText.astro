@@ -2,9 +2,9 @@
 import type { DocPlainText as _DocPlainText } from "@microsoft/tsdoc";
 import { mdToHtml } from "../../lib/components/md-to-html";
 
-type Props = {
+interface Props {
   plainText: _DocPlainText;
-};
+}
 
 const {
   plainText: { text },

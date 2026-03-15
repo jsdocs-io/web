@@ -15,12 +15,12 @@ import { type UnpkgUrlFn } from "../../lib/components/unpkg-url";
 import AnchoredH2 from "./AnchoredH2.astro";
 import Declaration from "./Declaration.astro";
 
-type Props = {
+interface Props {
   containerName: string;
   declarations: ExtractedDeclaration[];
   unpkgUrl: UnpkgUrlFn;
   declarationUrl: DeclarationUrlFn;
-};
+}
 
 const { containerName, declarations, unpkgUrl, declarationUrl } = Astro.props;
 const variables = declarations.filter((d): d is ExtractedVariable => d.kind === "variable");

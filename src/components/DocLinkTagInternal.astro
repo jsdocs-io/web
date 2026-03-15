@@ -3,9 +3,9 @@ import { sanitizeUrl } from "@braintree/sanitize-url";
 import { DocLinkTag as _DocLinkTag } from "@microsoft/tsdoc";
 import { resolveDeclarationReference } from "../../lib/components/resolve-declaration-reference";
 
-type Props = {
+interface Props {
   linkTag: _DocLinkTag;
-};
+}
 
 const { linkTag } = Astro.props;
 

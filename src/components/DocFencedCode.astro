@@ -2,9 +2,9 @@
 import type { DocFencedCode as _DocFencedCode } from "@microsoft/tsdoc";
 import { fencedCodeToHtml } from "../../lib/components/fenced-code-to-html";
 
-type Props = {
+interface Props {
   fencedCode: _DocFencedCode;
-};
+}
 
 const {
   fencedCode: { code, language },
