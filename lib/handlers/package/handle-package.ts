@@ -10,7 +10,7 @@ import { join } from "pathe";
 import type { NormalizedPackageJson } from "read-pkg";
 import { PackageApiMemDb } from "../../db/package-api-mem-db";
 import { PackageApiR2Bucket } from "../../db/package-api-r2-bucket";
-import { serverEnv } from "../../server-env";
+import { serverEnv } from "../../env/server-env";
 import { checkLicense } from "../../utils/check-license";
 import { getDTPackageName, isDTPackage } from "../../utils/definitely-typed";
 import { packageId } from "../../utils/package-id";

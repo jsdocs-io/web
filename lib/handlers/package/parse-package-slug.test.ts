@@ -1,6 +1,6 @@
 import { goTry } from "go-go-try";
 import { expect, test } from "vitest";
-import { serverEnv } from "../../server-env";
+import { serverEnv } from "../../env/server-env";
 import { parsePackageSlug } from "./parse-package-slug";
 
 test("empty slug", () => {

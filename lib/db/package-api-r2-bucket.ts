@@ -1,7 +1,7 @@
 import { GetObjectCommand, PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import type { PackageApi } from "@jsdocs-io/extractor";
 import { compressSync, decompressSync, strFromU8, strToU8 } from "fflate";
-import { serverEnv } from "../server-env";
+import { serverEnv } from "../env/server-env";
 import type { PackageApiDb } from "./package-api-db";
 
 export class PackageApiR2Bucket implements PackageApiDb {

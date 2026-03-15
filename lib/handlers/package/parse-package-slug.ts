@@ -1,5 +1,5 @@
 import validateNpmPkgName from "validate-npm-package-name";
-import { serverEnv } from "../../server-env";
+import { serverEnv } from "../../env/server-env";
 
 const ignoredPackages = serverEnv.IGNORED_PACKAGES;
 
