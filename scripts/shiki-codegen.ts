@@ -19,4 +19,4 @@ const { code } = await codegen({
   typescript: true,
 });
 
-await fs.writeFile("lib/shiki.bundle.ts", code, "utf-8");
+await fs.writeFile("lib/shiki/shiki.bundle.ts", code, "utf-8");
