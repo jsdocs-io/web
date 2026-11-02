@@ -15,8 +15,6 @@ jobs:
       - name: Setup pnpm and node
         uses: pnpm/setup@v3
         with:
-          version: 12
-          runtime: node@26
           cache: true
           require-lockfile: true
 
