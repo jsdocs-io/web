@@ -1,10 +1,10 @@
 {
-  "private": true,
   "name": "@jsdocs-io/web",
-  "description": "jsDocs.io website",
-  "author": "Edoardo Scibona (velut)",
   "version": "0.1.0",
+  "private": true,
+  "description": "jsDocs.io website",
   "license": "AGPL-3.0-or-later",
+  "author": "Edoardo Scibona (velut)",
   "scripts": {
     "dev": "next dev",
     "build": "cross-env NODE_OPTIONS='--max-old-space-size=7168' next build",
@@ -94,5 +94,13 @@
     "webpack-stats-plugin": "1.1.3",
     "webpack-visualizer-plugin2": "1.0.0",
     "xml-formatter": "3.4.1"
-  }
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^26.0.0",
+      "onFail": "download"
+    }
+  },
+  "packageManager": "pnpm@12.0.0"
 }
