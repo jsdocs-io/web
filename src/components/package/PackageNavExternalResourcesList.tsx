@@ -35,14 +35,6 @@ const PackageNavExternalResourcesList = ({
         </A>
       </li>
 
-      <li>
-        <A
-          href={`https://npm.runkit.com/${name}`}
-          title={`Try package ${name} on RunKit`}
-        >
-          RunKit
-        </A>
-      </li>
     </ul>
   );
 };
