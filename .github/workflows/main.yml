@@ -12,21 +12,15 @@ jobs:
     if: github.repository == 'jsdocs-io/web' && github.ref == 'refs/heads/main'
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3
+      - name: Setup pnpm and node
+        uses: pnpm/setup@v3
         with:
-          version: 9
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18.x
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+          version: 12
+          runtime: node@26
+          cache: true
+          require-lockfile: true
 
       - name: Lint
         run: pnpm lint
